@@ -2,7 +2,7 @@
 
 menu:
   主页: /
-  随笔: /tags/随笔/
+  随笔: /
 
 # SubNav
 subnav:
@@ -68,7 +68,7 @@ google_analytics: ''
 favicon: /favicon.png
 
 #你的头像url
-avatar: /img/avatar.jpg
+avatar: https://github.com/liweisunny/liweisunny.github.io/blob/master/img/avatar.JPG
 
 #是否开启分享
 share_jia: true
@@ -121,6 +121,7 @@ smart_menu:
 
 friends:
   CSDN: https://www.csdn.net/
+  Github: https://github.com/liweisunny
   Python官网: https://www.python.org/
   Python 中文开发者社区: http://www.pythontab.com/
 
