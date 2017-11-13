@@ -3,6 +3,7 @@
 menu:
   主页: /
   随笔: /
+  tags: 标签
 
 # SubNav
 subnav:
@@ -63,17 +64,28 @@ toc_empty_wording: '目录，不存在的…'
 top: true
 
 # Miscellaneous
-baidu_analytics: ''
+baidu_analytics: 'c7d9cda0b130c43362dd4782c6c192a7'
 google_analytics: ''
 favicon: /favicon.png
 
+# 添加浏览量
+leancloud_visitors:
+  enable: true
+  app_id: TFhVva8QxNcWSWgFU3XxUiII-gzGzoHsz 
+  app_key: VAzUnm2B9ouQf8vG81d0sHui
+
+#添加一下js插件的 CDN地址
+js_cdn:
+  jquery: https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js
+  av : //cdn1.lncld.net/static/js/2.5.0/av-min.js  
+  
 #你的头像url
-avatar: https://github.com/liweisunny/liweisunny.github.io/blob/master/img/avatar.JPG
+avatar: img/avatar.JPG
 
 #是否开启分享
 share_jia: true
 
-#评论：1、多说；2、网易云跟帖；3、畅言；4、Disqus；5、Gitment
+#评论：1、多说；2、网易云跟帖；3、畅言；4、Disqus；5、Gitment 6、有言
 #不需要使用某项，直接设置值为false，或注释掉
 #具体请参考wiki：https://github.com/litten/hexo-theme-yilia/wiki/
 
@@ -84,8 +96,8 @@ duoshuo: false
 wangyiyun: false
 
 #3、畅言
-changyan_appid: false
-changyan_conf: false
+changyan_appid: true
+changyan_conf: true
 
 #4、Disqus 在hexo根目录的config里也有disqus_shortname字段，优先使用yilia的
 disqus: false
@@ -96,6 +108,9 @@ gitment_repo: ''          #存储评论的 repo
 gitment_oauth:
   client_id: ''           #client ID
   client_secret: ''       #client secret
+ 
+#6、有言
+#uyan: 2148788
 
 # 样式定制 - 一般不需要修改，除非有很强的定制欲望…
 style:
