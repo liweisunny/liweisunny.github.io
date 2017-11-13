@@ -7,7 +7,7 @@ title: LiWeiBlog
 subtitle:
 description:
 author: LiWei
-language:
+language: zh-Hans
 timezone:
 
 # URL
@@ -72,7 +72,7 @@ pagination_dir: page
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: yilia
+theme: next
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
