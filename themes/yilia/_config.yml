@@ -68,7 +68,7 @@ google_analytics: ''
 favicon: /favicon.png
 
 #你的头像url
-avatar:
+avatar: /img/avatar.jpg
 
 #是否开启分享
 share_jia: true
@@ -113,18 +113,15 @@ slider:
 # 如不需要，将该对应项置为false
 # 比如
 #smart_menu:
-#  friends: false
+  #friends: false
 smart_menu:
   innerArchive: '所有文章'
   friends: '友链'
   aboutme: '关于我'
 
 friends:
-  友情链接1: http://localhost:4000/
-  友情链接2: http://localhost:4000/
-  友情链接3: http://localhost:4000/
-  友情链接4: http://localhost:4000/
-  友情链接5: http://localhost:4000/
-  友情链接6: http://localhost:4000/
+  CSDN: https://www.csdn.net/
+  Python官网: https://www.python.org/
+  Python 中文开发者社区: http://www.pythontab.com/
 
 aboutme: 很惭愧<br><br>只做了一点微小的工作<br>谢谢大家
