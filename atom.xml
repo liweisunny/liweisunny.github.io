@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://waisunny.com/"/>
-  <updated>2017-11-14T10:58:51.931Z</updated>
+  <updated>2017-11-14T11:07:23.602Z</updated>
   <id>http://waisunny.com/</id>
   
   <author>
@@ -21,18 +21,16 @@
     <link href="http://waisunny.com/2017/11/15/FirstBlog/"/>
     <id>http://waisunny.com/2017/11/15/FirstBlog/</id>
     <published>2017-11-14T16:51:25.000Z</published>
-    <updated>2017-11-14T10:58:51.931Z</updated>
+    <updated>2017-11-14T11:07:23.602Z</updated>
     
-    <content type="html"><![CDATA[<p>#前言<br>人生苦短，我用python</p><p>#正文<br>下面开始介绍python的一些基础语法</p><p>##变量<br>‘<br>a=123<br>b=’abc’<br>‘</p><p>##数据类型<br>‘<br>int、bool、string…<br>‘</p><p>###int<br>1,2,3</p><p>###bool<br>‘<br>True,False<br>‘</p><p>#正文2</p>]]></content>
+    <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>人生苦短，我用python</p><h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><p>下面开始介绍python的一些基础语法</p><h2 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a=<span class="number">123</span></span><br><span class="line">b=<span class="string">'abc'</span></span><br></pre></td></tr></table></figure><h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">int、bool、string...</span><br></pre></td></tr></table></figure><h3 id="int"><a href="#int" class="headerlink" title="int"></a>int</h3><p>1,2,3</p><h3 id="bool"><a href="#bool" class="headerlink" title="bool"></a>bool</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">True</span>,<span class="keyword">False</span></span><br></pre></td></tr></table></figure><h1 id="正文2"><a href="#正文2" class="headerlink" title="正文2"></a>正文2</h1>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;#前言&lt;br&gt;人生苦短，我用python&lt;/p&gt;
-&lt;p&gt;#正文&lt;br&gt;下面开始介绍python的一些基础语法&lt;/p&gt;
-&lt;p&gt;##变量&lt;br&gt;‘&lt;br&gt;a=123&lt;br&gt;b=’abc’&lt;br&gt;‘&lt;/p&gt;
-&lt;p&gt;##数据类型&lt;br&gt;‘&lt;br&gt;int、bool、string…&lt;b
+        &lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;人生苦短，我用python&lt;/p&gt;
+&lt;h1 id=&quot;正文&quot;&gt;&lt;a href=&quot;#正文&quot; class=&quot;headerlink&quot; title=&quot;
       
     
     </summary>
