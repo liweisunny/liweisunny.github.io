@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://waisunny.com/"/>
-  <updated>2017-11-14T09:05:34.853Z</updated>
+  <updated>2017-11-14T10:58:51.931Z</updated>
   <id>http://waisunny.com/</id>
   
   <author>
@@ -21,15 +21,18 @@
     <link href="http://waisunny.com/2017/11/15/FirstBlog/"/>
     <id>http://waisunny.com/2017/11/15/FirstBlog/</id>
     <published>2017-11-14T16:51:25.000Z</published>
-    <updated>2017-11-14T09:05:34.853Z</updated>
+    <updated>2017-11-14T10:58:51.931Z</updated>
     
-    <content type="html"><![CDATA[<p>前言<br>总括： 本文通过实例讲解CSS中最大的难点之一，行内元素的布局，主要是挖掘line-height和vertical-align两个属性在布局方面的使用。<br>原文博客地址：深入理解行内元素的布局<br>知乎专栏&amp;&amp;简书专题：前端进击者（知乎）&amp;&amp;前端进击者（简书）<br>博主博客地址：Damonare的个人博客<br>白茶清欢无别事，我在等风，也在等你。😊<br>正文<br>df</p>]]></content>
+    <content type="html"><![CDATA[<p>#前言<br>人生苦短，我用python</p><p>#正文<br>下面开始介绍python的一些基础语法</p><p>##变量<br>‘<br>a=123<br>b=’abc’<br>‘</p><p>##数据类型<br>‘<br>int、bool、string…<br>‘</p><p>###int<br>1,2,3</p><p>###bool<br>‘<br>True,False<br>‘</p><p>#正文2</p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;前言&lt;br&gt;总括： 本文通过实例讲解CSS中最大的难点之一，行内元素的布局，主要是挖掘line-height和vertical-align两个属性在布局方面的使用。&lt;br&gt;原文博客地址：深入理解行内元素的布局&lt;br&gt;知乎专栏&amp;amp;&amp;amp;简书专题：前端进击者（知乎）&amp;
+        &lt;p&gt;#前言&lt;br&gt;人生苦短，我用python&lt;/p&gt;
+&lt;p&gt;#正文&lt;br&gt;下面开始介绍python的一些基础语法&lt;/p&gt;
+&lt;p&gt;##变量&lt;br&gt;‘&lt;br&gt;a=123&lt;br&gt;b=’abc’&lt;br&gt;‘&lt;/p&gt;
+&lt;p&gt;##数据类型&lt;br&gt;‘&lt;br&gt;int、bool、string…&lt;b
       
     
     </summary>
