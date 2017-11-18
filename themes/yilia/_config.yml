@@ -1,15 +1,17 @@
 # Header
-
 menu:
   主页: /
   随笔: /
 
+  
 # SubNav
 subnav:
-  github: "#"
-  weibo: "#"
-  rss: "#"
-  zhihu: "#"
+  jianshu: "http://www.jianshu.com/users/9ef994af3e71/timeline"
+  rss: /atom.xml
+  github: "https://github.com/liweisunny"
+  zhihu: "https://www.zhihu.com/people/li-wei-58-50-97/activities"
+  #weibo: "https://weibo.com/u/5525671168/home"
+  #mail: "825755184@qq.com"
   #qq: "#"
   #weixin: "#"
   #jianshu: "#"
@@ -17,7 +19,6 @@ subnav:
   #segmentfault: "#"
   #bilibili: "#"
   #acfun: "#"
-  #mail: "mailto:litten225@qq.com"
   #facebook: "#"
   #google: "#"
   #twitter: "#"
@@ -31,25 +32,26 @@ rss: /atom.xml
 root: 
 
 # Content
-
 # 文章太长，截断按钮文字
 excerpt_link: more
 # 文章卡片右下角常驻链接，不需要请设置为false
-show_all_link: '展开全文'
+show_all_link: 'more'
 # 数学公式
 mathjax: false
 # 是否在新窗口打开链接
 open_in_new: false
-
+# 是否开启动画效果
+animate: true
 # 打赏
 # 打赏type设定：0-关闭打赏； 1-文章对应的md文件里有reward:true属性，才有打赏； 2-所有文章均有打赏
 reward_type: 2
 # 打赏wording
-reward_wording: '谢谢你请我吃糖果'
+reward_wording: '谢谢你支持我购买服务器！'
 # 支付宝二维码图片地址，跟你设置头像的方式一样。比如：/assets/img/alipay.jpg
-alipay: 
+alipay: /img/zhifubao.jpg
 # 微信二维码图片地址
-weixin: 
+weixin: /img/weixin.jpg
+
 
 # 目录
 # 目录设定：0-不显示目录； 1-文章对应的md文件里有toc:true属性，才有目录； 2-所有文章均显示目录
@@ -59,15 +61,17 @@ toc_hide_index: true
 # 目录为空时的提示
 toc_empty_wording: '目录，不存在的…'
 
+
 # 是否有快速回到顶部的按钮
 top: true
 
 # Miscellaneous
+#百度统计
 baidu_analytics: '1dc7d6b5874c4a30a043e7cb4c61326e'
 google_analytics: ''
-favicon: /favicon.png
+favicon: /img/avatar.JPG
 
-# 添加浏览量
+# 浏览量
 leancloud_visitors:
   enable: true
   app_id: TFhVva8QxNcWSWgFU3XxUiII-gzGzoHsz 
@@ -77,9 +81,21 @@ leancloud_visitors:
 js_cdn:
   jquery: https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js
   av : //cdn1.lncld.net/static/js/2.5.0/av-min.js  
+
+busuanzi_count:
+  enable: true
+  site_uv: true  
+  site_uv_header: <i class="fa fa-user"></i>访问人数
+  site_uv_footer: 
+  site_pv: true
+  site_pv_header: <i class="fa fa-eye"></i>总访问量
+  site_pv_footer: 次
+  page_pv: true
+  page_pv_header: <i class="fa fa-file-o"></i>浏览量
+  page_pv_footer: 次
   
 #你的头像url
-avatar: img/avatar.JPG
+avatar: /img/avatar.JPG
 
 #是否开启分享
 share_jia: true
@@ -139,4 +155,4 @@ friends:
   Python官网: https://www.python.org/
   Python 中文开发者社区: http://www.pythontab.com/
 
-aboutme: 很惭愧<br><br>只做了一点微小的工作<br>谢谢大家
+aboutme: _lerner，<br/><br/>2016年毕业于河北大学，<br/><br/>大学四年至今一直在不断的学习各种技术，<br/><br/>一个很纯粹的程序猿......

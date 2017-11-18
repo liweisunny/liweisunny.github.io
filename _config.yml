@@ -3,12 +3,12 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: WaiBlog
-subtitle: Life is short, I use python
-description: python、blog
-author: LiWei
+title: WaiBlog|码农的技术小窝
+subtitle: 所有的努力都值得期许，每一份梦想都应该灌溉！
+description: 码农的技术小窝......
+author: _learner
 language: zh-Hans
-timezone:
+timezone: UTC
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
@@ -40,7 +40,7 @@ future: true
 highlight:
   enable: true
   line_number: true
-  auto_detect: false
+  auto_detect: true
   tab_replace:
   
 # Home page setting
@@ -98,3 +98,6 @@ jsonContent:
       excerpt: false
       categories: false
       tags: true
+plugins: #插件，例如生成 RSS 和站点地图的
+   hexo-generator-feed
+   hexo-generator-sitemap
