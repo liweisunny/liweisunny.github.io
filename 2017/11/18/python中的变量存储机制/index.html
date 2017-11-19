@@ -8,21 +8,21 @@
   <link rel="dns-prefetch" href="http://waisunny.com">
   <title>python中的变量存储机制 | WaiBlog|码农的技术小窝</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="定义变量的目的：简单来说，变量是为了存储程序运算过程中的一些中间结果，为了方便日后调用。 变量命名规则 要具有描述性 变量名只能_,数字，字母组成，不可以是空格或特殊字符(#?&amp;lt;.，￥$*!~) 不能以中文为变量名 不能以数字开头 保留字符是不能被使用  声明变量 定义一个整数变量:  a = 1  定义一个字符串变量:  t_007 = ‘T007’  定义一个布尔值：  Answer =">
+  <meta name="description" content="定义变量的目的：简单来说，变量是为了存储程序运算过程中的一些中间结果，为了方便日后调用。 变量命名规则 要具有描述性 变量名只能_,数字，字母组成，不可以是空格或特殊字符(#?&amp;lt;.，￥$*!~) 不能以中文为变量名 不能以数字开头 保留字符是不能被使用  声明变量1.定义一个整数变量: a = 1 2.定义一个字符串变量: t_007 = &amp;apos;T007&amp;apos; 3.定义一个布尔值">
 <meta name="keywords" content="python基础">
 <meta property="og:type" content="article">
 <meta property="og:title" content="python中的变量存储机制">
 <meta property="og:url" content="http://waisunny.com/2017/11/18/python中的变量存储机制/index.html">
 <meta property="og:site_name" content="WaiBlog|码农的技术小窝">
-<meta property="og:description" content="定义变量的目的：简单来说，变量是为了存储程序运算过程中的一些中间结果，为了方便日后调用。 变量命名规则 要具有描述性 变量名只能_,数字，字母组成，不可以是空格或特殊字符(#?&amp;lt;.，￥$*!~) 不能以中文为变量名 不能以数字开头 保留字符是不能被使用  声明变量 定义一个整数变量:  a = 1  定义一个字符串变量:  t_007 = ‘T007’  定义一个布尔值：  Answer =">
+<meta property="og:description" content="定义变量的目的：简单来说，变量是为了存储程序运算过程中的一些中间结果，为了方便日后调用。 变量命名规则 要具有描述性 变量名只能_,数字，字母组成，不可以是空格或特殊字符(#?&amp;lt;.，￥$*!~) 不能以中文为变量名 不能以数字开头 保留字符是不能被使用  声明变量1.定义一个整数变量: a = 1 2.定义一个字符串变量: t_007 = &amp;apos;T007&amp;apos; 3.定义一个布尔值">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://i.imgur.com/ldl7FxP.png">
 <meta property="og:image" content="https://i.imgur.com/JZ6sixs.png">
 <meta property="og:image" content="https://i.imgur.com/VEUY64z.png">
-<meta property="og:updated_time" content="2017-11-19T09:32:21.246Z">
+<meta property="og:updated_time" content="2017-11-19T09:38:02.789Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python中的变量存储机制">
-<meta name="twitter:description" content="定义变量的目的：简单来说，变量是为了存储程序运算过程中的一些中间结果，为了方便日后调用。 变量命名规则 要具有描述性 变量名只能_,数字，字母组成，不可以是空格或特殊字符(#?&amp;lt;.，￥$*!~) 不能以中文为变量名 不能以数字开头 保留字符是不能被使用  声明变量 定义一个整数变量:  a = 1  定义一个字符串变量:  t_007 = ‘T007’  定义一个布尔值：  Answer =">
+<meta name="twitter:description" content="定义变量的目的：简单来说，变量是为了存储程序运算过程中的一些中间结果，为了方便日后调用。 变量命名规则 要具有描述性 变量名只能_,数字，字母组成，不可以是空格或特殊字符(#?&amp;lt;.，￥$*!~) 不能以中文为变量名 不能以数字开头 保留字符是不能被使用  声明变量1.定义一个整数变量: a = 1 2.定义一个字符串变量: t_007 = &amp;apos;T007&amp;apos; 3.定义一个布尔值">
 <meta name="twitter:image" content="https://i.imgur.com/ldl7FxP.png">
   
     <link rel="alternative" href="/atom.xml" title="WaiBlog|码农的技术小窝" type="application/atom+xml">
@@ -208,18 +208,13 @@ var _hmt = _hmt || [];
 <li>不能以数字开头</li>
 <li>保留字符是不能被使用</li>
 </ol>
-<h1 id="声明变量"><a href="#声明变量" class="headerlink" title="声明变量"></a>声明变量</h1><ol>
-<li><p>定义一个整数变量:</p>
-<p> a = 1</p>
-</li>
-<li><p>定义一个字符串变量:</p>
-<p> t_007 = ‘T007’</p>
-</li>
-<li><p>定义一个布尔值：</p>
-<p> Answer = True</p>
-</li>
-</ol>
-<p>在Python中，等号=是赋值语句，可以把任意数据类型赋值给变量，同一个变量可以反复赋值，而且可以是不同类型的变量，例如：</p>
+<h1 id="声明变量"><a href="#声明变量" class="headerlink" title="声明变量"></a>声明变量</h1><p>1.定义一个整数变量:</p>
+<pre><code>a = 1
+</code></pre><p>2.定义一个字符串变量:</p>
+<pre><code>t_007 = &apos;T007&apos;
+</code></pre><p>3.定义一个布尔值：</p>
+<pre><code>Answer = True
+</code></pre><p>在Python中，等号=是赋值语句，可以把任意数据类型赋值给变量，同一个变量可以反复赋值，而且可以是不同类型的变量，例如：</p>
 <pre><code>a = 123 # a是整数
 print(a)
 a = &apos;ABC&apos; # a变为字符串
@@ -242,14 +237,9 @@ b = a
 a = &apos;XYZ&apos;
 print(b)
 </code></pre><p>最后一行打印出变量b的内容到底是’ABC’呢还是’XYZ’？如果从数学意义上理解，就会错误地得出b和a相同，也应该是’XYZ’，但实际上b的值是’ABC’，让我们一行一行地执行代码，就可以看到到底发生了什么事：</p>
-<ol>
-<li><p>执行a = ‘ABC’，解释器创建了字符串’ABC’和变量a，并把a指向’ABC’：<br><img src="https://i.imgur.com/ldl7FxP.png" alt=""></p>
-</li>
-<li><p>执行b = a，解释器创建了变量b，并把b指向a指向的字符串’ABC’：<br><img src="https://i.imgur.com/JZ6sixs.png" alt=""></p>
-</li>
-<li><p>执行a = ‘XYZ’，解释器创建了字符串’XYZ’，并把a的指向改为’XYZ’，但b并没有更改：<br><img src="https://i.imgur.com/VEUY64z.png" alt=""></p>
-</li>
-</ol>
+<p>1.执行a = ‘ABC’，解释器创建了字符串’ABC’和变量a，并把a指向’ABC’：<br><img src="https://i.imgur.com/ldl7FxP.png" alt=""></p>
+<p>2.执行b = a，解释器创建了变量b，并把b指向a指向的字符串’ABC’：<br><img src="https://i.imgur.com/JZ6sixs.png" alt=""></p>
+<p>3.执行a = ‘XYZ’，解释器创建了字符串’XYZ’，并把a的指向改为’XYZ’，但b并没有更改：<br><img src="https://i.imgur.com/VEUY64z.png" alt=""></p>
 <p>所以，最后打印变量b的结果自然是’ABC’了。</p>
 <h1 id="常量"><a href="#常量" class="headerlink" title="常量"></a>常量</h1><p>所谓常量就是不能变的变量，比如常用的数学常数π就是一个常量。在Python中，通常用<strong>全部大写的变量名表示常量</strong>：</p>
 <pre><code>PI = 3.14159265359
@@ -382,18 +372,9 @@ print(b)
   
 <nav id="article-nav">
   
-    <a href="/2017/11/20/setuptools和pip安装教程/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          setuptools和pip安装教程
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/11/16/python-环境部署-Windows/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">python 环境部署-Windows</div>
+    <a href="/2017/11/17/setuptools和pip安装教程/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">setuptools和pip安装教程</div>
       <i class="icon-circle-right"></i>
     </a>
   
