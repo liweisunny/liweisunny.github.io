@@ -1,7 +1,7 @@
 ---
-title: python Windows平台环境部署
-date: 2017-11-19 10:59:22
-tags:python环境部署
+title: python 环境部署-Windows
+date: 2017-11-15 16:53:48
+tags: python环境部署
 ---
 # 第一步
 ①下载python解释器：	
@@ -20,14 +20,8 @@ tags:python环境部署
 # 检验是否安装成功
 打开cmd命令框，快捷键是windows+r ,输入cmd-->回车--->在弹出的命令框中输入 **python**,看到如下图内容即表示配置成功：![](https://i.imgur.com/jbijBPp.jpg)
 
-# 补充
+# 完善
 为了方便后续的python版本切换，建议将python安装路径下的python.exe程序重命名为对应版本的名称，即python2.7版本的命名为：python2.exe，python3.6版本的命名为python3.exe；这样我们就可以在命令框中直接输入对应的名称就可以使用各版本的python，不用切换环境变量的先后顺序了。如下图：![](https://i.imgur.com/Jvns0hw.jpg)
 
-# 总结
+# 补充
 这是最基本的python环境部署，后续在实际开发过程中我们还要安装很多类库、插件等；推荐安装pip,使用pip安装类库等十分方便。如何安装pip,详见：[http://waisunny.com/2017/11/20/setuptools%E5%92%8Cpip%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/](http://waisunny.com/2017/11/20/setuptools%E5%92%8Cpip%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/ "setuptools和pip安装教程")
-
-
-
-
-
-

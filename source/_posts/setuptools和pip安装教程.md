@@ -1,6 +1,6 @@
 ---
 title: setuptools和pip安装教程
-date: 2017-11-19 16:03:08
+date: 2017-11-16 16:03:08
 tags: python环境部署
 ---
 # 安装setuptools
