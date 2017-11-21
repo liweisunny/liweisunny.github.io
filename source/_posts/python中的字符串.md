@@ -134,12 +134,12 @@ substitute这个模板方法会用传递进来的关键字参数foo替换字符�
 	def method1():
     	t = time()
     	for i in xrange(100000):
-       		 s = 'python.org'+'python.org'+'python.org'+'python.org'+'python.org'+'python.org'+'python.org'+'python.org'+'python.org'+'python.org'+'python.org'+'python.org'+'python.org'+'python.org'+'python.org'+'python.org'+'python.org'+'python.org'+'python.org'+'python.org'+'python.org'+'python.org'+'python.org'+'python.org'+'python.org'+'python.org'+'python.org'+'python.org'+'python.org'+'python.org'+'python.org'+'python.org'+'python.org'+'python.org'+'python.org'+'python.org'+'python.org'+'python.org'+'python.org'+'python.org'+'python.org'+'python.org'+'python.org'+'python.org'+'python.org'+'python.org'
+       		 s ='python.org'+'python.org'+'python.org'+'python.org'+'python.org'+'python.org'+'python.org'+'python.	org'+'python.org'+'python.org'+'python.org'+'python.org'+'python.org'+'python.org'+'python.org'+'py	thon.org'+'python.org'+'python.org'+'python.org'+'python.org'+'python.org'+'python.org'+'python.org	'+'python.org'+'python.org'+'python.org'+'python.org'+'python.org'+'python.org'+'python.org'+'pytho	n.org'+'python.org'+'python.org'+'python.org'+'python.org'+'python.org'+'python.org'+'python.org'+'	python.org'+'python.org'+'python.org'+'python.org'+'python.org'+'python.org'+'python.org'+'python.o	rg'
     print (time() - t)
 	def method2():
     	t = time()
 		for i in xrange(100000):
-        	s = ''.join(['python.org','python.org','python.org','python.org','python.org','python.org','python.org','python.org','python.org','python.org','python.org','python.org','python.org','python.org','python.org','python.org','python.org','python.org','python.org','python.org','python.org','python.org','python.org','python.org','python.org','python.org','python.org','python.org','python.org','python.org','python.org','python.org','python.org','python.org','python.org','python.org','python.org','python.org','python.org','python.org','python.org','python.org','python.org','python.org','python.org','python.org'])
+        	s = ''.join	(['python.org','python.org','python.org','python.org','python.org','python.org','python.org','pytho	n.org','python.org','python.org','python.org','python.org','python.org','python.org','python.org','	python.org','python.org','python.org','python.org','python.org','python.org','python.org','python.o	rg','python.org','python.org','python.org','python.org','python.org','python.org','python.org','pyt	hon.org','python.org','python.org','python.org','python.org','python.org','python.org','python.org'	,'python.org','python.org','python.org','python.org','python.org','python.org','python.org','python	.org'])
     print (time() -t)
 	method1()
 	method2()
