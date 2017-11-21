@@ -6,18 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://waisunny.com">
-  <title>Tag: python环境部署 | WaiBlog|码农的技术小窝</title>
+  <title>python中的字符串 | WaiBlog|码农的技术小窝</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="码农的技术小窝......">
-<meta property="og:type" content="website">
-<meta property="og:title" content="WaiBlog|码农的技术小窝">
-<meta property="og:url" content="http://waisunny.com/tags/python环境部署/index.html">
+  <meta name="description" content="字符串介绍基本字符串操作，索引、分片、乘法、判断成员资格、求长度、取最大最小值等，但请记住字符串是不可变的，so 通过分片赋值都是不合法的。 &amp;gt;&amp;gt;&amp;gt; x=&amp;apos;Dany&amp;apos; &amp;gt;&amp;gt;&amp;gt; x[0] D &amp;gt;&amp;gt;&amp;gt; x[1,3] an &amp;gt;&amp;gt;&amp;gt; len(x) 4 &amp;gt;&amp;gt;&amp;gt; x*3 DanyDanyDany &amp;g">
+<meta name="keywords" content="python基础">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python中的字符串">
+<meta property="og:url" content="http://waisunny.com/2017/11/19/python中的字符串/index.html">
 <meta property="og:site_name" content="WaiBlog|码农的技术小窝">
-<meta property="og:description" content="码农的技术小窝......">
+<meta property="og:description" content="字符串介绍基本字符串操作，索引、分片、乘法、判断成员资格、求长度、取最大最小值等，但请记住字符串是不可变的，so 通过分片赋值都是不合法的。 &amp;gt;&amp;gt;&amp;gt; x=&amp;apos;Dany&amp;apos; &amp;gt;&amp;gt;&amp;gt; x[0] D &amp;gt;&amp;gt;&amp;gt; x[1,3] an &amp;gt;&amp;gt;&amp;gt; len(x) 4 &amp;gt;&amp;gt;&amp;gt; x*3 DanyDanyDany &amp;g">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-11-19T14:54:48.507Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="WaiBlog|码农的技术小窝">
-<meta name="twitter:description" content="码农的技术小窝......">
+<meta name="twitter:title" content="python中的字符串">
+<meta name="twitter:description" content="字符串介绍基本字符串操作，索引、分片、乘法、判断成员资格、求长度、取最大最小值等，但请记住字符串是不可变的，so 通过分片赋值都是不合法的。 &amp;gt;&amp;gt;&amp;gt; x=&amp;apos;Dany&amp;apos; &amp;gt;&amp;gt;&amp;gt; x[0] D &amp;gt;&amp;gt;&amp;gt; x[1,3] an &amp;gt;&amp;gt;&amp;gt; len(x) 4 &amp;gt;&amp;gt;&amp;gt; x*3 DanyDanyDany &amp;g">
   
     <link rel="alternative" href="/atom.xml" title="WaiBlog|码农的技术小窝" type="application/atom+xml">
   
@@ -169,108 +171,385 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-python中的字符串" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/11/17/setuptools和pip安装教程/" class="archive-article-date">
-  	<time datetime="2017-11-16T16:03:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-16</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/11/17/setuptools和pip安装教程/">setuptools和pip安装教程</a>
+    <h1 class="article-title" itemprop="name">
+      python中的字符串
     </h1>
   
 
 
   <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2017/11/17/setuptools和pip安装教程/" class="pageViews">0</span>次
+      <i class="icon-smile icon"></i> 阅读数:<span id="/2017/11/19/python中的字符串/" class="pageViews">0</span>次
   </a>
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">python环境部署</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/11/16/python-环境部署-Windows/" class="archive-article-date">
-  	<time datetime="2017-11-15T16:53:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-15</time>
+        
+        <a href="/2017/11/19/python中的字符串/" class="archive-article-date">
+  	<time datetime="2017-11-18T17:39:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-18</time>
 </a>
+        
+      </header>
+     
+    <div class="article-entry" itemprop="articleBody">
+       
+        <h1 id="字符串介绍"><a href="#字符串介绍" class="headerlink" title="字符串介绍"></a>字符串介绍</h1><p>基本字符串操作，索引、分片、乘法、判断成员资格、求长度、取最大最小值等，但请记住字符串是不可变的，so 通过分片赋值都是不合法的。</p>
+<pre><code>&gt;&gt;&gt; x=&apos;Dany&apos;
+&gt;&gt;&gt; x[0]
+D
+&gt;&gt;&gt; x[1,3]
+an
+&gt;&gt;&gt; len(x)
+4
+&gt;&gt;&gt; x*3
+DanyDanyDany
+&gt;&gt;&gt; x[1:3]=&apos;co&apos;#非法操作，会出错的
+Traceback (most recent call last):
+File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;
+TypeError: &apos;str&apos; object does not support item assignment
+</code></pre><h1 id="字符串格式化"><a href="#字符串格式化" class="headerlink" title="字符串格式化"></a>字符串格式化</h1><h2 id="方式一-‘-’"><a href="#方式一-‘-’" class="headerlink" title="方式一 ‘%’"></a>方式一 ‘%’</h2><p>使用%，在 <strong>%</strong> 左侧放置一个字符串（需要被格式化的字符串），右侧放置希望被格式化成的值，可以使用一个值，如一个字符串或者一个数字；（也可以使用多个值的元组或者下章将会讨论到的字典，前提是需要格式化多个值），一般情况下使用元组</p>
+<pre><code>&gt;&gt;&gt; format=&quot;hello %s . My Name is %s&quot;
+&gt;&gt;&gt; words=(&apos;Word&apos;,&apos;Dany&apos;)
+&gt;&gt;&gt; format%words
+hello Word . My Name is Dany
+</code></pre><p>说明：格式化操作符的右操作数可以是任意类型，如果右操作数是元组的话，则其中的每一个元素都会被单独格式化，每个值都需要一个对应的转换说明符，并且元组作为转换表达式的一部分存在时，必须使用圆括号括起来。</p>
+<p>转换说明符：它们标记了需要插入转换值的位置。s表示值会被格式化为字符串–如果不是字符串，则会用str函数将其转换为字符串。</p>
+<p><strong>如果使用列表或者其他序列代替元组，那么序列会被解释为一个值，只有元组和字典可以格式化一个以上的值。</strong></p>
+<pre><code>&gt;&gt;&gt; str=&quot;hello %s . My Name is %s&quot;
+&gt;&gt;&gt; words=[&apos;Word&apos;,&apos;Dany&apos;]
+&gt;&gt;&gt; str%words
+Traceback (most recent call last):
+File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;
+TypeError: not enough arguments for format string
+</code></pre><p>格式化整数，<strong>%d</strong></p>
+<pre><code>&gt;&gt;&gt; str=&quot;My age is %d&quot;
+&gt;&gt;&gt; vales=23
+&gt;&gt;&gt; str%vales
+My age is 23
+</code></pre><p>格式化实数（浮点数），<strong>%.2f </strong> 一个句点’.’在加上希望保留的小数位。</p>
+<pre><code>&gt;&gt;&gt; str=&quot;Hello,My Height is %.2f m&quot;
+&gt;&gt;&gt; vales=(1.765)
+&gt;&gt;&gt; str%vales
+Hello,My Height is 1.76 m
+
+&gt;&gt;&gt; str=&quot;Pi with three decimal:%.3f&quot;
+&gt;&gt;&gt; str math import pi
+&gt;&gt;&gt; str%pi
+Pi with three decimal:3.141
+</code></pre><h2 id="方式二-‘模板字符串’"><a href="#方式二-‘模板字符串’" class="headerlink" title="方式二 ‘模板字符串’"></a>方式二 ‘模板字符串’</h2><p>模板字符串：string模块提供的另外一种格式化字符的方式。</p>
+<p>substitute这个模板方法会用传递进来的关键字参数foo替换字符串中的$foo,并返回替换后的值。</p>
+<pre><code>&gt;&gt;&gt; from string import Template #导入模板
+&gt;&gt;&gt; s=Template(&apos;$x. glorious $x!&apos;)#包装字符串
+&gt;&gt;&gt; s.substitute(x=&apos;slurm&apos;)#调用模板方法格式换字符串
+slurm. glorious slurm!
+</code></pre><p>如果替换字段是单词的一部分，那么参数名就必须用括号括起来，从而准确指明结尾：</p>
+<pre><code>&gt;&gt;&gt; s=Template(&quot;It&apos;s ${x}tastic!&quot;)
+&gt;&gt;&gt; s.substitute(x=&apos;slurm&apos;)
+It&apos;s slurmtastic!
+</code></pre><p>可以使用$$插入美元符号</p>
+<pre><code>&gt;&gt;&gt; s=Templatte(&quot;Make $$ selling $x!&quot;)
+&gt;&gt;&gt; s.substitute(x=&apos;slurm&apos;)
+Make $ selling slurm!
+</code></pre><p>除了关键字参数外，还可以使用字典变量提供值/名称对</p>
+<pre><code>&gt;&gt;&gt; s=Template(&quot;A $thing must never $action.&quot;)
+&gt;&gt;&gt; d={}
+&gt;&gt;&gt; d[&apos;thing&apos;]=&apos;gentleman&apos;
+&gt;&gt;&gt; d[&apos;action&apos;]=&apos;show his socks&apos;
+&gt;&gt;&gt; s.substitute(d)
+A gentleman must never show his socks.
+</code></pre><p>说明：safe_substitute相比substitute不会因为缺少值或者不正确使用$字符而出错</p>
+<h2 id="方式三-‘format函数’"><a href="#方式三-‘format函数’" class="headerlink" title="方式三 ‘format函数’"></a>方式三 ‘format函数’</h2><pre><code>&gt;&gt;&gt; s_info=&quot;{0}&apos;s age is {1}&quot;.format(&apos;Dany&apos;,23)
+&gt;&gt;&gt; s_info
+Dany&apos;s age is 23
+
+&gt;&gt;&gt; s_info=&quot;{name}&apos;s age is {age}&quot;.format(name=&apos;Dany&apos;,age=23)
+&gt;&gt;&gt; s_info
+Dany&apos;s age is 23
+</code></pre><p>说明：推荐使用第三种，简明直观。</p>
+<h1 id="字符串拼接"><a href="#字符串拼接" class="headerlink" title="字符串拼接"></a>字符串拼接</h1><h2 id="方式一-‘-’-1"><a href="#方式一-‘-’-1" class="headerlink" title="方式一 ‘+’"></a>方式一 ‘+’</h2><pre><code>website = &apos;http:\\&apos; + &apos;python&apos; + &apos;.org&apos;
+</code></pre><h2 id="方式二-‘join方法’"><a href="#方式二-‘join方法’" class="headerlink" title="方式二 ‘join方法’"></a>方式二 ‘join方法’</h2><pre><code>listStr = [&apos;http:\\&apos;, &apos;python&apos;, &apos;.org&apos;] 
+website = &apos;&apos;.join(listStr)
+</code></pre><h2 id="方式三-‘格式化-替换-’"><a href="#方式三-‘格式化-替换-’" class="headerlink" title="方式三 ‘格式化(替换)’"></a>方式三 ‘格式化(替换)’</h2><pre><code>website = &apos;%s%s%s&apos; % (&apos;http:\\&apos;, &apos;python&apos;, &apos;.org&apos;)
+</code></pre><h2 id="三种方式比较"><a href="#三种方式比较" class="headerlink" title="三种方式比较"></a>三种方式比较</h2><p>方法1，使用简单直接，但是网上不少人说这种方法效率低，之所以说python 中使用 + 进行字符串连接的操作效率低下，是因为python中字符串是不可变的类型，使用 + 连接两个字符串时会生成一个新的字符串，生成<strong>新的字符串就需要重新申请内存</strong>，当连续相加的字符串很多时(a+b+c+d+e+f+…) ，效率低下就是必然的了</p>
+<p>方法2，使用略复杂，但对多个字符进行连接时效率高，只会有一次内存的申请。而且如果是对list的字符进行连接的时候，这种方法必须是首选</p>
+<p>方法3：字符串格式化，这种方法非常常用，本人也推荐使用该方法</p>
+<h3 id="实验对比-VS-join方法"><a href="#实验对比-VS-join方法" class="headerlink" title="实验对比 + VS join方法"></a>实验对比 + VS join方法</h3><p>实验一：</p>
+<pre><code>from time import time
+def method1():
+    t = time()
+    for i in xrange(100000):
+            s = &apos;python.org&apos;+&apos;python.org&apos;+&apos;python.org&apos;+&apos;python.org&apos;+&apos;python.org&apos;+&apos;python.org&apos;+&apos;python.org&apos;+&apos;python.org&apos;+&apos;python.org&apos;+&apos;python.org&apos;+&apos;python.org&apos;+&apos;python.org&apos;+&apos;python.org&apos;+&apos;python.org&apos;+&apos;python.org&apos;+&apos;python.org&apos;+&apos;python.org&apos;+&apos;python.org&apos;+&apos;python.org&apos;+&apos;python.org&apos;+&apos;python.org&apos;+&apos;python.org&apos;+&apos;python.org&apos;+&apos;python.org&apos;+&apos;python.org&apos;+&apos;python.org&apos;+&apos;python.org&apos;+&apos;python.org&apos;+&apos;python.org&apos;+&apos;python.org&apos;+&apos;python.org&apos;+&apos;python.org&apos;+&apos;python.org&apos;+&apos;python.org&apos;+&apos;python.org&apos;+&apos;python.org&apos;+&apos;python.org&apos;+&apos;python.org&apos;+&apos;python.org&apos;+&apos;python.org&apos;+&apos;python.org&apos;+&apos;python.org&apos;+&apos;python.org&apos;+&apos;python.org&apos;+&apos;python.org&apos;+&apos;python.org&apos;
+print (time() - t)
+def method2():
+    t = time()
+    for i in xrange(100000):
+        s = &apos;&apos;.join([&apos;python.org&apos;,&apos;python.org&apos;,&apos;python.org&apos;,&apos;python.org&apos;,&apos;python.org&apos;,&apos;python.org&apos;,&apos;python.org&apos;,&apos;python.org&apos;,&apos;python.org&apos;,&apos;python.org&apos;,&apos;python.org&apos;,&apos;python.org&apos;,&apos;python.org&apos;,&apos;python.org&apos;,&apos;python.org&apos;,&apos;python.org&apos;,&apos;python.org&apos;,&apos;python.org&apos;,&apos;python.org&apos;,&apos;python.org&apos;,&apos;python.org&apos;,&apos;python.org&apos;,&apos;python.org&apos;,&apos;python.org&apos;,&apos;python.org&apos;,&apos;python.org&apos;,&apos;python.org&apos;,&apos;python.org&apos;,&apos;python.org&apos;,&apos;python.org&apos;,&apos;python.org&apos;,&apos;python.org&apos;,&apos;python.org&apos;,&apos;python.org&apos;,&apos;python.org&apos;,&apos;python.org&apos;,&apos;python.org&apos;,&apos;python.org&apos;,&apos;python.org&apos;,&apos;python.org&apos;,&apos;python.org&apos;,&apos;python.org&apos;,&apos;python.org&apos;,&apos;python.org&apos;,&apos;python.org&apos;,&apos;python.org&apos;])
+print (time() -t)
+method1()
+method2()
+</code></pre><p>结果：</p>
+<pre><code>1.38100004196
+0.137000083923
+</code></pre><p>实验二：</p>
+<pre><code>from time import time
+def method3():
+    t = time()
+    for i in xrange(100000):
+        s = &apos;python.org&apos;+&apos;python.org&apos;+&apos;python.org&apos;+&apos;python.org&apos;
+    print (time() - t)
+def method4():
+    t = time()
+    for i in xrange(100000):
+        s = &apos;&apos;.join([&apos;python.org&apos;,&apos;python.org&apos;,&apos;python.org&apos;,&apos;python.org&apos;])
+    print (time() -t)
+method3()
+method4()
+</code></pre><p>结果：</p>
+<pre><code>0.0250000953674
+0.0599999427795
+</code></pre><p>上面两个实验出现了完全不同的结果，分析这两个实验唯一不同的是：字符串连接个数。</p>
+<p><strong>结论：加号连接效率低是在连续进行多个字符串连接的时候出现的，如果连接的个数较少，加号连接效率反而比join连接效率高</strong></p>
+<h1 id="字符串方法"><a href="#字符串方法" class="headerlink" title="字符串方法"></a>字符串方法</h1><h2 id="join方法"><a href="#join方法" class="headerlink" title="join方法"></a>join方法</h2><p>非常重要的一个字符串方法，它是split方法的逆方法，用来连接序列中的元素，返回字符串。</p>
+<pre><code>&gt;&gt;&gt; strs=[&apos;1&apos;,&apos;2&apos;,&apos;3&apos;,&apos;4&apos;]
+&gt;&gt;&gt; &apos;+&apos;.join(strs)
+1+2+3+4
+
+&gt;&gt;&gt; strs=&apos;liwei&apos;,&apos;lijie&apos;
+&gt;&gt;&gt; &apos;--love--&gt;&apos;.join(strs)
+liwei--love--&gt;lijie
+
+&gt;&gt;&gt; strs=[1,2,3,4,5]
+&gt;&gt;&gt; &apos;+&apos;.join(strs)#出错，因为join需要连接的序列元素必须都是字符串
+Traceback (most recent call last):
+File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;
+TypeError: sequence item 0: expected str instance, int found
+</code></pre><h2 id="lower方法"><a href="#lower方法" class="headerlink" title="lower方法"></a>lower方法</h2><p>返回字符串的小写字母版</p>
+<pre><code>&gt;&gt;&gt; strs=&apos;Dany is A Good Boy&apos;
+&gt;&gt;&gt; strs.lower()
+dany is a good boy
+</code></pre><h2 id="upper方法"><a href="#upper方法" class="headerlink" title="upper方法"></a>upper方法</h2><p>返回字符串的大写字母版</p>
+<pre><code>&gt;&gt;&gt; strs=&apos;dany is A Good Boy&apos;
+&gt;&gt;&gt; strs.upper()
+DANY IS A GOOd BOY
+</code></pre><h2 id="replace方法"><a href="#replace方法" class="headerlink" title="replace方法"></a>replace方法</h2><p>方法返回某字符串的所有匹配项均被替换后得到的字符串</p>
+<pre><code>&gt;&gt;&gt; strs=&apos;Dany Is is nice boy&apos;
+&gt;&gt;&gt; strs.replace(&apos;is&apos;,&apos;very&apos;)
+Dany Is very nice boy
+</code></pre><h2 id="split方法"><a href="#split方法" class="headerlink" title="split方法"></a>split方法</h2><p>将字符串分割成序列，返回的数据类型是列表</p>
+<pre><code>&gt;&gt;&gt; strs=&apos;1+2+3+4&apos;
+&gt;&gt;&gt; strs.split(&apos;+&apos;)
+[&apos;1&apos;, &apos;2&apos;, &apos;3&apos;, &apos;4&apos;]
+
+&gt;&gt;&gt; strs=&apos;1,2,3.4/5&apos;
+&gt;&gt;&gt; strs.split(&apos;,&apos;)
+[&apos;1&apos;,&apos;2&apos;,&apos;3.4/5&apos;]
+
+&gt;&gt;&gt; strs=&apos;1 2   3,4&apos;
+&gt;&gt;&gt; print(strs.split())#不指定分隔符会默认把所有的空格作为分隔符（空格，制表，换行）
+[&apos;1&apos;,&apos;2&apos;,&apos;3,4&apos;]
+</code></pre><h2 id="strip方法"><a href="#strip方法" class="headerlink" title="strip方法"></a>strip方法</h2><p>去除两侧的空格，不包含内部的</p>
+<pre><code>&gt;&gt;&gt; strs=&apos;    123 3323  34      &apos;
+&gt;&gt;&gt; strs.strip()
+123 3323  34
+
+&gt;&gt;&gt; strs=&apos;!*12321!*221!*1231!*&apos;
+&gt;&gt;&gt; print(strs.strip(&apos;!*&apos;))#去除指定的字符，但只是去除两侧的
+12321!*221!*1231
+</code></pre><h2 id="startswith方法"><a href="#startswith方法" class="headerlink" title="startswith方法"></a>startswith方法</h2><p>判断是否以某一个字符串开头，返回布尔值</p>
+<pre><code>&gt;&gt;&gt; strs=&apos;Dany is a good boy&apos;
+&gt;&gt;&gt; strs.startswith(&apos;Da&apos;) #注意这里区分大小写
+True
+</code></pre><h2 id="find方法"><a href="#find方法" class="headerlink" title="find方法"></a>find方法</h2><p>查找某一段字符串在一段字符串中出现的第一个位置并返回索引值</p>
+<pre><code>&gt;&gt;&gt; strs=&apos;Dany is a good boy，Dany&apos;
+&gt;&gt;&gt; strs.find(&apos;Dany&apos;)
+0
+</code></pre><h2 id="count方法"><a href="#count方法" class="headerlink" title="count方法"></a>count方法</h2><p>返回某一段字符串出现的次数</p>
+<pre><code>&gt;&gt;&gt; strs=&apos;Dany is a good boy，Dany&apos;
+&gt;&gt;&gt; strs.count(&apos;Dany&apos;)
+2
+</code></pre><h2 id="center方法"><a href="#center方法" class="headerlink" title="center方法"></a>center方法</h2><p>使字符串居中</p>
+<pre><code>&gt;&gt;&gt; strs=&apos;DanyInfo&apos;
+&gt;&gt;&gt; strs.center(30,&apos;*&apos;)#参数1：字符串总长度，参数2：填充的字符
+***********DanyInfo***********
+</code></pre><h2 id="format方法"><a href="#format方法" class="headerlink" title="format方法"></a>format方法</h2><p>字符串格式化</p>
+<pre><code>&gt;&gt;&gt; s_info=&quot;{0}&apos;s age is {1}&quot;.format(&apos;Dany&apos;,23)
+&gt;&gt;&gt; s_info
+Dany&apos;s age is 23
+
+&gt;&gt;&gt; s_info=&quot;{name}&apos;s age is {age}&quot;.format(name=&apos;Dany&apos;,age=23)
+&gt;&gt;&gt; s_info
+Dany&apos;s age is 23
+</code></pre><h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>字符串就介绍这么多，基本上覆盖到我们平常用到的所有字符串相关大知识点，另外在强调一点，字符串是不可变的，不可变类型和可变类型的详细介绍可参考我的下一篇博文。</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你支持我购买服务器！<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/zhifubao.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/weixin.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/11/16/python-环境部署-Windows/">python 环境部署-Windows</a>
-    </h1>
-  
-
-
-  <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2017/11/16/python-环境部署-Windows/" class="pageViews">0</span>次
-  </a>
-
-        <div class="article-info info-on-right">
-          
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">python环境部署</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">python基础</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://waisunny.com/2017/11/19/python中的字符串/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2017/11/21/Python的可变与不可变数据类型/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Python的可变与不可变数据类型
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2017/11/18/python中的变量存储机制/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">python中的变量存储机制</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
+  <!-- UY BEGIN -->
+<div id="uyan_frame"></div>
+<script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2148788"></script>
+<!-- UY END -->
+  
+  
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -293,9 +572,9 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
