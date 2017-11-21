@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="WaiBlog|码农的技术小窝">
 <meta property="og:description" content="字符串介绍基本字符串操作，索引、分片、乘法、判断成员资格、求长度、取最大最小值等，但请记住字符串是不可变的，so 通过分片赋值都是不合法的。 &amp;gt;&amp;gt;&amp;gt; x=&amp;apos;Dany&amp;apos; &amp;gt;&amp;gt;&amp;gt; x[0] D &amp;gt;&amp;gt;&amp;gt; x[1,3] an &amp;gt;&amp;gt;&amp;gt; len(x) 4 &amp;gt;&amp;gt;&amp;gt; x*3 DanyDanyDany &amp;g">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-11-19T14:54:48.507Z">
+<meta property="og:updated_time" content="2017-11-21T01:11:39.670Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python中的字符串">
 <meta name="twitter:description" content="字符串介绍基本字符串操作，索引、分片、乘法、判断成员资格、求长度、取最大最小值等，但请记住字符串是不可变的，so 通过分片赋值都是不合法的。 &amp;gt;&amp;gt;&amp;gt; x=&amp;apos;Dany&amp;apos; &amp;gt;&amp;gt;&amp;gt; x[0] D &amp;gt;&amp;gt;&amp;gt; x[1,3] an &amp;gt;&amp;gt;&amp;gt; len(x) 4 &amp;gt;&amp;gt;&amp;gt; x*3 DanyDanyDany &amp;g">
@@ -281,12 +281,12 @@ website = &apos;&apos;.join(listStr)
 def method1():
     t = time()
     for i in xrange(100000):
-            s = &apos;python.org&apos;+&apos;python.org&apos;+&apos;python.org&apos;+&apos;python.org&apos;+&apos;python.org&apos;+&apos;python.org&apos;+&apos;python.org&apos;+&apos;python.org&apos;+&apos;python.org&apos;+&apos;python.org&apos;+&apos;python.org&apos;+&apos;python.org&apos;+&apos;python.org&apos;+&apos;python.org&apos;+&apos;python.org&apos;+&apos;python.org&apos;+&apos;python.org&apos;+&apos;python.org&apos;+&apos;python.org&apos;+&apos;python.org&apos;+&apos;python.org&apos;+&apos;python.org&apos;+&apos;python.org&apos;+&apos;python.org&apos;+&apos;python.org&apos;+&apos;python.org&apos;+&apos;python.org&apos;+&apos;python.org&apos;+&apos;python.org&apos;+&apos;python.org&apos;+&apos;python.org&apos;+&apos;python.org&apos;+&apos;python.org&apos;+&apos;python.org&apos;+&apos;python.org&apos;+&apos;python.org&apos;+&apos;python.org&apos;+&apos;python.org&apos;+&apos;python.org&apos;+&apos;python.org&apos;+&apos;python.org&apos;+&apos;python.org&apos;+&apos;python.org&apos;+&apos;python.org&apos;+&apos;python.org&apos;+&apos;python.org&apos;
+            s =&apos;python.org&apos;+&apos;python.org&apos;+&apos;python.org&apos;+&apos;python.org&apos;+&apos;python.org&apos;+&apos;python.org&apos;+&apos;python.org&apos;+&apos;python.    org&apos;+&apos;python.org&apos;+&apos;python.org&apos;+&apos;python.org&apos;+&apos;python.org&apos;+&apos;python.org&apos;+&apos;python.org&apos;+&apos;python.org&apos;+&apos;py    thon.org&apos;+&apos;python.org&apos;+&apos;python.org&apos;+&apos;python.org&apos;+&apos;python.org&apos;+&apos;python.org&apos;+&apos;python.org&apos;+&apos;python.org    &apos;+&apos;python.org&apos;+&apos;python.org&apos;+&apos;python.org&apos;+&apos;python.org&apos;+&apos;python.org&apos;+&apos;python.org&apos;+&apos;python.org&apos;+&apos;pytho    n.org&apos;+&apos;python.org&apos;+&apos;python.org&apos;+&apos;python.org&apos;+&apos;python.org&apos;+&apos;python.org&apos;+&apos;python.org&apos;+&apos;python.org&apos;+&apos;    python.org&apos;+&apos;python.org&apos;+&apos;python.org&apos;+&apos;python.org&apos;+&apos;python.org&apos;+&apos;python.org&apos;+&apos;python.org&apos;+&apos;python.o    rg&apos;
 print (time() - t)
 def method2():
     t = time()
     for i in xrange(100000):
-        s = &apos;&apos;.join([&apos;python.org&apos;,&apos;python.org&apos;,&apos;python.org&apos;,&apos;python.org&apos;,&apos;python.org&apos;,&apos;python.org&apos;,&apos;python.org&apos;,&apos;python.org&apos;,&apos;python.org&apos;,&apos;python.org&apos;,&apos;python.org&apos;,&apos;python.org&apos;,&apos;python.org&apos;,&apos;python.org&apos;,&apos;python.org&apos;,&apos;python.org&apos;,&apos;python.org&apos;,&apos;python.org&apos;,&apos;python.org&apos;,&apos;python.org&apos;,&apos;python.org&apos;,&apos;python.org&apos;,&apos;python.org&apos;,&apos;python.org&apos;,&apos;python.org&apos;,&apos;python.org&apos;,&apos;python.org&apos;,&apos;python.org&apos;,&apos;python.org&apos;,&apos;python.org&apos;,&apos;python.org&apos;,&apos;python.org&apos;,&apos;python.org&apos;,&apos;python.org&apos;,&apos;python.org&apos;,&apos;python.org&apos;,&apos;python.org&apos;,&apos;python.org&apos;,&apos;python.org&apos;,&apos;python.org&apos;,&apos;python.org&apos;,&apos;python.org&apos;,&apos;python.org&apos;,&apos;python.org&apos;,&apos;python.org&apos;,&apos;python.org&apos;])
+        s = &apos;&apos;.join    ([&apos;python.org&apos;,&apos;python.org&apos;,&apos;python.org&apos;,&apos;python.org&apos;,&apos;python.org&apos;,&apos;python.org&apos;,&apos;python.org&apos;,&apos;pytho    n.org&apos;,&apos;python.org&apos;,&apos;python.org&apos;,&apos;python.org&apos;,&apos;python.org&apos;,&apos;python.org&apos;,&apos;python.org&apos;,&apos;python.org&apos;,&apos;    python.org&apos;,&apos;python.org&apos;,&apos;python.org&apos;,&apos;python.org&apos;,&apos;python.org&apos;,&apos;python.org&apos;,&apos;python.org&apos;,&apos;python.o    rg&apos;,&apos;python.org&apos;,&apos;python.org&apos;,&apos;python.org&apos;,&apos;python.org&apos;,&apos;python.org&apos;,&apos;python.org&apos;,&apos;python.org&apos;,&apos;pyt    hon.org&apos;,&apos;python.org&apos;,&apos;python.org&apos;,&apos;python.org&apos;,&apos;python.org&apos;,&apos;python.org&apos;,&apos;python.org&apos;,&apos;python.org&apos;    ,&apos;python.org&apos;,&apos;python.org&apos;,&apos;python.org&apos;,&apos;python.org&apos;,&apos;python.org&apos;,&apos;python.org&apos;,&apos;python.org&apos;,&apos;python    .org&apos;])
 print (time() -t)
 method1()
 method2()
@@ -497,7 +497,7 @@ Dany&apos;s age is 23
   
 <nav id="article-nav">
   
-    <a href="/2017/11/21/Python的可变与不可变数据类型/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/11/20/Python的可变与不可变数据类型/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
