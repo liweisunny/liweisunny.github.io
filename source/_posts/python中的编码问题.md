@@ -73,8 +73,8 @@ encode的作用是将unicode编码转换成其他编码的字符串，如：
 则该字符串的编码就被指定为unicode了，即python的内部编码，而与代码文件本身的编码无关。因此，对于这种情况做编码转换，只需要直接使用encode方法将其转换成指定编码即可。
 
 ## 注意
-**如果一个字符串已经是unicode了，再进行解码则将出错，因此通常要对其编码方式是否为unicode进行判断：**
+如果一个字符串已经是unicode了，再进行解码则将出错，因此通常要对其编码方式是否为unicode进行判断：
 
 	isinstance(s, unicode)  #用来判断是否为unicode
  
-**用非unicode编码形式的str来encode会报错**
+用非unicode编码形式的str来encode会报错。
