@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="WaiBlog|码农的技术小窝">
 <meta property="og:description" content="引言初学python让人头疼的莫过于python中的字符编码问题，尤其是在python2中，默认输出的字符是Ascii,是不支持中文的，所以要使用中文必须在每个文件的开头写上：‘# coding:utf-8’,这样才能输出中文否则会报一个下面这样的错误： SyntaxError: Non-ASCII character &amp;apos;\xe6&amp;apos; in file new1.txt on  l">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-11-22T10:54:06.028Z">
+<meta property="og:updated_time" content="2017-11-22T10:57:16.738Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python中的编码问题">
 <meta name="twitter:description" content="引言初学python让人头疼的莫过于python中的字符编码问题，尤其是在python2中，默认输出的字符是Ascii,是不支持中文的，所以要使用中文必须在每个文件的开头写上：‘# coding:utf-8’,这样才能输出中文否则会报一个下面这样的错误： SyntaxError: Non-ASCII character &amp;apos;\xe6&amp;apos; in file new1.txt on  l">
@@ -229,9 +229,9 @@ A          01000001           00000000 01000001                01000001
 <p>如果是在utf8的文件中，该字符串就是utf8编码，如果是在gb2312的文件中，则其编码为gb2312。这种情况下，要进行编码转换，都需要先用decode方法将其转换成unicode编码，再使用encode方法将其转换成其他编码。</p>
 <p>如果字符串是这样定义：s=u‘中文‘ </p>
 <p>则该字符串的编码就被指定为unicode了，即python的内部编码，而与代码文件本身的编码无关。因此，对于这种情况做编码转换，只需要直接使用encode方法将其转换成指定编码即可。</p>
-<h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><p><strong>如果一个字符串已经是unicode了，再进行解码则将出错，因此通常要对其编码方式是否为unicode进行判断：</strong></p>
+<h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><p>如果一个字符串已经是unicode了，再进行解码则将出错，因此通常要对其编码方式是否为unicode进行判断：</p>
 <pre><code>isinstance(s, unicode)  #用来判断是否为unicode
-</code></pre><p><strong>用非unicode编码形式的str来encode会报错</strong></p>
+</code></pre><p>用非unicode编码形式的str来encode会报错。</p>
 
       
 
@@ -541,11 +541,11 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">python环境部署</a>
+                <a href="javascript:void(0)" class="js-tag color4">python基础</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">python基础</a>
+                <a href="javascript:void(0)" class="js-tag color1">python环境部署</a>
               </li>
             
             <div class="clearfix"></div>
