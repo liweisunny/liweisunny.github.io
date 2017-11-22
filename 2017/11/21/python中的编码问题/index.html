@@ -6,18 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://waisunny.com">
-  <title>Tag: python基础 | WaiBlog|码农的技术小窝</title>
+  <title>python中的编码问题 | WaiBlog|码农的技术小窝</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="码农的技术小窝......">
-<meta property="og:type" content="website">
-<meta property="og:title" content="WaiBlog|码农的技术小窝">
-<meta property="og:url" content="http://waisunny.com/tags/python基础/index.html">
+  <meta name="description" content="引言初学python让人头疼的莫过于python中的字符编码问题，尤其是在python2中，默认输出的字符是Ascii,是不支持中文的，所以要使用中文必须在每个文件的开头写上：‘# coding:utf-8’,这样才能输出中文否则会报一个下面这样的错误： SyntaxError: Non-ASCII character &amp;apos;\xe6&amp;apos; in file new1.txt on  l">
+<meta name="keywords" content="python基础">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python中的编码问题">
+<meta property="og:url" content="http://waisunny.com/2017/11/21/python中的编码问题/index.html">
 <meta property="og:site_name" content="WaiBlog|码农的技术小窝">
-<meta property="og:description" content="码农的技术小窝......">
+<meta property="og:description" content="引言初学python让人头疼的莫过于python中的字符编码问题，尤其是在python2中，默认输出的字符是Ascii,是不支持中文的，所以要使用中文必须在每个文件的开头写上：‘# coding:utf-8’,这样才能输出中文否则会报一个下面这样的错误： SyntaxError: Non-ASCII character &amp;apos;\xe6&amp;apos; in file new1.txt on  l">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-11-22T10:54:06.028Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="WaiBlog|码农的技术小窝">
-<meta name="twitter:description" content="码农的技术小窝......">
+<meta name="twitter:title" content="python中的编码问题">
+<meta name="twitter:description" content="引言初学python让人头疼的莫过于python中的字符编码问题，尤其是在python2中，默认输出的字符是Ascii,是不支持中文的，所以要使用中文必须在每个文件的开头写上：‘# coding:utf-8’,这样才能输出中文否则会报一个下面这样的错误： SyntaxError: Non-ASCII character &amp;apos;\xe6&amp;apos; in file new1.txt on  l">
   
     <link rel="alternative" href="/atom.xml" title="WaiBlog|码农的技术小窝" type="application/atom+xml">
   
@@ -169,31 +171,14 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-python中的编码问题" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/11/21/python中的编码问题/" class="archive-article-date">
-  	<time datetime="2017-11-21T09:22:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-21</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/11/21/python中的编码问题/">python中的编码问题</a>
+    <h1 class="article-title" itemprop="name">
+      python中的编码问题
     </h1>
   
 
@@ -202,51 +187,90 @@ var _hmt = _hmt || [];
       <i class="icon-smile icon"></i> 阅读数:<span id="/2017/11/21/python中的编码问题/" class="pageViews">0</span>次
   </a>
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">python基础</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/11/20/Python的可变与不可变数据类型/" class="archive-article-date">
-  	<time datetime="2017-11-19T20:09:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-19</time>
+        
+        <a href="/2017/11/21/python中的编码问题/" class="archive-article-date">
+  	<time datetime="2017-11-21T09:22:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-21</time>
 </a>
+        
+      </header>
+     
+    <div class="article-entry" itemprop="articleBody">
+       
+        <h1 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h1><p>初学python让人头疼的莫过于python中的字符编码问题，尤其是在python2中，默认输出的字符是<strong>Ascii</strong>,是不支持中文的，所以要使用中文必须在每个文件的开头写上：‘# coding:utf-8’,这样才能输出中文否则会报一个下面这样的错误：</p>
+<pre><code>SyntaxError: Non-ASCII character &apos;\xe6&apos; in file new1.txt on 
+line 2, but no encoding declared; see http:/
+www.python.org/peps/pep-0263.html for details
+</code></pre><p>到了python3中字符的默认输出是‘utf-8’格式的编码，这样就支持中文了；那为什么会存在这么多恶心的编码问题呢，这还得从编码的历史说起。</p>
+<h1 id="编码由来"><a href="#编码由来" class="headerlink" title="编码由来"></a>编码由来</h1><p>大家都知道，计算机是美国人发明的，因此，最早只有127个字符被编码到计算机里，也就是大小写英文字母、数字和一些符号，这个编码表被称为ASCII编码。</p>
+<p>显然，ASCII编码是不支持中文的，为了处理中文，中国人自己 制定了GB2312编码，用来把中文编进去，这样就支持中文展示了。</p>
+<p>你可以想得到的是，全世界有上百种语言，日本把日文编到Shift_JIS里，韩国把韩文编到Euc-kr里，各国有各国的标准，就会不可避免地出现冲突，结果就是，在多语言混合的文本中，显示出来会有乱码。</p>
+<p>因此，万国码<strong>Unicode</strong>应运而生。Unicode把所有语言都统一到一套编码里，这样就不会再有乱码问题了。</p>
+<p>Unicode标准也在不断发展，但最常用的是用两个字节表示一个字符（如果要用到非常偏僻的字符，就需要4个字节）。现代操作系统和大多数编程语言都直接支持Unicode。</p>
+<p>现在，捋一捋ASCII编码和Unicode编码的区别：ASCII编码是1个字节，而Unicode编码通常是2个字节。</p>
+<p>新的问题又出现了：如果统一成Unicode编码，乱码问题从此消失了。但是，如果你写的文本基本上全部是英文的话，用Unicode编码比ASCII编码需要多一倍的存储空间，在存储和传输上就十分不划算。</p>
+<p>所以，本着节约的精神，又出现了把Unicode编码转化为<strong>“可变长编码”的UTF-8编码</strong>。UTF-8编码把一个Unicode字符根据不同的数字大小编码成1-6个字节，常用的英文字母被编码成1个字节，汉字通常是3个字节，只有很生僻的字符才会被编码成4-6个字节。如果你要传输的文本包含大量英文字符，用UTF-8编码就能节省空间：</p>
+<pre><code>字符        ASCII                  Unicode                       UTF-8
+
+A          01000001           00000000 01000001                01000001
+
+中           x               01001110 00101101           11100100 10111000 10101101
+</code></pre><p>从上面的表格还可以发现，UTF-8编码有一个额外的好处，就是ASCII编码实际上可以被看成是UTF-8编码的一部分，所以，大量只支持ASCII编码的历史遗留软件可以在UTF-8编码下继续工作。</p>
+<h1 id="计算机系统通用的字符编码工作方式"><a href="#计算机系统通用的字符编码工作方式" class="headerlink" title="计算机系统通用的字符编码工作方式"></a>计算机系统通用的字符编码工作方式</h1><p>搞清楚了ASCII、Unicode和UTF-8的关系，我们就可以总结一下现在计算机系统通用的字符编码工作方式：</p>
+<p>在计算机内存中，统一使用Unicode编码，当需要保存到硬盘或者需要传输的时候，就转换为UTF-8编码。</p>
+<p>用记事本编辑的时候，从文件读取的UTF-8字符被转换为Unicode字符到内存里，编辑完成后，保存的时候再把Unicode转换为UTF-8保存到文件。</p>
+<p>浏览网页的时候，服务器会把动态生成的Unicode内容转换为UTF-8再传输到浏览器：所以你看到很多网页的源码上会有类似<meta charset="UTF-8">的信息，表示该网页正是用的UTF-8编码。</p>
+<h1 id="python中如何处理编码"><a href="#python中如何处理编码" class="headerlink" title="python中如何处理编码"></a>python中如何处理编码</h1><p>字符串在Python内部的表示是unicode编码，因此，在做编码转换时，通常需要以unicode作为中间编码，即先将其他编码的字符串解码（decode）成unicode，再从unicode编码（encode）成另一种编码。 </p>
+<h2 id="decode"><a href="#decode" class="headerlink" title="decode"></a>decode</h2><p>decode的作用是将其他编码的字符串转换成unicode编码，如：</p>
+<pre><code>str1.decode(‘gb2312‘)#表示将gb2312编码的字符串str1转换成unicode编码。 
+</code></pre><h2 id="encode"><a href="#encode" class="headerlink" title="encode"></a>encode</h2><p>encode的作用是将unicode编码转换成其他编码的字符串，如：</p>
+<pre><code>str2.encode(‘gb2312‘)#表示将unicode编码的字符串str2转换成gb2312编码。 
+</code></pre><p>因此，转码的时候一定要先搞明白，字符串str是什么编码，然后decode成unicode，然后再encode成其他编码</p>
+<h2 id="代码中字符串的默认编码与代码文件本身的编码一致"><a href="#代码中字符串的默认编码与代码文件本身的编码一致" class="headerlink" title="代码中字符串的默认编码与代码文件本身的编码一致"></a>代码中字符串的默认编码与代码文件本身的编码一致</h2><p>如：s=‘中文‘</p>
+<p>如果是在utf8的文件中，该字符串就是utf8编码，如果是在gb2312的文件中，则其编码为gb2312。这种情况下，要进行编码转换，都需要先用decode方法将其转换成unicode编码，再使用encode方法将其转换成其他编码。</p>
+<p>如果字符串是这样定义：s=u‘中文‘ </p>
+<p>则该字符串的编码就被指定为unicode了，即python的内部编码，而与代码文件本身的编码无关。因此，对于这种情况做编码转换，只需要直接使用encode方法将其转换成指定编码即可。</p>
+<h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><p><strong>如果一个字符串已经是unicode了，再进行解码则将出错，因此通常要对其编码方式是否为unicode进行判断：</strong></p>
+<pre><code>isinstance(s, unicode)  #用来判断是否为unicode
+</code></pre><p><strong>用非unicode编码形式的str来encode会报错</strong></p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你支持我购买服务器！<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/zhifubao.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/weixin.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/11/20/Python的可变与不可变数据类型/">Python的可变与不可变数据类型</a>
-    </h1>
-  
-
-
-  <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2017/11/20/Python的可变与不可变数据类型/" class="pageViews">0</span>次
-  </a>
-
-        <div class="article-info info-on-right">
-          
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -258,105 +282,114 @@ var _hmt = _hmt || [];
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://waisunny.com/2017/11/21/python中的编码问题/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/11/19/python中的字符串/" class="archive-article-date">
-  	<time datetime="2017-11-18T17:39:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-18</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2017/11/20/Python的可变与不可变数据类型/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Python的可变与不可变数据类型</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/11/19/python中的字符串/">python中的字符串</a>
-    </h1>
-  
+        
+        
+    </div>
+</aside>
 
 
-  <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2017/11/19/python中的字符串/" class="pageViews">0</span>次
-  </a>
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">python基础</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/11/18/python中的变量存储机制/" class="archive-article-date">
-  	<time datetime="2017-11-17T17:06:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-17</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/11/18/python中的变量存储机制/">python中的变量存储机制</a>
-    </h1>
-  
-
-
-  <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2017/11/18/python中的变量存储机制/" class="pageViews">0</span>次
-  </a>
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">python基础</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
   
-    </div></section>
+  <!-- UY BEGIN -->
+<div id="uyan_frame"></div>
+<script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2148788"></script>
+<!-- UY END -->
+  
+  
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -379,9 +412,9 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
