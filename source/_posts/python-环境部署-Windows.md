@@ -34,4 +34,6 @@ tags: python环境部署
 ![](https://i.imgur.com/Jvns0hw.jpg)
 
 # 补充
-这是最基本的python环境部署，后续在实际开发过程中我们还要安装很多类库、插件等；推荐安装pip,使用pip安装类库等十分方便。如何安装pip,详见：[http://waisunny.com/2017/11/20/setuptools%E5%92%8Cpip%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/](http://waisunny.com/2017/11/20/setuptools%E5%92%8Cpip%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/ "setuptools和pip安装教程")
+这是最基本的python环境部署，后续在实际开发过程中我们还要安装很多类库、插件等；推荐安装pip,使用pip安装类库等十分方便。
+
+如何安装pip,详见：[http://waisunny.com/2017/11/17/setuptools%E5%92%8Cpip%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/](http://waisunny.com/2017/11/17/setuptools%E5%92%8Cpip%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/ "pip安装")
