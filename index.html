@@ -358,6 +358,16 @@ A          01000001           00000000 01000001                01000001
 <p>接着来看后面的操作，我们对列表进行添加操作，分别a.append(4)和a += [2]，发现这两个操作使得a引用的对象值变成了上面的最终结果，但是a引用的地址依旧是41575088，也就是说对a进行的操作不会改变a引用的地址值，只是在地址后面又扩充了新的地址，改变了地址里面存放的值，</p>
 <p><strong>所以可变数据类型的意思就是说对一个变量进行操作时，其值是可变的，值的变化并不会引起新建对象，即地址是不会变的，只是地址中的内容变化了或者地址得到了扩充。下图对这一过程进行了图示，可以很清晰地看到这一过程。</strong><br><img src="https://i.imgur.com/aSEf24o.png" alt=""></p>
 <p>从上述过程可以看到，可变数据类型是允许同一对象的内容，即值可以变化，但是地址是不会变化的。但是需要注意一点，对可变数据类型的操作不能是直接进行新的赋值操作，比如说a = [1, 2, 3, 4, 5, 6, 7]，这样的操作就不是改变值了，而是新建了一个新的对象，这里的可变只是对于类似于append、+=等这种操作。</p>
+<h1 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h1><pre><code>&gt;&gt;&gt; x=3.14
+&gt;&gt;&gt; y=3.14
+&gt;&gt;&gt; id(x) 
+1996197073232
+&gt;&gt;&gt; id(y)
+1996197073688
+&gt;&gt;&gt; y=x
+&gt;&gt;&gt; id(y)
+1996197073232
+</code></pre><p>为什么会出现上述情况呢？同一个3.14在内存中创建了两次，浮点型不是不可变类型吗？原因是因为Python 仅缓存简单整数，因为它认为在 Python 应用程序中这些小整数会经常被用到。Python 缓存的整数范围是(-1, 100)，不过这个范围是会改变的，所以请不要在你的应用程序使用这个特性。</p>
 <h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>不可变数据类型，不允许变量的值发生变化，如果改变了变量的值，相当于是新建了一个对象，而对于相同的值的对象，在内存中则只有一个对象，内部会有一个引用计数来记录有多少个变量引用这个对象；</p>
 <p>可变数据类型，允许变量的值发生变化，即如果对变量进行append、+=等这种操作后，只是改变了变量的值，而不会新建一个对象，变量引用的对象的地址也不会变化，不过对于相同的值的不同变量，在内存中则会存在不同的对象，即每个对象都有自己的地址，相当于内存中对于同值的对象保存了多份，这里不存在引用计数，是实实在在的对象。</p>
 <p>最后，大家主要区分开什么是变量值的变化、什么是变量引用的对象地址的变化这些概念就很清楚了，千说万说都不如自己动手写一些程序测试一下看看来得实在，所以建议大家有什么疑惑可以自己写一些基本的程序测试一下便知道结果。如果大家有新的意见，欢迎补充，谢谢。</p>
@@ -679,24 +689,24 @@ Dany&apos;s age is 23
 
 
   
-    <article id="post-python中的变量存储机制" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-python中的变量" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/18/python中的变量存储机制/">python中的变量存储机制</a>
+      <a class="article-title" href="/2017/11/18/python中的变量/">python中的变量</a>
     </h1>
   
 
 
   <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2017/11/18/python中的变量存储机制/" class="pageViews">0</span>次
+      <i class="icon-smile icon"></i> 阅读数:<span id="/2017/11/18/python中的变量/" class="pageViews">0</span>次
   </a>
 
         
-        <a href="/2017/11/18/python中的变量存储机制/" class="archive-article-date">
+        <a href="/2017/11/18/python中的变量/" class="archive-article-date">
   	<time datetime="2017-11-17T17:06:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-17</time>
 </a>
         
@@ -705,6 +715,7 @@ Dany&apos;s age is 23
     <div class="article-entry" itemprop="articleBody">
        
         <p>定义变量的目的：简单来说，变量是为了存储程序运算过程中的一些中间结果，为了方便日后调用。</p>
+<p><strong>记住:python中一切皆为对象，一切皆为对象的引用，变量=对象。</strong></p>
 <h1 id="变量命名规则"><a href="#变量命名规则" class="headerlink" title="变量命名规则"></a>变量命名规则</h1><ol>
 <li>要具有描述性</li>
 <li>变量名只能_,数字，字母组成，不可以是空格或特殊字符(#?&lt;.，￥$*!~)</li>
@@ -726,10 +737,16 @@ print(a)
 </code></pre><p>这种变量本身类型不固定的语言称之为<strong>动态语言</strong>，与之对应的是静态语言。静态语言在定义变量时必须指定变量类型，如果赋值的时候类型不匹配，就会报错。例如Java是静态语言，赋值语句如下：</p>
 <pre><code>int a = 123; //a是整数类型变量
 a = &quot;ABC&quot;; //错误：不能把字符串赋给整型变量
-</code></pre><p>和静态语言相比，动态语言更灵活。请不要把赋值语句的等号等同于数学的等号。比如下面的代码：</p>
-<pre><code>x = 10
-x = x + 2
-</code></pre><p>如果从数学上理解x = x + 2那无论如何是不成立的，在程序中，赋值语句先计算右侧的表达式x + 2，得到结果12，再赋给变量x。由于x之前的值是10，重新赋值后，x的值变成12。</p>
+</code></pre><p>和静态语言相比，动态语言更灵活。</p>
+<p>可以看出，Python 中不但变量名无需事先声明，而且也无需类型声明。Python 语言中，<br>对象的类型和内存占用都是运行时确定的。尽管代码被编译成字节码，Python 仍然是一种<strong>解释型语言</strong>。在创建——也就是赋值时，解释器会根据语法和右侧的操作数来决定新对象的类型。在对象创建后，一个该对象的应用会被赋值给左侧的变量。 </p>
+<h1 id="变量赋值"><a href="#变量赋值" class="headerlink" title="变量赋值"></a>变量赋值</h1><pre><code>&gt;&gt;&gt; x=1 #直接=赋值
+
+&gt;&gt;&gt; x=y=1# 链式复制
+
+&gt;&gt;&gt; x+=1 #增量赋值(x=x+1)
+
+&gt;&gt;&gt; x,y,z=(1,2,&apos;a&apos;)# 多元赋值 ,=号后面是一个元祖，即用小括号括起来，其实可以不加小括号，但为了提高代码可读性建议加上
+</code></pre><p>说明：赋值并不是直接将一个值赋给一个变量， 尽管你可能根据其它语言编程经验认为应该如此。在 Python 语言中，对象是通过引用传递的。在赋值时，不管这个对象是新创建的，还是一个已经存在的，都是将该对象的引用（并不是值）赋值给变量。</p>
 <h1 id="存储机制"><a href="#存储机制" class="headerlink" title="存储机制"></a>存储机制</h1><p>声明：<strong>a = ‘ABC’</strong>时，Python解释器干了两件事情：</p>
 <ol>
 <li>在内存中创建了一个’ABC’的字符串；</li>
@@ -741,9 +758,12 @@ b = a
 a = &apos;XYZ&apos;
 print(b)
 </code></pre><p>最后一行打印出变量b的内容到底是’ABC’呢还是’XYZ’？如果从数学意义上理解，就会错误地得出b和a相同，也应该是’XYZ’，但实际上b的值是’ABC’，让我们一行一行地执行代码，就可以看到到底发生了什么事：</p>
-<p>1.执行a = ‘ABC’，解释器创建了字符串’ABC’和变量a，并把a指向’ABC’：<br><img src="https://i.imgur.com/ldl7FxP.png" alt=""></p>
-<p>2.执行b = a，解释器创建了变量b，并把b指向a指向的字符串’ABC’：<br><img src="https://i.imgur.com/JZ6sixs.png" alt=""></p>
-<p>3.执行a = ‘XYZ’，解释器创建了字符串’XYZ’，并把a的指向改为’XYZ’，但b并没有更改：<br><img src="https://i.imgur.com/VEUY64z.png" alt=""></p>
+<p>1.执行a = ‘ABC’，解释器创建了字符串’ABC’和变量a，并把a指向’ABC’：</p>
+<p><img src="https://i.imgur.com/ldl7FxP.png" alt=""></p>
+<p>2.执行b = a，解释器创建了变量b，并把b指向a指向的字符串’ABC’：</p>
+<p><img src="https://i.imgur.com/JZ6sixs.png" alt=""></p>
+<p>3.执行a = ‘XYZ’，解释器创建了字符串’XYZ’，并把a的指向改为’XYZ’，但b并没有更改：</p>
+<p><img src="https://i.imgur.com/VEUY64z.png" alt=""></p>
 <p>所以，最后打印变量b的结果自然是’ABC’了。</p>
 <h1 id="常量"><a href="#常量" class="headerlink" title="常量"></a>常量</h1><p>所谓常量就是不能变的变量，比如常用的数学常数π就是一个常量。在Python中，通常用<strong>全部大写的变量名表示常量</strong>：</p>
 <pre><code>PI = 3.14159265359
@@ -785,7 +805,7 @@ print(b)
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/11/18/python中的变量存储机制/">more >></a>
+          <a class="article-more-a" href="/2017/11/18/python中的变量/">more >></a>
         </p>
       
 

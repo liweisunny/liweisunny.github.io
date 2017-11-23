@@ -6,23 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://waisunny.com">
-  <title>python中的变量存储机制 | WaiBlog|码农的技术小窝</title>
+  <title>python中的变量 | WaiBlog|码农的技术小窝</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="定义变量的目的：简单来说，变量是为了存储程序运算过程中的一些中间结果，为了方便日后调用。 变量命名规则 要具有描述性 变量名只能_,数字，字母组成，不可以是空格或特殊字符(#?&amp;lt;.，￥$*!~) 不能以中文为变量名 不能以数字开头 保留字符是不能被使用  声明变量1.定义一个整数变量: a = 1 2.定义一个字符串变量: t_007 = &amp;apos;T007&amp;apos; 3.定义一个布尔值">
+  <meta name="description" content="定义变量的目的：简单来说，变量是为了存储程序运算过程中的一些中间结果，为了方便日后调用。 记住:python中一切皆为对象，一切皆为对象的引用，变量=对象。 变量命名规则 要具有描述性 变量名只能_,数字，字母组成，不可以是空格或特殊字符(#?&amp;lt;.，￥$*!~) 不能以中文为变量名 不能以数字开头 保留字符是不能被使用  声明变量1.定义一个整数变量: a = 1 2.定义一个字符串变量:">
 <meta name="keywords" content="python基础">
 <meta property="og:type" content="article">
-<meta property="og:title" content="python中的变量存储机制">
-<meta property="og:url" content="http://waisunny.com/2017/11/18/python中的变量存储机制/index.html">
+<meta property="og:title" content="python中的变量">
+<meta property="og:url" content="http://waisunny.com/2017/11/18/python中的变量/index.html">
 <meta property="og:site_name" content="WaiBlog|码农的技术小窝">
-<meta property="og:description" content="定义变量的目的：简单来说，变量是为了存储程序运算过程中的一些中间结果，为了方便日后调用。 变量命名规则 要具有描述性 变量名只能_,数字，字母组成，不可以是空格或特殊字符(#?&amp;lt;.，￥$*!~) 不能以中文为变量名 不能以数字开头 保留字符是不能被使用  声明变量1.定义一个整数变量: a = 1 2.定义一个字符串变量: t_007 = &amp;apos;T007&amp;apos; 3.定义一个布尔值">
+<meta property="og:description" content="定义变量的目的：简单来说，变量是为了存储程序运算过程中的一些中间结果，为了方便日后调用。 记住:python中一切皆为对象，一切皆为对象的引用，变量=对象。 变量命名规则 要具有描述性 变量名只能_,数字，字母组成，不可以是空格或特殊字符(#?&amp;lt;.，￥$*!~) 不能以中文为变量名 不能以数字开头 保留字符是不能被使用  声明变量1.定义一个整数变量: a = 1 2.定义一个字符串变量:">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://i.imgur.com/ldl7FxP.png">
 <meta property="og:image" content="https://i.imgur.com/JZ6sixs.png">
 <meta property="og:image" content="https://i.imgur.com/VEUY64z.png">
-<meta property="og:updated_time" content="2017-11-19T09:38:02.789Z">
+<meta property="og:updated_time" content="2017-11-23T01:36:27.574Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="python中的变量存储机制">
-<meta name="twitter:description" content="定义变量的目的：简单来说，变量是为了存储程序运算过程中的一些中间结果，为了方便日后调用。 变量命名规则 要具有描述性 变量名只能_,数字，字母组成，不可以是空格或特殊字符(#?&amp;lt;.，￥$*!~) 不能以中文为变量名 不能以数字开头 保留字符是不能被使用  声明变量1.定义一个整数变量: a = 1 2.定义一个字符串变量: t_007 = &amp;apos;T007&amp;apos; 3.定义一个布尔值">
+<meta name="twitter:title" content="python中的变量">
+<meta name="twitter:description" content="定义变量的目的：简单来说，变量是为了存储程序运算过程中的一些中间结果，为了方便日后调用。 记住:python中一切皆为对象，一切皆为对象的引用，变量=对象。 变量命名规则 要具有描述性 变量名只能_,数字，字母组成，不可以是空格或特殊字符(#?&amp;lt;.，￥$*!~) 不能以中文为变量名 不能以数字开头 保留字符是不能被使用  声明变量1.定义一个整数变量: a = 1 2.定义一个字符串变量:">
 <meta name="twitter:image" content="https://i.imgur.com/ldl7FxP.png">
   
     <link rel="alternative" href="/atom.xml" title="WaiBlog|码农的技术小窝" type="application/atom+xml">
@@ -175,24 +175,24 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-python中的变量存储机制" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-python中的变量" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      python中的变量存储机制
+      python中的变量
     </h1>
   
 
 
   <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2017/11/18/python中的变量存储机制/" class="pageViews">0</span>次
+      <i class="icon-smile icon"></i> 阅读数:<span id="/2017/11/18/python中的变量/" class="pageViews">0</span>次
   </a>
 
         
-        <a href="/2017/11/18/python中的变量存储机制/" class="archive-article-date">
+        <a href="/2017/11/18/python中的变量/" class="archive-article-date">
   	<time datetime="2017-11-17T17:06:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-17</time>
 </a>
         
@@ -201,6 +201,7 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
        
         <p>定义变量的目的：简单来说，变量是为了存储程序运算过程中的一些中间结果，为了方便日后调用。</p>
+<p><strong>记住:python中一切皆为对象，一切皆为对象的引用，变量=对象。</strong></p>
 <h1 id="变量命名规则"><a href="#变量命名规则" class="headerlink" title="变量命名规则"></a>变量命名规则</h1><ol>
 <li>要具有描述性</li>
 <li>变量名只能_,数字，字母组成，不可以是空格或特殊字符(#?&lt;.，￥$*!~)</li>
@@ -222,10 +223,16 @@ print(a)
 </code></pre><p>这种变量本身类型不固定的语言称之为<strong>动态语言</strong>，与之对应的是静态语言。静态语言在定义变量时必须指定变量类型，如果赋值的时候类型不匹配，就会报错。例如Java是静态语言，赋值语句如下：</p>
 <pre><code>int a = 123; //a是整数类型变量
 a = &quot;ABC&quot;; //错误：不能把字符串赋给整型变量
-</code></pre><p>和静态语言相比，动态语言更灵活。请不要把赋值语句的等号等同于数学的等号。比如下面的代码：</p>
-<pre><code>x = 10
-x = x + 2
-</code></pre><p>如果从数学上理解x = x + 2那无论如何是不成立的，在程序中，赋值语句先计算右侧的表达式x + 2，得到结果12，再赋给变量x。由于x之前的值是10，重新赋值后，x的值变成12。</p>
+</code></pre><p>和静态语言相比，动态语言更灵活。</p>
+<p>可以看出，Python 中不但变量名无需事先声明，而且也无需类型声明。Python 语言中，<br>对象的类型和内存占用都是运行时确定的。尽管代码被编译成字节码，Python 仍然是一种<strong>解释型语言</strong>。在创建——也就是赋值时，解释器会根据语法和右侧的操作数来决定新对象的类型。在对象创建后，一个该对象的应用会被赋值给左侧的变量。 </p>
+<h1 id="变量赋值"><a href="#变量赋值" class="headerlink" title="变量赋值"></a>变量赋值</h1><pre><code>&gt;&gt;&gt; x=1 #直接=赋值
+
+&gt;&gt;&gt; x=y=1# 链式复制
+
+&gt;&gt;&gt; x+=1 #增量赋值(x=x+1)
+
+&gt;&gt;&gt; x,y,z=(1,2,&apos;a&apos;)# 多元赋值 ,=号后面是一个元祖，即用小括号括起来，其实可以不加小括号，但为了提高代码可读性建议加上
+</code></pre><p>说明：赋值并不是直接将一个值赋给一个变量， 尽管你可能根据其它语言编程经验认为应该如此。在 Python 语言中，对象是通过引用传递的。在赋值时，不管这个对象是新创建的，还是一个已经存在的，都是将该对象的引用（并不是值）赋值给变量。</p>
 <h1 id="存储机制"><a href="#存储机制" class="headerlink" title="存储机制"></a>存储机制</h1><p>声明：<strong>a = ‘ABC’</strong>时，Python解释器干了两件事情：</p>
 <ol>
 <li>在内存中创建了一个’ABC’的字符串；</li>
@@ -237,9 +244,12 @@ b = a
 a = &apos;XYZ&apos;
 print(b)
 </code></pre><p>最后一行打印出变量b的内容到底是’ABC’呢还是’XYZ’？如果从数学意义上理解，就会错误地得出b和a相同，也应该是’XYZ’，但实际上b的值是’ABC’，让我们一行一行地执行代码，就可以看到到底发生了什么事：</p>
-<p>1.执行a = ‘ABC’，解释器创建了字符串’ABC’和变量a，并把a指向’ABC’：<br><img src="https://i.imgur.com/ldl7FxP.png" alt=""></p>
-<p>2.执行b = a，解释器创建了变量b，并把b指向a指向的字符串’ABC’：<br><img src="https://i.imgur.com/JZ6sixs.png" alt=""></p>
-<p>3.执行a = ‘XYZ’，解释器创建了字符串’XYZ’，并把a的指向改为’XYZ’，但b并没有更改：<br><img src="https://i.imgur.com/VEUY64z.png" alt=""></p>
+<p>1.执行a = ‘ABC’，解释器创建了字符串’ABC’和变量a，并把a指向’ABC’：</p>
+<p><img src="https://i.imgur.com/ldl7FxP.png" alt=""></p>
+<p>2.执行b = a，解释器创建了变量b，并把b指向a指向的字符串’ABC’：</p>
+<p><img src="https://i.imgur.com/JZ6sixs.png" alt=""></p>
+<p>3.执行a = ‘XYZ’，解释器创建了字符串’XYZ’，并把a的指向改为’XYZ’，但b并没有更改：</p>
+<p><img src="https://i.imgur.com/VEUY64z.png" alt=""></p>
 <p>所以，最后打印变量b的结果自然是’ABC’了。</p>
 <h1 id="常量"><a href="#常量" class="headerlink" title="常量"></a>常量</h1><p>所谓常量就是不能变的变量，比如常用的数学常数π就是一个常量。在Python中，通常用<strong>全部大写的变量名表示常量</strong>：</p>
 <pre><code>PI = 3.14159265359
@@ -358,7 +368,7 @@ print(b)
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://waisunny.com/2017/11/18/python中的变量存储机制/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://waisunny.com/2017/11/18/python中的变量/" alt="微信分享二维码">
     </div>
 </div>
 
