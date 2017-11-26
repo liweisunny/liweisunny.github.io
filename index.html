@@ -275,11 +275,7 @@ with open(&apos;log1&apos;,&apos;r&apos;) as f_read, open(&apos;log2&apos;,&apos
 </ol>
 <h3 id="seek"><a href="#seek" class="headerlink" title="seek()"></a>seek()</h3><ol>
 <li>作用：用于移动文件读写指针到指定位置</li>
-<li>语法格式：file.seek(offset,whence=0)<ol>
-<li>offset:偏移量，需要向前或者向后移动的字节数(中文是3个字节)</li>
-<li>可选值，默认为0, 可选值为1或者2，表示从何处开始计算偏移，具体来说，0表示从当前位置开始计算偏移，1表示从文件头位置开始计算偏移，2表示从文件尾开始计算偏移。</li>
-</ol>
-</li>
+<li>语法格式：file.seek(offset,whence=0)；(1) offset:偏移量，需要向前或者向后移动的字节数(中文是3个字节)，(2) 可选值，默认为0, 可选值为1或者2，表示从何处开始计算偏移，具体来说，0表示从当前位置开始计算偏移，1表示从文件头位置开始计算偏移，2表示从文件尾开始计算偏移。</li>
 </ol>
 <h1 id="高效迭代文件内容"><a href="#高效迭代文件内容" class="headerlink" title="高效迭代文件内容"></a>高效迭代文件内容</h1><p>方式一：</p>
 <pre><code>with open(&apos;file.txt&apos;,&apos;r&apos;,encoding=&apos;gbk&apos;) as file:

@@ -17,7 +17,7 @@
 <meta property="og:description" content="首先，学习python，掌握文件操作这一技能是必不可少的，本篇博文由浅入深，详细介绍python中操作文件的各种方法、各种方法之间的对比以及如何高效的读取文件等；Python中文件操作的三个步骤：  打开文件 操作文件 关闭文件  打开文件Python中file()与open()两个都能够打开文件，对文件进行操作，也具有相似的用法和参数，并且返回的都是一个文件对象；但是，这两种文件打开方式有本">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://i.imgur.com/RMzpzSy.png">
-<meta property="og:updated_time" content="2017-11-26T07:23:24.705Z">
+<meta property="og:updated_time" content="2017-11-26T07:24:35.314Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python之文件操作">
 <meta name="twitter:description" content="首先，学习python，掌握文件操作这一技能是必不可少的，本篇博文由浅入深，详细介绍python中操作文件的各种方法、各种方法之间的对比以及如何高效的读取文件等；Python中文件操作的三个步骤：  打开文件 操作文件 关闭文件  打开文件Python中file()与open()两个都能够打开文件，对文件进行操作，也具有相似的用法和参数，并且返回的都是一个文件对象；但是，这两种文件打开方式有本">
@@ -277,11 +277,7 @@ with open(&apos;log1&apos;,&apos;r&apos;) as f_read, open(&apos;log2&apos;,&apos
 </ol>
 <h3 id="seek"><a href="#seek" class="headerlink" title="seek()"></a>seek()</h3><ol>
 <li>作用：用于移动文件读写指针到指定位置</li>
-<li>语法格式：file.seek(offset,whence=0)<ol>
-<li>offset:偏移量，需要向前或者向后移动的字节数(中文是3个字节)</li>
-<li>可选值，默认为0, 可选值为1或者2，表示从何处开始计算偏移，具体来说，0表示从当前位置开始计算偏移，1表示从文件头位置开始计算偏移，2表示从文件尾开始计算偏移。</li>
-</ol>
-</li>
+<li>语法格式：file.seek(offset,whence=0)；(1) offset:偏移量，需要向前或者向后移动的字节数(中文是3个字节)，(2) 可选值，默认为0, 可选值为1或者2，表示从何处开始计算偏移，具体来说，0表示从当前位置开始计算偏移，1表示从文件头位置开始计算偏移，2表示从文件尾开始计算偏移。</li>
 </ol>
 <h1 id="高效迭代文件内容"><a href="#高效迭代文件内容" class="headerlink" title="高效迭代文件内容"></a>高效迭代文件内容</h1><p>方式一：</p>
 <pre><code>with open(&apos;file.txt&apos;,&apos;r&apos;,encoding=&apos;gbk&apos;) as file:
