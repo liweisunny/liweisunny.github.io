@@ -222,19 +222,19 @@ var _hmt = _hmt || [];
 </li>
 </ol>
 <h2 id="文件模式"><a href="#文件模式" class="headerlink" title="文件模式"></a>文件模式</h2><ol>
-<li>标识符|说明</li>
-<li>-|-|-</li>
-<li>‘r’|读模式</li>
-<li>‘w’|写模式，会先清空文件内容</li>
-<li>‘a’|追加模式</li>
-<li>‘b’|二进制模式（可添加到其他模式中使用，如：’rb’：表示读取二进制文件）</li>
-<li>‘+’|读/写模式（可添加到其他模式中使用）</li>
-<li>‘a+’|可读写模式，写只能写在文件末尾</li>
-<li>‘w+’|可读写，与’a+’的区别是要清空文件内容(<font color="#FF0000" size="5"><strong>不推荐使用</strong></font>)</li>
-<li>‘r+’|可读写，与’a+’的区别是可以写到文件任何位置</li>
+<li>‘r’：读模式</li>
+<li>‘w’：写模式，会先清空文件内容</li>
+<li>‘a’：追加模式</li>
+<li>‘b’：二进制模式（可添加到其他模式中使用，如：’rb’：表示读取二进制文件）</li>
+<li>‘+’：读/写模式（可添加到其他模式中使用）</li>
+<li>‘a+’：可读写模式，写只能写在文件末尾</li>
+<li>‘w+’：可读写，与’a+’的区别是要清空文件内容(<font color="#FF0000" size="3"><strong>不推荐使用</strong></font>)</li>
+<li>‘r+’：可读写，与’a+’的区别是可以写到文件任何位置</li>
 </ol>
-<h2 id="代码演示"><a href="#代码演示" class="headerlink" title="代码演示"></a>代码演示</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>f=open(<span class="string">'file.txt'</span>,<span class="string">'r'</span>,encoding=<span class="string">'utf-8'</span>)<span class="comment">#以只读的模式打开一个文件，对读取的文件内容是utf-8编码。</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>f=open(<span class="string">'file.txt'</span>,<span class="string">'r+'</span>,encoding=<span class="string">'utf-8'</span>)<span class="comment">#以读写的模式打开一个文件，对读取的文件内容是utf-8编码。</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>f=open(<span class="string">'file.txt'</span>,<span class="string">'a'</span>,encoding=<span class="string">'utf-8'</span>)<span class="comment">#以追加的模式打开一个文件，对读取的文件内容是utf-8编码。</span></span><br></pre></td></tr></table></figure>
-<h1 id="操作文件的方法"><a href="#操作文件的方法" class="headerlink" title="操作文件的方法"></a>操作文件的方法</h1><p>示例文件内容：</p>
+<h2 id="代码演示"><a href="#代码演示" class="headerlink" title="代码演示"></a>代码演示</h2><pre><code>&gt;&gt;&gt; f=open(&apos;file.txt&apos;,&apos;r&apos;,encoding=&apos;utf-8&apos;)#以只读的模式打开一个文件，对读取的文件内容是utf-8编码。
+&gt;&gt;&gt; f=open(&apos;file.txt&apos;,&apos;r+&apos;,encoding=&apos;utf-8&apos;)#以读写的模式打开一个文件，对读取的文件内容是utf-8编码。
+&gt;&gt;&gt; f=open(&apos;file.txt&apos;,&apos;a&apos;,encoding=&apos;utf-8&apos;)#以追加的模式打开一个文件，对读取的文件内容是utf-8编码。
+</code></pre><h1 id="操作文件的方法"><a href="#操作文件的方法" class="headerlink" title="操作文件的方法"></a>操作文件的方法</h1><p>示例文件内容：</p>
 <p><img src="https://i.imgur.com/RMzpzSy.png" alt=""></p>
 <h2 id="读-read-reabline-readlines"><a href="#读-read-reabline-readlines" class="headerlink" title="读 read(),reabline(),readlines()"></a>读 read(),reabline(),readlines()</h2><pre><code>&gt;&gt;&gt; f=open(&apos;file.txt&apos;,&apos;r&apos;,encoding=&apos;gbk&apos;)
 &gt;&gt;&gt; f.read()#读取全部内容,返回一个字符串
@@ -275,9 +275,17 @@ with open(&apos;log1&apos;,&apos;r&apos;) as f_read, open(&apos;log2&apos;,&apos
 </ol>
 <h3 id="seek"><a href="#seek" class="headerlink" title="seek()"></a>seek()</h3><ol>
 <li>作用：用于移动文件读写指针到指定的位置</li>
-<li>语法格式：file.seek(offset, whence=0):<ol>
+<li><p>语法格式：file.seek(offset, whence=0):</p>
+<ol>
 <li>offset: 偏移量，需要向前或者是向后移动的字节数</li>
-<li>whence: 可选值，默认为0, 可选值为1或者2，表示从何处开始计算偏移，具体来说，0表示从当前位置开始计算偏移，1表示从文件头位置开始计算偏移，2表示从文件尾开始计算偏移。<h3 id="代码演示-1"><a href="#代码演示-1" class="headerlink" title="代码演示"></a>代码演示</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>x = file(<span class="string">'file.txt'</span>, <span class="string">'r'</span>)   </span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>x.tell()           <span class="comment">#获得当前文件读取指针  </span></span><br><span class="line"><span class="number">0L</span>                     <span class="comment">#当前文件指针在文件头处  </span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>x.seek(<span class="number">3</span>)          <span class="comment">#将文件指针向前移动3个字节  </span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>x.tell()  </span><br><span class="line"><span class="number">3L</span>                     <span class="comment">#指针已经移动到了第3个字节处  </span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>x.seek(<span class="number">5</span>,<span class="number">1</span>)        <span class="comment">#表示从文件头处开始移动指针，向前移动5个字节  </span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>x.tell()                 </span><br><span class="line"><span class="number">5L</span>                     <span class="comment">#当前文件读取指针已经移动到第5个字节处  </span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>x.seek(<span class="number">0</span>,<span class="number">0</span>)        <span class="comment">#表示将文件指针移动到文件头处  </span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>x.tell()  </span><br><span class="line"><span class="number">0L</span>  </span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>x.seek(<span class="number">0</span>,<span class="number">2</span>)        <span class="comment">#表示将文件读取指针移动到文件尾部  </span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>x.tell()                 </span><br><span class="line"><span class="number">214L</span>                   <span class="comment">#可以得到文件大小为214B  </span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>x.seek(<span class="number">-2</span>,<span class="number">2</span>)       <span class="comment">#表示从文件尾部开始移动指针，向后移动2个字节  </span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>x.tell() </span><br><span class="line"><span class="number">212L</span></span><br></pre></td></tr></table></figure>
+<li><p>whence: 可选值，默认为0, 可选值为1或者2，表示从何处开始计算偏移，具体来说，0表示从当前位置开始计算偏移，1表示从文件头位置开始计算偏移，2表示从文件尾开始计算偏移。</p>
+<h3 id="代码演示-1"><a href="#代码演示-1" class="headerlink" title="代码演示"></a>代码演示</h3><blockquote>
+<blockquote>
+<blockquote>
+<p>x = file(‘file.txt’, ‘r’)<br>x.tell()           #获得当前文件读取指针<br>0L                     #当前文件指针在文件头处<br>x.seek(3)          #将文件指针向前移动3个字节<br>x.tell()<br>3L                     #指针已经移动到了第3个字节处<br>x.seek(5,1)        #表示从文件头处开始移动指针，向前移动5个字节<br>x.tell()<br>5L                     #当前文件读取指针已经移动到第5个字节处<br>x.seek(0,0)        #表示将文件指针移动到文件头处<br>x.tell()<br>0L<br>x.seek(0,2)        #表示将文件读取指针移动到文件尾部<br>x.tell()<br>214L                   #可以得到文件大小为214B<br>x.seek(-2,2)       #表示从文件尾部开始移动指针，向后移动2个字节<br>x.tell()<br>212L </p>
+</blockquote>
+</blockquote>
+</blockquote>
 </li>
 </ol>
 </li>
