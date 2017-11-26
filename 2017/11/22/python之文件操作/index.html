@@ -8,19 +8,19 @@
   <link rel="dns-prefetch" href="http://waisunny.com">
   <title>python之文件操作 | WaiBlog|码农的技术小窝</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="首先，学习python，掌握文件操作这一技能是必不可少的，本篇博文由浅入深，详细介绍python中操作文件的各种方法、各种方法之间的对比以及如何高效的读取文件等；Python中文件操作的三个步骤：  打开文件 操作文件 关闭文件  打开文件Python中file()与open()两个都能够打开文件，对文件进行操作，也具有相似的用法和参数，并且返回的都是一个文件对象；但是，这两种文件打开方式有本">
+  <meta name="description" content="首先，学习python，掌握文件操作这一技能是必不可少的，本篇博文由浅入深，详细介绍python中操作文件的各种方法、各种方法之间的对比以及如何高效的读取文件等；另外，牢记文件操作的三个步骤：(1)打开文件;(2)操作文件(3)关闭文件。 打开文件Python中的file()与open()都能够打开文件，对文件进行操作，也具有相似的用法和参数，并且返回的都是一个文件对象；但是，这两种文件打开方式有">
 <meta name="keywords" content="python基础">
 <meta property="og:type" content="article">
 <meta property="og:title" content="python之文件操作">
 <meta property="og:url" content="http://waisunny.com/2017/11/22/python之文件操作/index.html">
 <meta property="og:site_name" content="WaiBlog|码农的技术小窝">
-<meta property="og:description" content="首先，学习python，掌握文件操作这一技能是必不可少的，本篇博文由浅入深，详细介绍python中操作文件的各种方法、各种方法之间的对比以及如何高效的读取文件等；Python中文件操作的三个步骤：  打开文件 操作文件 关闭文件  打开文件Python中file()与open()两个都能够打开文件，对文件进行操作，也具有相似的用法和参数，并且返回的都是一个文件对象；但是，这两种文件打开方式有本">
+<meta property="og:description" content="首先，学习python，掌握文件操作这一技能是必不可少的，本篇博文由浅入深，详细介绍python中操作文件的各种方法、各种方法之间的对比以及如何高效的读取文件等；另外，牢记文件操作的三个步骤：(1)打开文件;(2)操作文件(3)关闭文件。 打开文件Python中的file()与open()都能够打开文件，对文件进行操作，也具有相似的用法和参数，并且返回的都是一个文件对象；但是，这两种文件打开方式有">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://i.imgur.com/RMzpzSy.png">
-<meta property="og:updated_time" content="2017-11-26T07:29:08.704Z">
+<meta property="og:updated_time" content="2017-11-26T07:41:24.975Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python之文件操作">
-<meta name="twitter:description" content="首先，学习python，掌握文件操作这一技能是必不可少的，本篇博文由浅入深，详细介绍python中操作文件的各种方法、各种方法之间的对比以及如何高效的读取文件等；Python中文件操作的三个步骤：  打开文件 操作文件 关闭文件  打开文件Python中file()与open()两个都能够打开文件，对文件进行操作，也具有相似的用法和参数，并且返回的都是一个文件对象；但是，这两种文件打开方式有本">
+<meta name="twitter:description" content="首先，学习python，掌握文件操作这一技能是必不可少的，本篇博文由浅入深，详细介绍python中操作文件的各种方法、各种方法之间的对比以及如何高效的读取文件等；另外，牢记文件操作的三个步骤：(1)打开文件;(2)操作文件(3)关闭文件。 打开文件Python中的file()与open()都能够打开文件，对文件进行操作，也具有相似的用法和参数，并且返回的都是一个文件对象；但是，这两种文件打开方式有">
 <meta name="twitter:image" content="https://i.imgur.com/RMzpzSy.png">
   
     <link rel="alternative" href="/atom.xml" title="WaiBlog|码农的技术小窝" type="application/atom+xml">
@@ -198,30 +198,16 @@ var _hmt = _hmt || [];
      
     <div class="article-entry" itemprop="articleBody">
        
-        <p>  首先，学习python，掌握文件操作这一技能是必不可少的，本篇博文由浅入深，详细介绍python中操作文件的各种方法、各种方法之间的对比以及如何高效的读取文件等；Python中文件操作的三个步骤：</p>
-<ol>
-<li>打开文件</li>
-<li>操作文件</li>
-<li>关闭文件</li>
-</ol>
-<h1 id="打开文件"><a href="#打开文件" class="headerlink" title="打开文件"></a>打开文件</h1><p>Python中file()与open()两个都能够打开文件，对文件进行操作，也具有相似的用法和参数，并且返回的都是一个文件对象；但是，这两种文件打开方式有本质的区别，file是一个类，用file()来打开文件，相当于这是在构造文件类，而用open()打开文件，是用python的内建函数来操作，这是不一样的，另外python3已经不再支持file()了；So，<font color="#FF0000" size="5"><strong>强烈建议使用open()函数</strong></font>。</p>
-<h2 id="open"><a href="#open" class="headerlink" title="open()"></a>open()</h2><pre><code>open(file[, mode[, buffering[, encoding[, errors[, newline[, closefd=True]]]]]])
+        <p>首先，学习python，掌握文件操作这一技能是必不可少的，本篇博文由浅入深，详细介绍python中操作文件的各种方法、各种方法之间的对比以及如何高效的读取文件等；另外，牢记文件操作的三个步骤：<font color="#FF0000" size="3">(1)打开文件;(2)操作文件(3)关闭文件</font>。</p>
+<h1 id="打开文件"><a href="#打开文件" class="headerlink" title="打开文件"></a>打开文件</h1><p>Python中的file()与open()都能够打开文件，对文件进行操作，也具有相似的用法和参数，并且返回的都是一个文件对象；但是，这两种文件打开方式有本质的区别，file是一个类，用file()来打开文件，相当于是在构造文件类；而用open()打开文件，是用python的内建函数来操作，这是不一样的，另外python3已经不再支持file()了；So，<font color="#FF0000" size="5"><strong>强烈建议使用open()函数</strong></font>。</p>
+<h2 id="open"><a href="#open" class="headerlink" title="open()"></a>open()</h2><p>打开指定路径的文件，如果文件不存在会自动创建，返回一个文件对象。</p>
+<pre><code>open(file[, mode[, buffering[, encoding[, errors[, newline[, closefd=True]]]]]])
 </code></pre><p>open函数有很多的参数，常用的是file，mode和encoding</p>
 <ol>
 <li>file：文件路径包含文件名，需要加引号</li>
 <li>mode：文件打开模式，见下面3</li>
 <li>encoding：表示的是返回的数据采用何种编码，一般采用utf8或者gbk；</li>
-<li>buffering(可选):控制着文件的缓冲，<ol>
-<li>1.如果参数是0(或者是False)，I/O(输人/输出)就是无缓冲的(所有的读写操作都直接针对硬盘);</li>
-<li>如果是1(或者是true), I/O就是有缓冲的(意味着Python使用内存来代替硬盘，让程序更快，只有使用flush或者close时才会更新硬盘上的数据;如果是大于1的数字代表缓冲区的大小(单位是字节)；</li>
-<li>如果是-1(或者是任何负数)代表使用默认的缓冲区大小。</li>
-<li>使用默认时，会采用下面策略来选择：<ol>
-<li>对于二进制文件模式时，采用固定块内存缓冲区方式，内存块的大小根据系统设备的分配的磁盘块来决定，如果获取系统磁盘块的大小失败，就使用内部常量io.DEFAULT_BUFFER_SIZE定义的大小。一般的操作系统上，块的大小是4096或者8192字节大小。</li>
-<li>对于交互的文本文件（采用isatty()判断为True）时，采用一行缓冲区的方式。其它文本文件使用跟二进制一样的方式。</li>
-</ol>
-</li>
-</ol>
-</li>
+<li>buffering(可选):控制着文件的缓冲，如果参数是0(或者是False)，I/O(输人/输出)就是无缓冲的(所有的读写操作都直接针对硬盘); 如果是1(或者是true), I/O就是有缓冲的(意味着Python使用内存来代替硬盘，让程序更快，只有使用flush或者close时才会更新硬盘上的数据;如果是大于1的数字代表缓冲区的大小(单位是字节)；如果是-1(或者是任何负数)代表使用默认的缓冲区大小；使用默认时会采用下面策略来选择：对于二进制文件模式时，采用固定块内存缓冲区方式，内存块的大小根据系统设备的分配的磁盘块来决定，如果获取系统磁盘块的大小失败，就使用内部常量io.DEFAULT_BUFFER_SIZE定义的大小。一般的操作系统上，块的大小是4096或者8192字节大小。对于交互的文本文件（采用isatty()判断为True）时，采用一行缓冲区的方式。其它文本文件使用跟二进制一样的方式。</li>
 </ol>
 <h2 id="文件模式"><a href="#文件模式" class="headerlink" title="文件模式"></a>文件模式</h2><ol>
 <li>‘r’：读模式</li>
@@ -271,7 +257,9 @@ with open(&apos;log1&apos;,&apos;r&apos;) as f_read, open(&apos;log2&apos;,&apos
     for line in f_read:
         f_write.write(line)
 </code></pre><p>说明：使用with语句操作文件会在with语句块执行完后自动调用close()方法关闭文件，推荐这种写法。</p>
-<h2 id="tell-seek"><a href="#tell-seek" class="headerlink" title="tell(),seek()"></a>tell(),seek()</h2><h3 id="tell"><a href="#tell" class="headerlink" title="tell()"></a>tell()</h3><ol>
+<h2 id="flush"><a href="#flush" class="headerlink" title="flush"></a>flush</h2><p>flush() 方法是用来刷新缓冲区的，即将缓冲区中的数据立刻写入文件，同时清空缓冲区，不需要是被动的等待输出缓冲区写入。一般情况下，文件关闭后会自动刷新缓冲区，但有时你需要在关闭前刷新它，这时就可以使用 flush() 方法。</p>
+<pre><code>file.flush()#没有返回值
+</code></pre><h2 id="tell-seek"><a href="#tell-seek" class="headerlink" title="tell(),seek()"></a>tell(),seek()</h2><h3 id="tell"><a href="#tell" class="headerlink" title="tell()"></a>tell()</h3><ol>
 <li>作用：获取当前文件读取指针的位置</li>
 <li>语法格式： file.tell() 注： 此方法没有参数</li>
 </ol>
@@ -465,7 +453,7 @@ with open(&apos;log1&apos;,&apos;r&apos;) as f_read, open(&apos;log2&apos;,&apos
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#打开文件"><span class="toc-number">1.</span> <span class="toc-text">打开文件</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#open"><span class="toc-number">1.1.</span> <span class="toc-text">open()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#文件模式"><span class="toc-number">1.2.</span> <span class="toc-text">文件模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#代码演示"><span class="toc-number">1.3.</span> <span class="toc-text">代码演示</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#操作文件的方法"><span class="toc-number">2.</span> <span class="toc-text">操作文件的方法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#读-read-reabline-readlines"><span class="toc-number">2.1.</span> <span class="toc-text">读 read(),reabline(),readlines()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#写-write-writelines"><span class="toc-number">2.2.</span> <span class="toc-text">写 write(),writelines()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#关闭文件close"><span class="toc-number">2.3.</span> <span class="toc-text">关闭文件close()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#tell-seek"><span class="toc-number">2.4.</span> <span class="toc-text">tell(),seek()</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#tell"><span class="toc-number">2.4.1.</span> <span class="toc-text">tell()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#seek"><span class="toc-number">2.4.2.</span> <span class="toc-text">seek()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#代码展示"><span class="toc-number">2.4.3.</span> <span class="toc-text">代码展示</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#高效迭代文件内容"><span class="toc-number">3.</span> <span class="toc-text">高效迭代文件内容</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#总结"><span class="toc-number">4.</span> <span class="toc-text">总结</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#打开文件"><span class="toc-number">1.</span> <span class="toc-text">打开文件</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#open"><span class="toc-number">1.1.</span> <span class="toc-text">open()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#文件模式"><span class="toc-number">1.2.</span> <span class="toc-text">文件模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#代码演示"><span class="toc-number">1.3.</span> <span class="toc-text">代码演示</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#操作文件的方法"><span class="toc-number">2.</span> <span class="toc-text">操作文件的方法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#读-read-reabline-readlines"><span class="toc-number">2.1.</span> <span class="toc-text">读 read(),reabline(),readlines()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#写-write-writelines"><span class="toc-number">2.2.</span> <span class="toc-text">写 write(),writelines()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#关闭文件close"><span class="toc-number">2.3.</span> <span class="toc-text">关闭文件close()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#flush"><span class="toc-number">2.4.</span> <span class="toc-text">flush</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#tell-seek"><span class="toc-number">2.5.</span> <span class="toc-text">tell(),seek()</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#tell"><span class="toc-number">2.5.1.</span> <span class="toc-text">tell()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#seek"><span class="toc-number">2.5.2.</span> <span class="toc-text">seek()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#代码展示"><span class="toc-number">2.5.3.</span> <span class="toc-text">代码展示</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#高效迭代文件内容"><span class="toc-number">3.</span> <span class="toc-text">高效迭代文件内容</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#总结"><span class="toc-number">4.</span> <span class="toc-text">总结</span></a></li></ol>
                     </div>
                 </span>
             </div>
