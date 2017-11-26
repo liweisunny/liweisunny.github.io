@@ -210,7 +210,7 @@ var _hmt = _hmt || [];
 <li>mode：文件打开模式，见下面3</li>
 <li>encoding：表示的是返回的数据采用何种编码，一般采用utf8或者gbk；</li>
 <li>buffering(可选):控制着文件的缓冲，<ol>
-<li>如果参数是0(或者是False)，I/O(输人/输出)就是无缓冲的(所有的读写操作都直接针对硬盘);</li>
+<li>1.如果参数是0(或者是False)，I/O(输人/输出)就是无缓冲的(所有的读写操作都直接针对硬盘);</li>
 <li>如果是1(或者是true), I/O就是有缓冲的(意味着Python使用内存来代替硬盘，让程序更快，只有使用flush或者close时才会更新硬盘上的数据;如果是大于1的数字代表缓冲区的大小(单位是字节)；</li>
 <li>如果是-1(或者是任何负数)代表使用默认的缓冲区大小。</li>
 <li>使用默认时，会采用下面策略来选择：<ol>
@@ -277,16 +277,34 @@ with open(&apos;log1&apos;,&apos;r&apos;) as f_read, open(&apos;log2&apos;,&apos
 <li>作用：用于移动文件读写指针到指定位置</li>
 <li>语法格式：file.seek(offset,whence=0)；(1) offset:偏移量，需要向前或者向后移动的字节数(中文是3个字节)，(2) 可选值，默认为0, 可选值为1或者2，表示从何处开始计算偏移，具体来说，0表示从当前位置开始计算偏移，1表示从文件头位置开始计算偏移，2表示从文件尾开始计算偏移。</li>
 </ol>
-<h1 id="高效迭代文件内容"><a href="#高效迭代文件内容" class="headerlink" title="高效迭代文件内容"></a>高效迭代文件内容</h1><p>方式一：</p>
+<h3 id="代码展示"><a href="#代码展示" class="headerlink" title="代码展示"></a>代码展示</h3><pre><code>&gt;&gt;&gt; x = file(&apos;file.txt&apos;, &apos;r&apos;)   
+&gt;&gt;&gt; x.tell()           #获得当前文件读取指针  
+0L                     #当前文件指针在文件头处  
+&gt;&gt;&gt; x.seek(3)          #将文件指针向前移动3个字节  
+&gt;&gt;&gt; x.tell()  
+3L                     #指针已经移动到了第3个字节处  
+&gt;&gt;&gt; x.seek(5,1)        #表示从文件头处开始移动指针，向前移动5个字节  
+&gt;&gt;&gt; x.tell()                 
+5L                     #当前文件读取指针已经移动到第5个字节处  
+&gt;&gt;&gt; x.seek(0,0)        #表示将文件指针移动到文件头处  
+&gt;&gt;&gt; x.tell()  
+0L  
+&gt;&gt;&gt; x.seek(0,2)        #表示将文件读取指针移动到文件尾部  
+&gt;&gt;&gt; x.tell()                 
+214L                   #可以得到文件大小为214B  
+&gt;&gt;&gt; x.seek(-2,2)       #表示从文件尾部开始移动指针，向后移动2个字节  
+&gt;&gt;&gt; x.tell() 
+212L 
+</code></pre><h1 id="高效迭代文件内容"><a href="#高效迭代文件内容" class="headerlink" title="高效迭代文件内容"></a>高效迭代文件内容</h1><p>方式一：</p>
 <pre><code>with open(&apos;file.txt&apos;,&apos;r&apos;,encoding=&apos;gbk&apos;) as file:
     for line in file.readlines():
         do_things(line)
 </code></pre><p>方式二：</p>
 <pre><code>with open(&apos;file.txt&apos;,&apos;r&apos;,encoding=&apos;gbk&apos;)as file:
-line=file.readline()
-while line:
     line=file.readline()
-    print(line)
+    while line:
+        line=file.readline()
+        do_things(line)
 </code></pre><p>方式三：</p>
 <pre><code>with open(&apos;file.txt&apos;,&apos;r&apos;,encoding=&apos;gbk&apos;) as file:
     for line in file:
