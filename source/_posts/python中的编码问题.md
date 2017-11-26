@@ -2,6 +2,7 @@
 title: python中的编码问题
 date: 2017-11-21 09:22:29
 tags: python基础
+toc: true
 ---
 
 # 引言

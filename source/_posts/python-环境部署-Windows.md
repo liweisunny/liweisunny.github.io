@@ -2,6 +2,7 @@
 title: python 环境部署-Windows
 date: 2017-11-15 16:53:48
 tags: python环境部署
+toc: true
 ---
 # 第一步
 ①下载python解释器：	
