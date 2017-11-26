@@ -196,13 +196,6 @@ var _hmt = _hmt || [];
      
     <div class="article-entry" itemprop="articleBody">
        
-		<!-- Table of Contents -->
-		
-		<div id="toc" class="toc-article">
-			<strong class="toc-title">文章目录</strong>
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#引言"><span class="toc-number">1.</span> <span class="toc-text">引言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#编码由来"><span class="toc-number">2.</span> <span class="toc-text">编码由来</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#计算机系统通用的字符编码工作方式"><span class="toc-number">3.</span> <span class="toc-text">计算机系统通用的字符编码工作方式</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#python中如何处理编码"><span class="toc-number">4.</span> <span class="toc-text">python中如何处理编码</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#decode"><span class="toc-number">4.1.</span> <span class="toc-text">decode</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#encode"><span class="toc-number">4.2.</span> <span class="toc-text">encode</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#代码中字符串的默认编码与代码文件本身的编码一致"><span class="toc-number">4.3.</span> <span class="toc-text">代码中字符串的默认编码与代码文件本身的编码一致</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#注意"><span class="toc-number">4.4.</span> <span class="toc-text">注意</span></a></li></ol></li></ol>
-		</div>
-		
         <h1 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h1><p>初学python让人头疼的莫过于python中的字符编码问题，尤其是在python2中，默认输出的字符是<strong>Ascii</strong>,是不支持中文的，所以要使用中文必须在每个文件的开头写上：‘# coding:utf-8’,这样才能输出中文否则会报一个下面这样的错误：</p>
 <pre><code>SyntaxError: Non-ASCII character &apos;\xe6&apos; in file new1.txt on 
 line 2, but no encoding declared; see http:/

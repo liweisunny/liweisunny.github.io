@@ -196,8 +196,6 @@ var _hmt = _hmt || [];
      
     <div class="article-entry" itemprop="articleBody">
        
-		<!-- Table of Contents -->
-		
         <p>  首先，学习python，掌握文件操作这一技能是必不可少的，本篇博文由浅入深，详细介绍python中操作文件的各种方法、各种方法之间的对比以及如何高效的读取文件等；Python中文件操作的三个步骤：</p>
 <ol>
 <li>打开文件</li>
@@ -223,16 +221,18 @@ var _hmt = _hmt || [];
 </ol>
 </li>
 </ol>
-<h2 id="文件模式"><a href="#文件模式" class="headerlink" title="文件模式"></a>文件模式</h2><p><table></table></p>
-<p><tr><th>标志</th><th>说明</th></tr></p>
-<p><tr><th>‘r’</th><th>读模式</th></tr></p>
-<p><tr><th>‘w’</th><th>写模式，会先清空文件内容</th></tr></p>
-<p><tr><th>‘a’</th><th>追加模式</th></tr></p>
-<p><tr><th>‘b’</th><th>二进制模式（可添加到其他模式中使用，如：’rb’：表示读取二进制文件）</th></tr></p>
-<p><tr><th>‘+’</th><th>读/写模式（可添加到其他模式中使用）</th></tr></p>
-<p><tr><th>‘a+’</th><th>可读写模式，写只能写在文件末尾</th></tr></p>
-<p><tr><th>‘w+’</th><th>可读写，与’a+’的区别是要清空文件内容(<font color="#FF0000" size="5"><strong>不推荐使用</strong></font>)</th></tr></p>
-<p><tr><th>‘r+’</th><th>可读写，与’a+’的区别是可以写到文件任何位置</th></tr><br></p>
+<h2 id="文件模式"><a href="#文件模式" class="headerlink" title="文件模式"></a>文件模式</h2><ol>
+<li>标识符|说明</li>
+<li>-|-|-</li>
+<li>‘r’|读模式</li>
+<li>‘w’|写模式，会先清空文件内容</li>
+<li>‘a’|追加模式</li>
+<li>‘b’|二进制模式（可添加到其他模式中使用，如：’rb’：表示读取二进制文件）</li>
+<li>‘+’|读/写模式（可添加到其他模式中使用）</li>
+<li>‘a+’|可读写模式，写只能写在文件末尾</li>
+<li>‘w+’|可读写，与’a+’的区别是要清空文件内容(<font color="#FF0000" size="5"><strong>不推荐使用</strong></font>)</li>
+<li>‘r+’|可读写，与’a+’的区别是可以写到文件任何位置</li>
+</ol>
 <h2 id="代码演示"><a href="#代码演示" class="headerlink" title="代码演示"></a>代码演示</h2><pre><code>&gt;&gt;&gt; f=open(&apos;file.txt&apos;,&apos;r&apos;,encoding=&apos;utf-8&apos;)#以只读的模式打开一个文件，对读取的文件内容是utf-8编码。
 &gt;&gt;&gt; f=open(&apos;file.txt&apos;,&apos;r+&apos;,encoding=&apos;utf-8&apos;)#以读写的模式打开一个文件，对读取的文件内容是utf-8编码。
 &gt;&gt;&gt; f=open(&apos;file.txt&apos;,&apos;a&apos;,encoding=&apos;utf-8&apos;)#以追加的模式打开一个文件，对读取的文件内容是utf-8编码。
@@ -277,20 +277,22 @@ with open(&apos;log1&apos;,&apos;r&apos;) as f_read, open(&apos;log2&apos;,&apos
 </ol>
 <h3 id="seek"><a href="#seek" class="headerlink" title="seek()"></a>seek()</h3><ol>
 <li>作用：用于移动文件读写指针到指定的位置</li>
-<li>语法格式：file.seek(offset, whence=0):<ol>
+<li><p>语法格式：file.seek(offset, whence=0):</p>
+<ol>
 <li>offset: 偏移量，需要向前或者是向后移动的字节数</li>
-<li>whence: 可选值，默认为0, 可选值为1或者2，表示从何处开始计算偏移，具体来说，0表示从当前位置开始计算偏移，1表示从文件头位置开始计算偏移，2表示从文件尾开始计算偏移。<h3 id="代码演示-1"><a href="#代码演示-1" class="headerlink" title="代码演示"></a>代码演示</h3><blockquote>
+<li><p>whence: 可选值，默认为0, 可选值为1或者2，表示从何处开始计算偏移，具体来说，0表示从当前位置开始计算偏移，1表示从文件头位置开始计算偏移，2表示从文件尾开始计算偏移。</p>
+<h3 id="代码演示-1"><a href="#代码演示-1" class="headerlink" title="代码演示"></a>代码演示</h3><blockquote>
 <blockquote>
 <blockquote>
 <p>x = file(‘file.txt’, ‘r’)<br>x.tell()           #获得当前文件读取指针<br>0L                     #当前文件指针在文件头处<br>x.seek(3)          #将文件指针向前移动3个字节<br>x.tell()<br>3L                     #指针已经移动到了第3个字节处<br>x.seek(5,1)        #表示从文件头处开始移动指针，向前移动5个字节<br>x.tell()<br>5L                     #当前文件读取指针已经移动到第5个字节处<br>x.seek(0,0)        #表示将文件指针移动到文件头处<br>x.tell()<br>0L<br>x.seek(0,2)        #表示将文件读取指针移动到文件尾部<br>x.tell()<br>214L                   #可以得到文件大小为214B<br>x.seek(-2,2)       #表示从文件尾部开始移动指针，向后移动2个字节<br>x.tell()<br>212L </p>
-</blockquote>
+<h1 id="高效迭代文件内容"><a href="#高效迭代文件内容" class="headerlink" title="高效迭代文件内容"></a>高效迭代文件内容</h1></blockquote>
 </blockquote>
 </blockquote>
 </li>
 </ol>
 </li>
 </ol>
-<h1 id="高效迭代文件内容"><a href="#高效迭代文件内容" class="headerlink" title="高效迭代文件内容"></a>高效迭代文件内容</h1><p>方式一：</p>
+<p>方式一：</p>
 <pre><code>with open(&apos;file.txt&apos;,&apos;r&apos;,encoding=&apos;gbk&apos;) as file:
     for line in file.readlines():
         do_things(line)
@@ -393,8 +395,6 @@ while line:
      
     <div class="article-entry" itemprop="articleBody">
        
-		<!-- Table of Contents -->
-		
         <h1 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h1><p>初学python让人头疼的莫过于python中的字符编码问题，尤其是在python2中，默认输出的字符是<strong>Ascii</strong>,是不支持中文的，所以要使用中文必须在每个文件的开头写上：‘# coding:utf-8’,这样才能输出中文否则会报一个下面这样的错误：</p>
 <pre><code>SyntaxError: Non-ASCII character &apos;\xe6&apos; in file new1.txt on 
 line 2, but no encoding declared; see http:/
@@ -509,8 +509,6 @@ A          01000001           00000000 01000001                01000001
      
     <div class="article-entry" itemprop="articleBody">
        
-		<!-- Table of Contents -->
-		
         <h1 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h1><p>初学python的时候，可能会有很多疑惑，尤其是最先接触的所谓的“可变数据类型”和“不可变数据类型”。python与C/C++不一样，它的变量使用有自己的特点，当初学python的时候，一定要记住“一切皆为对象，一切皆为对象的引用”这句话，其实这个特点类似于JAVA，所以在python里面大家也不用担心类似于C/C++中的指针的复杂问题。下面本文将对python里面的“可变数据类型”和“不可变数据类型”进行分析。</p>
 <p>首先，我们需要知道在python中哪些是可变数据类型，哪些是不可变数据类型。</p>
 <p><strong>可变数据类型：列表list和字典dict；</strong></p>
@@ -650,8 +648,6 @@ A          01000001           00000000 01000001                01000001
      
     <div class="article-entry" itemprop="articleBody">
        
-		<!-- Table of Contents -->
-		
         <h1 id="字符串介绍"><a href="#字符串介绍" class="headerlink" title="字符串介绍"></a>字符串介绍</h1><p>基本字符串操作，索引、分片、乘法、判断成员资格、求长度、取最大最小值等，但请记住字符串是不可变的，so 通过分片赋值都是不合法的。</p>
 <pre><code>&gt;&gt;&gt; x=&apos;Dany&apos;
 &gt;&gt;&gt; x[0]
@@ -917,8 +913,6 @@ Dany&apos;s age is 23
      
     <div class="article-entry" itemprop="articleBody">
        
-		<!-- Table of Contents -->
-		
         <p>定义变量的目的：简单来说，变量是为了存储程序运算过程中的一些中间结果，为了方便日后调用。</p>
 <p><strong>记住:python中一切皆为对象，一切皆为对象的引用，变量=对象。</strong></p>
 <h1 id="变量命名规则"><a href="#变量命名规则" class="headerlink" title="变量命名规则"></a>变量命名规则</h1><ol>
@@ -1065,8 +1059,6 @@ print(b)
      
     <div class="article-entry" itemprop="articleBody">
        
-		<!-- Table of Contents -->
-		
         <h1 id="安装setuptools"><a href="#安装setuptools" class="headerlink" title="安装setuptools"></a>安装setuptools</h1><p>①下载setuptools源码<strong>setuptools-25.2.0.tar.gz</strong>，地址：<a href="https://pypi.python.org/pypi/setuptools" title="setuptools下载" target="_blank" rel="external">https://pypi.python.org/pypi/setuptools</a><br><img src="https://i.imgur.com/a29kEga.png" alt=""><br>②这是一个压缩文件，将其解压到桌面，并进入该文件夹；按住shift键后，在文件夹空白处点击鼠标右键，选择：在此处打开命令窗口，输入：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python setup.py install</span><br></pre></td></tr></table></figure>
 <p>回车，看到如下图内容即表示安装成功：<br><img src="https://i.imgur.com/epT3f5n.png" alt=""></p>
@@ -1160,8 +1152,6 @@ print(b)
      
     <div class="article-entry" itemprop="articleBody">
        
-		<!-- Table of Contents -->
-		
         <h1 id="第一步"><a href="#第一步" class="headerlink" title="第一步"></a>第一步</h1><p>①下载python解释器：    </p>
 <p>进入python官网：<a href="http://www.python.org" target="_blank" rel="external">http://www.python.org</a> 点击Downlods，选择Windows，然后看到如下界面：</p>
 <p><img src="https://i.imgur.com/L62Jf03.jpg" alt=""></p>

@@ -17,7 +17,7 @@
 <meta property="og:description" content="首先，学习python，掌握文件操作这一技能是必不可少的，本篇博文由浅入深，详细介绍python中操作文件的各种方法、各种方法之间的对比以及如何高效的读取文件等；Python中文件操作的三个步骤：  打开文件 操作文件 关闭文件  打开文件Python中file()与open()两个都能够打开文件，对文件进行操作，也具有相似的用法和参数，并且返回的都是一个文件对象；但是，这两种文件打开方式有本">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://i.imgur.com/RMzpzSy.png">
-<meta property="og:updated_time" content="2017-11-26T03:52:34.508Z">
+<meta property="og:updated_time" content="2017-11-26T04:02:19.971Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python之文件操作">
 <meta name="twitter:description" content="首先，学习python，掌握文件操作这一技能是必不可少的，本篇博文由浅入深，详细介绍python中操作文件的各种方法、各种方法之间的对比以及如何高效的读取文件等；Python中文件操作的三个步骤：  打开文件 操作文件 关闭文件  打开文件Python中file()与open()两个都能够打开文件，对文件进行操作，也具有相似的用法和参数，并且返回的都是一个文件对象；但是，这两种文件打开方式有本">
@@ -198,13 +198,6 @@ var _hmt = _hmt || [];
      
     <div class="article-entry" itemprop="articleBody">
        
-		<!-- Table of Contents -->
-		
-		<div id="toc" class="toc-article">
-			<strong class="toc-title">文章目录</strong>
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#打开文件"><span class="toc-number">1.</span> <span class="toc-text">打开文件</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#open"><span class="toc-number">1.1.</span> <span class="toc-text">open()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#文件模式"><span class="toc-number">1.2.</span> <span class="toc-text">文件模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#代码演示"><span class="toc-number">1.3.</span> <span class="toc-text">代码演示</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#操作文件的方法"><span class="toc-number">2.</span> <span class="toc-text">操作文件的方法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#读-read-reabline-readlines"><span class="toc-number">2.1.</span> <span class="toc-text">读 read(),reabline(),readlines()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#写-write-writelines"><span class="toc-number">2.2.</span> <span class="toc-text">写 write(),writelines()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#关闭文件close"><span class="toc-number">2.3.</span> <span class="toc-text">关闭文件close()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#tell-seek"><span class="toc-number">2.4.</span> <span class="toc-text">tell(),seek()</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#tell"><span class="toc-number">2.4.1.</span> <span class="toc-text">tell()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#seek"><span class="toc-number">2.4.2.</span> <span class="toc-text">seek()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#代码演示-1"><span class="toc-number">2.4.3.</span> <span class="toc-text">代码演示</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#高效迭代文件内容"><span class="toc-number">3.</span> <span class="toc-text">高效迭代文件内容</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#总结"><span class="toc-number">4.</span> <span class="toc-text">总结</span></a></li></ol>
-		</div>
-		
         <p>  首先，学习python，掌握文件操作这一技能是必不可少的，本篇博文由浅入深，详细介绍python中操作文件的各种方法、各种方法之间的对比以及如何高效的读取文件等；Python中文件操作的三个步骤：</p>
 <ol>
 <li>打开文件</li>
@@ -230,16 +223,18 @@ var _hmt = _hmt || [];
 </ol>
 </li>
 </ol>
-<h2 id="文件模式"><a href="#文件模式" class="headerlink" title="文件模式"></a>文件模式</h2><p><table></table></p>
-<p><tr><th>标志</th><th>说明</th></tr></p>
-<p><tr><th>‘r’</th><th>读模式</th></tr></p>
-<p><tr><th>‘w’</th><th>写模式，会先清空文件内容</th></tr></p>
-<p><tr><th>‘a’</th><th>追加模式</th></tr></p>
-<p><tr><th>‘b’</th><th>二进制模式（可添加到其他模式中使用，如：’rb’：表示读取二进制文件）</th></tr></p>
-<p><tr><th>‘+’</th><th>读/写模式（可添加到其他模式中使用）</th></tr></p>
-<p><tr><th>‘a+’</th><th>可读写模式，写只能写在文件末尾</th></tr></p>
-<p><tr><th>‘w+’</th><th>可读写，与’a+’的区别是要清空文件内容(<font color="#FF0000" size="5"><strong>不推荐使用</strong></font>)</th></tr></p>
-<p><tr><th>‘r+’</th><th>可读写，与’a+’的区别是可以写到文件任何位置</th></tr><br></p>
+<h2 id="文件模式"><a href="#文件模式" class="headerlink" title="文件模式"></a>文件模式</h2><ol>
+<li>标识符|说明</li>
+<li>-|-|-</li>
+<li>‘r’|读模式</li>
+<li>‘w’|写模式，会先清空文件内容</li>
+<li>‘a’|追加模式</li>
+<li>‘b’|二进制模式（可添加到其他模式中使用，如：’rb’：表示读取二进制文件）</li>
+<li>‘+’|读/写模式（可添加到其他模式中使用）</li>
+<li>‘a+’|可读写模式，写只能写在文件末尾</li>
+<li>‘w+’|可读写，与’a+’的区别是要清空文件内容(<font color="#FF0000" size="5"><strong>不推荐使用</strong></font>)</li>
+<li>‘r+’|可读写，与’a+’的区别是可以写到文件任何位置</li>
+</ol>
 <h2 id="代码演示"><a href="#代码演示" class="headerlink" title="代码演示"></a>代码演示</h2><pre><code>&gt;&gt;&gt; f=open(&apos;file.txt&apos;,&apos;r&apos;,encoding=&apos;utf-8&apos;)#以只读的模式打开一个文件，对读取的文件内容是utf-8编码。
 &gt;&gt;&gt; f=open(&apos;file.txt&apos;,&apos;r+&apos;,encoding=&apos;utf-8&apos;)#以读写的模式打开一个文件，对读取的文件内容是utf-8编码。
 &gt;&gt;&gt; f=open(&apos;file.txt&apos;,&apos;a&apos;,encoding=&apos;utf-8&apos;)#以追加的模式打开一个文件，对读取的文件内容是utf-8编码。
@@ -284,20 +279,22 @@ with open(&apos;log1&apos;,&apos;r&apos;) as f_read, open(&apos;log2&apos;,&apos
 </ol>
 <h3 id="seek"><a href="#seek" class="headerlink" title="seek()"></a>seek()</h3><ol>
 <li>作用：用于移动文件读写指针到指定的位置</li>
-<li>语法格式：file.seek(offset, whence=0):<ol>
+<li><p>语法格式：file.seek(offset, whence=0):</p>
+<ol>
 <li>offset: 偏移量，需要向前或者是向后移动的字节数</li>
-<li>whence: 可选值，默认为0, 可选值为1或者2，表示从何处开始计算偏移，具体来说，0表示从当前位置开始计算偏移，1表示从文件头位置开始计算偏移，2表示从文件尾开始计算偏移。<h3 id="代码演示-1"><a href="#代码演示-1" class="headerlink" title="代码演示"></a>代码演示</h3><blockquote>
+<li><p>whence: 可选值，默认为0, 可选值为1或者2，表示从何处开始计算偏移，具体来说，0表示从当前位置开始计算偏移，1表示从文件头位置开始计算偏移，2表示从文件尾开始计算偏移。</p>
+<h3 id="代码演示-1"><a href="#代码演示-1" class="headerlink" title="代码演示"></a>代码演示</h3><blockquote>
 <blockquote>
 <blockquote>
 <p>x = file(‘file.txt’, ‘r’)<br>x.tell()           #获得当前文件读取指针<br>0L                     #当前文件指针在文件头处<br>x.seek(3)          #将文件指针向前移动3个字节<br>x.tell()<br>3L                     #指针已经移动到了第3个字节处<br>x.seek(5,1)        #表示从文件头处开始移动指针，向前移动5个字节<br>x.tell()<br>5L                     #当前文件读取指针已经移动到第5个字节处<br>x.seek(0,0)        #表示将文件指针移动到文件头处<br>x.tell()<br>0L<br>x.seek(0,2)        #表示将文件读取指针移动到文件尾部<br>x.tell()<br>214L                   #可以得到文件大小为214B<br>x.seek(-2,2)       #表示从文件尾部开始移动指针，向后移动2个字节<br>x.tell()<br>212L </p>
-</blockquote>
+<h1 id="高效迭代文件内容"><a href="#高效迭代文件内容" class="headerlink" title="高效迭代文件内容"></a>高效迭代文件内容</h1></blockquote>
 </blockquote>
 </blockquote>
 </li>
 </ol>
 </li>
 </ol>
-<h1 id="高效迭代文件内容"><a href="#高效迭代文件内容" class="headerlink" title="高效迭代文件内容"></a>高效迭代文件内容</h1><p>方式一：</p>
+<p>方式一：</p>
 <pre><code>with open(&apos;file.txt&apos;,&apos;r&apos;,encoding=&apos;gbk&apos;) as file:
     for line in file.readlines():
         do_things(line)
