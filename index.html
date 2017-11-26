@@ -271,7 +271,9 @@ with open(&apos;log1&apos;,&apos;r&apos;) as f_read, open(&apos;log2&apos;,&apos
 </code></pre><p>说明：使用with语句操作文件会在with语句块执行完后自动调用close()方法关闭文件，推荐这种写法。</p>
 <h2 id="tell-seek"><a href="#tell-seek" class="headerlink" title="tell(),seek()"></a>tell(),seek()</h2><h3 id="tell"><a href="#tell" class="headerlink" title="tell()"></a>tell()</h3><ol>
 <li>作用：获取当前文件读取指针的位置</li>
-<li>语法格式： file.tell() 注： 此方法没有参数<h3 id="seek"><a href="#seek" class="headerlink" title="seek()"></a>seek()</h3></li>
+<li>语法格式： file.tell() 注： 此方法没有参数</li>
+</ol>
+<h3 id="seek"><a href="#seek" class="headerlink" title="seek()"></a>seek()</h3><ol>
 <li>作用：用于移动文件读写指针到指定位置</li>
 <li>语法格式：file.seek(offset,whence=0)<ol>
 <li>offset:偏移量，需要向前或者向后移动的字节数(中文是3个字节)</li>
