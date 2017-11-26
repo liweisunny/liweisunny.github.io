@@ -171,6 +171,203 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-python之文件操作" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/22/python之文件操作/">python之文件操作</a>
+    </h1>
+  
+
+
+  <a href="javascript:;" class="archive-article-date">
+      <i class="icon-smile icon"></i> 阅读数:<span id="/2017/11/22/python之文件操作/" class="pageViews">0</span>次
+  </a>
+
+        
+        <a href="/2017/11/22/python之文件操作/" class="archive-article-date">
+  	<time datetime="2017-11-22T15:35:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-22</time>
+</a>
+        
+      </header>
+     
+    <div class="article-entry" itemprop="articleBody">
+       
+		<!-- Table of Contents -->
+		
+        <p>  首先，学习python，掌握文件操作这一技能是必不可少的，本篇博文由浅入深，详细介绍python中操作文件的各种方法、各种方法之间的对比以及如何高效的读取文件等；Python中文件操作的三个步骤：</p>
+<ol>
+<li>打开文件</li>
+<li>操作文件</li>
+<li>关闭文件</li>
+</ol>
+<h1 id="打开文件"><a href="#打开文件" class="headerlink" title="打开文件"></a>打开文件</h1><p>Python中file()与open()两个都能够打开文件，对文件进行操作，也具有相似的用法和参数，并且返回的都是一个文件对象；但是，这两种文件打开方式有本质的区别，file是一个类，用file()来打开文件，相当于这是在构造文件类，而用open()打开文件，是用python的内建函数来操作，这是不一样的，另外python3已经不再支持file()了；So，<font color="#FF0000" size="5"><strong>强烈建议使用open()函数</strong></font>。</p>
+<h2 id="open"><a href="#open" class="headerlink" title="open()"></a>open()</h2><pre><code>open(file[, mode[, buffering[, encoding[, errors[, newline[, closefd=True]]]]]])
+</code></pre><p>open函数有很多的参数，常用的是file，mode和encoding</p>
+<ol>
+<li>file：文件路径包含文件名，需要加引号</li>
+<li>mode：文件打开模式，见下面3</li>
+<li>encoding：表示的是返回的数据采用何种编码，一般采用utf8或者gbk；</li>
+<li>buffering(可选):控制着文件的缓冲，<ol>
+<li>如果参数是0(或者是False)，I/O(输人/输出)就是无缓冲的(所有的读写操作都直接针对硬盘);</li>
+<li>如果是1(或者是true), I/O就是有缓冲的(意味着Python使用内存来代替硬盘，让程序更快，只有使用flush或者close时才会更新硬盘上的数据;如果是大于1的数字代表缓冲区的大小(单位是字节)；</li>
+<li>如果是-1(或者是任何负数)代表使用默认的缓冲区大小。</li>
+<li>使用默认时，会采用下面策略来选择：<ol>
+<li>对于二进制文件模式时，采用固定块内存缓冲区方式，内存块的大小根据系统设备的分配的磁盘块来决定，如果获取系统磁盘块的大小失败，就使用内部常量io.DEFAULT_BUFFER_SIZE定义的大小。一般的操作系统上，块的大小是4096或者8192字节大小。</li>
+<li>对于交互的文本文件（采用isatty()判断为True）时，采用一行缓冲区的方式。其它文本文件使用跟二进制一样的方式。</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h2 id="文件模式"><a href="#文件模式" class="headerlink" title="文件模式"></a>文件模式</h2><p><table></table></p>
+<p><tr><th>标志</th><th>说明</th></tr></p>
+<p><tr><th>‘r’</th><th>读模式</th></tr></p>
+<p><tr><th>‘w’</th><th>写模式，会先清空文件内容</th></tr></p>
+<p><tr><th>‘a’</th><th>追加模式</th></tr></p>
+<p><tr><th>‘b’</th><th>二进制模式（可添加到其他模式中使用，如：’rb’：表示读取二进制文件）</th></tr></p>
+<p><tr><th>‘+’</th><th>读/写模式（可添加到其他模式中使用）</th></tr></p>
+<p><tr><th>‘a+’</th><th>可读写模式，写只能写在文件末尾</th></tr></p>
+<p><tr><th>‘w+’</th><th>可读写，与’a+’的区别是要清空文件内容(<font color="#FF0000" size="5"><strong>不推荐使用</strong></font>)</th></tr></p>
+<p><tr><th>‘r+’</th><th>可读写，与’a+’的区别是可以写到文件任何位置</th></tr><br></p>
+<h2 id="代码演示"><a href="#代码演示" class="headerlink" title="代码演示"></a>代码演示</h2><pre><code>&gt;&gt;&gt; f=open(&apos;file.txt&apos;,&apos;r&apos;,encoding=&apos;utf-8&apos;)#以只读的模式打开一个文件，对读取的文件内容是utf-8编码。
+&gt;&gt;&gt; f=open(&apos;file.txt&apos;,&apos;r+&apos;,encoding=&apos;utf-8&apos;)#以读写的模式打开一个文件，对读取的文件内容是utf-8编码。
+&gt;&gt;&gt; f=open(&apos;file.txt&apos;,&apos;a&apos;,encoding=&apos;utf-8&apos;)#以追加的模式打开一个文件，对读取的文件内容是utf-8编码。
+</code></pre><h1 id="操作文件的方法"><a href="#操作文件的方法" class="headerlink" title="操作文件的方法"></a>操作文件的方法</h1><p>示例文件内容：</p>
+<p><img src="https://i.imgur.com/RMzpzSy.png" alt=""></p>
+<h2 id="读-read-reabline-readlines"><a href="#读-read-reabline-readlines" class="headerlink" title="读 read(),reabline(),readlines()"></a>读 read(),reabline(),readlines()</h2><pre><code>&gt;&gt;&gt; f=open(&apos;file.txt&apos;,&apos;r&apos;,encoding=&apos;gbk&apos;)
+&gt;&gt;&gt; f.read()#读取全部内容,返回一个字符串
+python 文件操作
+python 字符串语法
+python 列表元祖字典
+python 中的变量
+&gt;&gt;&gt; f.read(5)#读取指定长度的字符
+
+&gt;&gt;&gt; f.readline()#读取一行内容，返回一个 字符串
+
+&gt;&gt;&gt; f.readlines()#读取全部行，返回一个列表
+
+&gt;&gt;&gt; f.close()
+</code></pre><p>说明：上述代码第一个读取操作读取出了所有内容，剩下的读取到的都是空，原因是因为每执行一次读操作，都会记录下当前文件读取指针的位置，接下来的读操作是在上一次的读操作读取到的内容之后继续开始读取的。可以通过下面介绍的tell()方法获取当前指针所在位置，通过seek()方法设置指针位置。</p>
+<h2 id="写-write-writelines"><a href="#写-write-writelines" class="headerlink" title="写 write(),writelines()"></a>写 write(),writelines()</h2><pre><code>&gt;&gt;&gt; f=open(&apos;file.txt&apos;,&apos;w&apos;,encoding=&apos;gbk&apos;)
+&gt;&gt;&gt; f.write(&apos;python人生&apos;)#接受字符串 作为参数
+&gt;&gt;&gt; f.writelines([&apos;python生活&apos;,&apos;python前世&apos;])#接受序列(字符串，列表，元祖)作为参数
+&gt;&gt;&gt; f.close()
+python人生
+python生活
+python前世
+</code></pre><p>说明：当以只写的模式打开文件的时候会先清空文件内容,另外多个连续写的操作也会有读操作时说到的光标注意事项；另外需要值得一提的时，写操作并不是直接把内容写到磁盘上，而是写到了缓冲区中即内存里。当调用f.close()方法时会把缓冲区的内容写入到磁盘</p>
+<h2 id="关闭文件close"><a href="#关闭文件close" class="headerlink" title="关闭文件close()"></a>关闭文件close()</h2><p>close()方法时用来关闭文件的，这是一种很重要但是容易被忘记的操作，虽然说即使我们不直接调用close()方法，python解释器 也会在程序执行完是帮我们关闭文件，但是依赖于解释器来关闭文件的行为是不安全的，所以，一定要在操作完文件后调用close()方法来关闭文件；为了避免忘记关闭文件，推荐一种打开文件的方式：</p>
+<pre><code>with open(&apos;log&apos;, &apos;r&apos;) as f:
+     f.readline()
+     f.read()
+print(&apos;hello&apos;)
+
+#同时操作多个文件
+with open(&apos;log1&apos;,&apos;r&apos;) as f_read, open(&apos;log2&apos;,&apos;w&apos;) as f_write:
+    for line in f_read:
+        f_write.write(line)
+</code></pre><p>说明：使用with语句操作文件会在with语句块执行完后自动调用close()方法关闭文件，推荐这种写法。</p>
+<h2 id="tell-seek"><a href="#tell-seek" class="headerlink" title="tell(),seek()"></a>tell(),seek()</h2><h3 id="tell"><a href="#tell" class="headerlink" title="tell()"></a>tell()</h3><ol>
+<li>作用：获取当前文件读取指针的位置</li>
+<li>语法格式： file.tell() 注： 此方法没有参数</li>
+</ol>
+<h3 id="seek"><a href="#seek" class="headerlink" title="seek()"></a>seek()</h3><ol>
+<li>作用：用于移动文件读写指针到指定的位置</li>
+<li>语法格式：file.seek(offset, whence=0):<ol>
+<li>offset: 偏移量，需要向前或者是向后移动的字节数</li>
+<li>whence: 可选值，默认为0, 可选值为1或者2，表示从何处开始计算偏移，具体来说，0表示从当前位置开始计算偏移，1表示从文件头位置开始计算偏移，2表示从文件尾开始计算偏移。<h3 id="代码演示-1"><a href="#代码演示-1" class="headerlink" title="代码演示"></a>代码演示</h3><blockquote>
+<blockquote>
+<blockquote>
+<p>x = file(‘file.txt’, ‘r’)<br>x.tell()           #获得当前文件读取指针<br>0L                     #当前文件指针在文件头处<br>x.seek(3)          #将文件指针向前移动3个字节<br>x.tell()<br>3L                     #指针已经移动到了第3个字节处<br>x.seek(5,1)        #表示从文件头处开始移动指针，向前移动5个字节<br>x.tell()<br>5L                     #当前文件读取指针已经移动到第5个字节处<br>x.seek(0,0)        #表示将文件指针移动到文件头处<br>x.tell()<br>0L<br>x.seek(0,2)        #表示将文件读取指针移动到文件尾部<br>x.tell()<br>214L                   #可以得到文件大小为214B<br>x.seek(-2,2)       #表示从文件尾部开始移动指针，向后移动2个字节<br>x.tell()<br>212L </p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+</ol>
+</li>
+</ol>
+<h1 id="高效迭代文件内容"><a href="#高效迭代文件内容" class="headerlink" title="高效迭代文件内容"></a>高效迭代文件内容</h1><p>方式一：</p>
+<pre><code>with open(&apos;file.txt&apos;,&apos;r&apos;,encoding=&apos;gbk&apos;) as file:
+    for line in file.readlines():
+        do_things(line)
+</code></pre><p>方式二：</p>
+<pre><code>with open(&apos;file.txt&apos;,&apos;r&apos;,encoding=&apos;gbk&apos;)as file:
+line=file.readline()
+while line:
+    line=file.readline()
+    print(line)
+</code></pre><p>方式三：</p>
+<pre><code>with open(&apos;file.txt&apos;,&apos;r&apos;,encoding=&apos;gbk&apos;) as file:
+    for line in file:
+        do_things(line)
+</code></pre><p>说明：</p>
+<p>第一种方式会一次性将文件中的内容加载到内存中然后对内存进行读操作。</p>
+<p>第二种方式从磁盘上读取一条输出一条，不会将文件内容一次性加载到内存。</p>
+<p>第三种方式直接迭代文件对象,for循环会把它当做一个迭代器，读取一行输出一行。</p>
+<p>三种方式执行效率对比（<font color="#FF0000" size="5">本人测试数据，会有偏差</font>）：</p>
+<ol>
+<li>测试文件：1G的大文本文件；多次运行三种方式：第一种内存明显增加，执行时间在1分钟10秒左右；第二种内存没有增加，运行时间在1分钟15秒左右；第三种内存没有增加，运行时间在1分钟左右；</li>
+<li>测试文件：15MB小文本文件;多次运行三种方式：第一种内存明显增加，执行时间在1.2秒左右；第二种内存没有增加，运行时间在1.6秒左右；第三种内存没有增加，运行时间在1.2秒左右；</li>
+</ol>
+<p>由此可知：小文本操作时，第二种方式执行相对较慢，不推荐使用，大文本操作时第一种方式会占用很大内存；另外无论是大文本操作还是小文本操作，第三种方式都是最节省内存执行时间最快的；So，极力推荐使用第三种方式</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>上述介绍了基本的文件操作方式和一些注意事项，最后详细介绍了迭代文件内容最高效的方式，希望各位读者可以自己亲自动手尝试一些，这样会让你有更深层次的理解.</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">python基础</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/11/22/python之文件操作/">more >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-python中的编码问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -196,6 +393,8 @@ var _hmt = _hmt || [];
      
     <div class="article-entry" itemprop="articleBody">
        
+		<!-- Table of Contents -->
+		
         <h1 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h1><p>初学python让人头疼的莫过于python中的字符编码问题，尤其是在python2中，默认输出的字符是<strong>Ascii</strong>,是不支持中文的，所以要使用中文必须在每个文件的开头写上：‘# coding:utf-8’,这样才能输出中文否则会报一个下面这样的错误：</p>
 <pre><code>SyntaxError: Non-ASCII character &apos;\xe6&apos; in file new1.txt on 
 line 2, but no encoding declared; see http:/
@@ -310,6 +509,8 @@ A          01000001           00000000 01000001                01000001
      
     <div class="article-entry" itemprop="articleBody">
        
+		<!-- Table of Contents -->
+		
         <h1 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h1><p>初学python的时候，可能会有很多疑惑，尤其是最先接触的所谓的“可变数据类型”和“不可变数据类型”。python与C/C++不一样，它的变量使用有自己的特点，当初学python的时候，一定要记住“一切皆为对象，一切皆为对象的引用”这句话，其实这个特点类似于JAVA，所以在python里面大家也不用担心类似于C/C++中的指针的复杂问题。下面本文将对python里面的“可变数据类型”和“不可变数据类型”进行分析。</p>
 <p>首先，我们需要知道在python中哪些是可变数据类型，哪些是不可变数据类型。</p>
 <p><strong>可变数据类型：列表list和字典dict；</strong></p>
@@ -449,6 +650,8 @@ A          01000001           00000000 01000001                01000001
      
     <div class="article-entry" itemprop="articleBody">
        
+		<!-- Table of Contents -->
+		
         <h1 id="字符串介绍"><a href="#字符串介绍" class="headerlink" title="字符串介绍"></a>字符串介绍</h1><p>基本字符串操作，索引、分片、乘法、判断成员资格、求长度、取最大最小值等，但请记住字符串是不可变的，so 通过分片赋值都是不合法的。</p>
 <pre><code>&gt;&gt;&gt; x=&apos;Dany&apos;
 &gt;&gt;&gt; x[0]
@@ -714,6 +917,8 @@ Dany&apos;s age is 23
      
     <div class="article-entry" itemprop="articleBody">
        
+		<!-- Table of Contents -->
+		
         <p>定义变量的目的：简单来说，变量是为了存储程序运算过程中的一些中间结果，为了方便日后调用。</p>
 <p><strong>记住:python中一切皆为对象，一切皆为对象的引用，变量=对象。</strong></p>
 <h1 id="变量命名规则"><a href="#变量命名规则" class="headerlink" title="变量命名规则"></a>变量命名规则</h1><ol>
@@ -860,6 +1065,8 @@ print(b)
      
     <div class="article-entry" itemprop="articleBody">
        
+		<!-- Table of Contents -->
+		
         <h1 id="安装setuptools"><a href="#安装setuptools" class="headerlink" title="安装setuptools"></a>安装setuptools</h1><p>①下载setuptools源码<strong>setuptools-25.2.0.tar.gz</strong>，地址：<a href="https://pypi.python.org/pypi/setuptools" title="setuptools下载" target="_blank" rel="external">https://pypi.python.org/pypi/setuptools</a><br><img src="https://i.imgur.com/a29kEga.png" alt=""><br>②这是一个压缩文件，将其解压到桌面，并进入该文件夹；按住shift键后，在文件夹空白处点击鼠标右键，选择：在此处打开命令窗口，输入：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python setup.py install</span><br></pre></td></tr></table></figure>
 <p>回车，看到如下图内容即表示安装成功：<br><img src="https://i.imgur.com/epT3f5n.png" alt=""></p>
@@ -953,6 +1160,8 @@ print(b)
      
     <div class="article-entry" itemprop="articleBody">
        
+		<!-- Table of Contents -->
+		
         <h1 id="第一步"><a href="#第一步" class="headerlink" title="第一步"></a>第一步</h1><p>①下载python解释器：    </p>
 <p>进入python官网：<a href="http://www.python.org" target="_blank" rel="external">http://www.python.org</a> 点击Downlods，选择Windows，然后看到如下界面：</p>
 <p><img src="https://i.imgur.com/L62Jf03.jpg" alt=""></p>

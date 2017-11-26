@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="WaiBlog|码农的技术小窝">
 <meta property="og:description" content="引言初学python让人头疼的莫过于python中的字符编码问题，尤其是在python2中，默认输出的字符是Ascii,是不支持中文的，所以要使用中文必须在每个文件的开头写上：‘# coding:utf-8’,这样才能输出中文否则会报一个下面这样的错误： SyntaxError: Non-ASCII character &amp;apos;\xe6&amp;apos; in file new1.txt on  l">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-11-22T10:57:16.738Z">
+<meta property="og:updated_time" content="2017-11-26T03:52:42.483Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python中的编码问题">
 <meta name="twitter:description" content="引言初学python让人头疼的莫过于python中的字符编码问题，尤其是在python2中，默认输出的字符是Ascii,是不支持中文的，所以要使用中文必须在每个文件的开头写上：‘# coding:utf-8’,这样才能输出中文否则会报一个下面这样的错误： SyntaxError: Non-ASCII character &amp;apos;\xe6&amp;apos; in file new1.txt on  l">
@@ -196,6 +196,13 @@ var _hmt = _hmt || [];
      
     <div class="article-entry" itemprop="articleBody">
        
+		<!-- Table of Contents -->
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#引言"><span class="toc-number">1.</span> <span class="toc-text">引言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#编码由来"><span class="toc-number">2.</span> <span class="toc-text">编码由来</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#计算机系统通用的字符编码工作方式"><span class="toc-number">3.</span> <span class="toc-text">计算机系统通用的字符编码工作方式</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#python中如何处理编码"><span class="toc-number">4.</span> <span class="toc-text">python中如何处理编码</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#decode"><span class="toc-number">4.1.</span> <span class="toc-text">decode</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#encode"><span class="toc-number">4.2.</span> <span class="toc-text">encode</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#代码中字符串的默认编码与代码文件本身的编码一致"><span class="toc-number">4.3.</span> <span class="toc-text">代码中字符串的默认编码与代码文件本身的编码一致</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#注意"><span class="toc-number">4.4.</span> <span class="toc-text">注意</span></a></li></ol></li></ol>
+		</div>
+		
         <h1 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h1><p>初学python让人头疼的莫过于python中的字符编码问题，尤其是在python2中，默认输出的字符是<strong>Ascii</strong>,是不支持中文的，所以要使用中文必须在每个文件的开头写上：‘# coding:utf-8’,这样才能输出中文否则会报一个下面这样的错误：</p>
 <pre><code>SyntaxError: Non-ASCII character &apos;\xe6&apos; in file new1.txt on 
 line 2, but no encoding declared; see http:/
@@ -346,6 +353,15 @@ A          01000001           00000000 01000001                01000001
   
 <nav id="article-nav">
   
+    <a href="/2017/11/22/python之文件操作/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          python之文件操作
+        
+      </div>
+    </a>
+  
   
     <a href="/2017/11/20/Python的可变与不可变数据类型/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">Python的可变与不可变数据类型</div>
@@ -367,6 +383,19 @@ A          01000001           00000000 01000001                01000001
             </div>
         </div>
         
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#引言"><span class="toc-number">1.</span> <span class="toc-text">引言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#编码由来"><span class="toc-number">2.</span> <span class="toc-text">编码由来</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#计算机系统通用的字符编码工作方式"><span class="toc-number">3.</span> <span class="toc-text">计算机系统通用的字符编码工作方式</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#python中如何处理编码"><span class="toc-number">4.</span> <span class="toc-text">python中如何处理编码</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#decode"><span class="toc-number">4.1.</span> <span class="toc-text">decode</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#encode"><span class="toc-number">4.2.</span> <span class="toc-text">encode</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#代码中字符串的默认编码与代码文件本身的编码一致"><span class="toc-number">4.3.</span> <span class="toc-text">代码中字符串的默认编码与代码文件本身的编码一致</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#注意"><span class="toc-number">4.4.</span> <span class="toc-text">注意</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
         
     </div>
 </aside>
