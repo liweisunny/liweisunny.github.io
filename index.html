@@ -271,29 +271,19 @@ with open(&apos;log1&apos;,&apos;r&apos;) as f_read, open(&apos;log2&apos;,&apos
 </code></pre><p>说明：使用with语句操作文件会在with语句块执行完后自动调用close()方法关闭文件，推荐这种写法。</p>
 <h2 id="tell-seek"><a href="#tell-seek" class="headerlink" title="tell(),seek()"></a>tell(),seek()</h2><h3 id="tell"><a href="#tell" class="headerlink" title="tell()"></a>tell()</h3><ol>
 <li>作用：获取当前文件读取指针的位置</li>
-<li>语法格式： file.tell() 注： 此方法没有参数</li>
-</ol>
-<h3 id="seek"><a href="#seek" class="headerlink" title="seek()"></a>seek()</h3><ol>
-<li>作用：用于移动文件读写指针到指定的位置</li>
-<li><p>语法格式：file.seek(offset, whence=0):</p>
-<ol>
-<li>offset: 偏移量，需要向前或者是向后移动的字节数</li>
-<li><p>whence: 可选值，默认为0, 可选值为1或者2，表示从何处开始计算偏移，具体来说，0表示从当前位置开始计算偏移，1表示从文件头位置开始计算偏移，2表示从文件尾开始计算偏移。</p>
-<h3 id="代码演示-1"><a href="#代码演示-1" class="headerlink" title="代码演示"></a>代码演示</h3><blockquote>
-<blockquote>
-<blockquote>
-<p>x = file(‘file.txt’, ‘r’)<br>x.tell()           #获得当前文件读取指针<br>0L                     #当前文件指针在文件头处<br>x.seek(3)          #将文件指针向前移动3个字节<br>x.tell()<br>3L                     #指针已经移动到了第3个字节处<br>x.seek(5,1)        #表示从文件头处开始移动指针，向前移动5个字节<br>x.tell()<br>5L                     #当前文件读取指针已经移动到第5个字节处<br>x.seek(0,0)        #表示将文件指针移动到文件头处<br>x.tell()<br>0L<br>x.seek(0,2)        #表示将文件读取指针移动到文件尾部<br>x.tell()<br>214L                   #可以得到文件大小为214B<br>x.seek(-2,2)       #表示从文件尾部开始移动指针，向后移动2个字节<br>x.tell()<br>212L </p>
-<h1 id="高效迭代文件内容"><a href="#高效迭代文件内容" class="headerlink" title="高效迭代文件内容"></a>高效迭代文件内容</h1><p>方式一：</p>
-</blockquote>
-</blockquote>
-</blockquote>
-<p>with open(‘file.txt’,’r’,encoding=’gbk’) as file:<br> for line in file.readlines():</p>
-<pre><code>do_things(line)
-</code></pre></li>
+<li>语法格式： file.tell() 注： 此方法没有参数<h3 id="seek"><a href="#seek" class="headerlink" title="seek()"></a>seek()</h3></li>
+<li>作用：用于移动文件读写指针到指定位置</li>
+<li>语法格式：file.seek(offset,whence=0)<ol>
+<li>offset:偏移量，需要向前或者向后移动的字节数(中文是3个字节)</li>
+<li>可选值，默认为0, 可选值为1或者2，表示从何处开始计算偏移，具体来说，0表示从当前位置开始计算偏移，1表示从文件头位置开始计算偏移，2表示从文件尾开始计算偏移。</li>
 </ol>
 </li>
 </ol>
-<p>方式二：</p>
+<h1 id="高效迭代文件内容"><a href="#高效迭代文件内容" class="headerlink" title="高效迭代文件内容"></a>高效迭代文件内容</h1><p>方式一：</p>
+<pre><code>with open(&apos;file.txt&apos;,&apos;r&apos;,encoding=&apos;gbk&apos;) as file:
+    for line in file.readlines():
+        do_things(line)
+</code></pre><p>方式二：</p>
 <pre><code>with open(&apos;file.txt&apos;,&apos;r&apos;,encoding=&apos;gbk&apos;)as file:
 line=file.readline()
 while line:
