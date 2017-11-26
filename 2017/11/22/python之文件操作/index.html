@@ -17,7 +17,7 @@
 <meta property="og:description" content="首先，学习python，掌握文件操作这一技能是必不可少的，本篇博文由浅入深，详细介绍python中操作文件的各种方法、各种方法之间的对比以及如何高效的读取文件等；Python中文件操作的三个步骤：  打开文件 操作文件 关闭文件  打开文件Python中file()与open()两个都能够打开文件，对文件进行操作，也具有相似的用法和参数，并且返回的都是一个文件对象；但是，这两种文件打开方式有本">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://i.imgur.com/RMzpzSy.png">
-<meta property="og:updated_time" content="2017-11-26T04:23:18.459Z">
+<meta property="og:updated_time" content="2017-11-26T04:29:50.729Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python之文件操作">
 <meta name="twitter:description" content="首先，学习python，掌握文件操作这一技能是必不可少的，本篇博文由浅入深，详细介绍python中操作文件的各种方法、各种方法之间的对比以及如何高效的读取文件等；Python中文件操作的三个步骤：  打开文件 操作文件 关闭文件  打开文件Python中file()与open()两个都能够打开文件，对文件进行操作，也具有相似的用法和参数，并且返回的都是一个文件对象；但是，这两种文件打开方式有本">
@@ -236,7 +236,7 @@ var _hmt = _hmt || [];
 <h2 id="代码演示"><a href="#代码演示" class="headerlink" title="代码演示"></a>代码演示</h2><pre><code>&gt;&gt;&gt; f=open(&apos;file.txt&apos;,&apos;r&apos;,encoding=&apos;utf-8&apos;)#以只读的模式打开一个文件，对读取的文件内容是utf-8编码。
 &gt;&gt;&gt; f=open(&apos;file.txt&apos;,&apos;r+&apos;,encoding=&apos;utf-8&apos;)#以读写的模式打开一个文件，对读取的文件内容是utf-8编码。
 &gt;&gt;&gt; f=open(&apos;file.txt&apos;,&apos;a&apos;,encoding=&apos;utf-8&apos;)#以追加的模式打开一个文件，对读取的文件内容是utf-8编码。
-</code></pre><h1 id="操作文件的方法"><a href="#操作文件的方法" class="headerlink" title="操作文件的方法"></a>操作文件的方法</h1><p>示例文件内容：</p>
+</code></pre><h1 id="操作文件的方法"><a href="#操作文件的方法" class="headerlink" title="操作文件的方法"></a>操作文件的方法</h1><p><strong>示例文件内容：</strong></p>
 <p><img src="https://i.imgur.com/RMzpzSy.png" alt=""></p>
 <h2 id="读-read-reabline-readlines"><a href="#读-read-reabline-readlines" class="headerlink" title="读 read(),reabline(),readlines()"></a>读 read(),reabline(),readlines()</h2><pre><code>&gt;&gt;&gt; f=open(&apos;file.txt&apos;,&apos;r&apos;,encoding=&apos;gbk&apos;)
 &gt;&gt;&gt; f.read()#读取全部内容,返回一个字符串
@@ -285,18 +285,17 @@ with open(&apos;log1&apos;,&apos;r&apos;) as f_read, open(&apos;log2&apos;,&apos
 <blockquote>
 <blockquote>
 <p>x = file(‘file.txt’, ‘r’)<br>x.tell()           #获得当前文件读取指针<br>0L                     #当前文件指针在文件头处<br>x.seek(3)          #将文件指针向前移动3个字节<br>x.tell()<br>3L                     #指针已经移动到了第3个字节处<br>x.seek(5,1)        #表示从文件头处开始移动指针，向前移动5个字节<br>x.tell()<br>5L                     #当前文件读取指针已经移动到第5个字节处<br>x.seek(0,0)        #表示将文件指针移动到文件头处<br>x.tell()<br>0L<br>x.seek(0,2)        #表示将文件读取指针移动到文件尾部<br>x.tell()<br>214L                   #可以得到文件大小为214B<br>x.seek(-2,2)       #表示从文件尾部开始移动指针，向后移动2个字节<br>x.tell()<br>212L </p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-</ol>
-</li>
-</ol>
 <h1 id="高效迭代文件内容"><a href="#高效迭代文件内容" class="headerlink" title="高效迭代文件内容"></a>高效迭代文件内容</h1><p>方式一：</p>
-<pre><code>with open(&apos;file.txt&apos;,&apos;r&apos;,encoding=&apos;gbk&apos;) as file:
-    for line in file.readlines():
-        do_things(line)
-</code></pre><p>方式二：</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>with open(‘file.txt’,’r’,encoding=’gbk’) as file:<br> for line in file.readlines():</p>
+<pre><code>do_things(line)
+</code></pre></li>
+</ol>
+</li>
+</ol>
+<p>方式二：</p>
 <pre><code>with open(&apos;file.txt&apos;,&apos;r&apos;,encoding=&apos;gbk&apos;)as file:
 line=file.readline()
 while line:
