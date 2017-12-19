@@ -171,6 +171,147 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-python深浅拷贝剖析" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/24/python深浅拷贝剖析/">python深浅拷贝剖析</a>
+    </h1>
+  
+
+
+  <a href="javascript:;" class="archive-article-date">
+      <i class="icon-smile icon"></i> 阅读数:<span id="/2017/11/24/python深浅拷贝剖析/" class="pageViews">0</span>次
+  </a>
+
+        
+        <a href="/2017/11/24/python深浅拷贝剖析/" class="archive-article-date">
+  	<time datetime="2017-11-24T13:07:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-24</time>
+</a>
+        
+      </header>
+     
+    <div class="article-entry" itemprop="articleBody">
+       
+        <p>先明白，在Python中一切都是对象，比如说:3, 3.14, ‘Hello’, [1,2,3,4],（’12’,5,6）,{‘a’:1}……</p>
+<h1 id="浅拷贝"><a href="#浅拷贝" class="headerlink" title="浅拷贝"></a>浅拷贝</h1><p>案列：假设你想创建一对小夫妻的通用档案，名为 person.然后你分别为他俩拷贝一份</p>
+<pre><code>&gt;&gt;&gt; person=[&apos;name&apos;,[&apos;savings&apos;,100.00],&apos;JJ&apos;]
+&gt;&gt;&gt; hubby=person[:]#切片
+&gt;&gt;&gt; wifey=list(person)#工厂函数list()
+&gt;&gt;&gt; [id(x) for x in (person,hubby,wifey)]
+[1689804830152, 1689804830856, 1689804999752]
+&gt;&gt;&gt; person[0]=&apos;Jack&apos;
+&gt;&gt;&gt; [x for x in (person,hubby,wifey)]
+[[&apos;Jack&apos;, [&apos;savings&apos;, 100.0], &apos;JJ&apos;], [&apos;name&apos;, [&apos;savings&apos;, 100.0], &apos;JJ&apos;], [&apos;name&apos;, [&apos;savings&apos;, 100.0], &apos;JJ&apos;]]
+&gt;&gt;&gt; person[1][1]=60
+&gt;&gt;&gt; [x for x in (person,hubby,wifey)]
+[[&apos;Jack&apos;, [&apos;savings&apos;, 60], &apos;JJ&apos;], [&apos;name&apos;, [&apos;savings&apos;, 60], &apos;JJ&apos;], [&apos;name&apos;, [&apos;savings&apos;, 60], &apos;JJ&apos;]]
+&gt;&gt;&gt;
+</code></pre><p>剖析：上面的例子中我们定义了一个列表person,然后使用切片方法和工厂函数list()生成了两个<strong>“新”</strong>列表，hubby和wifey；然后使用内建函数id()查看三个列表的id值,三个列表的id值均不同，这是为什么呢？然后，我们修改了person的第一个元素，发现只有person列表的值变化了，另外两个列表没有变化，但是当我们修改person(也可以是其他两个列表中的一个)的第二个元素的值时，三个列表都发生了变化，这是为啥子呢？</p>
+<p>原因：我们仅仅做了一个<strong>浅拷贝</strong>。<font size="5" color="red">对一个对象进行浅拷贝其实是新创建了一个类型跟原对象一样,其内容是原来对象元素的引用的对象</font>,换句话说,这个拷贝的对象本身是新的（<strong>所以三个列表id值不同</strong>）,但是它的内容不是。序列类型对象的浅拷贝是默认类型拷贝,并可以以下几种方式实施:(1)切片操作[:],(2)利用工厂函数,比如 list(),dict()等,(3)使用 copy 模块的 copy 函数。</p>
+<p>上面的解释貌似只解释了一个问题，第二个问题是为啥呢？</p>
+<p>原因：在这几个列表的两个对象中,第一个对象是不可变的(是个字符串类型),而第二个是可变的(一个列表).正因为如此,当进行浅拷贝时,字符串被显式的拷贝,并新创建了一个字符串对象,而列表元素只是把它的引用复制了一下,并不是它的成员（<font size="4" color="red">简单的理解，浅拷贝只能拷贝一层</font>）。所以改变名字没有任何问题,但是更改他们银行账号的任何信息都会引发问题。</p>
+<p>接下来我们看一下三个列表中，每个元素的id值的变化：</p>
+<p>修改前：</p>
+<pre><code>&gt;&gt;&gt; [id(x) for x in person]
+[1689774975888, 1689804999944, 1689804828320]
+&gt;&gt;&gt; [id(x) for x in hubby]
+[1689774975888, 1689804999944, 1689804828320]
+&gt;&gt;&gt; [id(x) for x in wifey]
+[1689774975888, 1689804999944, 1689804828320]
+&gt;&gt;&gt;
+</code></pre><p>修改后：</p>
+<pre><code>&gt;&gt;&gt; [id(x) for x in person]
+[1689804828600, 1689804830984, 1689804828320]
+&gt;&gt;&gt; [id(x) for x in hubby]
+[1689774975888, 1689804830984, 1689804828320]
+&gt;&gt;&gt; [id(x) for x in wifey]
+[1689774975888, 1689804830984, 1689804828320]
+&gt;&gt;&gt;
+</code></pre><h1 id="深拷贝"><a href="#深拷贝" class="headerlink" title="深拷贝"></a>深拷贝</h1><p>我们用深拷贝的方式实现上面的案列：</p>
+<pre><code>&gt;&gt;&gt; import copy
+&gt;&gt;&gt; person=[&apos;name&apos;,[&apos;savings&apos;,100.00],&apos;JJ&apos;]
+&gt;&gt;&gt; hubby=copy.deepcopy(person)
+&gt;&gt;&gt; wifey=copy.copy(person)
+&gt;&gt;&gt; [id(x) for x in (person,hubby,wifey)]
+[1689806469640, 1689804999688, 1689804830152]
+&gt;&gt;&gt; person[0]=&apos;Jack&apos;
+&gt;&gt;&gt; [x for x in (person,hubby,wifey)]
+[[&apos;Jack&apos;, [&apos;savings&apos;, 100.0], &apos;JJ&apos;], [&apos;name&apos;, [&apos;savings&apos;, 100.0], &apos;JJ&apos;], [&apos;name&apos;, [&apos;savings&apos;, 100.0], &apos;JJ&apos;]]
+&gt;&gt;&gt; person[1][1]=60
+&gt;&gt;&gt; [x for x in (person,hubby,wifey)]  #结果不一样了
+[[&apos;Jack&apos;, [&apos;savings&apos;, 60], &apos;JJ&apos;], [&apos;name&apos;, [&apos;savings&apos;, 100.0], &apos;JJ&apos;], [&apos;name&apos;, [&apos;savings&apos;, 60], &apos;JJ&apos;]]
+&gt;&gt;&gt;
+</code></pre><p>注意点</p>
+<p>第一,非容器类型(比如数字,字符串和其他“原子”类型的对象,像代码,类型和 xrange 对象等)没有被拷贝一说。</p>
+<p>第二,如果元组变量只包含原子类型对象,对它的深拷贝将不会进行.如果我们把账户信息改成元组类型,那么即便按我们的要求使用深拷贝操作也只能得到一个浅拷贝。</p>
+<pre><code>&gt;&gt;&gt; import copy
+&gt;&gt;&gt; person = [&apos;name&apos;, (&apos;savings&apos;, 100.00)]
+&gt;&gt;&gt; newPerson = copy.deepcopy(person)
+&gt;&gt; [id(x) for x in (person, newPerson)]
+[1689804999752, 1689804999944]
+&gt;&gt;&gt; [id(x) for x in person]
+[1689774975888, 1689805087240]
+&gt;&gt;&gt; [id(x) for x in newPerson]
+[1689774975888, 1689805087240]
+&gt;&gt;&gt;
+</code></pre><p>说明：原子类型对象：数值（所有的数值类型），字符串</p>
+<h1 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h1><font size="4" color="red"><br><strong>深浅拷贝都是对源对象的复制，占用不同的内存空间</strong><br><br><strong>如果源对象只有一级目录的话，源做任何改动，不影响深浅拷贝对象</strong><br><br><strong>如果源对象不止一级目录的话，源做任何改动，都要影响浅拷贝，但不影响深拷贝</strong><br><br><strong>序列对象的切片以及使用工厂函数list(),dict()等是浅拷贝，即只拷贝顶级的对象。</strong><br></font>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">python基础</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/11/24/python深浅拷贝剖析/">more >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-python之文件操作" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     

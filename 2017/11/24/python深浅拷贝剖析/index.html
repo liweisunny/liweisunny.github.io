@@ -6,18 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://waisunny.com">
-  <title>Archives: 2017/11 | WaiBlog|码农的技术小窝</title>
+  <title>python深浅拷贝剖析 | WaiBlog|码农的技术小窝</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="码农的技术小窝......">
-<meta property="og:type" content="website">
-<meta property="og:title" content="WaiBlog|码农的技术小窝">
-<meta property="og:url" content="http://waisunny.com/archives/2017/11/index.html">
+  <meta name="description" content="先明白，在Python中一切都是对象，比如说:3, 3.14, ‘Hello’, [1,2,3,4],（’12’,5,6）,{‘a’:1}…… 浅拷贝案列：假设你想创建一对小夫妻的通用档案，名为 person.然后你分别为他俩拷贝一份 &amp;gt;&amp;gt;&amp;gt; person=[&amp;apos;name&amp;apos;,[&amp;apos;savings&amp;apos;,100.00],&amp;apos;JJ&amp;apos;]">
+<meta name="keywords" content="python基础">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python深浅拷贝剖析">
+<meta property="og:url" content="http://waisunny.com/2017/11/24/python深浅拷贝剖析/index.html">
 <meta property="og:site_name" content="WaiBlog|码农的技术小窝">
-<meta property="og:description" content="码农的技术小窝......">
+<meta property="og:description" content="先明白，在Python中一切都是对象，比如说:3, 3.14, ‘Hello’, [1,2,3,4],（’12’,5,6）,{‘a’:1}…… 浅拷贝案列：假设你想创建一对小夫妻的通用档案，名为 person.然后你分别为他俩拷贝一份 &amp;gt;&amp;gt;&amp;gt; person=[&amp;apos;name&amp;apos;,[&amp;apos;savings&amp;apos;,100.00],&amp;apos;JJ&amp;apos;]">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-12-19T01:46:03.199Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="WaiBlog|码农的技术小窝">
-<meta name="twitter:description" content="码农的技术小窝......">
+<meta name="twitter:title" content="python深浅拷贝剖析">
+<meta name="twitter:description" content="先明白，在Python中一切都是对象，比如说:3, 3.14, ‘Hello’, [1,2,3,4],（’12’,5,6）,{‘a’:1}…… 浅拷贝案列：假设你想创建一对小夫妻的通用档案，名为 person.然后你分别为他俩拷贝一份 &amp;gt;&amp;gt;&amp;gt; person=[&amp;apos;name&amp;apos;,[&amp;apos;savings&amp;apos;,100.00],&amp;apos;JJ&amp;apos;]">
   
     <link rel="alternative" href="/atom.xml" title="WaiBlog|码农的技术小窝" type="application/atom+xml">
   
@@ -169,31 +171,14 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-python深浅拷贝剖析" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/11/24/python深浅拷贝剖析/" class="archive-article-date">
-  	<time datetime="2017-11-24T13:07:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-24</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/11/24/python深浅拷贝剖析/">python深浅拷贝剖析</a>
+    <h1 class="article-title" itemprop="name">
+      python深浅拷贝剖析
     </h1>
   
 
@@ -202,8 +187,117 @@ var _hmt = _hmt || [];
       <i class="icon-smile icon"></i> 阅读数:<span id="/2017/11/24/python深浅拷贝剖析/" class="pageViews">0</span>次
   </a>
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2017/11/24/python深浅拷贝剖析/" class="archive-article-date">
+  	<time datetime="2017-11-24T13:07:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-24</time>
+</a>
+        
+      </header>
+     
+    <div class="article-entry" itemprop="articleBody">
+       
+        <p>先明白，在Python中一切都是对象，比如说:3, 3.14, ‘Hello’, [1,2,3,4],（’12’,5,6）,{‘a’:1}……</p>
+<h1 id="浅拷贝"><a href="#浅拷贝" class="headerlink" title="浅拷贝"></a>浅拷贝</h1><p>案列：假设你想创建一对小夫妻的通用档案，名为 person.然后你分别为他俩拷贝一份</p>
+<pre><code>&gt;&gt;&gt; person=[&apos;name&apos;,[&apos;savings&apos;,100.00],&apos;JJ&apos;]
+&gt;&gt;&gt; hubby=person[:]#切片
+&gt;&gt;&gt; wifey=list(person)#工厂函数list()
+&gt;&gt;&gt; [id(x) for x in (person,hubby,wifey)]
+[1689804830152, 1689804830856, 1689804999752]
+&gt;&gt;&gt; person[0]=&apos;Jack&apos;
+&gt;&gt;&gt; [x for x in (person,hubby,wifey)]
+[[&apos;Jack&apos;, [&apos;savings&apos;, 100.0], &apos;JJ&apos;], [&apos;name&apos;, [&apos;savings&apos;, 100.0], &apos;JJ&apos;], [&apos;name&apos;, [&apos;savings&apos;, 100.0], &apos;JJ&apos;]]
+&gt;&gt;&gt; person[1][1]=60
+&gt;&gt;&gt; [x for x in (person,hubby,wifey)]
+[[&apos;Jack&apos;, [&apos;savings&apos;, 60], &apos;JJ&apos;], [&apos;name&apos;, [&apos;savings&apos;, 60], &apos;JJ&apos;], [&apos;name&apos;, [&apos;savings&apos;, 60], &apos;JJ&apos;]]
+&gt;&gt;&gt;
+</code></pre><p>剖析：上面的例子中我们定义了一个列表person,然后使用切片方法和工厂函数list()生成了两个<strong>“新”</strong>列表，hubby和wifey；然后使用内建函数id()查看三个列表的id值,三个列表的id值均不同，这是为什么呢？然后，我们修改了person的第一个元素，发现只有person列表的值变化了，另外两个列表没有变化，但是当我们修改person(也可以是其他两个列表中的一个)的第二个元素的值时，三个列表都发生了变化，这是为啥子呢？</p>
+<p>原因：我们仅仅做了一个<strong>浅拷贝</strong>。<font size="5" color="red">对一个对象进行浅拷贝其实是新创建了一个类型跟原对象一样,其内容是原来对象元素的引用的对象</font>,换句话说,这个拷贝的对象本身是新的（<strong>所以三个列表id值不同</strong>）,但是它的内容不是。序列类型对象的浅拷贝是默认类型拷贝,并可以以下几种方式实施:(1)切片操作[:],(2)利用工厂函数,比如 list(),dict()等,(3)使用 copy 模块的 copy 函数。</p>
+<p>上面的解释貌似只解释了一个问题，第二个问题是为啥呢？</p>
+<p>原因：在这几个列表的两个对象中,第一个对象是不可变的(是个字符串类型),而第二个是可变的(一个列表).正因为如此,当进行浅拷贝时,字符串被显式的拷贝,并新创建了一个字符串对象,而列表元素只是把它的引用复制了一下,并不是它的成员（<font size="4" color="red">简单的理解，浅拷贝只能拷贝一层</font>）。所以改变名字没有任何问题,但是更改他们银行账号的任何信息都会引发问题。</p>
+<p>接下来我们看一下三个列表中，每个元素的id值的变化：</p>
+<p>修改前：</p>
+<pre><code>&gt;&gt;&gt; [id(x) for x in person]
+[1689774975888, 1689804999944, 1689804828320]
+&gt;&gt;&gt; [id(x) for x in hubby]
+[1689774975888, 1689804999944, 1689804828320]
+&gt;&gt;&gt; [id(x) for x in wifey]
+[1689774975888, 1689804999944, 1689804828320]
+&gt;&gt;&gt;
+</code></pre><p>修改后：</p>
+<pre><code>&gt;&gt;&gt; [id(x) for x in person]
+[1689804828600, 1689804830984, 1689804828320]
+&gt;&gt;&gt; [id(x) for x in hubby]
+[1689774975888, 1689804830984, 1689804828320]
+&gt;&gt;&gt; [id(x) for x in wifey]
+[1689774975888, 1689804830984, 1689804828320]
+&gt;&gt;&gt;
+</code></pre><h1 id="深拷贝"><a href="#深拷贝" class="headerlink" title="深拷贝"></a>深拷贝</h1><p>我们用深拷贝的方式实现上面的案列：</p>
+<pre><code>&gt;&gt;&gt; import copy
+&gt;&gt;&gt; person=[&apos;name&apos;,[&apos;savings&apos;,100.00],&apos;JJ&apos;]
+&gt;&gt;&gt; hubby=copy.deepcopy(person)
+&gt;&gt;&gt; wifey=copy.copy(person)
+&gt;&gt;&gt; [id(x) for x in (person,hubby,wifey)]
+[1689806469640, 1689804999688, 1689804830152]
+&gt;&gt;&gt; person[0]=&apos;Jack&apos;
+&gt;&gt;&gt; [x for x in (person,hubby,wifey)]
+[[&apos;Jack&apos;, [&apos;savings&apos;, 100.0], &apos;JJ&apos;], [&apos;name&apos;, [&apos;savings&apos;, 100.0], &apos;JJ&apos;], [&apos;name&apos;, [&apos;savings&apos;, 100.0], &apos;JJ&apos;]]
+&gt;&gt;&gt; person[1][1]=60
+&gt;&gt;&gt; [x for x in (person,hubby,wifey)]  #结果不一样了
+[[&apos;Jack&apos;, [&apos;savings&apos;, 60], &apos;JJ&apos;], [&apos;name&apos;, [&apos;savings&apos;, 100.0], &apos;JJ&apos;], [&apos;name&apos;, [&apos;savings&apos;, 60], &apos;JJ&apos;]]
+&gt;&gt;&gt;
+</code></pre><p>注意点</p>
+<p>第一,非容器类型(比如数字,字符串和其他“原子”类型的对象,像代码,类型和 xrange 对象等)没有被拷贝一说。</p>
+<p>第二,如果元组变量只包含原子类型对象,对它的深拷贝将不会进行.如果我们把账户信息改成元组类型,那么即便按我们的要求使用深拷贝操作也只能得到一个浅拷贝。</p>
+<pre><code>&gt;&gt;&gt; import copy
+&gt;&gt;&gt; person = [&apos;name&apos;, (&apos;savings&apos;, 100.00)]
+&gt;&gt;&gt; newPerson = copy.deepcopy(person)
+&gt;&gt; [id(x) for x in (person, newPerson)]
+[1689804999752, 1689804999944]
+&gt;&gt;&gt; [id(x) for x in person]
+[1689774975888, 1689805087240]
+&gt;&gt;&gt; [id(x) for x in newPerson]
+[1689774975888, 1689805087240]
+&gt;&gt;&gt;
+</code></pre><p>说明：原子类型对象：数值（所有的数值类型），字符串</p>
+<h1 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h1><font size="4" color="red"><br><strong>深浅拷贝都是对源对象的复制，占用不同的内存空间</strong><br><br><strong>如果源对象只有一级目录的话，源做任何改动，不影响深浅拷贝对象</strong><br><br><strong>如果源对象不止一级目录的话，源做任何改动，都要影响浅拷贝，但不影响深拷贝</strong><br><br><strong>序列对象的切片以及使用工厂函数list(),dict()等是浅拷贝，即只拷贝顶级的对象。</strong><br></font>
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你支持我购买服务器！<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/zhifubao.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/weixin.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -215,320 +309,114 @@ var _hmt = _hmt || [];
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://waisunny.com/2017/11/24/python深浅拷贝剖析/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/11/22/python之文件操作/" class="archive-article-date">
-  	<time datetime="2017-11-22T15:35:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-22</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2017/11/22/python之文件操作/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">python之文件操作</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/11/22/python之文件操作/">python之文件操作</a>
-    </h1>
-  
+        
+        
+    </div>
+</aside>
 
 
-  <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2017/11/22/python之文件操作/" class="pageViews">0</span>次
-  </a>
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">python基础</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/11/21/python中的编码问题/" class="archive-article-date">
-  	<time datetime="2017-11-21T09:22:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-21</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/11/21/python中的编码问题/">python中的编码问题</a>
-    </h1>
-  
-
-
-  <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2017/11/21/python中的编码问题/" class="pageViews">0</span>次
-  </a>
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">python基础</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/11/20/Python的可变与不可变数据类型/" class="archive-article-date">
-  	<time datetime="2017-11-19T20:09:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-19</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/11/20/Python的可变与不可变数据类型/">Python的可变与不可变数据类型</a>
-    </h1>
-  
-
-
-  <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2017/11/20/Python的可变与不可变数据类型/" class="pageViews">0</span>次
-  </a>
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">python基础</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/11/19/python中的字符串/" class="archive-article-date">
-  	<time datetime="2017-11-18T17:39:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-18</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/11/19/python中的字符串/">python中的字符串</a>
-    </h1>
-  
-
-
-  <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2017/11/19/python中的字符串/" class="pageViews">0</span>次
-  </a>
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">python基础</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/11/18/python中的变量/" class="archive-article-date">
-  	<time datetime="2017-11-17T17:06:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-17</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/11/18/python中的变量/">python中的变量</a>
-    </h1>
-  
-
-
-  <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2017/11/18/python中的变量/" class="pageViews">0</span>次
-  </a>
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">python基础</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/11/17/setuptools和pip安装教程/" class="archive-article-date">
-  	<time datetime="2017-11-16T16:03:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/11/17/setuptools和pip安装教程/">setuptools和pip安装教程</a>
-    </h1>
-  
-
-
-  <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2017/11/17/setuptools和pip安装教程/" class="pageViews">0</span>次
-  </a>
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">python环境部署</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/11/16/python-环境部署-Windows/" class="archive-article-date">
-  	<time datetime="2017-11-15T16:53:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/11/16/python-环境部署-Windows/">python 环境部署-Windows</a>
-    </h1>
-  
-
-
-  <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2017/11/16/python-环境部署-Windows/" class="pageViews">0</span>次
-  </a>
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">python环境部署</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
   
-    </div></section>
+  <!-- UY BEGIN -->
+<div id="uyan_frame"></div>
+<script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2148788"></script>
+<!-- UY END -->
+  
+  
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -551,8 +439,8 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
