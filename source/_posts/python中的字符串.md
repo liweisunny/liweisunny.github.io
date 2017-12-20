@@ -21,6 +21,7 @@ toc: true
 	File "<stdin>", line 1, in <module>
 	TypeError: 'str' object does not support item assignment
 
+<!--more-->
 # 字符串格式化
 ## 方式一 ‘%’
 使用%，在 **%** 左侧放置一个字符串（需要被格式化的字符串），右侧放置希望被格式化成的值，可以使用一个值，如一个字符串或者一个数字；（也可以使用多个值的元组或者下章将会讨论到的字典，前提是需要格式化多个值），一般情况下使用元组

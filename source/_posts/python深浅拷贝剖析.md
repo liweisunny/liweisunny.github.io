@@ -20,6 +20,8 @@ tags: python基础
 	>>> [x for x in (person,hubby,wifey)]
 	[['Jack', ['savings', 60], 'JJ'], ['name', ['savings', 60], 'JJ'], ['name', ['savings', 60], 'JJ']]
 	>>>
+	>
+<!--more-->
 
 剖析：上面的例子中我们定义了一个列表person,然后使用切片方法和工厂函数list()生成了两个**“新”**列表，hubby和wifey；然后使用内建函数id()查看三个列表的id值,三个列表的id值均不同，这是为什么呢？然后，我们修改了person的第一个元素，发现只有person列表的值变化了，另外两个列表没有变化，但是当我们修改person(也可以是其他两个列表中的一个)的第二个元素的值时，三个列表都发生了变化，这是为啥子呢？
 

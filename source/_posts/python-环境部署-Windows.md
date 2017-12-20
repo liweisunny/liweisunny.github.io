@@ -14,6 +14,8 @@ toc: true
 圈出来的一个是python3版本一个是python2版本，建议都安装，日后可根据需求使用，**建议使用python3**，虽然说现在市场上大部分是使用python2,但是python2最终会被python3替换掉，一些新项目都是使用python3开发的。另外没必要过于纠结两个版本，他们在一些语法上使用是有些许不同，但整体相似。详情参考:[https://www.zhihu.com/question/19698598](https://www.zhihu.com/question/19698598 "python2和python3的区别")
 
 下载好后直接安装即可，**记录住安装目录**。	
+<!--more-->
+
 # 第二步
 ②配置环境变量：	
 

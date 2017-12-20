@@ -17,6 +17,9 @@ toc: true
 
 ③安装完后在当前窗口中输入 **easy_install** 回车，进行检测，如果提示： 
 **error: No urls, filenames, or requirements specified (see –help**) 说明安装成功，它在提示你命令后面需要跟参数。 如果提示： **‘easy_install’** 不是内部或外部命令，也不是可运行的程序或批处理文件。 请检查系统环境变量path是否配置了**‘C:\Python27\Scripts’**
+
+<!--more-->
+
 # 安装pip
 ## 使用easy_install安装pip
 如果setuptools安装好后，可以直接用easy_install来安装pip，如下图：
