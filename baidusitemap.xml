@@ -3,12 +3,9 @@
 
 
     
-    
-    
-    
   <url>
     <loc>http://waisunny.com/2017/11/17/setuptools%E5%92%8Cpip%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/</loc>
-    <lastmod>2017-12-21T01:05:45.939Z</lastmod>
+    <lastmod>2017-12-21T10:05:55.627Z</lastmod>
     <data>
         <display>
         <title>setuptools和pip安装教程</title>
@@ -18,57 +15,9 @@
          
          
            
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://waisunny.com/2017/11/24/python%E6%B7%B1%E6%B5%85%E6%8B%B7%E8%B4%9D%E5%89%96%E6%9E%90/</loc>
-    <lastmod>2017-12-21T01:05:45.936Z</lastmod>
-    <data>
-        <display>
-        <title>python深浅拷贝剖析</title>
-        <pubTime>2017-11-24T13:07:50.000Z</pubTime>
-        
-        <tag>python基础</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://waisunny.com/2017/11/22/python%E4%B9%8B%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C/</loc>
-    <lastmod>2017-12-21T01:05:45.933Z</lastmod>
-    <data>
-        <display>
-        <title>python之文件操作</title>
-        <pubTime>2017-11-22T15:35:28.000Z</pubTime>
-        
-        <tag>python基础</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://waisunny.com/2017/11/21/python%E4%B8%AD%E7%9A%84%E7%BC%96%E7%A0%81%E9%97%AE%E9%A2%98/</loc>
-    <lastmod>2017-12-21T01:05:45.929Z</lastmod>
-    <data>
-        <display>
-        <title>python中的编码问题</title>
-        <pubTime>2017-11-21T09:22:29.000Z</pubTime>
-        
-        <tag>python基础</tag>
-         
-         
-           
+             
+              <breadCrumb title="软件安装" url="http://waisunny.com/categories/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/"/>
+          
         </display>
     </data>
     </url>
@@ -76,7 +25,7 @@
     
   <url>
     <loc>http://waisunny.com/2017/11/19/python%E4%B8%AD%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2/</loc>
-    <lastmod>2017-12-21T01:05:45.924Z</lastmod>
+    <lastmod>2017-12-21T10:05:50.766Z</lastmod>
     <data>
         <display>
         <title>python中的字符串</title>
@@ -86,6 +35,9 @@
          
          
            
+             
+              <breadCrumb title="Python" url="http://waisunny.com/categories/Python/"/>
+          
         </display>
     </data>
     </url>
@@ -93,7 +45,7 @@
     
   <url>
     <loc>http://waisunny.com/2017/11/18/python%E4%B8%AD%E7%9A%84%E5%8F%98%E9%87%8F/</loc>
-    <lastmod>2017-12-21T01:05:45.921Z</lastmod>
+    <lastmod>2017-12-21T10:05:46.413Z</lastmod>
     <data>
         <display>
         <title>python中的变量</title>
@@ -103,6 +55,69 @@
          
          
            
+             
+              <breadCrumb title="Python" url="http://waisunny.com/categories/Python/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://waisunny.com/2017/11/21/python%E4%B8%AD%E7%9A%84%E7%BC%96%E7%A0%81%E9%97%AE%E9%A2%98/</loc>
+    <lastmod>2017-12-21T10:05:41.666Z</lastmod>
+    <data>
+        <display>
+        <title>python中的编码问题</title>
+        <pubTime>2017-11-21T09:22:29.000Z</pubTime>
+        
+        <tag>python基础</tag>
+         
+         
+           
+             
+              <breadCrumb title="Python" url="http://waisunny.com/categories/Python/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://waisunny.com/2017/11/22/python%E4%B9%8B%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C/</loc>
+    <lastmod>2017-12-21T10:05:36.396Z</lastmod>
+    <data>
+        <display>
+        <title>python之文件操作</title>
+        <pubTime>2017-11-22T15:35:28.000Z</pubTime>
+        
+        <tag>python基础</tag>
+         
+         
+           
+             
+              <breadCrumb title="Python" url="http://waisunny.com/categories/Python/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://waisunny.com/2017/11/24/python%E6%B7%B1%E6%B5%85%E6%8B%B7%E8%B4%9D%E5%89%96%E6%9E%90/</loc>
+    <lastmod>2017-12-21T10:05:31.506Z</lastmod>
+    <data>
+        <display>
+        <title>python深浅拷贝剖析</title>
+        <pubTime>2017-11-24T13:07:50.000Z</pubTime>
+        
+        <tag>python基础</tag>
+         
+         
+           
+             
+              <breadCrumb title="Python" url="http://waisunny.com/categories/Python/"/>
+          
         </display>
     </data>
     </url>
@@ -110,7 +125,7 @@
     
   <url>
     <loc>http://waisunny.com/2017/11/16/python-%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2-Windows/</loc>
-    <lastmod>2017-12-21T01:05:45.917Z</lastmod>
+    <lastmod>2017-12-21T10:05:26.322Z</lastmod>
     <data>
         <display>
         <title>python 环境部署-Windows</title>
@@ -120,6 +135,9 @@
          
          
            
+             
+              <breadCrumb title="软件安装" url="http://waisunny.com/categories/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/"/>
+          
         </display>
     </data>
     </url>
@@ -127,7 +145,7 @@
     
   <url>
     <loc>http://waisunny.com/2017/11/20/Python%E7%9A%84%E5%8F%AF%E5%8F%98%E4%B8%8E%E4%B8%8D%E5%8F%AF%E5%8F%98%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/</loc>
-    <lastmod>2017-12-21T01:05:45.914Z</lastmod>
+    <lastmod>2017-12-21T10:05:20.431Z</lastmod>
     <data>
         <display>
         <title>Python的可变与不可变数据类型</title>
@@ -137,8 +155,14 @@
          
          
            
+             
+              <breadCrumb title="Python" url="http://waisunny.com/categories/Python/"/>
+          
         </display>
     </data>
     </url>
 
+    
+    
+    
 </urlset>
