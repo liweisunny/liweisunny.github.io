@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://waisunny.com/categories/index.html</loc>
+    
+    <lastmod>2017-12-21T05:07:50.802Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://waisunny.com/tags/index.html</loc>
+    
+    <lastmod>2017-12-21T05:07:15.466Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://waisunny.com/2017/11/17/setuptools%E5%92%8Cpip%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/</loc>
     
     <lastmod>2017-12-21T01:05:45.939Z</lastmod>
