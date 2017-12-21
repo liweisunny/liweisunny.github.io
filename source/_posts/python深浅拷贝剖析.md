@@ -2,6 +2,7 @@
 title: python深浅拷贝剖析
 date: 2017-11-24 13:07:50
 tags: python基础
+categories: Python
 ---
 先明白，在Python中一切都是对象，比如说:3, 3.14, 'Hello', [1,2,3,4],（'12',5,6）,{'a':1}......
 # 浅拷贝

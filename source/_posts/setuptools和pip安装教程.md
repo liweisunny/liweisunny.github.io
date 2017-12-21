@@ -3,6 +3,7 @@ title: setuptools和pip安装教程
 date: 2017-11-16 16:03:08
 tags: python环境部署
 toc: true
+categories: 软件安装
 ---
 # 安装setuptools
 ①下载setuptools源码**setuptools-25.2.0.tar.gz**，地址：[https://pypi.python.org/pypi/setuptools](https://pypi.python.org/pypi/setuptools "setuptools下载") 

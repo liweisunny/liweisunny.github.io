@@ -98,12 +98,29 @@ jsonContent:
       excerpt: false
       categories: false
       tags: true
-plugins: #生成 RSS 
+#注册插件
+plugins: 
    hexo-generator-feed
    hexo-generator-sitemap
+   hexo-algoliasearch
    
 #自动生成sitemap站点地图
 sitemap:
    path: sitemap.xml
 baidusitemap:
    path: baidusitemap.xml
+ 
+baidu-site-verification: AxDaDhB3Y4
+
+
+#搜索功能
+algolia:
+  applicationID: '40I7Y9RR59'
+  apiKey: 'd57ab9df416d1cb13ebaa190d052de1f'
+  adminApiKey: 'dcb67129b1453991fd89cd6a20a279f5'
+  indexName: 'search'
+  chunkSize: 5000
+  fields:
+    slug
+    title
+    content:strip

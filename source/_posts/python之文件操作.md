@@ -3,6 +3,7 @@ title: python之文件操作
 date: 2017-11-22 15:35:28
 tags: python基础
 toc: true
+categories: Python
 ---
 首先，学习python，掌握文件操作这一技能是必不可少的，本篇博文由浅入深，详细介绍python中操作文件的各种方法、各种方法之间的对比以及如何高效的读取文件等；另外，牢记文件操作的三个步骤：<font color=#FF0000 size=3>(1)打开文件;(2)操作文件(3)关闭文件</font>。
 
