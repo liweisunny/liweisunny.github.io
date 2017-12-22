@@ -4,6 +4,26 @@
 
     
   <url>
+    <loc>http://waisunny.com/2017/11/20/Python%E7%9A%84%E5%8F%AF%E5%8F%98%E4%B8%8E%E4%B8%8D%E5%8F%AF%E5%8F%98%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/</loc>
+    <lastmod>2017-12-22T09:24:06.075Z</lastmod>
+    <data>
+        <display>
+        <title>Python的可变与不可变数据类型</title>
+        <pubTime>2017-11-19T20:09:04.000Z</pubTime>
+        
+        <tag>python基础</tag>
+         
+         
+           
+             
+              <breadCrumb title="Python" url="http://waisunny.com/categories/Python/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://waisunny.com/2017/11/17/setuptools%E5%92%8Cpip%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/</loc>
     <lastmod>2017-12-21T10:05:55.627Z</lastmod>
     <data>
@@ -137,26 +157,6 @@
            
              
               <breadCrumb title="软件安装" url="http://waisunny.com/categories/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://waisunny.com/2017/11/20/Python%E7%9A%84%E5%8F%AF%E5%8F%98%E4%B8%8E%E4%B8%8D%E5%8F%AF%E5%8F%98%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/</loc>
-    <lastmod>2017-12-21T10:05:20.431Z</lastmod>
-    <data>
-        <display>
-        <title>Python的可变与不可变数据类型</title>
-        <pubTime>2017-11-19T20:09:04.000Z</pubTime>
-        
-        <tag>python基础</tag>
-         
-         
-           
-             
-              <breadCrumb title="Python" url="http://waisunny.com/categories/Python/"/>
           
         </display>
     </data>
