@@ -1692,7 +1692,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #afa12b;
+  background: #d8f;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2822,6 +2822,13 @@ hr {
 }
 .posts-expand .post-nav {
   margin-top: 40px;
+}
+.posts-expand .post {
+  margin-top: 60px;
+  margin-bottom: 60px;
+  padding: 25px;
+  -webkit-box-shadow: 0 0 5px rgba(202,203,203,0.5);
+  -moz-box-shadow: 0 0 5px rgba(202,203,204,0.5);
 }
 .post-button {
   margin-top: 20px;
