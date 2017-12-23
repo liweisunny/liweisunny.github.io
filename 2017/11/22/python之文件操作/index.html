@@ -98,7 +98,7 @@
 <meta property="og:description" content="首先，学习python，掌握文件操作这一技能是必不可少的，本篇博文由浅入深，详细介绍python中操作文件的各种方法、各种方法之间的对比以及如何高效的读取文件等；另外，牢记文件操作的三个步骤：(1)打开文件;(2)操作文件(3)关闭文件。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://i.imgur.com/RMzpzSy.png">
-<meta property="og:updated_time" content="2017-12-21T10:05:36.396Z">
+<meta property="og:updated_time" content="2017-12-23T14:56:02.189Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python之文件操作">
 <meta name="twitter:description" content="首先，学习python，掌握文件操作这一技能是必不可少的，本篇博文由浅入深，详细介绍python中操作文件的各种方法、各种方法之间的对比以及如何高效的读取文件等；另外，牢记文件操作的三个步骤：(1)打开文件;(2)操作文件(3)关闭文件。">
@@ -356,8 +356,8 @@
               
                 <span class="post-meta-item-text">更新于</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2017-12-21T18:05:36+08:00">
-                2017-12-21
+              <time title="更新于" itemprop="dateModified" datetime="2017-12-23T22:56:02+08:00">
+                2017-12-23
               </time>
             
 			
@@ -447,9 +447,9 @@
       
 
       
-        <p>首先，学习python，掌握文件操作这一技能是必不可少的，本篇博文由浅入深，详细介绍python中操作文件的各种方法、各种方法之间的对比以及如何高效的读取文件等；另外，牢记文件操作的三个步骤：<font color="#FF0000" size="3">(1)打开文件;(2)操作文件(3)关闭文件</font>。</p>
+        <p>首先，学习python，掌握文件操作这一技能是必不可少的，本篇博文由浅入深，详细介绍python中操作文件的各种方法、各种方法之间的对比以及如何高效的读取文件等；另外，牢记文件操作的三个步骤：(1)打开文件;(2)操作文件(3)关闭文件。</p>
 <a id="more"></a>
-<h1 id="打开文件"><a href="#打开文件" class="headerlink" title="打开文件"></a>打开文件</h1><p>Python中的file()与open()都能够打开文件，对文件进行操作，也具有相似的用法和参数，并且返回的都是一个文件对象；但是，这两种文件打开方式有本质的区别，file是一个类，用file()来打开文件，相当于是在构造文件类；而用open()打开文件，是用python的内建函数来操作，这是不一样的，另外python3已经不再支持file()了；So，<font color="#FF0000" size="5"><strong>强烈建议使用open()函数</strong></font>。</p>
+<h1 id="打开文件"><a href="#打开文件" class="headerlink" title="打开文件"></a>打开文件</h1><p>Python中的file()与open()都能够打开文件，对文件进行操作，也具有相似的用法和参数，并且返回的都是一个文件对象；但是，这两种文件打开方式有本质的区别，file是一个类，用file()来打开文件，相当于是在构造文件类；而用open()打开文件，是用python的内建函数来操作，这是不一样的，另外python3已经不再支持file()了；So，<font color="#FF0000" size="4"><strong>强烈建议使用open()函数</strong></font>。</p>
 <h2 id="open"><a href="#open" class="headerlink" title="open()"></a>open()</h2><p>打开指定路径的文件，如果文件不存在会自动创建，返回一个文件对象。</p>
 <pre><code>open(file[, mode[, buffering[, encoding[, errors[, newline[, closefd=True]]]]]])
 </code></pre><p>open函数有很多的参数，常用的是file，mode和encoding</p>
