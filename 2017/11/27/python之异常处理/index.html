@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="python环境部署," />
+  <meta name="keywords" content="python基础," />
 
 
 
@@ -89,24 +89,18 @@
 
 
 
-<meta name="description" content="第一步①下载python解释器：     进入python官网：http://www.python.org 点击Downlods，选择Windows，然后看到如下界面：  圈出来的一个是python3版本一个是python2版本，建议都安装，日后可根据需求使用，建议使用python3，虽然说现在市场上大部分是使用python2,但是python2最终会被python3替换掉，一些新项目都是使用py">
-<meta name="keywords" content="python环境部署">
+<meta name="description" content="在谈如何处理python中的异常前，我们先来明白两个概念–&amp;gt;错误和异常。 错误：从软件方面来说, 错误是语法或是逻辑上的。语法错误指示软件的结构上有错误, 导致不能被解释器解释或编译器无法编译。 这些错误必须在程序执行前纠正。当程序的语法正确后, 剩下的就是逻辑错误了. 逻辑错误可能是由于不完整或是不合法的输入所致; 在其他情况下, 还可能是逻辑无法生成, 计算, 或是输出结果需要的过程无法">
+<meta name="keywords" content="python基础">
 <meta property="og:type" content="article">
-<meta property="og:title" content="python 环境部署-Windows">
-<meta property="og:url" content="http://waisunny.com/2017/11/16/python-环境部署-Windows/index.html">
+<meta property="og:title" content="python之异常处理">
+<meta property="og:url" content="http://waisunny.com/2017/11/27/python之异常处理/index.html">
 <meta property="og:site_name" content="WaiBlog|码农的技术小窝">
-<meta property="og:description" content="第一步①下载python解释器：     进入python官网：http://www.python.org 点击Downlods，选择Windows，然后看到如下界面：  圈出来的一个是python3版本一个是python2版本，建议都安装，日后可根据需求使用，建议使用python3，虽然说现在市场上大部分是使用python2,但是python2最终会被python3替换掉，一些新项目都是使用py">
+<meta property="og:description" content="在谈如何处理python中的异常前，我们先来明白两个概念–&amp;gt;错误和异常。 错误：从软件方面来说, 错误是语法或是逻辑上的。语法错误指示软件的结构上有错误, 导致不能被解释器解释或编译器无法编译。 这些错误必须在程序执行前纠正。当程序的语法正确后, 剩下的就是逻辑错误了. 逻辑错误可能是由于不完整或是不合法的输入所致; 在其他情况下, 还可能是逻辑无法生成, 计算, 或是输出结果需要的过程无法">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://i.imgur.com/L62Jf03.jpg">
-<meta property="og:image" content="https://i.imgur.com/Akxo4lX.jpg">
-<meta property="og:image" content="https://i.imgur.com/9DFsk0G.jpg">
-<meta property="og:image" content="https://i.imgur.com/jbijBPp.jpg">
-<meta property="og:image" content="https://i.imgur.com/Jvns0hw.jpg">
-<meta property="og:updated_time" content="2017-12-21T10:05:26.322Z">
+<meta property="og:updated_time" content="2017-12-23T14:28:41.204Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="python 环境部署-Windows">
-<meta name="twitter:description" content="第一步①下载python解释器：     进入python官网：http://www.python.org 点击Downlods，选择Windows，然后看到如下界面：  圈出来的一个是python3版本一个是python2版本，建议都安装，日后可根据需求使用，建议使用python3，虽然说现在市场上大部分是使用python2,但是python2最终会被python3替换掉，一些新项目都是使用py">
-<meta name="twitter:image" content="https://i.imgur.com/L62Jf03.jpg">
+<meta name="twitter:title" content="python之异常处理">
+<meta name="twitter:description" content="在谈如何处理python中的异常前，我们先来明白两个概念–&amp;gt;错误和异常。 错误：从软件方面来说, 错误是语法或是逻辑上的。语法错误指示软件的结构上有错误, 导致不能被解释器解释或编译器无法编译。 这些错误必须在程序执行前纠正。当程序的语法正确后, 剩下的就是逻辑错误了. 逻辑错误可能是由于不完整或是不合法的输入所致; 在其他情况下, 还可能是逻辑无法生成, 计算, 或是输出结果需要的过程无法">
 
 
 
@@ -134,13 +128,13 @@
 
 
 
-  <link rel="canonical" href="http://waisunny.com/2017/11/16/python-环境部署-Windows/"/>
+  <link rel="canonical" href="http://waisunny.com/2017/11/27/python之异常处理/"/>
 
 
 
 
 
-  <title> python 环境部署-Windows | WaiBlog|码农的技术小窝 </title>
+  <title> python之异常处理 | WaiBlog|码农的技术小窝 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -308,7 +302,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://waisunny.com/2017/11/16/python-环境部署-Windows/">
+    <link itemprop="mainEntityOfPage" href="http://waisunny.com/2017/11/27/python之异常处理/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="_learner">
@@ -329,7 +323,7 @@
             
             
               
-                python 环境部署-Windows
+                python之异常处理
               
             
           </h1>
@@ -344,8 +338,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-16T00:53:48+08:00">
-                2017-11-15
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-27T01:19:07+08:00">
+                2017-11-26
               </time>
             
 
@@ -360,8 +354,8 @@
               
                 <span class="post-meta-item-text">更新于</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2017-12-21T18:05:26+08:00">
-                2017-12-21
+              <time title="更新于" itemprop="dateModified" datetime="2017-12-23T22:28:41+08:00">
+                2017-12-23
               </time>
             
 			
@@ -382,8 +376,8 @@
 			 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/软件安装/" itemprop="url" rel="index">
-                    <span itemprop="name">软件安装</span>
+                  <a href="/categories/Python/" itemprop="url" rel="index">
+                    <span itemprop="name">Python</span>
                   </a>
                 </span>
 
@@ -416,7 +410,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  516字
+                  1,672字
                 </span>
               
 
@@ -432,7 +426,7 @@
                   <span class="post-meta-item-text">阅读时长</span>
                 
                 <span title="阅读时长">
-                  2分钟
+                  7分钟
                 </span>
               
             </div>
@@ -451,22 +445,130 @@
       
 
       
-        <h1 id="第一步"><a href="#第一步" class="headerlink" title="第一步"></a>第一步</h1><p>①下载python解释器：    </p>
-<p>进入python官网：<a href="http://www.python.org" target="_blank" rel="external">http://www.python.org</a> 点击Downlods，选择Windows，然后看到如下界面：</p>
-<p><img src="https://i.imgur.com/L62Jf03.jpg" alt=""></p>
-<p>圈出来的一个是python3版本一个是python2版本，建议都安装，日后可根据需求使用，<strong>建议使用python3</strong>，虽然说现在市场上大部分是使用python2,但是python2最终会被python3替换掉，一些新项目都是使用python3开发的。另外没必要过于纠结两个版本，他们在一些语法上使用是有些许不同，但整体相似。详情参考:<a href="https://www.zhihu.com/question/19698598" title="python2和python3的区别" target="_blank" rel="external">https://www.zhihu.com/question/19698598</a></p>
-<p>下载好后直接安装即可，<strong>记录住安装目录</strong>。<br><a id="more"></a></p>
-<h1 id="第二步"><a href="#第二步" class="headerlink" title="第二步"></a>第二步</h1><p>②配置环境变量：    </p>
-<p>步骤(Win10)：右键单击电脑属性—&gt;高级系统设置—&gt;环境变量—&gt;编辑系统变量Path—&gt;将刚才的安装路径添加进去，如下图：</p>
-<p><img src="https://i.imgur.com/Akxo4lX.jpg" alt=""><br>我配置了python3和python2的环境变量，并把python3的放在了第一位，系统会采用环境变量靠前的python版本；环境变量设置的路径就是你python的安装路径，以python2为例，如下图：</p>
-<p><img src="https://i.imgur.com/9DFsk0G.jpg" alt=""></p>
-<h1 id="检验是否安装成功"><a href="#检验是否安装成功" class="headerlink" title="检验是否安装成功"></a>检验是否安装成功</h1><p>打开cmd命令框，快捷键是windows+r ,输入cmd–&gt;回车—&gt;在弹出的命令框中输入 <strong>python</strong>,看到如下图内容即表示配置成功：</p>
-<p><img src="https://i.imgur.com/jbijBPp.jpg" alt=""></p>
-<h1 id="完善"><a href="#完善" class="headerlink" title="完善"></a>完善</h1><p>为了方便后续的python版本切换，建议将python安装路径下的python.exe程序重命名为对应版本的名称，即python2.7版本的命名为：python2.exe，python3.6版本的命名为python3.exe；这样我们就可以在命令框中直接输入对应的名称就可以使用各版本的python，不用切换环境变量的先后顺序了。如下图：</p>
-<p><img src="https://i.imgur.com/Jvns0hw.jpg" alt=""></p>
-<h1 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h1><p>这是最基本的python环境部署，后续在实际开发过程中我们还要安装很多类库、插件等；推荐安装pip,使用pip安装类库等十分方便。</p>
-<p>如何安装pip,详见：<a href="http://waisunny.com/2017/11/17/setuptools%E5%92%8Cpip%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/" title="pip安装">http://waisunny.com/2017/11/17/setuptools%E5%92%8Cpip%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/</a></p>
+        <p>在谈如何处理python中的异常前，我们先来明白两个概念–&gt;<strong>错误和异常</strong>。</p>
+<p><strong>错误</strong>：从软件方面来说, 错误是语法或是逻辑上的。语法错误指示软件的结构上有错误, 导致不能被解释器解释或编译器无法编译。 这些错误必须在程序执行前纠正。当程序的语法正确后, 剩下的就是逻辑错误了. 逻辑错误可能是由于不完整或是不合法的输入所致; 在其他情况下, 还可能是逻辑无法生成, 计算, 或是输出结果需要的过程无法执行。这些错误通常分别被称为域错误和范围错误。当 Python 检测到一个错误时, 解释器就会指出当前流已经无法继续执行下去. 这时候就出现了异常。</p>
+<p><strong>异常</strong>：对异常的最好描述是: 它是因为程序出现了错误而在正常控制流以外采取的行为. 这个行为又分为两个阶段: 首先是引起异常发生的错误, 然后是检测(和采取可能的措施)阶段即处理异常阶段。<br><a id="more"></a></p>
+<h1 id="python中的异常"><a href="#python中的异常" class="headerlink" title="python中的异常"></a>python中的异常</h1><p>所有的标准/内建异常都是从根异常派生的.目前,有 3 个直接从 BaseException 派生的异常子<br>类:SystemExit,KeyboardInterrupt 和 Exception。 </p>
+<p>SystemExit：python解释器请求退出。</p>
+<p>KeyboardInterrupt：用户中断执行(通常是输入^C)。</p>
+<p>Exception 常规语法错误；所有的内建异常都是其子类。</p>
+<p><strong>列举几个最常用的内建异常：</strong></p>
+<p><strong>NameError</strong>:尝试访问一个未声明的变量</p>
+<p><strong>ZeroDivisionError</strong>: 除数为零</p>
+<p><strong>SyntaxError</strong>: Python 语法错误（SyntaxError 异常是唯一不是在运行时发生的异常. 它代表 Python 代码中有一个不正确的结构, 在它改正之前程序无法执行）</p>
+<p><strong>IndexError</strong>:请求的索引超出序列范围</p>
+<p><strong>KeyError</strong>:请求一个不存在的字典关键字</p>
+<p><strong>IOError</strong>: 输入/输出错误</p>
+<p><strong>AttributeError</strong>: 尝试访问未知的对象属性</p>
+<h1 id="检测和处理异常"><a href="#检测和处理异常" class="headerlink" title="检测和处理异常"></a>检测和处理异常</h1><p>使用try语句来检测异常。try 语句有两种主要形式: try-except 和 try-finally。这两个语句是互斥的, 也就是说你只能使用其中的一种. 一个 try 语句可以对应一个或多个 except 子句, 但只能对应一个finally 子句, 或是一个 try-except-finally 复合语句。</p>
+<p>另外值得说明的是，python中的try语句支持else语句，</p>
+<p>接下来看几个例子：</p>
+<p>1.try-except语句</p>
+<pre><code>try:
+    x=int(input(&apos;input x:&apos;))
+    y=int(input(&apos;input y:&apos;))
+    print(&apos;x/y=%.2f&apos;%(x/y))
+except ZeroDivisionError:
+    print(&apos;除数不能为0&apos;)
+</code></pre><p>2.带有多个except的try语句  </p>
+<pre><code>try:  
+    x = int(input(&apos;input x:&apos;))  
+    y = int(input(&apos;input y:&apos;))  
+    print(&apos;x/y = &apos;,x/y)  
+except ZeroDivisionError: #捕捉除0异常  
+    print(&quot;ZeroDivision&quot;)  
+except TypeError as e: #捕捉类型异常并将异常对象输出  
+    print(e) 
+except ValueError as e: #捕捉值异常并将异常对象输出  
+    print(e) 
+</code></pre><p>3.处理多个异常的except语句（异常必须放在一个元组里）</p>
+<pre><code>try:  
+    x = int(input(&apos;input x:&apos;))  
+    y = int(input(&apos;input y:&apos;))  
+    print(&apos;x/y = &apos;,x/y)   
+except (TypeError,ValueError,ZeroDivisionError) as e: #捕捉多个异常，并将异常对象输出  
+    print(e) 
+</code></pre><p>4.try-except-else（在try范围中没有异常被检测到时，执行 else 子句）</p>
+<pre><code>try:  
+    x = int(input(&apos;input x:&apos;))  
+    y = int(input(&apos;input y:&apos;))  
+    print(&apos;x/y = &apos;,x/y)  
+except ZeroDivisionError as e: #捕捉除0异常  
+    print(e)  
+else: #当try块中的语句没有发生异常完全执行成功时执行
+    print(&apos;it work well&apos;)  
+</code></pre><p>5.finally 语句（不管是否出现异常，最后都会执行finally的语句块内容，用于清理工作。所以，你可以在 finally 语句中关闭文件，这样就确保了文件能正常关闭）</p>
+<pre><code>try:  
+    x = int(input(&apos;input x:&apos;))  
+    y = int(input(&apos;input y:&apos;))  
+    print(&apos;x/y = &apos;,x/y)  
+except (TypeError,ValueError,ZeroDivisionError) as e: #捕捉多个异常  
+    print(e)  
+else: #没有异常时执行  
+    print(&apos;it work well&apos;)  
+finally: #不管是否有异常都会执行  
+    print(&quot;Cleaning up&quot;)  
+</code></pre><p>6.捕获所有异常</p>
+<pre><code>try:  
+    x = int(input(&apos;input x:&apos;))  
+    y = int(input(&apos;input y:&apos;))  
+    print(&apos;x/y = &apos;,x/y)  
+except BaseException as e: #捕捉所有异常  
+    print(e)  
 
+try:  
+    x = int(input(&apos;input x:&apos;))  
+    y = int(input(&apos;input y:&apos;))  
+    print(&apos;x/y = &apos;,x/y)  
+except: #捕捉所有异常 这种方法不推荐 
+    pass
+</code></pre><p>为什么用BaseException而不是Exception已经在文章开头说过。</p>
+<p><strong>说明：</strong></p>
+<ol>
+<li>在python2中将异常对象输出支持使用exception,e这种语法，而在python3中不在支持，只能将‘,’换成 as 关键字。</li>
+<li>当try语句中发生异常后，try语句中剩余的代码将不会在执行，当存在多个处理器（except字句）时，解释器将这一串解释器中查找匹配的异常，如果找到对应的处理器，执行流将会跳转到这里。</li>
+<li>在使用finally语句时，如果 finally 中的代码引发了另一个异常或由于 return,break,continue 语<br>法而终止,原来的异常将丢失而且无法重新引发。</li>
+<li>异常抛出之后，如果没有被接收，那么程序会抛给它的上一层，比如函数调用的地方，要是还是没有接收，那继续抛出，如果程序最后都没有处理这个异常，那它就丢给操作系统了 – 你的程序崩溃了，这点和C++一样的。</li>
+</ol>
+<h1 id="主动触发异常"><a href="#主动触发异常" class="headerlink" title="主动触发异常"></a>主动触发异常</h1><p>raise主动触发异常，我们可以使用raise语句自己触发异常</p>
+<p>raise语法格式如下：</p>
+<pre><code>raise [Exception [, args [, traceback]]]
+</code></pre><p>语句中Exception是异常的类型（例如，NameError）参数是一个异常参数值。该参数是可选的，如果不提供，异常的参数是”None”。最后一个参数是可选的（在实践中很少使用），如果存在，是跟踪异常对象。</p>
+<pre><code>try:
+    raise TypeError(&apos;类型错误&apos;)
+except TypeError as e:
+    print(e)
+
+结果：
+类型错误
+</code></pre><h1 id="断言"><a href="#断言" class="headerlink" title="断言"></a>断言</h1><p>断言是一句必须等价于布尔真的判断，通过assert实现；断言语句如果成功不采取任何措施否则除法AssertionError(断言错误)的异常；用法如下：</p>
+<pre><code>assert expression[,aeguments]
+</code></pre><p>AssertionError异常和其他的异常一样可以用try-except语句块捕捉,但是如果没有捕捉,它将<br>终止程序运行而且提供一个如下的 traceback：</p>
+<pre><code>&gt;&gt;&gt; assert 1==0
+Traceback (most recent call last):
+File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;
+AssertionError
+</code></pre><p>使用try-except捕获AssertionError异常：</p>
+<pre><code>&gt;&gt;&gt; try:
+...     assert 1==0,&apos;1!=0&apos;
+... except AssertionError as args:
+...     print(&apos;%s:%s&apos;%(args.__class__.__name__,args))
+...
+AssertionError:1!=0
+</code></pre><h1 id="自定义异常"><a href="#自定义异常" class="headerlink" title="自定义异常"></a>自定义异常</h1><p>自定义异常的前提是继承异常类，可以是基类异常（BaseException），也可以其他内建异常。</p>
+<pre><code>&gt;&gt;&gt; class myException(Exception):
+...     def __init__(self,msg):
+...         self.msg=msg
+...     def __str__(self):
+...         return self.msg
+...
+&gt;&gt;&gt; try:
+...     raise myException(&apos;类型错误&apos;)
+... except myException as e:
+...     print(e)
+...
+类型错误
+</code></pre>
       
     </div>
 
@@ -494,7 +596,7 @@
     </li>
     <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="http://waisunny.com/2017/11/16/python-环境部署-Windows/" title="python 环境部署-Windows">http://waisunny.com/2017/11/16/python-环境部署-Windows/</a>
+      <a href="http://waisunny.com/2017/11/27/python之异常处理/" title="python之异常处理">http://waisunny.com/2017/11/27/python之异常处理/</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明： </strong>
@@ -510,7 +612,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/python环境部署/" rel="tag"># python环境部署</a>
+            <a href="/tags/python基础/" rel="tag"># python基础</a>
           
         </div>
       
@@ -523,15 +625,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2017/11/24/python深浅拷贝剖析/" rel="next" title="python深浅拷贝剖析">
+                <i class="fa fa-chevron-left"></i> python深浅拷贝剖析
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/11/17/setuptools和pip安装教程/" rel="prev" title="setuptools和pip安装教程">
-                setuptools和pip安装教程 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -680,7 +782,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#第一步"><span class="nav-number">1.</span> <span class="nav-text">第一步</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第二步"><span class="nav-number">2.</span> <span class="nav-text">第二步</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#检验是否安装成功"><span class="nav-number">3.</span> <span class="nav-text">检验是否安装成功</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#完善"><span class="nav-number">4.</span> <span class="nav-text">完善</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#补充"><span class="nav-number">5.</span> <span class="nav-text">补充</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#python中的异常"><span class="nav-number">1.</span> <span class="nav-text">python中的异常</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#检测和处理异常"><span class="nav-number">2.</span> <span class="nav-text">检测和处理异常</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#主动触发异常"><span class="nav-number">3.</span> <span class="nav-text">主动触发异常</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#断言"><span class="nav-number">4.</span> <span class="nav-text">断言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#自定义异常"><span class="nav-number">5.</span> <span class="nav-text">自定义异常</span></a></li></ol></div>
             
 
           </div>
