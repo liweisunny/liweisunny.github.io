@@ -5,6 +5,9 @@ tags: python环境部署
 toc: true
 categories: 软件安装
 ---
+学习python,首先就要部署python的开发环境，第一步下载python解释器，解释器就是用来执行python代码的，类似于Java虚拟机、CLR；然后就是配置环境变量，前期学习python基础直接通过docs窗口编写代码即可;如果想下载IDE的话推荐[pycharm](https://www.jetbrains.com/pycharm/ "pycharm")。
+<!--more-->
+
 # 第一步
 ①下载python解释器：	
   		
@@ -15,7 +18,7 @@ categories: 软件安装
 圈出来的一个是python3版本一个是python2版本，建议都安装，日后可根据需求使用，**建议使用python3**，虽然说现在市场上大部分是使用python2,但是python2最终会被python3替换掉，一些新项目都是使用python3开发的。另外没必要过于纠结两个版本，他们在一些语法上使用是有些许不同，但整体相似。详情参考:[https://www.zhihu.com/question/19698598](https://www.zhihu.com/question/19698598 "python2和python3的区别")
 
 下载好后直接安装即可，**记录住安装目录**。	
-<!--more-->
+
 
 # 第二步
 ②配置环境变量：	
@@ -40,4 +43,4 @@ categories: 软件安装
 # 补充
 这是最基本的python环境部署，后续在实际开发过程中我们还要安装很多类库、插件等；推荐安装pip,使用pip安装类库等十分方便。
 
-如何安装pip,详见：[http://waisunny.com/2017/11/17/setuptools%E5%92%8Cpip%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/](http://waisunny.com/2017/11/17/setuptools%E5%92%8Cpip%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/ "pip安装")
+如何安装pip,详见：[setuptools和pip安装教程](http://waisunny.com/2017/11/17/setuptools%E5%92%8Cpip%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/#more)

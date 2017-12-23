@@ -5,21 +5,24 @@ tags: python环境部署
 toc: true
 categories: 软件安装
 ---
+setuptools 是 python 的基础包工具，可以帮助我们轻松的下载，构建，安装，升级，卸载 python的软件包。
+
+pip 是python软件包的安装和管理工具， 有了这个工具， 我们只需要一个命令就可以轻松的安装python 的任意类库。
+
+<!--more-->
 # 安装setuptools
 ①下载setuptools源码**setuptools-25.2.0.tar.gz**，地址：[https://pypi.python.org/pypi/setuptools](https://pypi.python.org/pypi/setuptools "setuptools下载") 
 ![](https://i.imgur.com/a29kEga.png)
 ②这是一个压缩文件，将其解压到桌面，并进入该文件夹；按住shift键后，在文件夹空白处点击鼠标右键，选择：在此处打开命令窗口，输入：
-	  
-```bash
-  python setup.py install
-```
+	
+	python setup.py install
+
 回车，看到如下图内容即表示安装成功：
 ![](https://i.imgur.com/epT3f5n.png)
 
 ③安装完后在当前窗口中输入 **easy_install** 回车，进行检测，如果提示： 
 **error: No urls, filenames, or requirements specified (see –help**) 说明安装成功，它在提示你命令后面需要跟参数。 如果提示： **‘easy_install’** 不是内部或外部命令，也不是可运行的程序或批处理文件。 请检查系统环境变量path是否配置了**‘C:\Python27\Scripts’**
 
-<!--more-->
 
 # 安装pip
 ## 使用easy_install安装pip
@@ -31,10 +34,8 @@ categories: 软件安装
 ①下载pip压缩包**pip-9.0.1.tar.gz**，地址：[https://pypi.python.org/pypi/pip](https://pypi.python.org/pypi/pip "pip下载")，如下图：![](https://i.imgur.com/gGKpfRK.png)
 
 ②这是一个压缩文件，将其解压到桌面，并进入该文件夹，按住shift键后，在文件夹空白处点击鼠标右键，选择：在此处打开命令窗口，输入：
-	  
-```bash
-python setup.py install 
-```
+	
+	python setup.py install 
 
 回车，看到如下图内容即表示安装成功：
 ![](https://i.imgur.com/vZev7uY.png)
@@ -44,13 +45,9 @@ python setup.py install
 # 补充
 卸载pip:
 
-```bash
-python -m pip uninstall pip setuptools
-```
-
+	python -m pip uninstall pip setuptools
 升级pip:
 
-```bash
-python -m pip install --upgrade pip
-```
+	python -m pip install --upgrade pip
+
 
