@@ -97,7 +97,7 @@
 <meta property="og:site_name" content="WaiBlog|码农的技术小窝">
 <meta property="og:description" content="这篇文章讨论Python中下划线的使用。跟Python中很多用法类似，下划线的不同用法绝大部分（不全是）都是一种惯例约定。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-12-24T08:19:06.235Z">
+<meta property="og:updated_time" content="2017-12-24T08:24:47.582Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python中的下划线">
 <meta name="twitter:description" content="这篇文章讨论Python中下划线的使用。跟Python中很多用法类似，下划线的不同用法绝大部分（不全是）都是一种惯例约定。">
@@ -354,7 +354,7 @@
               
                 <span class="post-meta-item-text">更新于</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2017-12-24T16:19:06+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2017-12-24T16:24:47+08:00">
                 2017-12-24
               </time>
             
@@ -475,8 +475,8 @@ def my_view(request):
 </code></pre></li>
 </ol>
 <p>第二种和第三种用法会引起冲突，所以在任意代码块中，如果使用了_作i18n翻译查询函数，就应该避免再用作被丢弃的变量名。</p>
-<h1 id="单下划线前缀的名称（例如-shahriar）"><a href="#单下划线前缀的名称（例如-shahriar）" class="headerlink" title="单下划线前缀的名称（例如_shahriar）"></a>单下划线前缀的名称（例如_shahriar）</h1><p>单下划线开头被常用于模块中，在一个模块中以单下划线开头的变量和函数被默认当作内部函数,“私有成员”，如果使用 from a_module import * 导入时，这部分变量和函数不会被导入,除非模块/包的<strong>all</strong>列表明确包含了这些名称。不过值得注意的是，如果使用 import a_module 这样导入模块，仍然可以用 a_module._some_var 这样的形式访问到这样的对象。</p>
-<h1 id="双下划线前缀的名称（例如-shahriar）"><a href="#双下划线前缀的名称（例如-shahriar）" class="headerlink" title="双下划线前缀的名称（例如__shahriar）"></a>双下划线前缀的名称（例如__shahriar）</h1><p>以双下划线做前缀的名称（特别是方法名）并不是一种惯例；它对解释器有特定含义。Python会改写这些名称，以免与子类中定义的名称产生冲突。Python documentation中提到，任何<strong>spam这种形式（至少以两个下划线做开头，绝大部分都还有一个下划线做结尾）的标识符，都会文本上被替换为_classname</strong>spam，其中classname是当前类名，并带上一个下划线做前缀。</p>
+<h1 id="单下划线前缀的名称（例如-shahriar）"><a href="#单下划线前缀的名称（例如-shahriar）" class="headerlink" title="单下划线前缀的名称（例如_shahriar）"></a>单下划线前缀的名称（例如_shahriar）</h1><p>单下划线开头被常用于模块中，在一个模块中以单下划线开头的变量和函数被默认当作内部函数,“私有成员”，如果使用 from a<em>module import * 导入时，这部分变量和函数不会被导入,除非模块/包的\</em>_all__列表明确包含了这些名称。不过值得注意的是，如果使用 import a_module 这样导入模块，仍然可以用 a_module._some_var 这样的形式访问到这样的对象。</p>
+<h1 id="双下划线前缀的名称（例如-shahriar）"><a href="#双下划线前缀的名称（例如-shahriar）" class="headerlink" title="双下划线前缀的名称（例如__shahriar）"></a>双下划线前缀的名称（例如__shahriar）</h1><p>以双下划线做前缀的名称（特别是方法名）并不是一种惯例；它对解释器有特定含义。Python会改写这些名称，以免与子类中定义的名称产生冲突。Python documentation中提到，任何__spam这种形式（至少以两个下划线做开头，绝大部分都还有一个下划线做结尾）的标识符，都会文本上被替换为_classname__spam，其中classname是当前类名，并带上一个下划线做前缀。</p>
 <p>看下面这个例子：</p>
 <pre><code>&gt;&gt;&gt; class A(object):
 ...     def _internal_use(self):
@@ -486,7 +486,7 @@ def my_view(request):
 ... 
 &gt;&gt;&gt; dir(A())
 [&apos;_A__method_name&apos;, ..., &apos;_internal_use&apos;]
-</code></pre><p>正如所料，_internal_use没有变化，但<strong>method_name被改写成了_ClassName</strong>method_name。现在创建一个A的子类B（这可不是个好名字），就不会轻易的覆盖掉A中的__method_name了：</p>
+</code></pre><p>正如所料，_internal<em>use没有变化，但\</em>_method_name被改写成了_ClassName__method_name。现在创建一个A的子类B（这可不是个好名字），就不会轻易的覆盖掉A中的__method_name了：</p>
 <pre><code>&gt;&gt;&gt; class B(A):
 ...     def __method_name(self):
 ...         pass
@@ -494,7 +494,7 @@ def my_view(request):
 &gt;&gt;&gt; dir(B())
 [&apos;_A__method_name&apos;, &apos;_B__method_name&apos;, ..., &apos;_internal_use&apos;]
 </code></pre><p>这种特定的行为差不多等价于Java中的final方法和C++中的正常方法（非虚方法）。</p>
-<h1 id="前后都带有双下划线的名称（例如-init）"><a href="#前后都带有双下划线的名称（例如-init）" class="headerlink" title="前后都带有双下划线的名称（例如 init）"></a>前后都带有双下划线的名称（例如 <strong>init</strong>）</h1><p>这些是Python的特殊方法名，这仅仅是一种惯例，一种确保Python系统中的名称不会跟用户自定义的名称发生冲突的方式。通常你可以覆写这些方法，在Python调用它们时，产生你想得到的行为。例如，当写一个类的时候经常会覆写<strong>init</strong>方法。Python 官方推荐永远不要将这样的命名方式应用于自己的变量或函数，而是按照文档说明来使用。</p>
+<h1 id="前后都带有双下划线的名称（例如-init-）"><a href="#前后都带有双下划线的名称（例如-init-）" class="headerlink" title="前后都带有双下划线的名称（例如 __init__）"></a>前后都带有双下划线的名称（例如 __init__）</h1><p>这些是Python的特殊方法名，这仅仅是一种惯例，一种确保Python系统中的名称不会跟用户自定义的名称发生冲突的方式。通常你可以覆写这些方法，在Python调用它们时，产生你想得到的行为。例如，当写一个类的时候经常会覆写__init__方法。Python 官方推荐永远不要将这样的命名方式应用于自己的变量或函数，而是按照文档说明来使用。</p>
 
       
     </div>
@@ -709,7 +709,7 @@ def my_view(request):
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#单个下划线（-）"><span class="nav-number">1.</span> <span class="nav-text">单个下划线（_）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#单下划线前缀的名称（例如-shahriar）"><span class="nav-number">2.</span> <span class="nav-text">单下划线前缀的名称（例如_shahriar）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#双下划线前缀的名称（例如-shahriar）"><span class="nav-number">3.</span> <span class="nav-text">双下划线前缀的名称（例如__shahriar）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#前后都带有双下划线的名称（例如-init）"><span class="nav-number">4.</span> <span class="nav-text">前后都带有双下划线的名称（例如 init）</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#单个下划线（-）"><span class="nav-number">1.</span> <span class="nav-text">单个下划线（_）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#单下划线前缀的名称（例如-shahriar）"><span class="nav-number">2.</span> <span class="nav-text">单下划线前缀的名称（例如_shahriar）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#双下划线前缀的名称（例如-shahriar）"><span class="nav-number">3.</span> <span class="nav-text">双下划线前缀的名称（例如__shahriar）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#前后都带有双下划线的名称（例如-init-）"><span class="nav-number">4.</span> <span class="nav-text">前后都带有双下划线的名称（例如 __init__）</span></a></li></ol></div>
             
 
           </div>
