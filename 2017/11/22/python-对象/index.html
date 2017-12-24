@@ -89,21 +89,18 @@
 
 
 
-<meta name="description" content="初学python的时候，可能会有很多疑惑，尤其是最先接触的所谓的“可变数据类型”和“不可变数据类型”。python与C/C++不一样，它的变量使用有自己的特点，当初学python的时候，一定要记住“一切皆为对象，一切皆为对象的引用”这句话，其实这个特点类似于JAVA，所以在python里面大家也不用担心类似于C/C++中的指针的复杂问题。下面本文将对python里面的“可变数据类型”和“不可变数据">
+<meta name="description" content="在python中一切皆为对象，Python 使用对象模型来存储数据。构造任何类型的值都是一个对象。 所有的 Python 对像都拥有三个特性：身份、类型、值。 身份：每一个对象都有一个唯一的身份标识自己，任何对象的身份可以使用内建函数 id()来得到。这个值可以被认为是该对象的内存地址。您极少会用到这个值，也不用太关心它究竟是什么。 类型：对象的类型决定了该对象可以保存什么类型的值，可以进行什么样">
 <meta name="keywords" content="python基础">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Python的可变与不可变数据类型">
-<meta property="og:url" content="http://waisunny.com/2017/11/20/Python的可变与不可变数据类型/index.html">
+<meta property="og:title" content="python 对象">
+<meta property="og:url" content="http://waisunny.com/2017/11/22/python-对象/index.html">
 <meta property="og:site_name" content="WaiBlog|码农的技术小窝">
-<meta property="og:description" content="初学python的时候，可能会有很多疑惑，尤其是最先接触的所谓的“可变数据类型”和“不可变数据类型”。python与C/C++不一样，它的变量使用有自己的特点，当初学python的时候，一定要记住“一切皆为对象，一切皆为对象的引用”这句话，其实这个特点类似于JAVA，所以在python里面大家也不用担心类似于C/C++中的指针的复杂问题。下面本文将对python里面的“可变数据类型”和“不可变数据">
+<meta property="og:description" content="在python中一切皆为对象，Python 使用对象模型来存储数据。构造任何类型的值都是一个对象。 所有的 Python 对像都拥有三个特性：身份、类型、值。 身份：每一个对象都有一个唯一的身份标识自己，任何对象的身份可以使用内建函数 id()来得到。这个值可以被认为是该对象的内存地址。您极少会用到这个值，也不用太关心它究竟是什么。 类型：对象的类型决定了该对象可以保存什么类型的值，可以进行什么样">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://i.imgur.com/44gY2jF.png">
-<meta property="og:image" content="https://i.imgur.com/aSEf24o.png">
-<meta property="og:updated_time" content="2017-12-23T09:21:21.974Z">
+<meta property="og:updated_time" content="2017-12-24T03:09:48.983Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Python的可变与不可变数据类型">
-<meta name="twitter:description" content="初学python的时候，可能会有很多疑惑，尤其是最先接触的所谓的“可变数据类型”和“不可变数据类型”。python与C/C++不一样，它的变量使用有自己的特点，当初学python的时候，一定要记住“一切皆为对象，一切皆为对象的引用”这句话，其实这个特点类似于JAVA，所以在python里面大家也不用担心类似于C/C++中的指针的复杂问题。下面本文将对python里面的“可变数据类型”和“不可变数据">
-<meta name="twitter:image" content="https://i.imgur.com/44gY2jF.png">
+<meta name="twitter:title" content="python 对象">
+<meta name="twitter:description" content="在python中一切皆为对象，Python 使用对象模型来存储数据。构造任何类型的值都是一个对象。 所有的 Python 对像都拥有三个特性：身份、类型、值。 身份：每一个对象都有一个唯一的身份标识自己，任何对象的身份可以使用内建函数 id()来得到。这个值可以被认为是该对象的内存地址。您极少会用到这个值，也不用太关心它究竟是什么。 类型：对象的类型决定了该对象可以保存什么类型的值，可以进行什么样">
 
 
 
@@ -131,13 +128,13 @@
 
 
 
-  <link rel="canonical" href="http://waisunny.com/2017/11/20/Python的可变与不可变数据类型/"/>
+  <link rel="canonical" href="http://waisunny.com/2017/11/22/python-对象/"/>
 
 
 
 
 
-  <title> Python的可变与不可变数据类型 | WaiBlog|码农的技术小窝 </title>
+  <title> python 对象 | WaiBlog|码农的技术小窝 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -305,7 +302,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://waisunny.com/2017/11/20/Python的可变与不可变数据类型/">
+    <link itemprop="mainEntityOfPage" href="http://waisunny.com/2017/11/22/python-对象/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="_learner">
@@ -326,7 +323,7 @@
             
             
               
-                Python的可变与不可变数据类型
+                python 对象
               
             
           </h1>
@@ -341,8 +338,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-20T04:09:04+08:00">
-                2017-11-19
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-22T17:44:18+08:00">
+                2017-11-22
               </time>
             
 
@@ -357,8 +354,8 @@
               
                 <span class="post-meta-item-text">更新于</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2017-12-23T17:21:21+08:00">
-                2017-12-23
+              <time title="更新于" itemprop="dateModified" datetime="2017-12-24T11:09:48+08:00">
+                2017-12-24
               </time>
             
 			
@@ -413,7 +410,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  2,055字
+                  1,127字
                 </span>
               
 
@@ -429,7 +426,7 @@
                   <span class="post-meta-item-text">阅读时长</span>
                 
                 <span title="阅读时长">
-                  7分钟
+                  5分钟
                 </span>
               
             </div>
@@ -448,82 +445,134 @@
       
 
       
-        <p>初学python的时候，可能会有很多疑惑，尤其是最先接触的所谓的“可变数据类型”和“不可变数据类型”。python与C/C++不一样，它的变量使用有自己的特点，当初学python的时候，一定要记住“一切皆为对象，一切皆为对象的引用”这句话，其实这个特点类似于JAVA，所以在python里面大家也不用担心类似于C/C++中的指针的复杂问题。下面本文将对python里面的“可变数据类型”和“不可变数据类型”进行分析。</p>
-<p>首先，我们需要知道在python中哪些是可变数据类型，哪些是不可变数据类型。</p>
-<p><strong>可变数据类型：列表list和字典dict；</strong></p>
-<p><strong>不可变数据类型：整型int、浮点型float、字符串型string和元组tuple。</strong></p>
-<p>然后，我们以int和list为例，来看看“可变数据类型”和“不可变数据类型”到底有什么区别。</p>
-<a id="more"></a>
-<h1 id="不可变数据类型分析"><a href="#不可变数据类型分析" class="headerlink" title="不可变数据类型分析"></a>不可变数据类型分析</h1><pre><code>&gt;&gt;&gt; x = 1    
-&gt;&gt;&gt; id(x)    
-31106520    
-&gt;&gt;&gt; y = 1    
-&gt;&gt;&gt; id(y)    
-31106520    
-&gt;&gt;&gt; x = 2    
-&gt;&gt;&gt; id(x)    
-31106508    
-&gt;&gt;&gt; y = 2    
-&gt;&gt;&gt; id(y)    
-31106508    
-&gt;&gt;&gt; z = y    
-&gt;&gt;&gt; id(z)    
-31106508   
-&gt;&gt;&gt; x += 2    
-&gt;&gt;&gt; id(x)    
-31106484 
-</code></pre><p>上面这段程序都是对不可变数据类型中的int类型的操作，id()查看的是当前变量的地址值。</p>
-<p>我们先来看x = 1和y = 1两个操作的结果，从上面的输出可以看到x和y在此时的地址值是一样的，也就是说x和y其实是引用了同一个对象，即1，也就是说<strong>内存中对于1只占用了一个地址</strong>，而不管有多少个引用指向了它，都只有一个地址值，只是有一个<strong>引用计数</strong>会记录指向这个地址的引用到底有几个而已。</p>
-<p>当我们进行x = 2赋值时，发现x的地址值变了，虽然还是x这个引用，但是其地址值却变化了，后面的y = 2以及z = y，使得x、y和z都引用了同一个对象，即2，所以地址值都是一样的。</p>
-<p>当x和y都被赋值2后，1这个对象已经没有引用指向它了，所以1这个对象占用的内存，即31106520地址要被“垃圾回收”，即1这个对象在内存中已经不存在了。</p>
-<p>最后，x进行了加2的操作，所以创建了新的对象4，x引用了这个新的对象，而不再引用2这个对象。</p>
-<p>总的来说，python里的不可变大家可以理解为x引用的地址处的值是不能被改变的，也就是31106520地址处的值在没被垃圾回收之前一直都是1，不能改变，如果要把x赋值为2，那么只能将x引用的地址从31106520变为31106508，相当于x = 2这个赋值又创建了一个对象，即2这个对象，然后x、y、z都引用了这个对象，所以int这个数据类型是不可变的，如果想对int类型的变量再次赋值，在内存中相当于又创建了一个新的对象，而不再是之前的对象。从下图中就可以看到上面程序的过程。<br><img src="https://i.imgur.com/44gY2jF.png" alt=""></p>
-<p>从上面的过程可以看出，不可变数据类型的优点就是内存中不管有多少个引用，相同的对象只占用了一块内存，但是它的缺点就是当需要对变量进行运算从而改变变量引用的对象的值时，由于是不可变的数据类型，所以必须创建新的对象，这样就会使得一次次的改变创建了一个个新的对象，不过不再使用的内存会被垃圾回收器回收(<strong>python提供了自动的垃圾回收机制，后面会有博文详解</strong>)。</p>
-<h1 id="可变数据类型分析"><a href="#可变数据类型分析" class="headerlink" title="可变数据类型分析"></a>可变数据类型分析</h1><pre><code>&gt;&gt;&gt; a = [1, 2, 3]    
-&gt;&gt;&gt; id(a)    
-41568816    
-&gt;&gt;&gt; a = [1, 2, 3]    
-&gt;&gt;&gt; id(a)    
-41575088    
-&gt;&gt;&gt; a.append(4)    
-&gt;&gt;&gt; id(a)    
-41575088    
-&gt;&gt;&gt; a += [2]    
-&gt;&gt;&gt; id(a)    
-41575088    
-&gt;&gt;&gt; a    
-[1, 2, 3, 4, 2]  
-</code></pre><p>从上面的程序中可以看出，进行两次a = [1, 2, 3]操作，两次a引用的地址值是不同的，也就是说其实创建了两个不同的对象，这一点明显不同于不可变数据类型，所以对于可变数据类型来说，具有同样值的对象是不同的对象，即在内存中保存了多个同样值的对象，地址值不同。</p>
-<p>接着来看后面的操作，我们对列表进行添加操作，分别a.append(4)和a += [2]，发现这两个操作使得a引用的对象值变成了上面的最终结果，但是a引用的地址依旧是41575088，也就是说对a进行的操作不会改变a引用的地址值，只是在地址后面又扩充了新的地址，改变了地址里面存放的值，</p>
-<p><strong>所以可变数据类型的意思就是说对一个变量进行操作时，其值是可变的，值的变化并不会引起新建对象，即地址是不会变的，只是地址中的内容变化了或者地址得到了扩充。下图对这一过程进行了图示，可以很清晰地看到这一过程。</strong><br><img src="https://i.imgur.com/aSEf24o.png" alt=""></p>
-<p>从上述过程可以看到，可变数据类型是允许同一对象的内容，即值可以变化，但是地址是不会变化的。但是需要注意一点，对可变数据类型的操作不能是直接进行新的赋值操作，比如说a = [1, 2, 3, 4, 5, 6, 7]，这样的操作就不是改变值了，而是新建了一个新的对象，这里的可变只是对于类似于append、+=等这种操作。</p>
-<p>另外看下面的例子：</p>
-<pre><code>&gt;&gt;&gt; list=[1,3,4]
-&gt;&gt;&gt; list1=[1,3,4]
-&gt;&gt;&gt; id(list)
-1916536781128
-&gt;&gt;&gt; id(list1)
-1916536780296
-
-&gt;&gt;&gt; list2=list3=[1,3,4]  #等价于  list2=[1,3,4]  list2=list3
-&gt;&gt;&gt; id(list2)
-1916536781000
-&gt;&gt;&gt; id(list3)
-1916536781000
-</code></pre><p>可以看出，对可变数据类型的直接进行新的赋值操作的确是新建了一个对象，但是将一个可变类型赋值给另一个可变类性的操作并没有创建新的对象，<br>只是原对象增加了一个引用而已。</p>
-<h1 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h1><pre><code>&gt;&gt;&gt; x=3.14
-&gt;&gt;&gt; y=3.14
-&gt;&gt;&gt; id(x) 
-1996197073232
-&gt;&gt;&gt; id(y)
-1996197073688
-&gt;&gt;&gt; y=x
-&gt;&gt;&gt; id(y)
-1996197073232
-</code></pre><p>为什么会出现上述情况呢？同一个3.14在内存中创建了两次，浮点型不是不可变类型吗？原因是因为Python 仅缓存简单整数，因为它认为在 Python 应用程序中这些小整数会经常被用到。Python 缓存的整数范围是(-1, 100)，不过这个范围是会改变的，所以请不要在你的应用程序使用这个特性。</p>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>不可变数据类型，不允许变量的值发生变化，如果改变了变量的值，相当于是新建了一个对象，而对于相同的值的对象，在内存中则只有一个对象，内部会有一个引用计数来记录有多少个变量引用这个对象；</p>
-<p>可变数据类型，允许变量的值发生变化，即如果对变量进行append、+=等这种操作后，只是改变了变量的值，而不会新建一个对象，变量引用的对象的地址也不会变化，不过对于相同的值的不同变量（a=[1,2,3]与b=[1,2,3]是两个不同的对象），在内存中则会存在不同的对象，即每个对象都有自己的地址，相当于内存中对于同值的对象保存了多份，这里不存在引用计数，是实实在在的对象。</p>
-<p>最后，大家主要区分开什么是变量值的变化、什么是变量引用的对象地址的变化这些概念就很清楚了，千说万说都不如自己动手写一些程序测试一下看看来得实在，所以建议大家有什么疑惑可以自己写一些基本的程序测试一下便知道结果。如果大家有新的意见，欢迎补充，谢谢。</p>
+        <p>在python中一切皆为对象，Python 使用对象模型来存储数据。构造任何类型的值都是一个对象。</p>
+<p>所有的 Python 对像都拥有三个特性：<strong>身份、类型、值</strong>。</p>
+<p><strong>身份</strong>：每一个对象都有一个唯一的身份标识自己，任何对象的身份可以使用内建函数 id()来得到。<br>这个值可以被认为是该对象的内存地址。您极少会用到这个值，也不用太关心它究竟是什么。</p>
+<p><strong>类型</strong>：对象的类型决定了该对象可以保存什么类型的值，可以进行什么样的操作，以及遵循什么样的规则。您可以用内建函数 type()查看 Python 对象的类型。因为在 Python 中类型也是对象。</p>
+<p><strong>值</strong>：对象表示的数据项</p>
+<p>Python 有一系列的基本（内建）数据类型，必要时也可以创建自定义类型来满足你的应用程序的需求。绝大多数应用程序通常使用<strong>标准类型</strong>，对特定的数据存储则通过创建和实例化类<br>来实现<br><a id="more"></a></p>
+<h1 id="python-标准类型"><a href="#python-标准类型" class="headerlink" title="python 标准类型"></a>python 标准类型</h1><ol>
+<li><p>数字（分为几个子类型，其中有三个是整型）</p>
+<ol>
+<li>Integer 整型</li>
+<li>Boolean布尔型</li>
+<li>Long integer长整型</li>
+<li>Float浮点型</li>
+<li>Complex number复数型</li>
+</ol>
+</li>
+<li><p>String 字符串 </p>
+</li>
+<li><p>List 列表</p>
+</li>
+<li><p>Tuple 元组</p>
+</li>
+<li><p>Dictionary 字典</p>
+</li>
+</ol>
+<h2 id="标准类型操作符"><a href="#标准类型操作符" class="headerlink" title="标准类型操作符"></a>标准类型操作符</h2><h3 id="值比较"><a href="#值比较" class="headerlink" title="值比较"></a>值比较</h3><pre><code>&gt;&gt;&gt; 2 == 2
+True
+&gt;&gt;&gt; 2.46 &lt;= 8.33
+True
+&gt;&gt;&gt; 5+4j &gt;= 2-3j
+True
+&gt;&gt;&gt; &apos;abc&apos; == &apos;xyz&apos;
+False
+&gt;&gt;&gt; &apos;abc&apos; &gt; &apos;xyz&apos;
+False                            
+&gt;&gt;&gt; &apos;abc&apos; &lt; &apos;xyz&apos;
+True
+&gt;&gt;&gt; [3, &apos;abc&apos;] == [&apos;abc&apos;, 3]
+False
+&gt;&gt;&gt; [3, &apos;abc&apos;] == [3, &apos;abc&apos;]
+True
+不同于很多其它语言，多个比较操作可以在同一行上进行，求值顺序为从左到右。
+&gt;&gt;&gt; 3 &lt; 4 &lt; 7 # same as ( 3 &lt; 4 ) and ( 4 &lt; 7 )
+True
+&gt;&gt;&gt; 4 &gt; 3 == 3 # same as ( 4 &gt; 3 ) and ( 3 == 3 )
+True
+&gt;&gt;&gt; 4 &lt; 3 &lt; 5 != 2 &lt; 7
+False
+</code></pre><p>我们会注意到比较操作是针对对象的值进行的，也就是说比较的是对象的数值而不是对象本身。</p>
+<h3 id="身份比较"><a href="#身份比较" class="headerlink" title="身份比较"></a>身份比较</h3><p>python 提供了 is 和 is no操作符来测试两个变量是否指向同一个对象。</p>
+<pre><code>&gt;&gt;&gt; a=3
+&gt;&gt;&gt; b=3
+&gt;&gt;&gt; a is b # 等价于 id(a)==id(b)
+True
+&gt;&gt;&gt; l=[1,2,3]
+&gt;&gt;&gt; ll=[1,2,3]
+&gt;&gt;&gt; l is ll
+False #可变类型的赋值操作是新创建一个对象，详见：[Python的可变与不可变数据类型](http://waisunny.com/2017/11/20/Python%E7%9A%84%E5%8F%AF%E5%8F%98%E4%B8%8E%E4%B8%8D%E5%8F%AF%E5%8F%98%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/)
+</code></pre><h2 id="标准类型内建函数"><a href="#标准类型内建函数" class="headerlink" title="标准类型内建函数"></a>标准类型内建函数</h2><p>Python 提供了一些内建函数用于这些基本对象类型：cmp(), repr(), str(), type(), 和等同于 repr()函数的单反引号(``) 运算符。</p>
+<ol>
+<li>cmp(obj1, obj2)： 比较 obj1 和 obj2, 根据比较结果返回整数 i:<ol>
+<li>i &lt; 0 if obj1 &lt; obj2</li>
+<li>i &gt; 0 if obj1 &gt; obj2</li>
+<li>i == 0 if obj1 == obj2</li>
+</ol>
+</li>
+<li><p>repr(obj) 或 <code>obj</code> 返回一个对象的字符串表示</p>
+</li>
+<li><p>str(obj) 返回对象适合可读性好的字符串表示</p>
+</li>
+<li><p>type(obj) 得到一个对象的类型，并返回相应的 type 对象</p>
+</li>
+</ol>
+<p>说明：cmp()函数在python3中已被舍弃，详情参考：<a href="http://blog.csdn.net/sushengmiyan/article/details/11332589" title="cmp函数在python3中的替换版本" target="_blank" rel="external">http://blog.csdn.net/sushengmiyan/article/details/11332589</a></p>
+<h2 id="标准类型工厂函数"><a href="#标准类型工厂函数" class="headerlink" title="标准类型工厂函数"></a>标准类型工厂函数</h2><p>工厂函数:看上去有点象函数， 实质上他们是类。当你<strong>调用它们时，实际上是生成了该类型的一个实<br>例</strong>， 就象工厂生产货物一样。</p>
+<p>在以前的python版本中称为内建函数，现在是工厂函数：</p>
+<p>int(), long(), float(), complex()，str()</p>
+<p>unicode(), basestring(),list(), tuple(),type()</p>
+<p>python后来版本增加的工厂函数：</p>
+<p>dict(),bool(),set(), frozenset(), object(),file()</p>
+<p>classmethod(),staticmethod(), super(), property()</p>
+<pre><code>&gt;&gt;&gt; list()
+[]
+&gt;&gt;&gt; dict
+&lt;class &apos;dict&apos;&gt;
+&gt;&gt;&gt; list()
+[]
+&gt;&gt;&gt; dict()
+{}
+&gt;&gt;&gt; float()
+0.0
+&gt;&gt;&gt; int()
+0
+&gt;&gt;&gt; bool()
+False
+</code></pre><h2 id="标准类型分类"><a href="#标准类型分类" class="headerlink" title="标准类型分类"></a>标准类型分类</h2><h3 id="存储模型"><a href="#存储模型" class="headerlink" title="存储模型"></a>存储模型</h3><ol>
+<li><p>标量/原子类型： 数值（所有数值类型），字符串</p>
+</li>
+<li><p>容器类型：列表、元祖、字典</p>
+</li>
+</ol>
+<h3 id="更新模型"><a href="#更新模型" class="headerlink" title="更新模型"></a>更新模型</h3><ol>
+<li>可变类性：列表、字典</li>
+<li>不可变类型：数字、字符串、元祖</li>
+</ol>
+<h3 id="访问模型"><a href="#访问模型" class="headerlink" title="访问模型"></a>访问模型</h3><ol>
+<li>直接访问：数字</li>
+<li>顺序访问：字符串、列表、元祖</li>
+<li>映射访问：字典</li>
+</ol>
+<h1 id="python其他内建类型"><a href="#python其他内建类型" class="headerlink" title="python其他内建类型"></a>python其他内建类型</h1><ol>
+<li>类型(type)</li>
+<li>Null 对象 (None)</li>
+<li>文件</li>
+<li>集合/固定集合（set）</li>
+<li>函数/方法</li>
+<li>模块</li>
+<li>类</li>
+</ol>
+<h1 id="python内部类型"><a href="#python内部类型" class="headerlink" title="python内部类型"></a>python内部类型</h1><ol>
+<li>代码（编译过的python源代码片段）</li>
+<li>帧(python的执行帧栈)</li>
+<li>跟踪记录(Traceback)</li>
+<li>切片</li>
+<li>省略</li>
+<li>range</li>
+</ol>
+<h1 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h1><p>解释：<strong>内建</strong> ：是由python的解释器本身支持的，不需要任何import就可以使用的，而且也找不到.py的源码。</p>
 
       
     </div>
@@ -552,7 +601,7 @@
     </li>
     <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="http://waisunny.com/2017/11/20/Python的可变与不可变数据类型/" title="Python的可变与不可变数据类型">http://waisunny.com/2017/11/20/Python的可变与不可变数据类型/</a>
+      <a href="http://waisunny.com/2017/11/22/python-对象/" title="python 对象">http://waisunny.com/2017/11/22/python-对象/</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明： </strong>
@@ -581,8 +630,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/11/19/python中的字符串/" rel="next" title="python中的字符串">
-                <i class="fa fa-chevron-left"></i> python中的字符串
+              <a href="/2017/11/22/Python的可变与不可变数据类型/" rel="next" title="Python的可变与不可变数据类型">
+                <i class="fa fa-chevron-left"></i> Python的可变与不可变数据类型
               </a>
             
           </div>
@@ -591,8 +640,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/11/21/python中的编码问题/" rel="prev" title="python中的编码问题">
-                python中的编码问题 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/11/24/python深浅拷贝剖析/" rel="prev" title="python深浅拷贝剖析">
+                python深浅拷贝剖析 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -667,7 +716,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-count">11</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -678,7 +727,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -742,7 +791,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#不可变数据类型分析"><span class="nav-number">1.</span> <span class="nav-text">不可变数据类型分析</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#可变数据类型分析"><span class="nav-number">2.</span> <span class="nav-text">可变数据类型分析</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#补充"><span class="nav-number">3.</span> <span class="nav-text">补充</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#总结"><span class="nav-number">4.</span> <span class="nav-text">总结</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#python-标准类型"><span class="nav-number">1.</span> <span class="nav-text">python 标准类型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#标准类型操作符"><span class="nav-number">1.1.</span> <span class="nav-text">标准类型操作符</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#值比较"><span class="nav-number">1.1.1.</span> <span class="nav-text">值比较</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#身份比较"><span class="nav-number">1.1.2.</span> <span class="nav-text">身份比较</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#标准类型内建函数"><span class="nav-number">1.2.</span> <span class="nav-text">标准类型内建函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#标准类型工厂函数"><span class="nav-number">1.3.</span> <span class="nav-text">标准类型工厂函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#标准类型分类"><span class="nav-number">1.4.</span> <span class="nav-text">标准类型分类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#存储模型"><span class="nav-number">1.4.1.</span> <span class="nav-text">存储模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#更新模型"><span class="nav-number">1.4.2.</span> <span class="nav-text">更新模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#访问模型"><span class="nav-number">1.4.3.</span> <span class="nav-text">访问模型</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#python其他内建类型"><span class="nav-number">2.</span> <span class="nav-text">python其他内建类型</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#python内部类型"><span class="nav-number">3.</span> <span class="nav-text">python内部类型</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#补充"><span class="nav-number">4.</span> <span class="nav-text">补充</span></a></li></ol></div>
             
 
           </div>
