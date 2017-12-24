@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://waisunny.com/"/>
-  <updated>2017-12-24T08:24:47.582Z</updated>
+  <updated>2017-12-24T09:41:11.560Z</updated>
   <id>http://waisunny.com/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Python上下文管理器与with语句</title>
+    <link href="http://waisunny.com/2017/12/25/Python%E4%B8%8A%E4%B8%8B%E6%96%87%E7%AE%A1%E7%90%86%E5%99%A8%E4%B8%8Ewith%E8%AF%AD%E5%8F%A5/"/>
+    <id>http://waisunny.com/2017/12/25/Python上下文管理器与with语句/</id>
+    <published>2017-12-24T16:51:59.000Z</published>
+    <updated>2017-12-24T09:41:11.560Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="什么是上下文管理器"><a href="#什么是上下文管理器" class="headerlink" title="什么是上下文管理器"></a>什么是上下文管理器</h1><p>上下文管理器顾名思义是管理上下文的,也就是负责冲锋和垫后,而让主人专心完成自己的事情。我们在编写程序的时候，通常会将一系列操作放到一个语句块中，当某一条件为真时执行该语句快。有时候，我们需要再执行一个语句块时保持某种状态，并且在离开语句块后结束这种状态。例如对文件的操作，我们在打开一个文件进行读写操作时需要保持文件处于打开状态，而等操作完成之后要将文件关闭。所以，上下文管理器的任务是：代码块执行前准备，代码块执行后收拾。上下文管理器是在Python2.5加入的功能，它能够让你的代码可读性更强并且错误更少。</p><p>需求的产生<br>在正常的管理各种系统资源(文件、锁定和连接)，在涉及到异常时通常是个棘手的问题。异常很可能导致控制流跳过负责释放关键资源的语句。例如打开一个文件进行操作时，如果意外情况发生（磁盘已满、特殊的终端信号让其终止等），就会抛出异常，这样可能最后的文件关闭操作就不会执行。如果这样的问题频繁出现，则可能耗尽系统资源。</p><p>是的，这样的问题并不是不可避免。在没有接触到上下文管理器之前，我们可以用“try/finally”语句来解决这样的问题。或许在有些人看来，“try/finally”语句显得有些繁琐。上下文管理器就是被设计用来简化“try/finally”语句的，这样可以让程序更加简洁。<br><a id="more"></a></p><h1 id="With语句"><a href="#With语句" class="headerlink" title="With语句"></a>With语句</h1><p>With语句用于执行上下文操作，它也是复合语句的一种，其基本语法如下所示：</p><pre><code>with context_expr [as var]:    with_suite</code></pre><p>With 语句仅能工作于支持上下文管理协议(context management protocol)的对象。也就是说只有内建了”上下文管理”的对象才能和 with 一起工作。Python内置了一些支持该协议的对象，如下所列是一个简短列表：</p><ol><li>file</li><li>decimal.Context</li><li>thread.LockType</li><li>threading.Lock</li><li>threading.RLock</li><li>threading.Condition</li><li>threading.Semaphore</li><li>threading.BoundedSemaphore</li></ol><p>由以上列表可以看出，file 是已经内置了对上下文管理协议的支持。所以我们可以用下边的方法来操作文件：</p><pre><code>with open(&apos;/etc/passwd&apos;, &apos;r&apos;) as f:    for eachLine in f:        # ...do stuff with eachLine or f...</code></pre><p>上边的代码试图打开一个文件,如果一切正常,把文件对象赋值给 f。然后用迭代器遍历文件中的每一行,当完成时,关闭文件。无论是在这一段代码的开始,中间,还是结束时发生异常,会执行清理的代码,此外文件仍会被自动的关闭。</p><h1 id="自定义上下文管理器"><a href="#自定义上下文管理器" class="headerlink" title="自定义上下文管理器"></a>自定义上下文管理器</h1><p>要实现上下文管理器，必须实现两个方法：一个负责进入语句块的准备操作，另一个负责离开语句块的善后操作。Python类包含两个特殊的方法，分别名为：<strong>__enter__ 和 __exit__</strong>。</p><p>__enter__: 该方法进入运行时上下文环境，并返回自身或另一个与运行时上下文相关的对象。返回值会赋给 as 从句后面的变量，as 从句是可选的。</p><p>__exit__: 该方法退出当前运行时上下文并返回一个布尔值，该布尔值标明了“如果 with<em>suit 的退出是由异常引发的，该异常是否须要被忽略”。如果 \</em>_exit__() 的返回值等于 False，那么这个异常将被重新引发一次；如果 __exit__() 的返回值等于 True，那么这个异常就被无视掉，继续执行后面的代码。</p><p>With 语句的实际执行流程是这样的：</p><ol><li>执行 context_exp 以获取上下文管理器</li><li>加载上下文管理器的 __exit__() 方法以备稍后调用</li><li>调用上下文管理器的 __enter__() 方法</li><li>如果有 as var 从句，则将 __enter__() 方法的返回值赋给 var</li><li>执行子代码块 with_suit</li><li>调用上下文管理器的 __exit__() 方法，如果 with<em>suit 的退出是由异常引发的，那么该异常的 type、value 和 traceback 会作为参数传给 \</em>_exit__()，否则传三个 None。</li><li>如果 with<em>suit 的退出由异常引发，并且 \</em>_exit__() 的返回值等于 False，那么这个异常将被重新引发一次；如果 __exit__() 的返回值等于 True，那么这个异常就被无视掉，继续执行后面的代码</li></ol><p>下面我们自己来实现一个支持上下文管理协议的类：</p><pre><code>class Query(object):    def __init__(self, name):        self.name = name    def __enter__(self):        print(&apos;Begin&apos;)        return self    def __exit__(self, exc_type, exc_value, traceback):        if exc_type:            print(&apos;Error&apos;)        else:            print(&apos;End&apos;)    def query(self):        print(&apos;Query info about %s...&apos; % self.name)</code></pre><p>这样我们就可以把自己写的资源对象用于with语句：</p><pre><code>with Query(&apos;_learner&apos;) as q:    q.query()</code></pre><p>执行结果：</p><pre><code>BeginQuery info about _learner...End</code></pre><h1 id="上下文管理工具（contextlib模块）"><a href="#上下文管理工具（contextlib模块）" class="headerlink" title="上下文管理工具（contextlib模块）"></a>上下文管理工具（contextlib模块）</h1><p><strong>contextlib</strong>模块提供更易用的上下文管理器。</p><h2 id="contextmanager"><a href="#contextmanager" class="headerlink" title="@contextmanager"></a>@contextmanager</h2><p>编写<strong>enter</strong>和<strong>exit</strong>仍然很繁琐，因此Python的标准库contextlib提供了更简单的写法，上面的代码可以改写如下：</p><pre><code>from contextlib import contextmanagerclass Query(object):    def __init__(self, name):        self.name = name    def query(self):        print(&apos;Query info about %s...&apos; % self.name)@contextmanagerdef create_query(name):    print(&apos;Begin&apos;)    q = Query(name)    yield q    print(&apos;End&apos;)</code></pre><p><strong>@contextmanager</strong>这个decorator接受一个generator，用yield语句把with … as var把变量输出出去，然后，with语句就可以正常地工作了：</p><pre><code>with create_query(&apos;_learner&apos;) as q:    q.query()</code></pre><p>执行结果：</p><pre><code>BeginQuery info about _learner...End</code></pre><p>很多时候，我们希望在某段代码执行前后自动执行特定代码，也可以用@contextmanager实现。例如：</p><pre><code>@contextmanagerdef tag(name):    print(&quot;&lt;%s&gt;&quot; % name)    yield    print(&quot;&lt;/%s&gt;&quot; % name)with tag(&quot;h1&quot;):    print(&quot;hello&quot;)    print(&quot;world&quot;)</code></pre><p>上述代码执行结果为：</p><pre><code>&lt;h1&gt;helloworld&lt;/h1&gt;</code></pre><p>代码的执行顺序是：</p><ol><li>with语句首先执行yield之前的语句，因此打印出<h1\>；</h1\></li><li>yield调用会执行with语句内部的所有语句，因此打印出hello和world；</li><li>最后执行yield之后的语句，打印出。</li></ol><p>因此，@contextmanager让我们通过编写generator来简化上下文管理。</p><h2 id="closing"><a href="#closing" class="headerlink" title="@closing"></a>@closing</h2><p>如果一个对象没有实现上下文，我们就不能把它用于with语句。这个时候，可以用closing()来把该对象变为上下文对象。例如，用with语句使用urlopen()：</p><pre><code>from contextlib import closingfrom urllib.request import urlopenwith closing(urlopen(&apos;https://www.python.org&apos;)) as page:    for line in page:        print(line)</code></pre><p><strong>closing</strong>也是一个经过<strong>@contextmanager</strong>装饰的generator，这个generator编写起来其实非常简单：</p><pre><code>@contextmanagerdef closing(thing):    try:        yield thing    finally:        thing.close()</code></pre><p>重写上面的例子：</p><pre><code>from contextlib import  contextmanagerfrom urllib.request import urlopen@contextmanagerdef closing(thing):    try:        yield thing    finally:        thing.close()with closing(urlopen(&apos;https://www.python.org&apos;)) as page:    for line in page:        print(line)</code></pre><p>它的作用就是把任意对象变为上下文对象，并支持with语句。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;什么是上下文管理器&quot;&gt;&lt;a href=&quot;#什么是上下文管理器&quot; class=&quot;headerlink&quot; title=&quot;什么是上下文管理器&quot;&gt;&lt;/a&gt;什么是上下文管理器&lt;/h1&gt;&lt;p&gt;上下文管理器顾名思义是管理上下文的,也就是负责冲锋和垫后,而让主人专心完成自己的事情。我们在编写程序的时候，通常会将一系列操作放到一个语句块中，当某一条件为真时执行该语句快。有时候，我们需要再执行一个语句块时保持某种状态，并且在离开语句块后结束这种状态。例如对文件的操作，我们在打开一个文件进行读写操作时需要保持文件处于打开状态，而等操作完成之后要将文件关闭。所以，上下文管理器的任务是：代码块执行前准备，代码块执行后收拾。上下文管理器是在Python2.5加入的功能，它能够让你的代码可读性更强并且错误更少。&lt;/p&gt;
+&lt;p&gt;需求的产生&lt;br&gt;在正常的管理各种系统资源(文件、锁定和连接)，在涉及到异常时通常是个棘手的问题。异常很可能导致控制流跳过负责释放关键资源的语句。例如打开一个文件进行操作时，如果意外情况发生（磁盘已满、特殊的终端信号让其终止等），就会抛出异常，这样可能最后的文件关闭操作就不会执行。如果这样的问题频繁出现，则可能耗尽系统资源。&lt;/p&gt;
+&lt;p&gt;是的，这样的问题并不是不可避免。在没有接触到上下文管理器之前，我们可以用“try/finally”语句来解决这样的问题。或许在有些人看来，“try/finally”语句显得有些繁琐。上下文管理器就是被设计用来简化“try/finally”语句的，这样可以让程序更加简洁。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Python" scheme="http://waisunny.com/categories/Python/"/>
+    
+    
+      <category term="python基础" scheme="http://waisunny.com/tags/python%E5%9F%BA%E7%A1%80/"/>
+    
+  </entry>
   
   <entry>
     <title>python中的下划线</title>
