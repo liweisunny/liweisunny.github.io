@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://waisunny.com/"/>
-  <updated>2017-12-23T14:28:41.204Z</updated>
+  <updated>2017-12-24T08:19:06.235Z</updated>
   <id>http://waisunny.com/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>python中的下划线</title>
+    <link href="http://waisunny.com/2017/12/24/python%E4%B8%AD%E7%9A%84%E4%B8%8B%E5%88%92%E7%BA%BF/"/>
+    <id>http://waisunny.com/2017/12/24/python中的下划线/</id>
+    <published>2017-12-24T15:56:58.000Z</published>
+    <updated>2017-12-24T08:19:06.235Z</updated>
+    
+    <content type="html"><![CDATA[<p>这篇文章讨论Python中下划线<em>的使用。跟Python中很多用法类似，下划线</em>的不同用法绝大部分（不全是）都是一种惯例约定。<br><a id="more"></a></p><h1 id="单个下划线（-）"><a href="#单个下划线（-）" class="headerlink" title="单个下划线（_）"></a>单个下划线（_）</h1><p>主要有三种情况：</p><ol><li><p>解释器中<br>_符号是指交互解释器中最后一次执行语句的返回结果。这种用法最初出现在CPython解释器中，其他解释器后来也都跟进了。</p><pre><code>&gt;&gt;&gt; _Traceback (most recent call last):File &quot;&quot;, line 1, in NameError: name &apos;_&apos; is not defined&gt;&gt;&gt; 42&gt;&gt;&gt; _42&gt;&gt;&gt; &apos;alright!&apos; if _ else &apos;:(&apos;&apos;alright!&apos;&gt;&gt;&gt; _&apos;alright!&apos;</code></pre></li><li><p>作为名称使用<br>这个跟上面有点类似。_用作被丢弃的名称。按照惯例，这样做可以让阅读你代码的人知道，这是个不会被使用的特定名称。举个例子，你可能无所谓一个循环计数的值：</p><pre><code>n = 42for _ in range(n):    do_something()</code></pre></li><li><p>i18n<br>_还可以被用作函数名。这种情况，单下划线经常被用作国际化和本地化字符串翻译查询的函数名。这种惯例好像起源于C语言。举个例子，在 <a href="https://docs.djangoproject.com/en/dev/topics/i18n/translation/" target="_blank" rel="external">Django documentation for translation</a> 中你可能会看到：</p><pre><code>from django.utils.translation import ugettext as _from django.http import HttpResponsedef my_view(request):    output = _(&quot;Welcome to my site.&quot;)    return HttpResponse(output)</code></pre></li></ol><p>第二种和第三种用法会引起冲突，所以在任意代码块中，如果使用了_作i18n翻译查询函数，就应该避免再用作被丢弃的变量名。</p><h1 id="单下划线前缀的名称（例如-shahriar）"><a href="#单下划线前缀的名称（例如-shahriar）" class="headerlink" title="单下划线前缀的名称（例如_shahriar）"></a>单下划线前缀的名称（例如_shahriar）</h1><p>单下划线开头被常用于模块中，在一个模块中以单下划线开头的变量和函数被默认当作内部函数,“私有成员”，如果使用 from a_module import * 导入时，这部分变量和函数不会被导入,除非模块/包的<strong>all</strong>列表明确包含了这些名称。不过值得注意的是，如果使用 import a_module 这样导入模块，仍然可以用 a_module._some_var 这样的形式访问到这样的对象。</p><h1 id="双下划线前缀的名称（例如-shahriar）"><a href="#双下划线前缀的名称（例如-shahriar）" class="headerlink" title="双下划线前缀的名称（例如__shahriar）"></a>双下划线前缀的名称（例如__shahriar）</h1><p>以双下划线做前缀的名称（特别是方法名）并不是一种惯例；它对解释器有特定含义。Python会改写这些名称，以免与子类中定义的名称产生冲突。Python documentation中提到，任何<strong>spam这种形式（至少以两个下划线做开头，绝大部分都还有一个下划线做结尾）的标识符，都会文本上被替换为_classname</strong>spam，其中classname是当前类名，并带上一个下划线做前缀。</p><p>看下面这个例子：</p><pre><code>&gt;&gt;&gt; class A(object):...     def _internal_use(self):...         pass...     def __method_name(self):...         pass... &gt;&gt;&gt; dir(A())[&apos;_A__method_name&apos;, ..., &apos;_internal_use&apos;]</code></pre><p>正如所料，_internal_use没有变化，但<strong>method_name被改写成了_ClassName</strong>method_name。现在创建一个A的子类B（这可不是个好名字），就不会轻易的覆盖掉A中的__method_name了：</p><pre><code>&gt;&gt;&gt; class B(A):...     def __method_name(self):...         pass... &gt;&gt;&gt; dir(B())[&apos;_A__method_name&apos;, &apos;_B__method_name&apos;, ..., &apos;_internal_use&apos;]</code></pre><p>这种特定的行为差不多等价于Java中的final方法和C++中的正常方法（非虚方法）。</p><h1 id="前后都带有双下划线的名称（例如-init）"><a href="#前后都带有双下划线的名称（例如-init）" class="headerlink" title="前后都带有双下划线的名称（例如 init）"></a>前后都带有双下划线的名称（例如 <strong>init</strong>）</h1><p>这些是Python的特殊方法名，这仅仅是一种惯例，一种确保Python系统中的名称不会跟用户自定义的名称发生冲突的方式。通常你可以覆写这些方法，在Python调用它们时，产生你想得到的行为。例如，当写一个类的时候经常会覆写<strong>init</strong>方法。Python 官方推荐永远不要将这样的命名方式应用于自己的变量或函数，而是按照文档说明来使用。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;这篇文章讨论Python中下划线&lt;em&gt;的使用。跟Python中很多用法类似，下划线&lt;/em&gt;的不同用法绝大部分（不全是）都是一种惯例约定。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Python" scheme="http://waisunny.com/categories/Python/"/>
+    
+    
+      <category term="python基础" scheme="http://waisunny.com/tags/python%E5%9F%BA%E7%A1%80/"/>
+    
+  </entry>
   
   <entry>
     <title>python之异常处理</title>
@@ -173,11 +195,11 @@ www.python.org/peps/pep-0263.html for details
   </entry>
   
   <entry>
-    <title>python str和repr的区别</title>
+    <title>python str()和repr()的区别</title>
     <link href="http://waisunny.com/2017/11/19/python-str%E5%92%8Crepr%E7%9A%84%E5%8C%BA%E5%88%AB/"/>
     <id>http://waisunny.com/2017/11/19/python-str和repr的区别/</id>
     <published>2017-11-19T11:05:34.000Z</published>
-    <updated>2017-12-24T03:09:25.781Z</updated>
+    <updated>2017-12-24T07:58:18.829Z</updated>
     
     <content type="html"><![CDATA[<p>尽管str(),repr()和<code>运算在特性和功能方面都非常相似，事实上repr()和</code>做的是完全一样的事情，它们返回的是一个对象的“官方”字符串表示，也就是说绝大多数情况下可以通过求值运算（使用内建函数eval()）重新得到该对象。</p><p>但str()则有所不同，str()致力于生成一个对象的可读性好的字符串表示，它的返回结果通常无法用于eval()求值，但很适合用于print语句输出。需要再次提醒的是，并不是所有repr()返回的字符串都能够用 eval()内建函数得到原来的对象。 也就是说 repr() 输出对 Python比较友好，而str()的输出对用户比较友好。</p><p>虽然如此，很多情况下这三者的输出仍然都是完全一样的。 大家可以看下下面的代码，来进行对比<br><a id="more"></a></p><pre><code>&gt;&gt;&gt; s = &apos;Hello, world.&apos;&gt;&gt;&gt; str(s)&apos;Hello, world.&apos;&gt;&gt;&gt; repr(s)&quot;&apos;Hello, world.&apos;&quot;&gt;&gt;&gt; str(0.1)&apos;0.1&apos;&gt;&gt;&gt; repr(0.1)&apos;0.10000000000000001&apos;&gt;&gt;&gt; x = 10 * 3.25&gt;&gt;&gt; y = 200 * 200&gt;&gt;&gt; s = &apos;The value of x is &apos; + repr(x) + &apos;, and y is &apos; + repr(y) + &apos;...&apos;&gt;&gt;&gt; print(s)The value of x is 32.5, and y is 40000...&gt;&gt;&gt; # The repr() of a string adds string quotes and backslashes:... hello = &apos;hello, world\n&apos;&gt;&gt;&gt; hellos = repr(hello)&gt;&gt;&gt; print (hellos)&apos;hello, world\n&apos;&gt;&gt;&gt; # The argument to repr() may be any Python object:... repr((x, y, (&apos;spam&apos;, &apos;eggs&apos;)))&quot;(32.5, 40000, (&apos;spam&apos;, &apos;eggs&apos;))&quot;</code></pre>]]></content>
     
