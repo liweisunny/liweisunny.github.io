@@ -89,18 +89,18 @@
 
 
 
-<meta name="description" content="在谈如何处理python中的异常前，我们先来明白两个概念–&amp;gt;错误和异常。 错误：从软件方面来说, 错误是语法或是逻辑上的。语法错误指示软件的结构上有错误, 导致不能被解释器解释或编译器无法编译。 这些错误必须在程序执行前纠正。当程序的语法正确后, 剩下的就是逻辑错误了. 逻辑错误可能是由于不完整或是不合法的输入所致; 在其他情况下, 还可能是逻辑无法生成, 计算, 或是输出结果需要的过程无法">
+<meta name="description" content="什么是上下文管理器上下文管理器顾名思义是管理上下文的,也就是负责冲锋和垫后,而让主人专心完成自己的事情。我们在编写程序的时候，通常会将一系列操作放到一个语句块中，当某一条件为真时执行该语句快。有时候，我们需要再执行一个语句块时保持某种状态，并且在离开语句块后结束这种状态。例如对文件的操作，我们在打开一个文件进行读写操作时需要保持文件处于打开状态，而等操作完成之后要将文件关闭。所以，上下文管理器的任">
 <meta name="keywords" content="python基础">
 <meta property="og:type" content="article">
-<meta property="og:title" content="python之异常处理">
-<meta property="og:url" content="http://waisunny.com/2017/11/27/python之异常处理/index.html">
+<meta property="og:title" content="Python黑魔法—上下文管理器">
+<meta property="og:url" content="http://waisunny.com/2017/12/21/Python黑魔法—上下文管理器/index.html">
 <meta property="og:site_name" content="WaiBlog|码农的技术小窝">
-<meta property="og:description" content="在谈如何处理python中的异常前，我们先来明白两个概念–&amp;gt;错误和异常。 错误：从软件方面来说, 错误是语法或是逻辑上的。语法错误指示软件的结构上有错误, 导致不能被解释器解释或编译器无法编译。 这些错误必须在程序执行前纠正。当程序的语法正确后, 剩下的就是逻辑错误了. 逻辑错误可能是由于不完整或是不合法的输入所致; 在其他情况下, 还可能是逻辑无法生成, 计算, 或是输出结果需要的过程无法">
+<meta property="og:description" content="什么是上下文管理器上下文管理器顾名思义是管理上下文的,也就是负责冲锋和垫后,而让主人专心完成自己的事情。我们在编写程序的时候，通常会将一系列操作放到一个语句块中，当某一条件为真时执行该语句快。有时候，我们需要再执行一个语句块时保持某种状态，并且在离开语句块后结束这种状态。例如对文件的操作，我们在打开一个文件进行读写操作时需要保持文件处于打开状态，而等操作完成之后要将文件关闭。所以，上下文管理器的任">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-12-23T14:28:41.204Z">
+<meta property="og:updated_time" content="2017-12-24T09:46:16.171Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="python之异常处理">
-<meta name="twitter:description" content="在谈如何处理python中的异常前，我们先来明白两个概念–&amp;gt;错误和异常。 错误：从软件方面来说, 错误是语法或是逻辑上的。语法错误指示软件的结构上有错误, 导致不能被解释器解释或编译器无法编译。 这些错误必须在程序执行前纠正。当程序的语法正确后, 剩下的就是逻辑错误了. 逻辑错误可能是由于不完整或是不合法的输入所致; 在其他情况下, 还可能是逻辑无法生成, 计算, 或是输出结果需要的过程无法">
+<meta name="twitter:title" content="Python黑魔法—上下文管理器">
+<meta name="twitter:description" content="什么是上下文管理器上下文管理器顾名思义是管理上下文的,也就是负责冲锋和垫后,而让主人专心完成自己的事情。我们在编写程序的时候，通常会将一系列操作放到一个语句块中，当某一条件为真时执行该语句快。有时候，我们需要再执行一个语句块时保持某种状态，并且在离开语句块后结束这种状态。例如对文件的操作，我们在打开一个文件进行读写操作时需要保持文件处于打开状态，而等操作完成之后要将文件关闭。所以，上下文管理器的任">
 
 
 
@@ -128,13 +128,13 @@
 
 
 
-  <link rel="canonical" href="http://waisunny.com/2017/11/27/python之异常处理/"/>
+  <link rel="canonical" href="http://waisunny.com/2017/12/21/Python黑魔法—上下文管理器/"/>
 
 
 
 
 
-  <title> python之异常处理 | WaiBlog|码农的技术小窝 </title>
+  <title> Python黑魔法—上下文管理器 | WaiBlog|码农的技术小窝 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -302,7 +302,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://waisunny.com/2017/11/27/python之异常处理/">
+    <link itemprop="mainEntityOfPage" href="http://waisunny.com/2017/12/21/Python黑魔法—上下文管理器/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="_learner">
@@ -323,7 +323,7 @@
             
             
               
-                python之异常处理
+                Python黑魔法—上下文管理器
               
             
           </h1>
@@ -338,8 +338,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-27T01:19:07+08:00">
-                2017-11-26
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-21T00:51:59+08:00">
+                2017-12-20
               </time>
             
 
@@ -354,8 +354,8 @@
               
                 <span class="post-meta-item-text">更新于</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2017-12-23T22:28:41+08:00">
-                2017-12-23
+              <time title="更新于" itemprop="dateModified" datetime="2017-12-24T17:46:16+08:00">
+                2017-12-24
               </time>
             
 			
@@ -410,7 +410,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  1,672字
+                  1,779字
                 </span>
               
 
@@ -445,130 +445,140 @@
       
 
       
-        <p>在谈如何处理python中的异常前，我们先来明白两个概念–&gt;<strong>错误和异常</strong>。</p>
-<p><strong>错误</strong>：从软件方面来说, 错误是语法或是逻辑上的。语法错误指示软件的结构上有错误, 导致不能被解释器解释或编译器无法编译。 这些错误必须在程序执行前纠正。当程序的语法正确后, 剩下的就是逻辑错误了. 逻辑错误可能是由于不完整或是不合法的输入所致; 在其他情况下, 还可能是逻辑无法生成, 计算, 或是输出结果需要的过程无法执行。这些错误通常分别被称为域错误和范围错误。当 Python 检测到一个错误时, 解释器就会指出当前流已经无法继续执行下去. 这时候就出现了异常。</p>
-<p><strong>异常</strong>：对异常的最好描述是: 它是因为程序出现了错误而在正常控制流以外采取的行为. 这个行为又分为两个阶段: 首先是引起异常发生的错误, 然后是检测(和采取可能的措施)阶段即处理异常阶段。<br><a id="more"></a></p>
-<h1 id="python中的异常"><a href="#python中的异常" class="headerlink" title="python中的异常"></a>python中的异常</h1><p>所有的标准/内建异常都是从根异常派生的.目前,有 3 个直接从 BaseException 派生的异常子<br>类:SystemExit,KeyboardInterrupt 和 Exception。 </p>
-<p>SystemExit：python解释器请求退出。</p>
-<p>KeyboardInterrupt：用户中断执行(通常是输入^C)。</p>
-<p>Exception 常规语法错误；所有的内建异常都是其子类。</p>
-<p><strong>列举几个最常用的内建异常：</strong></p>
-<p><strong>NameError</strong>:尝试访问一个未声明的变量</p>
-<p><strong>ZeroDivisionError</strong>: 除数为零</p>
-<p><strong>SyntaxError</strong>: Python 语法错误（SyntaxError 异常是唯一不是在运行时发生的异常. 它代表 Python 代码中有一个不正确的结构, 在它改正之前程序无法执行）</p>
-<p><strong>IndexError</strong>:请求的索引超出序列范围</p>
-<p><strong>KeyError</strong>:请求一个不存在的字典关键字</p>
-<p><strong>IOError</strong>: 输入/输出错误</p>
-<p><strong>AttributeError</strong>: 尝试访问未知的对象属性</p>
-<h1 id="检测和处理异常"><a href="#检测和处理异常" class="headerlink" title="检测和处理异常"></a>检测和处理异常</h1><p>使用try语句来检测异常。try 语句有两种主要形式: try-except 和 try-finally。这两个语句是互斥的, 也就是说你只能使用其中的一种. 一个 try 语句可以对应一个或多个 except 子句, 但只能对应一个finally 子句, 或是一个 try-except-finally 复合语句。</p>
-<p>另外值得说明的是，python中的try语句支持else语句，</p>
-<p>接下来看几个例子：</p>
-<p>1.try-except语句</p>
-<pre><code>try:
-    x=int(input(&apos;input x:&apos;))
-    y=int(input(&apos;input y:&apos;))
-    print(&apos;x/y=%.2f&apos;%(x/y))
-except ZeroDivisionError:
-    print(&apos;除数不能为0&apos;)
-</code></pre><p>2.带有多个except的try语句  </p>
-<pre><code>try:  
-    x = int(input(&apos;input x:&apos;))  
-    y = int(input(&apos;input y:&apos;))  
-    print(&apos;x/y = &apos;,x/y)  
-except ZeroDivisionError: #捕捉除0异常  
-    print(&quot;ZeroDivision&quot;)  
-except TypeError as e: #捕捉类型异常并将异常对象输出  
-    print(e) 
-except ValueError as e: #捕捉值异常并将异常对象输出  
-    print(e) 
-</code></pre><p>3.处理多个异常的except语句（异常必须放在一个元组里）</p>
-<pre><code>try:  
-    x = int(input(&apos;input x:&apos;))  
-    y = int(input(&apos;input y:&apos;))  
-    print(&apos;x/y = &apos;,x/y)   
-except (TypeError,ValueError,ZeroDivisionError) as e: #捕捉多个异常，并将异常对象输出  
-    print(e) 
-</code></pre><p>4.try-except-else（在try范围中没有异常被检测到时，执行 else 子句）</p>
-<pre><code>try:  
-    x = int(input(&apos;input x:&apos;))  
-    y = int(input(&apos;input y:&apos;))  
-    print(&apos;x/y = &apos;,x/y)  
-except ZeroDivisionError as e: #捕捉除0异常  
-    print(e)  
-else: #当try块中的语句没有发生异常完全执行成功时执行
-    print(&apos;it work well&apos;)  
-</code></pre><p>5.finally 语句（不管是否出现异常，最后都会执行finally的语句块内容，用于清理工作。所以，你可以在 finally 语句中关闭文件，这样就确保了文件能正常关闭）</p>
-<pre><code>try:  
-    x = int(input(&apos;input x:&apos;))  
-    y = int(input(&apos;input y:&apos;))  
-    print(&apos;x/y = &apos;,x/y)  
-except (TypeError,ValueError,ZeroDivisionError) as e: #捕捉多个异常  
-    print(e)  
-else: #没有异常时执行  
-    print(&apos;it work well&apos;)  
-finally: #不管是否有异常都会执行  
-    print(&quot;Cleaning up&quot;)  
-</code></pre><p>6.捕获所有异常</p>
-<pre><code>try:  
-    x = int(input(&apos;input x:&apos;))  
-    y = int(input(&apos;input y:&apos;))  
-    print(&apos;x/y = &apos;,x/y)  
-except BaseException as e: #捕捉所有异常  
-    print(e)  
-
-try:  
-    x = int(input(&apos;input x:&apos;))  
-    y = int(input(&apos;input y:&apos;))  
-    print(&apos;x/y = &apos;,x/y)  
-except: #捕捉所有异常 这种方法不推荐 
-    pass
-</code></pre><p>为什么用BaseException而不是Exception已经在文章开头说过。</p>
-<p><strong>说明：</strong></p>
+        <h1 id="什么是上下文管理器"><a href="#什么是上下文管理器" class="headerlink" title="什么是上下文管理器"></a>什么是上下文管理器</h1><p>上下文管理器顾名思义是管理上下文的,也就是负责冲锋和垫后,而让主人专心完成自己的事情。我们在编写程序的时候，通常会将一系列操作放到一个语句块中，当某一条件为真时执行该语句快。有时候，我们需要再执行一个语句块时保持某种状态，并且在离开语句块后结束这种状态。例如对文件的操作，我们在打开一个文件进行读写操作时需要保持文件处于打开状态，而等操作完成之后要将文件关闭。所以，上下文管理器的任务是：代码块执行前准备，代码块执行后收拾。上下文管理器是在Python2.5加入的功能，它能够让你的代码可读性更强并且错误更少。</p>
+<p>需求的产生<br>在正常的管理各种系统资源(文件、锁定和连接)，在涉及到异常时通常是个棘手的问题。异常很可能导致控制流跳过负责释放关键资源的语句。例如打开一个文件进行操作时，如果意外情况发生（磁盘已满、特殊的终端信号让其终止等），就会抛出异常，这样可能最后的文件关闭操作就不会执行。如果这样的问题频繁出现，则可能耗尽系统资源。</p>
+<p>是的，这样的问题并不是不可避免。在没有接触到上下文管理器之前，我们可以用“try/finally”语句来解决这样的问题。或许在有些人看来，“try/finally”语句显得有些繁琐。上下文管理器就是被设计用来简化“try/finally”语句的，这样可以让程序更加简洁。<br><a id="more"></a></p>
+<h1 id="With语句"><a href="#With语句" class="headerlink" title="With语句"></a>With语句</h1><p>With语句用于执行上下文操作，它也是复合语句的一种，其基本语法如下所示：</p>
+<pre><code>with context_expr [as var]:
+    with_suite
+</code></pre><p>With 语句仅能工作于支持上下文管理协议(context management protocol)的对象。也就是说只有内建了”上下文管理”的对象才能和 with 一起工作。Python内置了一些支持该协议的对象，如下所列是一个简短列表：</p>
 <ol>
-<li>在python2中将异常对象输出支持使用exception,e这种语法，而在python3中不在支持，只能将‘,’换成 as 关键字。</li>
-<li>当try语句中发生异常后，try语句中剩余的代码将不会在执行，当存在多个处理器（except字句）时，解释器将这一串解释器中查找匹配的异常，如果找到对应的处理器，执行流将会跳转到这里。</li>
-<li>在使用finally语句时，如果 finally 中的代码引发了另一个异常或由于 return,break,continue 语<br>法而终止,原来的异常将丢失而且无法重新引发。</li>
-<li>异常抛出之后，如果没有被接收，那么程序会抛给它的上一层，比如函数调用的地方，要是还是没有接收，那继续抛出，如果程序最后都没有处理这个异常，那它就丢给操作系统了 – 你的程序崩溃了，这点和C++一样的。</li>
+<li>file</li>
+<li>decimal.Context</li>
+<li>thread.LockType</li>
+<li>threading.Lock</li>
+<li>threading.RLock</li>
+<li>threading.Condition</li>
+<li>threading.Semaphore</li>
+<li>threading.BoundedSemaphore</li>
 </ol>
-<h1 id="主动触发异常"><a href="#主动触发异常" class="headerlink" title="主动触发异常"></a>主动触发异常</h1><p>raise主动触发异常，我们可以使用raise语句自己触发异常</p>
-<p>raise语法格式如下：</p>
-<pre><code>raise [Exception [, args [, traceback]]]
-</code></pre><p>语句中Exception是异常的类型（例如，NameError）参数是一个异常参数值。该参数是可选的，如果不提供，异常的参数是”None”。最后一个参数是可选的（在实践中很少使用），如果存在，是跟踪异常对象。</p>
-<pre><code>try:
-    raise TypeError(&apos;类型错误&apos;)
-except TypeError as e:
-    print(e)
+<p>由以上列表可以看出，file 是已经内置了对上下文管理协议的支持。所以我们可以用下边的方法来操作文件：</p>
+<pre><code>with open(&apos;/etc/passwd&apos;, &apos;r&apos;) as f:
+    for eachLine in f:
+        # ...do stuff with eachLine or f...
+</code></pre><p>上边的代码试图打开一个文件,如果一切正常,把文件对象赋值给 f。然后用迭代器遍历文件中的每一行,当完成时,关闭文件。无论是在这一段代码的开始,中间,还是结束时发生异常,会执行清理的代码,此外文件仍会被自动的关闭。</p>
+<h1 id="自定义上下文管理器"><a href="#自定义上下文管理器" class="headerlink" title="自定义上下文管理器"></a>自定义上下文管理器</h1><p>要实现上下文管理器，必须实现两个方法：一个负责进入语句块的准备操作，另一个负责离开语句块的善后操作。Python类包含两个特殊的方法，分别名为：<strong>__enter__ 和 __exit__</strong>。</p>
+<p>__enter__: 该方法进入运行时上下文环境，并返回自身或另一个与运行时上下文相关的对象。返回值会赋给 as 从句后面的变量，as 从句是可选的。</p>
+<p>__exit__: 该方法退出当前运行时上下文并返回一个布尔值，该布尔值标明了“如果 with<em>suit 的退出是由异常引发的，该异常是否须要被忽略”。如果 \</em>_exit__() 的返回值等于 False，那么这个异常将被重新引发一次；如果 __exit__() 的返回值等于 True，那么这个异常就被无视掉，继续执行后面的代码。</p>
+<p>With 语句的实际执行流程是这样的：</p>
+<ol>
+<li>执行 context_exp 以获取上下文管理器</li>
+<li>加载上下文管理器的 __exit__() 方法以备稍后调用</li>
+<li>调用上下文管理器的 __enter__() 方法</li>
+<li>如果有 as var 从句，则将 __enter__() 方法的返回值赋给 var</li>
+<li>执行子代码块 with_suit</li>
+<li>调用上下文管理器的 __exit__() 方法，如果 with<em>suit 的退出是由异常引发的，那么该异常的 type、value 和 traceback 会作为参数传给 \</em>_exit__()，否则传三个 None。</li>
+<li>如果 with<em>suit 的退出由异常引发，并且 \</em>_exit__() 的返回值等于 False，那么这个异常将被重新引发一次；如果 __exit__() 的返回值等于 True，那么这个异常就被无视掉，继续执行后面的代码</li>
+</ol>
+<p>下面我们自己来实现一个支持上下文管理协议的类：</p>
+<pre><code>class Query(object):
 
-结果：
-类型错误
-</code></pre><h1 id="断言"><a href="#断言" class="headerlink" title="断言"></a>断言</h1><p>断言是一句必须等价于布尔真的判断，通过assert实现；断言语句如果成功不采取任何措施否则除法AssertionError(断言错误)的异常；用法如下：</p>
-<pre><code>assert expression[,aeguments]
-</code></pre><p>AssertionError异常和其他的异常一样可以用try-except语句块捕捉,但是如果没有捕捉,它将<br>终止程序运行而且提供一个如下的 traceback：</p>
-<pre><code>&gt;&gt;&gt; assert 1==0
-Traceback (most recent call last):
-File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;
-AssertionError
-</code></pre><p>使用try-except捕获AssertionError异常：</p>
-<pre><code>&gt;&gt;&gt; try:
-...     assert 1==0,&apos;1!=0&apos;
-... except AssertionError as args:
-...     print(&apos;%s:%s&apos;%(args.__class__.__name__,args))
-...
-AssertionError:1!=0
-</code></pre><h1 id="自定义异常"><a href="#自定义异常" class="headerlink" title="自定义异常"></a>自定义异常</h1><p>自定义异常的前提是继承异常类，可以是基类异常（BaseException），也可以其他内建异常。</p>
-<pre><code>&gt;&gt;&gt; class myException(Exception):
-...     def __init__(self,msg):
-...         self.msg=msg
-...     def __str__(self):
-...         return self.msg
-...
-&gt;&gt;&gt; try:
-...     raise myException(&apos;类型错误&apos;)
-... except myException as e:
-...     print(e)
-...
-类型错误
-</code></pre>
+    def __init__(self, name):
+        self.name = name
+
+    def __enter__(self):
+        print(&apos;Begin&apos;)
+        return self
+
+    def __exit__(self, exc_type, exc_value, traceback):
+        if exc_type:
+            print(&apos;Error&apos;)
+        else:
+            print(&apos;End&apos;)
+
+    def query(self):
+        print(&apos;Query info about %s...&apos; % self.name)
+</code></pre><p>这样我们就可以把自己写的资源对象用于with语句：</p>
+<pre><code>with Query(&apos;_learner&apos;) as q:
+    q.query()
+</code></pre><p>执行结果：</p>
+<pre><code>Begin
+Query info about _learner...
+End
+</code></pre><h1 id="上下文管理工具（contextlib模块）"><a href="#上下文管理工具（contextlib模块）" class="headerlink" title="上下文管理工具（contextlib模块）"></a>上下文管理工具（contextlib模块）</h1><p><strong>contextlib</strong>模块提供更易用的上下文管理器。</p>
+<h2 id="contextmanager"><a href="#contextmanager" class="headerlink" title="@contextmanager"></a>@contextmanager</h2><p>编写<strong>enter</strong>和<strong>exit</strong>仍然很繁琐，因此Python的标准库contextlib提供了更简单的写法，上面的代码可以改写如下：</p>
+<pre><code>from contextlib import contextmanager
+
+class Query(object):
+
+    def __init__(self, name):
+        self.name = name
+
+    def query(self):
+        print(&apos;Query info about %s...&apos; % self.name)
+
+@contextmanager
+def create_query(name):
+    print(&apos;Begin&apos;)
+    q = Query(name)
+    yield q
+    print(&apos;End&apos;)
+</code></pre><p><strong>@contextmanager</strong>这个decorator接受一个generator，用yield语句把with … as var把变量输出出去，然后，with语句就可以正常地工作了：</p>
+<pre><code>with create_query(&apos;_learner&apos;) as q:
+    q.query()
+</code></pre><p>执行结果：</p>
+<pre><code>Begin
+Query info about _learner...
+End
+</code></pre><p>很多时候，我们希望在某段代码执行前后自动执行特定代码，也可以用@contextmanager实现。例如：</p>
+<pre><code>@contextmanager
+def tag(name):
+    print(&quot;&lt;%s&gt;&quot; % name)
+    yield
+    print(&quot;&lt;/%s&gt;&quot; % name)
+
+with tag(&quot;h1&quot;):
+    print(&quot;hello&quot;)
+    print(&quot;world&quot;)
+</code></pre><p>上述代码执行结果为：</p>
+<pre><code>&lt;h1&gt;
+hello
+world
+&lt;/h1&gt;
+</code></pre><p>代码的执行顺序是：</p>
+<ol>
+<li>with语句首先执行yield之前的语句，因此打印出<h1\>；</h1\></li>
+<li>yield调用会执行with语句内部的所有语句，因此打印出hello和world；</li>
+<li>最后执行yield之后的语句，打印出。</li>
+</ol>
+<p>因此，@contextmanager让我们通过编写generator来简化上下文管理。</p>
+<h2 id="closing"><a href="#closing" class="headerlink" title="@closing"></a>@closing</h2><p>如果一个对象没有实现上下文，我们就不能把它用于with语句。这个时候，可以用closing()来把该对象变为上下文对象。例如，用with语句使用urlopen()：</p>
+<pre><code>from contextlib import closing
+from urllib.request import urlopen
+with closing(urlopen(&apos;https://www.python.org&apos;)) as page:
+    for line in page:
+        print(line)
+</code></pre><p><strong>closing</strong>也是一个经过<strong>@contextmanager</strong>装饰的generator，这个generator编写起来其实非常简单：</p>
+<pre><code>@contextmanager
+def closing(thing):
+    try:
+        yield thing
+    finally:
+        thing.close()
+</code></pre><p>重写上面的例子：</p>
+<pre><code>from contextlib import  contextmanager
+from urllib.request import urlopen
+@contextmanager
+def closing(thing):
+    try:
+        yield thing
+    finally:
+        thing.close()
+with closing(urlopen(&apos;https://www.python.org&apos;)) as page:
+    for line in page:
+        print(line)
+</code></pre><p>它的作用就是把任意对象变为上下文对象，并支持with语句。</p>
+
       
     </div>
 
@@ -596,7 +606,7 @@ AssertionError:1!=0
     </li>
     <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="http://waisunny.com/2017/11/27/python之异常处理/" title="python之异常处理">http://waisunny.com/2017/11/27/python之异常处理/</a>
+      <a href="http://waisunny.com/2017/12/21/Python黑魔法—上下文管理器/" title="Python黑魔法—上下文管理器">http://waisunny.com/2017/12/21/Python黑魔法—上下文管理器/</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明： </strong>
@@ -625,8 +635,8 @@ AssertionError:1!=0
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/11/25/python之文件操作/" rel="next" title="python之文件操作">
-                <i class="fa fa-chevron-left"></i> python之文件操作
+              <a href="/2017/12/19/python黑魔法—迭代器与生成器/" rel="next" title="python黑魔法——迭代器与生成器">
+                <i class="fa fa-chevron-left"></i> python黑魔法——迭代器与生成器
               </a>
             
           </div>
@@ -635,8 +645,8 @@ AssertionError:1!=0
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/12/03/解决RabbitMq无法接收消息/" rel="prev" title="解决RabbitMq无法接收消息">
-                解决RabbitMq无法接收消息 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/12/24/python中的下划线/" rel="prev" title="python中的下划线">
+                python中的下划线 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -786,7 +796,7 @@ AssertionError:1!=0
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#python中的异常"><span class="nav-number">1.</span> <span class="nav-text">python中的异常</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#检测和处理异常"><span class="nav-number">2.</span> <span class="nav-text">检测和处理异常</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#主动触发异常"><span class="nav-number">3.</span> <span class="nav-text">主动触发异常</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#断言"><span class="nav-number">4.</span> <span class="nav-text">断言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#自定义异常"><span class="nav-number">5.</span> <span class="nav-text">自定义异常</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#什么是上下文管理器"><span class="nav-number">1.</span> <span class="nav-text">什么是上下文管理器</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#With语句"><span class="nav-number">2.</span> <span class="nav-text">With语句</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#自定义上下文管理器"><span class="nav-number">3.</span> <span class="nav-text">自定义上下文管理器</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#上下文管理工具（contextlib模块）"><span class="nav-number">4.</span> <span class="nav-text">上下文管理工具（contextlib模块）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#contextmanager"><span class="nav-number">4.1.</span> <span class="nav-text">@contextmanager</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#closing"><span class="nav-number">4.2.</span> <span class="nav-text">@closing</span></a></li></ol></li></ol></div>
             
 
           </div>
