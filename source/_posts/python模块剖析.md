@@ -1,5 +1,5 @@
 ---
-title: python模块剖析
+title: python—模块剖析
 date: 2017-12-28 11:12:17
 tags: python基础
 toc: true
@@ -66,7 +66,9 @@ from-import语句导入模块的指定属性。name1、name2... 直接被导入�
 		a = 10
 		b = 20
 		c=50
-只会导入 a、b两个名称。
+	只会导入 a、b两个名称。
+
+	<font color=red>\_\_all\_\_只针对 from module import * 语句起作用。</font>
 
 2. 没有定义\_\_all\_\_变量时，会导入所有非'_'开头的名称，在python中以'_'开头认为是私有的。
 
