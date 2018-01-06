@@ -1,5 +1,5 @@
 ---
-title: python str和repr的区别
+title: python str()和repr()的区别
 date: 2017-11-19 11:05:34
 tags: python基础
 toc: true
