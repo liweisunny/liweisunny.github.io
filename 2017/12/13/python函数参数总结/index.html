@@ -89,18 +89,18 @@
 
 
 
-<meta name="description" content="在谈如何处理python中的异常前，我们先来明白两个概念–&amp;gt;错误和异常。 错误：从软件方面来说, 错误是语法或是逻辑上的。语法错误指示软件的结构上有错误, 导致不能被解释器解释或编译器无法编译。 这些错误必须在程序执行前纠正。当程序的语法正确后, 剩下的就是逻辑错误了. 逻辑错误可能是由于不完整或是不合法的输入所致; 在其他情况下, 还可能是逻辑无法生成, 计算, 或是输出结果需要的过程无法">
+<meta name="description" content="定义函数的时候，我们把参数的名字和位置确定下来，函数的接口定义就完成了。对于函数的调用者来说，只需要知道如何传递正确的参数，以及函数将返回什么样的值就够了，函数内部的复杂逻辑被封装起来，调用者无需了解。 Python的函数定义非常简单，但灵活度却非常大。除了正常定义的必选参数外，还可以使用默认参数、可变参数和关键字参数，使得函数定义出来的接口，不但能处理复杂的参数，还可以简化调用者的代码。">
 <meta name="keywords" content="python基础">
 <meta property="og:type" content="article">
-<meta property="og:title" content="python之异常处理">
-<meta property="og:url" content="http://waisunny.com/2017/11/27/python之异常处理/index.html">
+<meta property="og:title" content="python函数参数总结">
+<meta property="og:url" content="http://waisunny.com/2017/12/13/python函数参数总结/index.html">
 <meta property="og:site_name" content="WaiBlog|码农的技术小窝">
-<meta property="og:description" content="在谈如何处理python中的异常前，我们先来明白两个概念–&amp;gt;错误和异常。 错误：从软件方面来说, 错误是语法或是逻辑上的。语法错误指示软件的结构上有错误, 导致不能被解释器解释或编译器无法编译。 这些错误必须在程序执行前纠正。当程序的语法正确后, 剩下的就是逻辑错误了. 逻辑错误可能是由于不完整或是不合法的输入所致; 在其他情况下, 还可能是逻辑无法生成, 计算, 或是输出结果需要的过程无法">
+<meta property="og:description" content="定义函数的时候，我们把参数的名字和位置确定下来，函数的接口定义就完成了。对于函数的调用者来说，只需要知道如何传递正确的参数，以及函数将返回什么样的值就够了，函数内部的复杂逻辑被封装起来，调用者无需了解。 Python的函数定义非常简单，但灵活度却非常大。除了正常定义的必选参数外，还可以使用默认参数、可变参数和关键字参数，使得函数定义出来的接口，不但能处理复杂的参数，还可以简化调用者的代码。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-12-23T14:28:41.204Z">
+<meta property="og:updated_time" content="2018-01-05T03:13:56.897Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="python之异常处理">
-<meta name="twitter:description" content="在谈如何处理python中的异常前，我们先来明白两个概念–&amp;gt;错误和异常。 错误：从软件方面来说, 错误是语法或是逻辑上的。语法错误指示软件的结构上有错误, 导致不能被解释器解释或编译器无法编译。 这些错误必须在程序执行前纠正。当程序的语法正确后, 剩下的就是逻辑错误了. 逻辑错误可能是由于不完整或是不合法的输入所致; 在其他情况下, 还可能是逻辑无法生成, 计算, 或是输出结果需要的过程无法">
+<meta name="twitter:title" content="python函数参数总结">
+<meta name="twitter:description" content="定义函数的时候，我们把参数的名字和位置确定下来，函数的接口定义就完成了。对于函数的调用者来说，只需要知道如何传递正确的参数，以及函数将返回什么样的值就够了，函数内部的复杂逻辑被封装起来，调用者无需了解。 Python的函数定义非常简单，但灵活度却非常大。除了正常定义的必选参数外，还可以使用默认参数、可变参数和关键字参数，使得函数定义出来的接口，不但能处理复杂的参数，还可以简化调用者的代码。">
 
 
 
@@ -128,13 +128,13 @@
 
 
 
-  <link rel="canonical" href="http://waisunny.com/2017/11/27/python之异常处理/"/>
+  <link rel="canonical" href="http://waisunny.com/2017/12/13/python函数参数总结/"/>
 
 
 
 
 
-  <title> python之异常处理 | WaiBlog|码农的技术小窝 </title>
+  <title> python函数参数总结 | WaiBlog|码农的技术小窝 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -302,7 +302,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://waisunny.com/2017/11/27/python之异常处理/">
+    <link itemprop="mainEntityOfPage" href="http://waisunny.com/2017/12/13/python函数参数总结/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="_learner">
@@ -323,7 +323,7 @@
             
             
               
-                python之异常处理
+                python函数参数总结
               
             
           </h1>
@@ -338,8 +338,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-27T01:19:07+08:00">
-                2017-11-26
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-13T19:03:42+08:00">
+                2017-12-13
               </time>
             
 
@@ -354,8 +354,8 @@
               
                 <span class="post-meta-item-text">更新于</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2017-12-23T22:28:41+08:00">
-                2017-12-23
+              <time title="更新于" itemprop="dateModified" datetime="2018-01-05T11:13:56+08:00">
+                2018-01-05
               </time>
             
 			
@@ -376,8 +376,8 @@
 			 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Python/" itemprop="url" rel="index">
-                    <span itemprop="name">Python</span>
+                  <a href="/categories/python/" itemprop="url" rel="index">
+                    <span itemprop="name">python</span>
                   </a>
                 </span>
 
@@ -410,7 +410,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  1,672字
+                  2,140字
                 </span>
               
 
@@ -426,7 +426,7 @@
                   <span class="post-meta-item-text">阅读时长</span>
                 
                 <span title="阅读时长">
-                  7分钟
+                  9分钟
                 </span>
               
             </div>
@@ -445,130 +445,179 @@
       
 
       
-        <p>在谈如何处理python中的异常前，我们先来明白两个概念–&gt;<strong>错误和异常</strong>。</p>
-<p><strong>错误</strong>：从软件方面来说, 错误是语法或是逻辑上的。语法错误指示软件的结构上有错误, 导致不能被解释器解释或编译器无法编译。 这些错误必须在程序执行前纠正。当程序的语法正确后, 剩下的就是逻辑错误了. 逻辑错误可能是由于不完整或是不合法的输入所致; 在其他情况下, 还可能是逻辑无法生成, 计算, 或是输出结果需要的过程无法执行。这些错误通常分别被称为域错误和范围错误。当 Python 检测到一个错误时, 解释器就会指出当前流已经无法继续执行下去. 这时候就出现了异常。</p>
-<p><strong>异常</strong>：对异常的最好描述是: 它是因为程序出现了错误而在正常控制流以外采取的行为. 这个行为又分为两个阶段: 首先是引起异常发生的错误, 然后是检测(和采取可能的措施)阶段即处理异常阶段。<br><a id="more"></a></p>
-<h1 id="python中的异常"><a href="#python中的异常" class="headerlink" title="python中的异常"></a>python中的异常</h1><p>所有的标准/内建异常都是从根异常派生的.目前,有 3 个直接从 BaseException 派生的异常子<br>类:SystemExit,KeyboardInterrupt 和 Exception。 </p>
-<p>SystemExit：python解释器请求退出。</p>
-<p>KeyboardInterrupt：用户中断执行(通常是输入^C)。</p>
-<p>Exception 常规语法错误；所有的内建异常都是其子类。</p>
-<p><strong>列举几个最常用的内建异常：</strong></p>
-<p><strong>NameError</strong>:尝试访问一个未声明的变量</p>
-<p><strong>ZeroDivisionError</strong>: 除数为零</p>
-<p><strong>SyntaxError</strong>: Python 语法错误（SyntaxError 异常是唯一不是在运行时发生的异常. 它代表 Python 代码中有一个不正确的结构, 在它改正之前程序无法执行）</p>
-<p><strong>IndexError</strong>:请求的索引超出序列范围</p>
-<p><strong>KeyError</strong>:请求一个不存在的字典关键字</p>
-<p><strong>IOError</strong>: 输入/输出错误</p>
-<p><strong>AttributeError</strong>: 尝试访问未知的对象属性</p>
-<h1 id="检测和处理异常"><a href="#检测和处理异常" class="headerlink" title="检测和处理异常"></a>检测和处理异常</h1><p>使用try语句来检测异常。try 语句有两种主要形式: try-except 和 try-finally。这两个语句是互斥的, 也就是说你只能使用其中的一种. 一个 try 语句可以对应一个或多个 except 子句, 但只能对应一个finally 子句, 或是一个 try-except-finally 复合语句。</p>
-<p>另外值得说明的是，python中的try语句支持else语句，</p>
-<p>接下来看几个例子：</p>
-<p>1.try-except语句</p>
-<pre><code>try:
-    x=int(input(&apos;input x:&apos;))
-    y=int(input(&apos;input y:&apos;))
-    print(&apos;x/y=%.2f&apos;%(x/y))
-except ZeroDivisionError:
-    print(&apos;除数不能为0&apos;)
-</code></pre><p>2.带有多个except的try语句  </p>
-<pre><code>try:  
-    x = int(input(&apos;input x:&apos;))  
-    y = int(input(&apos;input y:&apos;))  
-    print(&apos;x/y = &apos;,x/y)  
-except ZeroDivisionError: #捕捉除0异常  
-    print(&quot;ZeroDivision&quot;)  
-except TypeError as e: #捕捉类型异常并将异常对象输出  
-    print(e) 
-except ValueError as e: #捕捉值异常并将异常对象输出  
-    print(e) 
-</code></pre><p>3.处理多个异常的except语句（异常必须放在一个元组里）</p>
-<pre><code>try:  
-    x = int(input(&apos;input x:&apos;))  
-    y = int(input(&apos;input y:&apos;))  
-    print(&apos;x/y = &apos;,x/y)   
-except (TypeError,ValueError,ZeroDivisionError) as e: #捕捉多个异常，并将异常对象输出  
-    print(e) 
-</code></pre><p>4.try-except-else（在try范围中没有异常被检测到时，执行 else 子句）</p>
-<pre><code>try:  
-    x = int(input(&apos;input x:&apos;))  
-    y = int(input(&apos;input y:&apos;))  
-    print(&apos;x/y = &apos;,x/y)  
-except ZeroDivisionError as e: #捕捉除0异常  
-    print(e)  
-else: #当try块中的语句没有发生异常完全执行成功时执行
-    print(&apos;it work well&apos;)  
-</code></pre><p>5.finally 语句（不管是否出现异常，最后都会执行finally的语句块内容，用于清理工作。所以，你可以在 finally 语句中关闭文件，这样就确保了文件能正常关闭）</p>
-<pre><code>try:  
-    x = int(input(&apos;input x:&apos;))  
-    y = int(input(&apos;input y:&apos;))  
-    print(&apos;x/y = &apos;,x/y)  
-except (TypeError,ValueError,ZeroDivisionError) as e: #捕捉多个异常  
-    print(e)  
-else: #没有异常时执行  
-    print(&apos;it work well&apos;)  
-finally: #不管是否有异常都会执行  
-    print(&quot;Cleaning up&quot;)  
-</code></pre><p>6.捕获所有异常</p>
-<pre><code>try:  
-    x = int(input(&apos;input x:&apos;))  
-    y = int(input(&apos;input y:&apos;))  
-    print(&apos;x/y = &apos;,x/y)  
-except BaseException as e: #捕捉所有异常  
-    print(e)  
-
-try:  
-    x = int(input(&apos;input x:&apos;))  
-    y = int(input(&apos;input y:&apos;))  
-    print(&apos;x/y = &apos;,x/y)  
-except: #捕捉所有异常 这种方法不推荐 
-    pass
-</code></pre><p>为什么用BaseException而不是Exception已经在文章开头说过。</p>
-<p><strong>说明：</strong></p>
+        <p>定义函数的时候，我们把参数的名字和位置确定下来，函数的接口定义就完成了。对于函数的调用者来说，只需要知道如何传递正确的参数，以及函数将返回什么样的值就够了，函数内部的复杂逻辑被封装起来，调用者无需了解。</p>
+<p>Python的函数定义非常简单，但灵活度却非常大。除了正常定义的必选参数外，还可以使用默认参数、可变参数和关键字参数，使得函数定义出来的接口，不但能处理复杂的参数，还可以简化调用者的代码。<br><a id="more"></a></p>
+<p>#位置参数<br>我们定义一个计算x*y的函数：</p>
+<pre><code>def power(x,y):
+    return x*y
+</code></pre><p>对于power(x)函数，参数x,y就是位置参数。</p>
+<p>调用power函数时，必须传入两个参数x,y：</p>
+<pre><code>&gt;&gt;&gt; power(5,4)
+20
+&gt;&gt;&gt; power(15,2)
+30
+</code></pre><p>#默认参数</p>
+<p>我们定义一个显示学生信息的函数:</p>
+<pre><code>def showSudentInfo(name,age=20):
+    print(&apos;{}:{}&apos;.format(name,age))
+</code></pre><p>调用函数时必须传入name参数而age参数是可选的：</p>
+<pre><code>&gt;&gt;&gt; showSudentInfo(&apos;_learner&apos;)
+_learner:20
+&gt;&gt;&gt; showSudentInfo(&apos;jack&apos;,18)
+jack:18
+</code></pre><p>说明：大部分学生的年龄都是20岁，所以我们设置age参数的默认值是20，这样就简化了函数的调用，另外，设置默认参数需要注意几点：</p>
 <ol>
-<li>在python2中将异常对象输出支持使用exception,e这种语法，而在python3中不在支持，只能将‘,’换成 as 关键字。</li>
-<li>当try语句中发生异常后，try语句中剩余的代码将不会在执行，当存在多个处理器（except字句）时，解释器将这一串解释器中查找匹配的异常，如果找到对应的处理器，执行流将会跳转到这里。</li>
-<li>在使用finally语句时，如果 finally 中的代码引发了另一个异常或由于 return,break,continue 语<br>法而终止,原来的异常将丢失而且无法重新引发。</li>
-<li>异常抛出之后，如果没有被接收，那么程序会抛给它的上一层，比如函数调用的地方，要是还是没有接收，那继续抛出，如果程序最后都没有处理这个异常，那它就丢给操作系统了 – 你的程序崩溃了，这点和C++一样的。</li>
+<li><p>必选参数在前，默认参数在后，否则Python的解释器会报错（思考一下为什么默认参数不能放在必选参数前面）；</p>
+</li>
+<li><p>如何设置默认参数。</p>
+<ol>
+<li>当函数有多个参数时，把变化大的参数放前面，变化小的参数放后面。变化小的参数就可以作为默认参数。</li>
+<li>使用默认参数有什么好处？最大的好处是能降低调用函数的难度。</li>
 </ol>
-<h1 id="主动触发异常"><a href="#主动触发异常" class="headerlink" title="主动触发异常"></a>主动触发异常</h1><p>raise主动触发异常，我们可以使用raise语句自己触发异常</p>
-<p>raise语法格式如下：</p>
-<pre><code>raise [Exception [, args [, traceback]]]
-</code></pre><p>语句中Exception是异常的类型（例如，NameError）参数是一个异常参数值。该参数是可选的，如果不提供，异常的参数是”None”。最后一个参数是可选的（在实践中很少使用），如果存在，是跟踪异常对象。</p>
-<pre><code>try:
-    raise TypeError(&apos;类型错误&apos;)
-except TypeError as e:
-    print(e)
+</li>
+</ol>
+<font color="red">但是，默认参数使用不当会掉坑里，最大的坑，看下面这个列子：</font>
 
-结果：
-类型错误
-</code></pre><h1 id="断言"><a href="#断言" class="headerlink" title="断言"></a>断言</h1><p>断言是一句必须等价于布尔真的判断，通过assert实现；断言语句如果成功不采取任何措施否则除法AssertionError(断言错误)的异常；用法如下：</p>
-<pre><code>assert expression[,aeguments]
-</code></pre><p>AssertionError异常和其他的异常一样可以用try-except语句块捕捉,但是如果没有捕捉,它将<br>终止程序运行而且提供一个如下的 traceback：</p>
-<pre><code>&gt;&gt;&gt; assert 1==0
+<pre><code>def func(li=[]):
+    li.append(&apos;end&apos;)
+    return li
+</code></pre><p>调用函数：</p>
+<pre><code>&gt;&gt;&gt; func([1,2,3])
+[1, 2, 3, &apos;end&apos;]
+&gt;&gt;&gt; func()
+[&apos;end&apos;]
+&gt;&gt;&gt; func()
+[&apos;end&apos;, &apos;end&apos;]
+&gt;&gt;&gt; func()
+[&apos;end&apos;, &apos;end&apos;,&apos;end&apos;]
+</code></pre><p>由结果可知，前两次调用一切正常，当连续使用默认参数的形式调用的时候结果不对了，按我们理解的后两次func()调用 输出的结果应该也是[‘end’]，为啥不是呢？</p>
+<p>原因是这样的：python函数在定义的时候，默认参数L的值就被计算出来了，即[]，[]所占用的内存地址也不会变了，除非重新赋值，因为[]是一个可变对象，每次给他li.append(‘end’)添加值，只是改变了其值，其所指向的对象地址没有变。所以多次调用func()操作的是同一个li,所以就出现了上述情况。</p>
+<p>修改一下这个例子,输出id值：</p>
+<pre><code>def func(li=[]):
+    li.append(&apos;end&apos;)
+    print(id(li))
+    return li
+</code></pre><p>调用函数：</p>
+<pre><code>&gt;&gt;&gt; func([1,2,3])
+1497991838664
+[1, 2, 3, &apos;end&apos;]
+&gt;&gt;&gt; func()
+1497991837896
+[&apos;end&apos;]
+&gt;&gt;&gt; func()
+1497991837896
+[&apos;end&apos;, &apos;end&apos;]
+&gt;&gt;&gt; func()
+1497991837896
+[&apos;end&apos;, &apos;end&apos;,&apos;end&apos;]
+</code></pre><p>能看出，后面三次调用操作的是同一个对象li。</p>
+<font color="red">定义默认参数要牢记一点：默认参数必须指向不变对象！</font>
+
+<p>上述列子的改进方案：</p>
+<pre><code>def func(li=None):
+    if not li:
+        li=[]
+    li.append(&apos;end&apos;)
+    return li
+</code></pre><p>调用函数：</p>
+<pre><code>&gt;&gt;&gt; func([1,2,3])
+[1, 2, 3, &apos;end&apos;]
+&gt;&gt;&gt; func()
+[&apos;end&apos;]
+&gt;&gt;&gt; func()
+[&apos;end&apos;, &apos;end&apos;]
+&gt;&gt;&gt; func()
+[&apos;end&apos;, &apos;end&apos;,&apos;end&apos;]
+</code></pre><p>#可变参数</p>
+<p>顾名思义，可变参数就是传入的参数个数是可变的，可以是1个、2个到任意个，还可以是0个。</p>
+<p>定义可变参数在参数前面加了一个*号。在函数内部，参数numbers接收到的是一个tuple。</p>
+<pre><code>def func(*numbers):
+    sum=0
+    for num in numbers:
+        sum=sum+num
+    return sum
+</code></pre><p>调用函数：</p>
+<pre><code>&gt;&gt;&gt; func(1,2,3)
+6
+&gt;&gt;&gt; tup=(1,3,5,8)
+&gt;&gt;&gt; func(*tup)
+17
+&gt;&gt;&gt; li=[1,3,5,8]
+&gt;&gt;&gt; func(*li)
+17
+</code></pre><p>#关键字参数</p>
+<p>可变参数允许你传入0个或任意个参数，这些可变参数在函数调用时自动组装为一个tuple。而关键字参数允许你传入0个或任意个含参数名的参数，这些关键字参数在函数内部自动组装为一个dict。请看示例：</p>
+<pre><code>def person(name, age, **kw):
+    print(&apos;name:&apos;, name, &apos;age:&apos;, age, &apos;other:&apos;, kw)
+</code></pre><p>函数person除了必选参数name和age外，还接受关键字参数kw。在调用该函数时，可以只传入必选参数：</p>
+<pre><code>&gt;&gt;&gt; person(&apos;Michael&apos;, 30)
+name: Michael age: 30 other: {}
+</code></pre><p>也可以传入任意个数的关键字参数：</p>
+<pre><code>&gt;&gt;&gt; person(&apos;Bob&apos;, 35, city=&apos;Beijing&apos;)
+name: Bob age: 35 other: {&apos;city&apos;: &apos;Beijing&apos;}
+&gt;&gt;&gt; person(&apos;Adam&apos;, 45, gender=&apos;M&apos;, job=&apos;Engineer&apos;)
+name: Adam age: 45 other: {&apos;gender&apos;: &apos;M&apos;, &apos;job&apos;: &apos;Engineer&apos;}
+</code></pre><p>关键字参数有什么用？它可以扩展函数的功能。比如，在person函数里，我们保证能接收到name和age这两个参数，但是，如果调用者愿意提供更多的参数，我们也能收到。试想你正在做一个用户注册的功能，除了用户名和年龄是必填项外，其他都是可选项，利用关键字参数来定义这个函数就能满足注册的需求。</p>
+<p>和可变参数类似，也可以先组装出一个dict，然后，把该dict转换为关键字参数传进去：</p>
+<pre><code>&gt;&gt;&gt; extra = {&apos;city&apos;: &apos;Beijing&apos;, &apos;job&apos;: &apos;Engineer&apos;}
+&gt;&gt;&gt; person(&apos;Jack&apos;, 24, **extra)
+name: Jack age: 24 other: {&apos;city&apos;: &apos;Beijing&apos;, &apos;job&apos;: &apos;Engineer&apos;}
+</code></pre><font color="red">**extra表示把extra这个dict的所有key-value用关键字参数传入到函数的**kw参数，kw将获得一个dict，注意kw获得的dict是extra的一份拷贝，对kw的改动不会影响到函数外的extra。</font>
+
+<p>#命名关键字参数</p>
+<p>如果要限制关键字参数的名字，就可以用命名关键字参数，例如，只接收city和job作为关键字参数。这种方式定义的函数如下：</p>
+<pre><code>def person(name, age, *, city, job):
+    print(name, age, city, job)
+</code></pre><p>和关键字参数<em>*kw不同，命名关键字参数需要一个特殊分隔符</em>，*后面的参数被视为命名关键字参数。</p>
+<p>调用方式如下：</p>
+<pre><code>&gt;&gt;&gt; person(&apos;Jack&apos;, 24, city=&apos;Beijing&apos;, job=&apos;Engineer&apos;)
+Jack 24 Beijing Engineer
+</code></pre><p>如果函数定义中已经有了一个可变参数，后面跟着的命名关键字参数就不再需要一个特殊分隔符*了：</p>
+<pre><code>def person(name, age, *args, city, job):
+    print(name, age, args, city, job)
+</code></pre><p>调用方式如下：</p>
+<pre><code>&gt;&gt;&gt; person(&apos;_learner&apos;, 23, &apos;酷爱Python&apos;,city=&apos;北京&apos;,job=&apos;程序员&apos;)
+_learner 23 (&apos;酷爱Python&apos;,) 北京 程序员
+</code></pre><p>命名关键字参数必须传入参数名，这和位置参数不同。如果没有传入参数名，调用将报错：</p>
+<pre><code>&gt;&gt;&gt; person(&apos;Jack&apos;, 24, &apos;Beijing&apos;, &apos;Engineer&apos;)
 Traceback (most recent call last):
 File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;
-AssertionError
-</code></pre><p>使用try-except捕获AssertionError异常：</p>
-<pre><code>&gt;&gt;&gt; try:
-...     assert 1==0,&apos;1!=0&apos;
-... except AssertionError as args:
-...     print(&apos;%s:%s&apos;%(args.__class__.__name__,args))
-...
-AssertionError:1!=0
-</code></pre><h1 id="自定义异常"><a href="#自定义异常" class="headerlink" title="自定义异常"></a>自定义异常</h1><p>自定义异常的前提是继承异常类，可以是基类异常（BaseException），也可以其他内建异常。</p>
-<pre><code>&gt;&gt;&gt; class myException(Exception):
-...     def __init__(self,msg):
-...         self.msg=msg
-...     def __str__(self):
-...         return self.msg
-...
-&gt;&gt;&gt; try:
-...     raise myException(&apos;类型错误&apos;)
-... except myException as e:
-...     print(e)
-...
-类型错误
-</code></pre>
+TypeError: person() takes 2 positional arguments but 4 were given
+</code></pre><p>由于调用时缺少参数名city和job，Python解释器把这4个参数均视为位置参数，但person()函数仅接受2个位置参数。</p>
+<p>命名关键字参数可以有缺省值，从而简化调用：</p>
+<pre><code>def person(name, age, *, city=&apos;Beijing&apos;, job):
+    print(name, age, city, job)
+</code></pre><p>由于命名关键字参数city具有默认值，调用时，可不传入city参数：</p>
+<pre><code>&gt;&gt;&gt; person(&apos;Jack&apos;, 24, job=&apos;Engineer&apos;)
+Jack 24 Beijing Engineer
+</code></pre><h1 id="参数组合"><a href="#参数组合" class="headerlink" title="参数组合"></a>参数组合</h1><p>在Python中定义函数，可以用必选(位置)参数、默认参数、可变参数、关键字参数和命名关键字参数，这5种参数都可以组合使用。但是请注意，参数定义的顺序必须是：必选(位置)参数、默认参数、可变参数、命名关键字参数和关键字参数。</p>
+<p>比如定义一个函数，包含上述若干种参数：</p>
+<pre><code>def f1(a, b, c=0, *args, **kw):
+    print(&apos;a =&apos;, a, &apos;b =&apos;, b, &apos;c =&apos;, c, &apos;args =&apos;, args, &apos;kw =&apos;, kw)
+
+def f2(a, b, c=0, *, d, **kw):
+    print(&apos;a =&apos;, a, &apos;b =&apos;, b, &apos;c =&apos;, c, &apos;d =&apos;, d, &apos;kw =&apos;, kw)
+</code></pre><p>在函数调用的时候，Python解释器自动按照参数位置和参数名把对应的参数传进去。</p>
+<pre><code>&gt;&gt;&gt; f1(1, 2)
+a = 1 b = 2 c = 0 args = () kw = {}
+&gt;&gt;&gt; f1(1, 2, c=3)
+a = 1 b = 2 c = 3 args = () kw = {}
+&gt;&gt;&gt; f1(1, 2, 3, &apos;a&apos;, &apos;b&apos;)
+a = 1 b = 2 c = 3 args = (&apos;a&apos;, &apos;b&apos;) kw = {}
+&gt;&gt;&gt; f1(1, 2, 3, &apos;a&apos;, &apos;b&apos;, x=99)
+a = 1 b = 2 c = 3 args = (&apos;a&apos;, &apos;b&apos;) kw = {&apos;x&apos;: 99}
+&gt;&gt;&gt; f2(1, 2, d=99, ext=None)
+a = 1 b = 2 c = 0 d = 99 kw = {&apos;ext&apos;: None}
+</code></pre><p>最神奇的是通过一个tuple和dict，你也可以调用上述函数：</p>
+<pre><code>&gt;&gt;&gt; args = (1, 2, 3, 4)
+&gt;&gt;&gt; kw = {&apos;d&apos;: 99, &apos;x&apos;: &apos;#&apos;}
+&gt;&gt;&gt; f1(*args, **kw)
+a = 1 b = 2 c = 3 args = (4,) kw = {&apos;d&apos;: 99, &apos;x&apos;: &apos;#&apos;}
+&gt;&gt;&gt; args = (1, 2, 3)
+&gt;&gt;&gt; kw = {&apos;d&apos;: 88, &apos;x&apos;: &apos;#&apos;}
+&gt;&gt;&gt; f2(*args, **kw)
+a = 1 b = 2 c = 3 d = 88 kw = {&apos;x&apos;: &apos;#&apos;}
+</code></pre><font color="red">所以，对于任意函数，都可以通过类似func(<em>args, *</em>kw)的形式调用它，无论它的参数是如何定义的。<br>虽然可以组合多达5种参数，但不要同时使用太多的组合，否则函数接口的可理解性很差。</font>
       
     </div>
 
@@ -596,7 +645,7 @@ AssertionError:1!=0
     </li>
     <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="http://waisunny.com/2017/11/27/python之异常处理/" title="python之异常处理">http://waisunny.com/2017/11/27/python之异常处理/</a>
+      <a href="http://waisunny.com/2017/12/13/python函数参数总结/" title="python函数参数总结">http://waisunny.com/2017/12/13/python函数参数总结/</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明： </strong>
@@ -625,8 +674,8 @@ AssertionError:1!=0
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/11/25/python之文件操作/" rel="next" title="python之文件操作">
-                <i class="fa fa-chevron-left"></i> python之文件操作
+              <a href="/2017/12/03/解决RabbitMq无法接收消息的问题/" rel="next" title="解决RabbitMq无法接收消息的问题">
+                <i class="fa fa-chevron-left"></i> 解决RabbitMq无法接收消息的问题
               </a>
             
           </div>
@@ -635,8 +684,8 @@ AssertionError:1!=0
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/12/03/解决RabbitMq无法接收消息的问题/" rel="prev" title="解决RabbitMq无法接收消息的问题">
-                解决RabbitMq无法接收消息的问题 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/12/19/python黑魔法—迭代器与生成器/" rel="prev" title="python黑魔法——迭代器与生成器">
+                python黑魔法——迭代器与生成器 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -786,7 +835,7 @@ AssertionError:1!=0
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#python中的异常"><span class="nav-number">1.</span> <span class="nav-text">python中的异常</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#检测和处理异常"><span class="nav-number">2.</span> <span class="nav-text">检测和处理异常</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#主动触发异常"><span class="nav-number">3.</span> <span class="nav-text">主动触发异常</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#断言"><span class="nav-number">4.</span> <span class="nav-text">断言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#自定义异常"><span class="nav-number">5.</span> <span class="nav-text">自定义异常</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#参数组合"><span class="nav-number">1.</span> <span class="nav-text">参数组合</span></a></li></ol></div>
             
 
           </div>

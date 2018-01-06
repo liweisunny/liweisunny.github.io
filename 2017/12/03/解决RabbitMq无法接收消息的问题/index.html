@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, Wai" />
+  <meta name="keywords" content="RabbitMQ," />
 
 
 
@@ -89,16 +89,20 @@
 
 
 
-<meta name="description" content="码农的技术小窝......">
-<meta property="og:type" content="website">
-<meta property="og:title" content="WaiBlog|码农的技术小窝">
-<meta property="og:url" content="http://waisunny.com/categories/Pythons/index.html">
+<meta name="description" content="前两天在产品迭代过程中遇到一个问题，再往RabbitMQ发送消息的时候，消息无法进入到队列里； 最开始，我以为是服务瞬间消费掉了，消费端出现了啥问题导致被消费的消息没进入到数据库中，但是，我分析消费端代码和异常信息，都没有发现消费端有啥问题； 于是，我先把RabbitMQ消费端停掉，继续发送消息，发现消息压根就没进入到队列里，刨除掉了消费端的问题；然后接着分析发送端代码，感觉一切也ok呀，没有啥问">
+<meta name="keywords" content="RabbitMQ">
+<meta property="og:type" content="article">
+<meta property="og:title" content="解决RabbitMq无法接收消息的问题">
+<meta property="og:url" content="http://waisunny.com/2017/12/03/解决RabbitMq无法接收消息的问题/index.html">
 <meta property="og:site_name" content="WaiBlog|码农的技术小窝">
-<meta property="og:description" content="码农的技术小窝......">
+<meta property="og:description" content="前两天在产品迭代过程中遇到一个问题，再往RabbitMQ发送消息的时候，消息无法进入到队列里； 最开始，我以为是服务瞬间消费掉了，消费端出现了啥问题导致被消费的消息没进入到数据库中，但是，我分析消费端代码和异常信息，都没有发现消费端有啥问题； 于是，我先把RabbitMQ消费端停掉，继续发送消息，发现消息压根就没进入到队列里，刨除掉了消费端的问题；然后接着分析发送端代码，感觉一切也ok呀，没有啥问">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://i.imgur.com/CKuo2o2.png">
+<meta property="og:updated_time" content="2018-01-04T03:04:24.334Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="WaiBlog|码农的技术小窝">
-<meta name="twitter:description" content="码农的技术小窝......">
+<meta name="twitter:title" content="解决RabbitMq无法接收消息的问题">
+<meta name="twitter:description" content="前两天在产品迭代过程中遇到一个问题，再往RabbitMQ发送消息的时候，消息无法进入到队列里； 最开始，我以为是服务瞬间消费掉了，消费端出现了啥问题导致被消费的消息没进入到数据库中，但是，我分析消费端代码和异常信息，都没有发现消费端有啥问题； 于是，我先把RabbitMQ消费端停掉，继续发送消息，发现消息压根就没进入到队列里，刨除掉了消费端的问题；然后接着分析发送端代码，感觉一切也ok呀，没有啥问">
+<meta name="twitter:image" content="https://i.imgur.com/CKuo2o2.png">
 
 
 
@@ -126,13 +130,13 @@
 
 
 
-  <link rel="canonical" href="http://waisunny.com/categories/Pythons/"/>
+  <link rel="canonical" href="http://waisunny.com/2017/12/03/解决RabbitMq无法接收消息的问题/"/>
 
 
 
 
 
-  <title> 分类: Pythons | WaiBlog|码农的技术小窝 </title>
+  <title> 解决RabbitMq无法接收消息的问题 | WaiBlog|码农的技术小窝 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -167,7 +171,7 @@
     
   
 
-  <div class="container sidebar-position-left  ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -290,47 +294,250 @@
           <div id="content" class="content">
             
 
-  <section id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h2 >
-        Pythons
-        <small>分类</small>
-      </h2>
-    </div>
-
+  <div id="posts" class="posts-expand">
     
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2017/11/25/python之文件操作/" itemprop="url">
-              
-                <span itemprop="name">python之文件操作</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-11-25T15:35:28Z"
-              content="2017-11-25" >
-          11-25
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-  </section>
 
   
 
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://waisunny.com/2017/12/03/解决RabbitMq无法接收消息的问题/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="_learner">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="WaiBlog|码农的技术小窝">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                解决RabbitMq无法接收消息的问题
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-03T01:18:57+08:00">
+                2017-12-02
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2018-01-04T11:04:24+08:00">
+                2018-01-04
+              </time>
+            
+			
+          </span>
+
+          
+            <span class="post-category" >
+
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+			 
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/消息队列/" itemprop="url" rel="index">
+                    <span itemprop="name">消息队列</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+		  
+          
+            
+          
+
+
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv">本文总阅读量
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                <span title="字数统计">
+                  414字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长</span>
+                
+                <span title="阅读时长">
+                  1分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>前两天在产品迭代过程中遇到一个问题，再往RabbitMQ发送消息的时候，消息无法进入到队列里；</p>
+<p>最开始，我以为是服务瞬间消费掉了，消费端出现了啥问题导致被消费的消息没进入到数据库中，但是，我分析消费端代码和异常信息，都没有发现消费端有啥问题；</p>
+<p>于是，我先把RabbitMQ消费端停掉，继续发送消息，发现消息压根就没进入到队列里，刨除掉了消费端的问题；然后接着分析发送端代码，感觉一切也ok呀，没有啥问题；刨除掉自己代码的问题，那只有一种可能会不会是RabbitMQ服务出问题了，不接受消息了…<br><a id="more"></a></p>
+<p>然后，查看RabbitMQ服务器内存、CPU、磁盘后发现，内存、CPU指标正常，磁盘的剩余空间只剩下500M左右，通过RabbitMQ网站发现另一个队列堆积了大量的消息并且没有消费端，找到了相应的负责人后，把消息处理掉，瞬间就好使了。附上一张图：<br><img src="https://i.imgur.com/CKuo2o2.png" alt=""><br>当途中圈出来的变成<font color="red">红色</font>的时候说明你的磁盘空间不够用了，估计就是消息堆积导致的.</p>
+<p>另外：正常情况在生产环境下都会设置报警机制，RabbitMQ服务端默认配置是当内存使用达到40%，磁盘空闲空间小于50M，即启动内存报警，磁盘报警；由于我上述问题是在测试环境下遇到的，测试环境没有设置报警机制。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <ul class="post-copyright">
+    <li class="post-copyright-author">
+      <strong>本文作者：</strong>
+      _learner
+    </li>
+    <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="http://waisunny.com/2017/12/03/解决RabbitMq无法接收消息的问题/" title="解决RabbitMq无法接收消息的问题">http://waisunny.com/2017/12/03/解决RabbitMq无法接收消息的问题/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong>
+      本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/RabbitMQ/" rel="tag"># RabbitMQ</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/11/27/python之异常处理/" rel="next" title="python之异常处理">
+                <i class="fa fa-chevron-left"></i> python之异常处理
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/12/13/python函数参数总结/" rel="prev" title="python函数参数总结">
+                python函数参数总结 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -338,6 +545,12 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div id="uyan_frame"></div>
+    
+  </div>
+
 
         </div>
         
@@ -373,7 +586,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-count">17</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -572,6 +785,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
 
   
 
@@ -603,6 +820,11 @@
   
     
 
+    
+      <!-- UY BEGIN -->
+      <div id="uyan_frame"></div>
+      <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2148788"></script>
+      <!-- UY END -->
     
   
 
@@ -782,26 +1004,6 @@
 
 
   
-  
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
-
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-      });
-    </script>
-    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
 
