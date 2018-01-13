@@ -1,11 +1,13 @@
 ---
 title: Python 开发者都会遇到的错误：UnboundLocalError
-date: 2018-01-13 17:45:35
-tags:
+date: 2017-12-17 11:03:42
+tags: python基础
+toc: true
+categories: python
 ---
 每个 Python 开发者都至少会经历一次 UnboundLocalError 的错误，初次遇到这种错误会觉得莫名其妙，用这张图来描述当时的心情最为贴切：
 ![](https://i.imgur.com/nJmYi4j.jpg)
-
+<!--more-->
 比如下面的代码在 foo 函数中给 x 自增 1：
 
 	x = 10
@@ -14,10 +16,10 @@ tags:
     	print(x)
 	foo()
 
-调用 foo() 的时候，就会看到这个错误错误：
+调用 foo() 的时候，就会看到这个错误：
 
 	UnboundLocalError: local variable 'x' referenced before assignment
-<!--more-->
+
 堆栈日志告诉我们：局部变量 x 赋值前在其它地方被引用了，换句话说就是 x 在当前作用域内还没有定义就拿来使用了。
 
 明明 x 在函数 foo 的外面定义了，为什么却告知我们说 x 没赋值就被引用了呢？
