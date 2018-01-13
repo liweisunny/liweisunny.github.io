@@ -116,31 +116,6 @@
   </entry>
   
   <entry>
-    <title>python黑魔法——迭代器与生成器</title>
-    <link href="http://waisunny.com/2017/12/19/python%E9%BB%91%E9%AD%94%E6%B3%95%E2%80%94%E8%BF%AD%E4%BB%A3%E5%99%A8%E4%B8%8E%E7%94%9F%E6%88%90%E5%99%A8/"/>
-    <id>http://waisunny.com/2017/12/19/python黑魔法—迭代器与生成器/</id>
-    <published>2017-12-18T17:44:06.000Z</published>
-    <updated>2017-12-24T10:01:32.048Z</updated>
-    
-    <content type="html"><![CDATA[<p>在了解Python的数据结构时，容器(container)、可迭代对象(iterable)、迭代器(iterator)、生成器(generator)、列表/集合/字典推导式(list,set,dict comprehension)众多概念参杂在一起，难免让初学者一头雾水，我将用一篇文章试图将这些概念以及它们之间的关系捋清楚。<br><img src="https://i.imgur.com/RLHjcHO.png" alt=""></p><h1 id="容器-container"><a href="#容器-container" class="headerlink" title="容器(container)"></a>容器(container)</h1><p>容器是一种把多个元素组织在一起的数据结构，容器中的元素可以逐个地迭代获取，可以用in, not in关键字判断元素是否包含在容器中。通常这类数据结构把所有的元素存储在内存中（也有一些特例，并不是所有的元素都放在内存，比如迭代器和生成器对象）在Python中，常见的容器对象有：</p><p>list, deque, ….</p><p>set, frozensets, ….</p><p>dict, defaultdict, OrderedDict, Counter, ….</p><p>tuple, namedtuple, …</p><p>str</p><p># </p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;在了解Python的数据结构时，容器(container)、可迭代对象(iterable)、迭代器(iterator)、生成器(generator)、列表/集合/字典推导式(list,set,dict comprehension)众多概念参杂在一起，难免让初学者一头雾水，我
-      
-    
-    </summary>
-    
-      <category term="Python" scheme="http://waisunny.com/categories/Python/"/>
-    
-    
-      <category term="python基础" scheme="http://waisunny.com/tags/python%E5%9F%BA%E7%A1%80/"/>
-    
-  </entry>
-  
-  <entry>
     <title>python 闭包</title>
     <link href="http://waisunny.com/2017/12/18/python-%E9%97%AD%E5%8C%85/"/>
     <id>http://waisunny.com/2017/12/18/python-闭包/</id>
@@ -196,22 +171,24 @@
     <link href="http://waisunny.com/2017/12/16/python%E4%B8%AD%E7%9A%84%E4%BD%9C%E7%94%A8%E5%9F%9F/"/>
     <id>http://waisunny.com/2017/12/16/python中的作用域/</id>
     <published>2017-12-16T11:03:42.000Z</published>
-    <updated>2018-01-13T10:43:49.643Z</updated>
+    <updated>2018-01-13T10:50:58.352Z</updated>
     
-    <content type="html"><![CDATA[<p>1、‘块级作用域’</p><p>想想此时运行下面的程序会有输出吗？执行会成功吗？</p><pre><code>if 1 == 1:    name = &quot;_learner&quot;print(name)for i in range(10):    age = iprint(age)</code></pre><p>执行结果：</p><pre><code>_learner9</code></pre><p>代码执行成功，没有问题；但在Java/C#中，执行上面的代码会提示name，age没有定义，而在Python中可以执行成功，这是因为在<strong>Python中是没有块级作用域的</strong>，代码块里的变量，外部可以调用，所以可运行成功；　　</p><p>2、局部作用域</p><p>回顾之前学过的知识，我们学函数的时候，函数是个单独的作用域，Python中没有块级作用域，但是有局部作用域；看看下面的代码</p><pre><code>def  func():    name = &quot;lzl&quot;print(name)</code></pre><p>运行这段代码，想想会不会有输出？</p><p>抛出异常：</p><pre><code>NameError: name &apos;name&apos; is not defined</code></pre><p>运行报错，我相信这个大家都能理解，name变量只在func()函数内部中生效，所以在全局中是没法调用的；对上面代码做个简单调整，再看看结果如何?</p><pre><code>def  func():    name = &quot;lzl&quot;func()          #执行函数print(name)</code></pre><p>对之前的代码添加了一句代码，在变量name打印之前，执行了一下函数，此时打印会不会有变化？</p><p>还是抛出异常：<br>    NameError: name ‘name’ is not defined</p><p>执行依然报错，还是回到刚才那句话：即使执行了一下函数，name的作用域也只是在函数内部，外部依然无法进行调用；把前两个知识点记住，接下来要开始放大招了</p><p>3、作用域链(嵌套作用域)</p><p>对函数做下调整，看看下面的代码执行结果如何？</p><pre><code>name = &quot;lzl&quot;def f1():    name = &quot;Eric&quot;    def f2():        name = &quot;Snor&quot;        print(name)    f2()f1()</code></pre><p>学过函数，肯定知道最后f1()执行完会输出Snor；我们先记住一个概念，Python中有作用域链，变量会由内到外找，先去自己作用域去找，自己没有再去上级去找，直到找不到报错为止。</p><p>4、终极版作用域</p><pre><code>name = &quot;lzl&quot;def f1():    print(name)def f2():    name = &quot;eric&quot;    f1()f2()</code></pre><p>想想最后f2()执行结果是打印“lzl”呢，还是打印“eric”？记住自己的答案，现在先不把答案贴出来，先看看下面这段代码：</p><pre><code>name = &quot;lzl&quot;def f1():    print(name)def f2():    name = &quot;eric&quot;    return f1ret = f2()ret()</code></pre><p>执行结果：</p><pre><code>lzl</code></pre><p>执行结果为“lzl”，分析下上面的代码，f2()执行结果为函数f1的内存地址，即ret=f1；执行ret()等同于执行f1()，执行f1()时与f2()没有任何关系，name=“lzl”与f1()在一个作用域链，函数内部没有变量是会向外找，所以此时变量name值为“lzl”；理解了这个，那么刚才没给出答案的那个终极代码的<br>执行结果：</p><pre><code>lzl</code></pre><p>是的，输出的是“lzl”，记住<font color="red">在函数未执行之前，作用域已经形成了，作用域链也生成了。</font></p><p>5、新浪面试题</p><pre><code>&gt;&gt;&gt; li = [lambda :x for x in range(10)]</code></pre><p>判断下li的类型？li里面的元素是什么类型？</p><pre><code>&gt;&gt;&gt; type(li)&lt;class &apos;list&apos;&gt;&gt;&gt;&gt; type(li[0])&lt;class &apos;function&apos;&gt;</code></pre><p>可以看到li为列表类型，list里面的元素为函数，那么打印list里面第一个元素的返回值，此时返回值为多少？</p><pre><code>&gt;&gt;&gt; res = li[0]()&gt;&gt;&gt; res9</code></pre><p>li第一个函数的返回值为9还不是0，记住：<font color="red">函数在没有执行前，内部代码不执行</font>；所以，列表li中每个函数元素的执行结果都是 for x in range(10) 返回的最后一个x的值，即：9。</p><pre><code>&gt;&gt;&gt; for res in li:...     res()...9999999999</code></pre>]]></content>
+    <content type="html"><![CDATA[<p>1、‘块级作用域’</p><p>想想此时运行下面的程序会有输出吗？执行会成功吗？</p><pre><code>if 1 == 1:    name = &quot;_learner&quot;print(name)for i in range(10):    age = iprint(age)</code></pre><p>执行结果：</p><pre><code>_learner9</code></pre><a id="more"></a><p>代码执行成功，没有问题；但在Java/C#中，执行上面的代码会提示name，age没有定义，而在Python中可以执行成功，这是因为在<strong>Python中是没有块级作用域的</strong>，代码块里的变量，外部可以调用，所以可运行成功；　　</p><p>2、局部作用域</p><p>回顾之前学过的知识，我们学函数的时候，函数是个单独的作用域，Python中没有块级作用域，但是有局部作用域；看看下面的代码</p><pre><code>def  func():    name = &quot;lzl&quot;print(name)</code></pre><p>运行这段代码，想想会不会有输出？</p><p>抛出异常：</p><pre><code>NameError: name &apos;name&apos; is not defined</code></pre><p>运行报错，我相信这个大家都能理解，name变量只在func()函数内部中生效，所以在全局中是没法调用的；对上面代码做个简单调整，再看看结果如何?</p><pre><code>def  func():    name = &quot;lzl&quot;func()          #执行函数print(name)</code></pre><p>对之前的代码添加了一句代码，在变量name打印之前，执行了一下函数，此时打印会不会有变化？</p><p>还是抛出异常：<br>    NameError: name ‘name’ is not defined</p><p>执行依然报错，还是回到刚才那句话：即使执行了一下函数，name的作用域也只是在函数内部，外部依然无法进行调用；把前两个知识点记住，接下来要开始放大招了</p><p>3、作用域链(嵌套作用域)</p><p>对函数做下调整，看看下面的代码执行结果如何？</p><pre><code>name = &quot;lzl&quot;def f1():    name = &quot;Eric&quot;    def f2():        name = &quot;Snor&quot;        print(name)    f2()f1()</code></pre><p>学过函数，肯定知道最后f1()执行完会输出Snor；我们先记住一个概念，Python中有作用域链，变量会由内到外找，先去自己作用域去找，自己没有再去上级去找，直到找不到报错为止。</p><p>4、终极版作用域</p><pre><code>name = &quot;lzl&quot;def f1():    print(name)def f2():    name = &quot;eric&quot;    f1()f2()</code></pre><p>想想最后f2()执行结果是打印“lzl”呢，还是打印“eric”？记住自己的答案，现在先不把答案贴出来，先看看下面这段代码：</p><pre><code>name = &quot;lzl&quot;def f1():    print(name)def f2():    name = &quot;eric&quot;    return f1ret = f2()ret()</code></pre><p>执行结果：</p><pre><code>lzl</code></pre><p>执行结果为“lzl”，分析下上面的代码，f2()执行结果为函数f1的内存地址，即ret=f1；执行ret()等同于执行f1()，执行f1()时与f2()没有任何关系，name=“lzl”与f1()在一个作用域链，函数内部没有变量是会向外找，所以此时变量name值为“lzl”；理解了这个，那么刚才没给出答案的那个终极代码的<br>执行结果：</p><pre><code>lzl</code></pre><p>是的，输出的是“lzl”，记住<font color="red">在函数未执行之前，作用域已经形成了，作用域链也生成了。</font></p><p>5、新浪面试题</p><pre><code>&gt;&gt;&gt; li = [lambda :x for x in range(10)]</code></pre><p>判断下li的类型？li里面的元素是什么类型？</p><pre><code>&gt;&gt;&gt; type(li)&lt;class &apos;list&apos;&gt;&gt;&gt;&gt; type(li[0])&lt;class &apos;function&apos;&gt;</code></pre><p>可以看到li为列表类型，list里面的元素为函数，那么打印list里面第一个元素的返回值，此时返回值为多少？</p><pre><code>&gt;&gt;&gt; res = li[0]()&gt;&gt;&gt; res9</code></pre><p>li第一个函数的返回值为9还不是0，记住：<font color="red">函数在没有执行前，内部代码不执行</font>；所以，列表li中每个函数元素的执行结果都是 for x in range(10) 返回的最后一个x的值，即：9。</p><pre><code>&gt;&gt;&gt; for res in li:...     res()...9999999999</code></pre>]]></content>
     
     <summary type="html">
     
-      
-      
-        &lt;p&gt;1、‘块级作用域’&lt;/p&gt;
+      &lt;p&gt;1、‘块级作用域’&lt;/p&gt;
 &lt;p&gt;想想此时运行下面的程序会有输出吗？执行会成功吗？&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;if 1 == 1:
     name = &amp;quot;_learner&amp;quot;
 print(name)
 for i in range(10):
-    a
-      
+    age = i
+print(age)
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;执行结果：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;_learner
+9
+&lt;/code&gt;&lt;/pre&gt;
     
     </summary>
     
@@ -320,6 +297,31 @@ for i in range(10):
     
     
       <category term="RabbitMQ" scheme="http://waisunny.com/tags/RabbitMQ/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>python黑魔法——迭代器与生成器</title>
+    <link href="http://waisunny.com/2017/11/29/python%E9%BB%91%E9%AD%94%E6%B3%95%E2%80%94%E8%BF%AD%E4%BB%A3%E5%99%A8%E4%B8%8E%E7%94%9F%E6%88%90%E5%99%A8/"/>
+    <id>http://waisunny.com/2017/11/29/python黑魔法—迭代器与生成器/</id>
+    <published>2017-11-28T17:44:06.000Z</published>
+    <updated>2018-01-13T10:52:00.789Z</updated>
+    
+    <content type="html"><![CDATA[<p>在了解Python的数据结构时，容器(container)、可迭代对象(iterable)、迭代器(iterator)、生成器(generator)、列表/集合/字典推导式(list,set,dict comprehension)众多概念参杂在一起，难免让初学者一头雾水，我将用一篇文章试图将这些概念以及它们之间的关系捋清楚。<br><img src="https://i.imgur.com/RLHjcHO.png" alt=""></p><h1 id="容器-container"><a href="#容器-container" class="headerlink" title="容器(container)"></a>容器(container)</h1><p>容器是一种把多个元素组织在一起的数据结构，容器中的元素可以逐个地迭代获取，可以用in, not in关键字判断元素是否包含在容器中。通常这类数据结构把所有的元素存储在内存中（也有一些特例，并不是所有的元素都放在内存，比如迭代器和生成器对象）在Python中，常见的容器对象有：</p><p>list, deque, ….</p><p>set, frozensets, ….</p><p>dict, defaultdict, OrderedDict, Counter, ….</p><p>tuple, namedtuple, …</p><p>str</p><p># </p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;在了解Python的数据结构时，容器(container)、可迭代对象(iterable)、迭代器(iterator)、生成器(generator)、列表/集合/字典推导式(list,set,dict comprehension)众多概念参杂在一起，难免让初学者一头雾水，我
+      
+    
+    </summary>
+    
+      <category term="Python" scheme="http://waisunny.com/categories/Python/"/>
+    
+    
+      <category term="python基础" scheme="http://waisunny.com/tags/python%E5%9F%BA%E7%A1%80/"/>
     
   </entry>
   
