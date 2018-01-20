@@ -1692,7 +1692,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #8cff8b;
+  background: #360199;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2920,4 +2920,14 @@ hr {
     width: auto;
     text-align: center;
   }
+}
+.hider_title {
+  font-family: "Microsoft Yahei";
+  cursor: pointer;
+}
+.close:after {
+  content: "▼";
+}
+.open:after {
+  content: "▲";
 }
