@@ -97,7 +97,7 @@
 <meta property="og:site_name" content="WaiBlog|码农的技术小窝">
 <meta property="og:description" content="首先，什么是闭包？，它的定义如下： 如果在一个内部函数里，对在外部作用域 (但不是全局作用域)的变量进行引用，那么内部函数就被认为是闭包。 定义在外部函数内的但由内部函数引用或者使用的变量被称为自由变量。 分析一下满足闭包的必备条件：  需要函数嵌套, 就是一个函数里面再写一个函数. 外部函数中有一些局部变量, 并且, 这些局部变量在内部函数中有使用。 外部函数必须返回内嵌函数">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-20T02:45:57.238Z">
+<meta property="og:updated_time" content="2018-01-20T02:47:58.852Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python 闭包">
 <meta name="twitter:description" content="首先，什么是闭包？，它的定义如下： 如果在一个内部函数里，对在外部作用域 (但不是全局作用域)的变量进行引用，那么内部函数就被认为是闭包。 定义在外部函数内的但由内部函数引用或者使用的变量被称为自由变量。 分析一下满足闭包的必备条件：  需要函数嵌套, 就是一个函数里面再写一个函数. 外部函数中有一些局部变量, 并且, 这些局部变量在内部函数中有使用。 外部函数必须返回内嵌函数">
@@ -354,7 +354,7 @@
               
                 <span class="post-meta-item-text">更新于</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-01-20T10:45:57+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2018-01-20T10:47:58+08:00">
                 2018-01-20
               </time>
             
@@ -493,7 +493,7 @@ print(func.__closure__[0].cell_contents)
 <p>从这里可以看到闭包的原理，当内嵌函数引用了包含它的函数（enclosing function）中的变量后，这些变量会被保存在enclosing function的<strong>closure</strong>属性中，成为enclosing function本身的一部分；也就是说，这些变量的生命周期会和enclosing function一样。</p>
 <h1 id="闭包和函数"><a href="#闭包和函数" class="headerlink" title="闭包和函数"></a>闭包和函数</h1><p>闭包只是在表现形式上跟函数类似，但实际上不是函数。</p>
 <div><div class="fold_hider"><div class="close hider_title">[X]</div></div><div class="fold">
-<p>def counter(start_at=0):<br>       count = [start_at]<br>       def incr():<br>           count[0]+=1<br>           return count<br>       return incr</p>
+<p>def counter(start_at=0):<br>          count = [start_at]<br>          def incr():<br>              count[0]+=1<br>              return count<br>          return incr</p>
 <p>func1=counter(5)<br>print (“function name is:”, func1.<strong>name</strong>)<br>print (“id of mGreeting is:”, id(func1))</p>
 <p>func2=counter(5)<br>print (“function name is:”, func2.<strong>name</strong>)<br>print (“id of mGreeting is:”, id(func2))</p>
 
