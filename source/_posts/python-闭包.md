@@ -86,6 +86,7 @@ categories: python
 	print ("function name is:", func2.__name__)
 	print ("id of mGreeting is:", id(func2))
 
+
 执行结果：
 
 	('function name is:', 'incr')
