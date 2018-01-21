@@ -99,7 +99,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://i.imgur.com/RLHjcHO.png">
 <meta property="og:image" content="https://i.imgur.com/HbRZYL4.png">
-<meta property="og:updated_time" content="2018-01-21T03:43:38.865Z">
+<meta property="og:updated_time" content="2018-01-21T23:50:30.299Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python黑魔法—迭代器与生成器">
 <meta name="twitter:description" content="在了解Python的数据结构时，容器(container)、可迭代对象(iterable)、迭代器(iterator)、生成器(generator)、列表/集合/字典推导式(list,set,dict comprehension)众多概念参杂在一起，难免让初学者一头雾水，我将用一篇文章试图将这些概念以及它们之间的关系捋清楚。">
@@ -357,7 +357,7 @@
               
                 <span class="post-meta-item-text">更新于</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-01-21T11:43:38+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2018-01-22T07:50:30+08:00">
                 2018-01-21
               </time>
             
@@ -413,7 +413,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  2,771字
+                  2,772字
                 </span>
               
 
@@ -473,7 +473,7 @@
 &lt;class &apos;list&apos;&gt;
 &gt;&gt;&gt; type(y)
 &lt;class &apos;list_iterator&apos;&gt;
-</code></pre><p>x 是一个可迭代对象，可迭代对象和容器一样是一种通俗的叫法，并不是指某种具体的数据类型，list是可迭代对象，dict是可迭代对象，set也是可迭代对象。 y 是一个独立的迭代器，迭代器内部持有一个状态，该状态用于记录当前迭代所在的位置，以方便下次迭代的时候获取正确的元素。迭代器有一种具体的迭代器类型，比如 list_iterator ， set_iterator 。<strong>可迭代对象实现了__iter__方法，该方法返回一个迭代器对象。</strong></p>
+</code></pre><p>x 是一个可迭代对象，可迭代对象和容器一样是一种通俗的叫法，并不是指某种具体的数据类型，list是可迭代对象，dict是可迭代对象，set也是可迭代对象。 y 是一个独立的迭代器，迭代器内部持有一个状态，该状态用于记录当前迭代所在的位置，以方便下次迭代的时候获取正确的元素。迭代器是一种具体的迭代器类型，比如 list_iterator ， set_iterator 。<strong>可迭代对象实现了__iter__方法，该方法返回一个迭代器对象。</strong></p>
 <p>判断一个对象是否是可迭代对象：</p>
 <pre><code>&gt;&gt;&gt; from collections import Iterable 
 &gt;&gt;&gt; isinstance(&apos;abc&apos;, Iterable)     
@@ -497,7 +497,7 @@ while True:
         next(list_iter)
     except StopIteration:
         break
-</code></pre><h1 id="迭代器（Iterator）"><a href="#迭代器（Iterator）" class="headerlink" title="迭代器（Iterator）"></a>迭代器（Iterator）</h1><p>那么什么迭代器呢？它是一个带状态的对象，他能在你调用next()方法的时候返回容器中的下一个值，任何实现了__iter__和__next__()（python2中实现next()）方法的对象都是迭代器，__iter__返回迭代器自身，__next__返回容器中的下一个值，如果容器中没有更多元素了，则抛出<strong>StopIteration</strong>异常，至于它们到底是如何实现的这并不重要。</p>
+</code></pre><h1 id="迭代器（Iterator）"><a href="#迭代器（Iterator）" class="headerlink" title="迭代器（Iterator）"></a>迭代器（Iterator）</h1><p>那么什么迭代器呢？它是一个带状态的对象，它能在你调用next()方法的时候返回容器中的下一个值，任何实现了__iter__和__next__()（python2中实现next()）方法的对象都是迭代器，__iter__返回迭代器自身，__next__返回容器中的下一个值，如果容器中没有更多元素了，则抛出<strong>StopIteration</strong>异常，至于它们到底是如何实现的这并不重要。</p>
 <p>所以，迭代器就是实现了工厂模式的对象，它在你每次询问要下一个值的时候给你返回。有很多关于迭代器的例子，比如itertools函数返回的都是迭代器对象。</p>
 <p>生成一个无线序列：</p>
 <pre><code>&gt;&gt;&gt; from itertools import count
@@ -568,7 +568,7 @@ for i in fab:
 </code></pre><p>上面代码的输出结果只有：</p>
 <pre><code>&lt;class &apos;list&apos;&gt;
 </code></pre><p>为什么 for循环没有输出结果呢？原因是因为在对迭代器调用list、tuple等内建函数时会调用next()方法将当前迭代器对象的值全部算出来，迭代器已经计算完了，所以后面的for循环没有值输出。</p>
-<p>Fab既是一个可迭代对象（因为它实现了 __iter__ 方法），又是一个迭代器（因为实现了 __next__ 方法）。实例变量 self .a 和 self.b 用于维护迭代器内部的状态。每次调用 next() 方法的时候做两件事：</p>
+<p>Fab既是一个可迭代对象（因为它实现了 __iter__ 方法），又是一个迭代器（因为实现了 __next__ 方法）。实例变量 self.a 和 self.b 用于维护迭代器内部的状态。每次调用 next() 方法的时候做两件事：</p>
 <ol>
 <li><p>为下一次调用 next() 方法修改状态</p>
 </li>
@@ -576,7 +576,7 @@ for i in fab:
 </li>
 </ol>
 <p>迭代器就像一个懒加载的工厂，等到有人需要的时候才给它生成值返回，没调用的时候就处于休眠状态等待下一次调用。</p>
-<h1 id="生成器（generator）"><a href="#生成器（generator）" class="headerlink" title="生成器（generator）"></a>生成器（generator）</h1><p>生成器算得上是Python语言中最吸引人的特性之一，<strong>生成器其实是一种特殊的迭代器</strong>，不过这种迭代器更加优雅。上述版本3的代码远没有版本一的代码简洁，生成器（yield）既可以保持版本一的简洁性，又可以保持版本三的效果。它不需要再像上面的类一样写 __iter__() 和 __next__() 方法了，只需要一个 yiled 关键字。 生成器有如下特征使它一定是迭代器（反之不成立），因此任何生成器也是以一种懒加载的模式生成值。用生成器来实现斐波那契数列的例子是：</p>
+<h1 id="生成器（generator）"><a href="#生成器（generator）" class="headerlink" title="生成器（generator）"></a>生成器（generator）</h1><p>生成器算得上是Python语言中最吸引人的特性之一，<strong>生成器其实是一种特殊的迭代器</strong>，不过这种迭代器更加优雅。上述版本3的代码远没有版本一的代码简洁，生成器（yield）既可以保持版本一的简洁性，又可以保持版本三的效果。它不需要再像上面的类一样写 __iter__() 和 __next__() 方法了，只需要一个 yiled 关键字。 生成器有如下特征使它一定是迭代器（反之不成立），因此生成器也是以一种懒加载的模式生成值。用生成器来实现斐波那契数列的例子是：</p>
 <pre><code>def fab(max):
     n,a,b=0,0,1
     while n&lt;max:
@@ -589,7 +589,7 @@ for i in f:
     print(i)
 </code></pre><p>结果：</p>
 <pre><code>1,1,2,3,5
-</code></pre><p>fab 就是一个普通的python函数，它特别的地方在于函数体中没有 return 关键字，函数的返回值是一个生成器对象。当执行 f=fab(5) 返回的是一个生成器对象，此时函数体中的代码并不会执行，只有显示或隐示地调用next的时候才会真正执行里面的代码。</p>
+</code></pre><p>fab 就是一个普通的python函数，它特别的地方在于函数体中没有 return 关键字，函数的返回值是一个生成器对象。<strong>当执行 f=fab(5) 返回的是一个生成器对象，此时函数体中的代码并不会执行，只有显示或隐示地调用next的时候才会真正执行里面的代码。</strong></p>
 <p>yield 的作用就是把一个函数变成一个 generator，带有 yield 的函数不再是一个普通函数，可以称作生成器函数；Python 解释器会将其视为一个 generator，在 for 循环执行时，每次循环都会执行 fab 函数内部的代码，执行到 yield b 时，fab 函数就返回一个迭代值，下次迭代时，代码从 yield b 的下一条语句继续执行，而函数的本地变量看起来和上次中断执行前是完全一样的，于是函数继续执行，直到再次遇到 yield。看起来就好像一个函数在正常执行的过程中被 yield 中断了数次，每次中断都会通过 yield 返回当前的迭代值。</p>
 <p>也可以手动调用 fab(5) 的 next() 方法（因为 fab(5) 是一个 generator 对象，该对象具有 next() 方法），这样我们就可以更清楚地看到 fab 的执行流程：</p>
 <pre><code>&gt;&gt;&gt; f = fab(3)
@@ -618,7 +618,7 @@ for i in fab():
 </code></pre><p>结果：</p>
 <pre><code>yield 1
 1
-</code></pre><p>for循环帮我们处理了StopIteration异常，要是自己调用两次next()方法就会抛出异常的。</p>
+</code></pre><p>上述代码 for循环帮我们处理了StopIteration异常，要是自己调用两次next()方法就会抛出异常的。</p>
 <h2 id="生成器表达式"><a href="#生成器表达式" class="headerlink" title="生成器表达式"></a>生成器表达式</h2><p>生成器表达式与列表解析表达式很相似，区别就是将‘[]’换成‘()’。</p>
 <p>定义一个生成器表达式：</p>
 <pre><code>&gt;&gt;&gt; result = (x for x in range(5))
@@ -658,7 +658,7 @@ print(g.send(&apos;_learner&apos;))
 _learner
 2
 </code></pre><h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>凡是可作用于for循环的对象都是可迭代对象(Iterable)类型。</p>
-<p>凡是可作用于next()函数的对象都是迭代器(Iterator)类型，生成器是一个特殊的迭代器，它们表示一个惰性计算的序列。</p>
+<p>凡是可作用于next()函数的对象都是迭代器(Iterator)类型，生成器是一个特殊的迭代器，它表示一个惰性计算的序列。</p>
 <p>序列、字典等是Iterable但不是Iterator，不过可以通过iter()函数获得一个Iterator对象。</p>
 <p>Python的for循环本质上就是通过不断调用next()函数实现的。</p>
 
