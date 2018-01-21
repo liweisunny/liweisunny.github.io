@@ -99,7 +99,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://i.imgur.com/RLHjcHO.png">
 <meta property="og:image" content="https://i.imgur.com/HbRZYL4.png">
-<meta property="og:updated_time" content="2018-01-21T01:37:53.103Z">
+<meta property="og:updated_time" content="2018-01-21T03:43:38.865Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python黑魔法—迭代器与生成器">
 <meta name="twitter:description" content="在了解Python的数据结构时，容器(container)、可迭代对象(iterable)、迭代器(iterator)、生成器(generator)、列表/集合/字典推导式(list,set,dict comprehension)众多概念参杂在一起，难免让初学者一头雾水，我将用一篇文章试图将这些概念以及它们之间的关系捋清楚。">
@@ -357,7 +357,7 @@
               
                 <span class="post-meta-item-text">更新于</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-01-21T09:37:53+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2018-01-21T11:43:38+08:00">
                 2018-01-21
               </time>
             
@@ -497,8 +497,7 @@ while True:
         next(list_iter)
     except StopIteration:
         break
-</code></pre><p>#迭代器（Iterator）</p>
-<p>那么什么迭代器呢？它是一个带状态的对象，他能在你调用next()方法的时候返回容器中的下一个值，任何实现了__iter__和__next__()（python2中实现next()）方法的对象都是迭代器，__iter__返回迭代器自身，__next__返回容器中的下一个值，如果容器中没有更多元素了，则抛出<strong>StopIteration</strong>异常，至于它们到底是如何实现的这并不重要。</p>
+</code></pre><h1 id="迭代器（Iterator）"><a href="#迭代器（Iterator）" class="headerlink" title="迭代器（Iterator）"></a>迭代器（Iterator）</h1><p>那么什么迭代器呢？它是一个带状态的对象，他能在你调用next()方法的时候返回容器中的下一个值，任何实现了__iter__和__next__()（python2中实现next()）方法的对象都是迭代器，__iter__返回迭代器自身，__next__返回容器中的下一个值，如果容器中没有更多元素了，则抛出<strong>StopIteration</strong>异常，至于它们到底是如何实现的这并不重要。</p>
 <p>所以，迭代器就是实现了工厂模式的对象，它在你每次询问要下一个值的时候给你返回。有很多关于迭代器的例子，比如itertools函数返回的都是迭代器对象。</p>
 <p>生成一个无线序列：</p>
 <pre><code>&gt;&gt;&gt; from itertools import count
@@ -577,8 +576,7 @@ for i in fab:
 </li>
 </ol>
 <p>迭代器就像一个懒加载的工厂，等到有人需要的时候才给它生成值返回，没调用的时候就处于休眠状态等待下一次调用。</p>
-<p>#生成器（generator）</p>
-<p>生成器算得上是Python语言中最吸引人的特性之一，<strong>生成器其实是一种特殊的迭代器</strong>，不过这种迭代器更加优雅。上述版本3的代码远没有版本一的代码简洁，生成器（yield）既可以保持版本一的简洁性，又可以保持版本三的效果。它不需要再像上面的类一样写 __iter__() 和 __next__() 方法了，只需要一个 yiled 关键字。 生成器有如下特征使它一定是迭代器（反之不成立），因此任何生成器也是以一种懒加载的模式生成值。用生成器来实现斐波那契数列的例子是：</p>
+<h1 id="生成器（generator）"><a href="#生成器（generator）" class="headerlink" title="生成器（generator）"></a>生成器（generator）</h1><p>生成器算得上是Python语言中最吸引人的特性之一，<strong>生成器其实是一种特殊的迭代器</strong>，不过这种迭代器更加优雅。上述版本3的代码远没有版本一的代码简洁，生成器（yield）既可以保持版本一的简洁性，又可以保持版本三的效果。它不需要再像上面的类一样写 __iter__() 和 __next__() 方法了，只需要一个 yiled 关键字。 生成器有如下特征使它一定是迭代器（反之不成立），因此任何生成器也是以一种懒加载的模式生成值。用生成器来实现斐波那契数列的例子是：</p>
 <pre><code>def fab(max):
     n,a,b=0,0,1
     while n&lt;max:
@@ -881,7 +879,7 @@ _learner
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#容器-container"><span class="nav-number">1.</span> <span class="nav-text">容器(container)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#可迭代对象（Iterable）"><span class="nav-number">2.</span> <span class="nav-text">可迭代对象（Iterable）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#生成器中的return"><span class="nav-number">2.1.</span> <span class="nav-text">生成器中的return</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#生成器表达式"><span class="nav-number">2.2.</span> <span class="nav-text">生成器表达式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#生成器的send-方法"><span class="nav-number">2.3.</span> <span class="nav-text">生成器的send()方法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#总结"><span class="nav-number">3.</span> <span class="nav-text">总结</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#容器-container"><span class="nav-number">1.</span> <span class="nav-text">容器(container)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#可迭代对象（Iterable）"><span class="nav-number">2.</span> <span class="nav-text">可迭代对象（Iterable）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#迭代器（Iterator）"><span class="nav-number">3.</span> <span class="nav-text">迭代器（Iterator）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#生成器（generator）"><span class="nav-number">4.</span> <span class="nav-text">生成器（generator）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#生成器中的return"><span class="nav-number">4.1.</span> <span class="nav-text">生成器中的return</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#生成器表达式"><span class="nav-number">4.2.</span> <span class="nav-text">生成器表达式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#生成器的send-方法"><span class="nav-number">4.3.</span> <span class="nav-text">生成器的send()方法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#总结"><span class="nav-number">5.</span> <span class="nav-text">总结</span></a></li></ol></div>
             
 
           </div>
