@@ -89,18 +89,18 @@
 
 
 
-<meta name="description" content="1、‘块级作用域’ 想想此时运行下面的程序会有输出吗？执行会成功吗？ if 1 == 1:     name = &amp;quot;_learner&amp;quot; print(name) for i in range(10):     age = i print(age) 执行结果： _learner 9">
+<meta name="description" content="先来一个形象的比喻： 内裤可以用来遮羞，但是到了冬天它没法为我们防风御寒，聪明的人们发明了长裤，有了长裤后宝宝再也不冷了，装饰器就像我们这里说的长裤，在不影响内裤作用的前提下，给我们的身子提供了保暖的功效。 再回到我们的主题">
 <meta name="keywords" content="python基础">
 <meta property="og:type" content="article">
-<meta property="og:title" content="python中的作用域">
-<meta property="og:url" content="http://waisunny.com/2017/12/16/python中的作用域/index.html">
+<meta property="og:title" content="python黑魔法—装饰器">
+<meta property="og:url" content="http://waisunny.com/2017/12/26/python黑魔法—装饰器/index.html">
 <meta property="og:site_name" content="WaiBlog|码农的技术小窝">
-<meta property="og:description" content="1、‘块级作用域’ 想想此时运行下面的程序会有输出吗？执行会成功吗？ if 1 == 1:     name = &amp;quot;_learner&amp;quot; print(name) for i in range(10):     age = i print(age) 执行结果： _learner 9">
+<meta property="og:description" content="先来一个形象的比喻： 内裤可以用来遮羞，但是到了冬天它没法为我们防风御寒，聪明的人们发明了长裤，有了长裤后宝宝再也不冷了，装饰器就像我们这里说的长裤，在不影响内裤作用的前提下，给我们的身子提供了保暖的功效。 再回到我们的主题">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-13T10:50:58.352Z">
+<meta property="og:updated_time" content="2018-01-21T03:38:59.878Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="python中的作用域">
-<meta name="twitter:description" content="1、‘块级作用域’ 想想此时运行下面的程序会有输出吗？执行会成功吗？ if 1 == 1:     name = &amp;quot;_learner&amp;quot; print(name) for i in range(10):     age = i print(age) 执行结果： _learner 9">
+<meta name="twitter:title" content="python黑魔法—装饰器">
+<meta name="twitter:description" content="先来一个形象的比喻： 内裤可以用来遮羞，但是到了冬天它没法为我们防风御寒，聪明的人们发明了长裤，有了长裤后宝宝再也不冷了，装饰器就像我们这里说的长裤，在不影响内裤作用的前提下，给我们的身子提供了保暖的功效。 再回到我们的主题">
 
 
 
@@ -128,13 +128,13 @@
 
 
 
-  <link rel="canonical" href="http://waisunny.com/2017/12/16/python中的作用域/"/>
+  <link rel="canonical" href="http://waisunny.com/2017/12/26/python黑魔法—装饰器/"/>
 
 
 
 
 
-  <title> python中的作用域 | WaiBlog|码农的技术小窝 </title>
+  <title> python黑魔法—装饰器 | WaiBlog|码农的技术小窝 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -302,7 +302,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://waisunny.com/2017/12/16/python中的作用域/">
+    <link itemprop="mainEntityOfPage" href="http://waisunny.com/2017/12/26/python黑魔法—装饰器/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="_learner">
@@ -323,7 +323,7 @@
             
             
               
-                python中的作用域
+                python黑魔法—装饰器
               
             
           </h1>
@@ -338,8 +338,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-16T19:03:42+08:00">
-                2017-12-16
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-26T17:37:26+08:00">
+                2017-12-26
               </time>
             
 
@@ -354,8 +354,8 @@
               
                 <span class="post-meta-item-text">更新于</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-01-13T18:50:58+08:00">
-                2018-01-13
+              <time title="更新于" itemprop="dateModified" datetime="2018-01-21T11:38:59+08:00">
+                2018-01-21
               </time>
             
 			
@@ -376,8 +376,8 @@
 			 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/python/" itemprop="url" rel="index">
-                    <span itemprop="name">python</span>
+                  <a href="/categories/Python/" itemprop="url" rel="index">
+                    <span itemprop="name">Python</span>
                   </a>
                 </span>
 
@@ -410,7 +410,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  913字
+                  1,786字
                 </span>
               
 
@@ -426,7 +426,7 @@
                   <span class="post-meta-item-text">阅读时长</span>
                 
                 <span title="阅读时长">
-                  4分钟
+                  7分钟
                 </span>
               
             </div>
@@ -445,96 +445,178 @@
       
 
       
-        <p>1、‘块级作用域’</p>
-<p>想想此时运行下面的程序会有输出吗？执行会成功吗？</p>
-<pre><code>if 1 == 1:
-    name = &quot;_learner&quot;
-print(name)
-for i in range(10):
-    age = i
-print(age)
-</code></pre><p>执行结果：</p>
-<pre><code>_learner
-9
-</code></pre><a id="more"></a>
-<p>代码执行成功，没有问题；但在Java/C#中，执行上面的代码会提示name，age没有定义，而在Python中可以执行成功，这是因为在<strong>Python中是没有块级作用域的</strong>，代码块里的变量，外部可以调用，所以可运行成功；　　</p>
-<p>2、局部作用域</p>
-<p>回顾之前学过的知识，我们学函数的时候，函数是个单独的作用域，Python中没有块级作用域，但是有局部作用域；看看下面的代码</p>
-<pre><code>def  func():
-    name = &quot;lzl&quot;
-print(name)
-</code></pre><p>运行这段代码，想想会不会有输出？</p>
-<p>抛出异常：</p>
-<pre><code>NameError: name &apos;name&apos; is not defined
-</code></pre><p>运行报错，我相信这个大家都能理解，name变量只在func()函数内部中生效，所以在全局中是没法调用的；对上面代码做个简单调整，再看看结果如何?</p>
-<pre><code>def  func():
-    name = &quot;lzl&quot;
-func()          #执行函数
-print(name)
-</code></pre><p>对之前的代码添加了一句代码，在变量name打印之前，执行了一下函数，此时打印会不会有变化？</p>
-<p>还是抛出异常：<br>    NameError: name ‘name’ is not defined</p>
-<p>执行依然报错，还是回到刚才那句话：即使执行了一下函数，name的作用域也只是在函数内部，外部依然无法进行调用；把前两个知识点记住，接下来要开始放大招了</p>
-<p>3、作用域链(嵌套作用域)</p>
-<p>对函数做下调整，看看下面的代码执行结果如何？</p>
-<pre><code>name = &quot;lzl&quot;
-def f1():
-    name = &quot;Eric&quot;
-    def f2():
-        name = &quot;Snor&quot;
-        print(name)
-    f2()
-f1()
-</code></pre><p>学过函数，肯定知道最后f1()执行完会输出Snor；我们先记住一个概念，Python中有作用域链，变量会由内到外找，先去自己作用域去找，自己没有再去上级去找，直到找不到报错为止。</p>
-<p>4、终极版作用域</p>
-<pre><code>name = &quot;lzl&quot;
-def f1():
-    print(name)
+        <p>先来一个形象的比喻：</p>
+<p>内裤可以用来遮羞，但是到了冬天它没法为我们防风御寒，聪明的人们发明了长裤，有了长裤后宝宝再也不冷了，装饰器就像我们这里说的长裤，在不影响内裤作用的前提下，给我们的身子提供了保暖的功效。</p>
+<p>再回到我们的主题</p>
+<a id="more"></a>
+<p><strong>什么是装饰器？</strong></p>
+<p>装饰器本质上是一个Python函数，它可以让其它函数在不需要做任何代码变动的前提下增加额外功能，装饰器的返回值是一个函数对象。</p>
+<p><strong>装饰器有哪些使用场景？</strong></p>
+<p>它经常用于有切面需求的场景，比如：<strong>插入日志、性能测试、事务处理、缓存、权限校验</strong>等场景。<br>装饰器是解决这类问题的绝佳设计，有了装饰器，我们就可以抽离出大量与函数功能本身无关的雷同代码并继续重用。概括的讲，装饰器的作用就是为已经存在的对象添加额外的功能。</p>
+<p>#装饰器函数</p>
+<p>我们用一个小例子一步步引出装饰器：</p>
+<pre><code>def fun():
+    print(&apos;my name is fun&apos;)
+</code></pre><p>上面我们定义了一个fun函数，函数运行时告诉用户一些信息。</p>
+<p>现在我们有一个新的需求，需要给增加日志记录的功能，怎么办？</p>
+<pre><code>import logging
+logging.basicConfig(filename=&apos;log1.log&apos;,level=logging.DEBUG)
 
-def f2():
-    name = &quot;eric&quot;
-    f1()
-f2()
-</code></pre><p>想想最后f2()执行结果是打印“lzl”呢，还是打印“eric”？记住自己的答案，现在先不把答案贴出来，先看看下面这段代码：</p>
-<pre><code>name = &quot;lzl&quot;
-def f1():
-    print(name)
+def fun():
+    print(&apos;my name is fun&apos;)
+    logging.debug(&apos;fun is running&apos;)
 
-def f2():
-    name = &quot;eric&quot;
-    return f1
-ret = f2()
-ret()
-</code></pre><p>执行结果：</p>
-<pre><code>lzl
-</code></pre><p>执行结果为“lzl”，分析下上面的代码，f2()执行结果为函数f1的内存地址，即ret=f1；执行ret()等同于执行f1()，执行f1()时与f2()没有任何关系，name=“lzl”与f1()在一个作用域链，函数内部没有变量是会向外找，所以此时变量name值为“lzl”；理解了这个，那么刚才没给出答案的那个终极代码的<br>执行结果：</p>
-<pre><code>lzl
-</code></pre><p>是的，输出的是“lzl”，记住<font color="red">在函数未执行之前，作用域已经形成了，作用域链也生成了。</font></p>
-<p>5、新浪面试题</p>
-<pre><code>&gt;&gt;&gt; li = [lambda :x for x in range(10)]
-</code></pre><p>判断下li的类型？li里面的元素是什么类型？</p>
-<pre><code>&gt;&gt;&gt; type(li)
-&lt;class &apos;list&apos;&gt;
-&gt;&gt;&gt; type(li[0])
-&lt;class &apos;function&apos;&gt;
-</code></pre><p>可以看到li为列表类型，list里面的元素为函数，那么打印list里面第一个元素的返回值，此时返回值为多少？</p>
-<pre><code>&gt;&gt;&gt; res = li[0]()
-&gt;&gt;&gt; res
-9
-</code></pre><p>li第一个函数的返回值为9还不是0，记住：<font color="red">函数在没有执行前，内部代码不执行</font>；所以，列表li中每个函数元素的执行结果都是 for x in range(10) 返回的最后一个x的值，即：9。</p>
-<pre><code>&gt;&gt;&gt; for res in li:
-...     res()
-...
-9
-9
-9
-9
-9
-9
-9
-9
-9
-9
-</code></pre>
+fun()
+</code></pre><p>我们借助了python内置的logging模块实现了日志记录的功能，运行上述代码能成功记录日志，新增的需求开发完了？真的开发完了吗？如果我们有fun1(),fun2()…等其它函数也需要记录日志呢，难道每一个函数都要加上一句logging.debug()语句吗？这样的话会有很多重复代码；我们可以定义一个专门记录日志的函数：</p>
+<pre><code>import logging
+logging.basicConfig(filename=&apos;log1.log&apos;,level=logging.DEBUG)
+
+def use_log(fun):
+    logging.debug(&apos;%s is running&apos;%fun.__name__)
+    fun()
+
+def fun():
+    print(&apos;my name is fun&apos;)
+
+use_log(fun)
+</code></pre><p>逻辑上不难理解，而且解决了重复代码的问题 ，但是它有一个极大的弊端；它改变了 用户的请求方式，以前我们只需要调用fun()函数即可，现在我们必须调用    use_log(fun)才行，这是 一个很糟糕的设计，想一想，我们的程序可能已经发布到了生产环境，也行正在有很多用户在使用，这么一改，用户按照以前的方式调用，全挂掉了，这种设计还不如第一种呢….,那没有什么好办法了吗？在不改变原有调用方式的前提下，增加日志记录功能。当然有,就是我们的装饰器：</p>
+<p>简单的装饰器：</p>
+<pre><code>import logging
+logging.basicConfig(filename=&apos;log1.log&apos;,level=logging.DEBUG)
+
+def use_log(fun):
+    def wrapper():
+        logging.debug(&apos;%s is running&apos;%fun.__name__)
+        fun()
+    return wrapper
+
+def fun():
+    print(&apos;my name is fun&apos;)
+
+
+fun=use_log(fun)
+fun()
+</code></pre><p>上述调用方式看起来有点麻烦，幸运的是python中给我们提供了语法糖，上述代码直接修改成：</p>
+<pre><code>@use_log  等价于 fun=use_log(fun)
+def fun():
+    print(&apos;my name is fun&apos;)
+fun()
+</code></pre><p>use_log函数就是一个装饰器函数，内部函数 wrapper 是用来执行具体操作逻辑的函数。</p>
+<p>不难看出usel_log其实也是一个闭包函数，没错，装饰器就是基于（闭包，高阶函数）实现的。</p>
+<p>这样我们在不改变原有函数调用方式的前提下，增加了日志功能，并提高了代码的复用性。</p>
+<p>上面的装饰器过于简单，如果我们要执行的函数带有参数怎么办？</p>
+<h2 id="给功能函数加参数"><a href="#给功能函数加参数" class="headerlink" title="给功能函数加参数"></a><strong>给功能函数加参数</strong></h2><pre><code>import logging
+logging.basicConfig(filename=&apos;log1.log&apos;,level=logging.DEBUG)
+def use_log(fun):
+    def wrapper(*args,**kwargs):
+        logging.debug(&apos;%s is running&apos;%fun.__name__)
+        fun(*args,**kwargs)
+    return wrapper
+@use_log
+def fun(name):
+    print(&apos;my name is fun,params is %s&apos;%name)
+fun(&apos;_learner&apos;)
+</code></pre><p>我们将装饰器的内部函数定义成了 def wrapper(<em>args,*</em>kwargs): 的形式，这样就可以接受任何参数了。</p>
+<p>现在我们又有了一个新的需求，函数可以自己控制是否记录日志？这时就需要用到装饰器参数了</p>
+<h2 id="给装饰器函数加参数"><a href="#给装饰器函数加参数" class="headerlink" title="给装饰器函数加参数"></a><strong>给装饰器函数加参数</strong></h2><pre><code>import logging
+logging.basicConfig(filename=&apos;log1.log&apos;,level=logging.DEBUG)
+def use_Log(is_log=1):
+    def decorator(fun):
+        def wrapper(*args,**kwargs):
+            if is_log:
+                logging.debug(&apos;%s is running&apos;%fun.__name__)
+            fun(*args,**kwargs)
+        return wrapper
+    return decorator
+@use_Log(0) 等价于 @decorator 等价于 fun=decorator(fun)
+def fun(name):
+    print(&apos;my name is fun,params is %s&apos;%name)
+fun(&apos;_learner&apos;)
+</code></pre><p>给装饰器函数加参数的方式：多定义一层外部函数，用户接受参数，该外部函数的返回值就是装饰器函数。</p>
+<h1 id="类装饰器"><a href="#类装饰器" class="headerlink" title="类装饰器"></a><strong>类装饰器</strong></h1><p>再来看看类装饰器，相比函数装饰器，类装饰器具有灵活度大、高内聚、封装性等优点。使用类装饰器还可以依靠类内部的__call__方法，当使用 @ 形式将装饰器附加到函数上时，就会调用此方法。</p>
+<h2 id="装饰器无参数，被装饰对象有参数"><a href="#装饰器无参数，被装饰对象有参数" class="headerlink" title="装饰器无参数，被装饰对象有参数"></a>装饰器无参数，被装饰对象有参数</h2><pre><code>class Decorator:
+    def __init__(self,func):# func是被装饰的对象
+        self.func=func
+    def __call__(self,*args, **kwargs):#*args, **kwargs用于承载被装饰对象的参数
+        print(&apos;class decoratoe is running&apos;)
+        self.func(*args,**kwargs)
+        print(&apos;class decorator is runned&apos;)
+@Decorator
+def fun(name):
+    print(&apos;my name is %s&apos;%name)
+fun(&apos;_learner&apos;)
+</code></pre><p>运行结果：</p>
+<pre><code>class decoratoe is running
+my name is _learner
+class decorator is runned
+</code></pre><h2 id="装饰器有参数，被装饰对象也有参数"><a href="#装饰器有参数，被装饰对象也有参数" class="headerlink" title="装饰器有参数，被装饰对象也有参数"></a>装饰器有参数，被装饰对象也有参数</h2><pre><code>class Decorator:
+    def __init__(self,is_print): # is_print属于装饰器参数
+        self.is_print=is_print
+    def __call__(self,func): # func是被装饰的对象
+        def _cal(*args, **kwargs):#*args, **kwargs用于承载被装饰对象的参数
+            if self.is_print:
+                print(&apos;class decoratoe is running&apos;)
+                func(*args,**kwargs)
+                print(&apos;class decorator is runned&apos;)
+            else:
+                func(*args, **kwargs)
+        return _cal
+@Decorator(0)
+def fun(name):
+    print(&apos;my name is %s&apos;%name)
+fun(&apos;_learner&apos;)
+</code></pre><p>运行结果：</p>
+<pre><code>my name is _learner
+</code></pre><h1 id="functools-wraps"><a href="#functools-wraps" class="headerlink" title="functools.wraps"></a><strong>functools.wraps</strong></h1><p>使用装饰器极大地复用了代码，但是他有一个缺点就是原函数的元信息不见了，比如函数的docstring、<strong>name</strong>、参数列表，先看例子：</p>
+<pre><code>def logged(fun):
+    def with_logging(*args,**kwargs):
+        &apos;&apos;&apos;with_logging&apos;&apos;&apos;
+        print(&apos;was called: %s&apos;%fun.__name__)
+        return fun(*args,**kwargs)
+    return with_logging
+@logged
+def f(x):
+    &apos;&apos;&apos; does some math&apos;&apos;&apos;
+    return x*x
+f(5)
+print(f.__name__)
+print(f.__doc__)
+</code></pre><p>运行结果：</p>
+<pre><code>was called: f
+with_logging
+with_logging
+</code></pre><p>能看出函数f的docstring、<strong>name</strong>属性值全部变成了内部函数with_logging的了；这个问题是比较严重的，好在我们有functools.wraps，wraps本身也是一个装饰器，它能把原函数的元信息拷贝到装饰器函数中，这使得装饰器函数也有和原函数一样的元信息了。</p>
+<pre><code>from  functools import wraps
+def logged(fun):
+    @wraps(fun)
+    def with_logging(*args,**kwargs):
+        &apos;&apos;&apos;with_logging&apos;&apos;&apos;
+        print(with_logging.__doc__)
+        print(with_logging.__name__)
+        return fun(*args,**kwargs)
+    return with_logging
+@logged
+def f(x):
+    &apos;&apos;&apos;does some math&apos;&apos;&apos;
+    return x*x
+f(5)
+print(f.__name__)
+print(f.__doc__)
+</code></pre><p>运行结果：</p>
+<pre><code>does some math
+f
+f
+does some math
+</code></pre><h1 id="装饰器执行顺序"><a href="#装饰器执行顺序" class="headerlink" title="装饰器执行顺序"></a><strong>装饰器执行顺序</strong></h1><pre><code>@a
+@b
+@c
+def fun():
+    pass
+</code></pre><p>等价于</p>
+<pre><code>fun=a(b(c(fun)))
+</code></pre><h1 id="内置装饰器"><a href="#内置装饰器" class="headerlink" title="内置装饰器"></a><strong>内置装饰器</strong></h1><p>@staticmathod、@classmethod、@property</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>装饰器是python中一个相当重要的内容，它是在闭包合高阶函数的基础上实现的；可以用函数装饰器、类装饰器等；它们分别都可以装饰函数、类等。</p>
+
       
     </div>
 
@@ -562,7 +644,7 @@ ret()
     </li>
     <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="http://waisunny.com/2017/12/16/python中的作用域/" title="python中的作用域">http://waisunny.com/2017/12/16/python中的作用域/</a>
+      <a href="http://waisunny.com/2017/12/26/python黑魔法—装饰器/" title="python黑魔法—装饰器">http://waisunny.com/2017/12/26/python黑魔法—装饰器/</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明： </strong>
@@ -591,8 +673,8 @@ ret()
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/12/15/python函数式编程/" rel="next" title="python—函数式编程(匿名函数、高阶函数、偏函数)">
-                <i class="fa fa-chevron-left"></i> python—函数式编程(匿名函数、高阶函数、偏函数)
+              <a href="/2017/12/24/python中的下划线/" rel="next" title="python中的下划线">
+                <i class="fa fa-chevron-left"></i> python中的下划线
               </a>
             
           </div>
@@ -601,8 +683,8 @@ ret()
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/12/17/Python-开发者都会遇到的错误：UnboundLocalError/" rel="prev" title="Python 开发者都会遇到的错误：UnboundLocalError">
-                Python 开发者都会遇到的错误：UnboundLocalError <i class="fa fa-chevron-right"></i>
+              <a href="/2017/12/28/python—模块剖析/" rel="prev" title="python—模块剖析">
+                python—模块剖析 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -652,8 +734,17 @@ ret()
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.JPG"
@@ -733,6 +824,22 @@ ret()
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#给功能函数加参数"><span class="nav-number">1.</span> <span class="nav-text">给功能函数加参数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#给装饰器函数加参数"><span class="nav-number">2.</span> <span class="nav-text">给装饰器函数加参数</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#类装饰器"><span class="nav-number"></span> <span class="nav-text">类装饰器</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#装饰器无参数，被装饰对象有参数"><span class="nav-number">1.</span> <span class="nav-text">装饰器无参数，被装饰对象有参数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#装饰器有参数，被装饰对象也有参数"><span class="nav-number">2.</span> <span class="nav-text">装饰器有参数，被装饰对象也有参数</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#functools-wraps"><span class="nav-number"></span> <span class="nav-text">functools.wraps</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#装饰器执行顺序"><span class="nav-number"></span> <span class="nav-text">装饰器执行顺序</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#内置装饰器"><span class="nav-number"></span> <span class="nav-text">内置装饰器</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#总结"><span class="nav-number"></span> <span class="nav-text">总结</span></a></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
