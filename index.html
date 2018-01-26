@@ -357,7 +357,7 @@
               
                 <span class="post-meta-item-text">更新于</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-01-26T01:16:44Z">
+              <time title="更新于" itemprop="dateModified" datetime="2018-01-26T01:21:33Z">
                 2018-01-26
               </time>
             
@@ -408,7 +408,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  0字
+                  568字
                 </span>
               
 
@@ -424,7 +424,7 @@
                   <span class="post-meta-item-text">阅读时长</span>
                 
                 <span title="阅读时长">
-                  1分钟
+                  2分钟
                 </span>
               
             </div>
@@ -444,9 +444,15 @@
 
       
         
-          
-            
-          
+          <p>新式类内置有__new__方法而经典类没有__new__方法，只有__init__方法。</p>
+<p>在python中创建类的一个实例时，如果该类具有__new__方法，会先调用__new__方法，__new__方法接受当前正在实例化的类作为第一个参数（这个参数的类型是type，这个类型在c和python的交互编程中具有重要的角色，感兴趣的可以搜下相关的资料），其返回值是本次创建产生的实例，也就是我们熟知的__init__方法中的第一个参数self。那么就会有一个问题，这个实例怎么得到？<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/01/18/python中-new-VS-init/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -543,7 +549,7 @@
               
                 <span class="post-meta-item-text">更新于</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-01-26T01:16:57Z">
+              <time title="更新于" itemprop="dateModified" datetime="2018-01-26T01:21:47Z">
                 2018-01-26
               </time>
             
@@ -630,8 +636,7 @@
 
       
         
-          
-            <p>新式类增加了__slots__内置属性, 它的作用是阻止在实例化类时为实例分配dict，可以把实例属性的种类锁定到__slots__规定的范围之中。</p>
+          <p>新式类增加了__slots__内置属性, 它的作用是阻止在实例化类时为实例分配dict，可以把实例属性的种类锁定到__slots__规定的范围之中。</p>
 <p>举个例子：</p>
 <pre><code>class A(object):
     attr=1
@@ -645,37 +650,14 @@ print(a.__dict__)#{&apos;num&apos;: 1}
 </code></pre><p>结果：</p>
 <pre><code>{}
 {&apos;num&apos;:1}
-</code></pre><p>可见：实例的__dict__只保持实例的变量，对于类的属性是不保存的，类的属性包括变量和函数。由于每次实例化一个类都要分配一个新的__dict__，存在空间的浪费，因此有了__slots__。</p>
-<p>__slots__是一个元组，包括了当前能访问到的属性。当定义了__slots__后，__slots__中定义的变量变成了类的描述符，相当于java，c++中的成员变量声明。</p>
-<p>类的实例只能拥有__slots__中定义的变量，不能再增加新的变量。注意：定义了slots后，就不再有dict。如下：</p>
-<pre><code>class A(object):
-    __slots__=(&apos;x&apos;)
-    attr=1
-    def print_info(self):
-        print(&apos;A&apos;)
-
-a=A()
-print(a.__dict__) # AttributeError: &apos;A&apos; object has no attribute &apos;__dict__&apos;
-a.num=1 # AttributeError: &apos;A&apos; object has no attribute &apos;num&apos;
-a.x=10
-print(a.x) # 10
-</code></pre><p>如果类变量与slots中的变量同名，则该变量被设置为readonly！！！如下：</p>
-<pre><code>class base(object):  
-__slots__=(&apos;y&apos;)  
-y=22 # y是类变量,y与__slots__中的变量同名  
-var=11  
-def __init__(self):  
-    pass  
-
-b=base()  
-print （b.y）  
-print （base.y）  
-#b.y=66 #AttributeError: &apos;base&apos; object attribute &apos;y&apos; is read-only 
-</code></pre><p>结果：</p>
-<pre><code>22\_\_new\_\_
-22
 </code></pre>
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/01/15/python中-slots-详解/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
