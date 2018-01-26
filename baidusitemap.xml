@@ -4,31 +4,11 @@
 
     
   <url>
-    <loc>http://waisunny.com/2018/01/15/python%E4%B8%AD-slots-%E8%AF%A6%E8%A7%A3/</loc>
-    <lastmod>2018-01-26T01:21:47.453Z</lastmod>
-    <data>
-        <display>
-        <title>python中 \_\_slots\_\_ 详解</title>
-        <pubTime>2018-01-15T08:26:28.000Z</pubTime>
-        
-        <tag>python面向对象</tag>
-         
-         
-           
-             
-              <breadCrumb title="Python" url="http://waisunny.com/categories/Python/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://waisunny.com/2018/01/18/python%E4%B8%AD-new-VS-init/</loc>
-    <lastmod>2018-01-26T01:21:33.621Z</lastmod>
+    <lastmod>2018-01-26T01:23:46.840Z</lastmod>
     <data>
         <display>
-        <title>python中 \_\_new\_\_和\_\_init\_\_的区别</title>
+        <title>python中 __new__和__init__的区别</title>
         <pubTime>2018-01-18T09:14:27.000Z</pubTime>
         
         <tag>python面向对象</tag>
@@ -44,11 +24,31 @@
 
     
   <url>
-    <loc>http://waisunny.com/2018/01/12/python%E4%B8%AD-get-getattr-getattribute-%E8%AF%A6%E8%A7%A3/</loc>
-    <lastmod>2018-01-26T01:16:32.856Z</lastmod>
+    <loc>http://waisunny.com/2018/01/15/python%E4%B8%AD-slots-%E8%AF%A6%E8%A7%A3/</loc>
+    <lastmod>2018-01-26T01:23:33.944Z</lastmod>
     <data>
         <display>
-        <title>python中\_\_get\_\_、\_\_getattr\_\_、\_\_getattribute\_\_详解</title>
+        <title>python中 __slots__属性详解</title>
+        <pubTime>2018-01-15T08:26:28.000Z</pubTime>
+        
+        <tag>python面向对象</tag>
+         
+         
+           
+             
+              <breadCrumb title="Python" url="http://waisunny.com/categories/Python/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://waisunny.com/2018/01/12/python%E4%B8%AD-get-getattr-getattribute-%E8%AF%A6%E8%A7%A3/</loc>
+    <lastmod>2018-01-26T01:23:18.027Z</lastmod>
+    <data>
+        <display>
+        <title>python中__get__、__getattr__、__getattribute__详解</title>
         <pubTime>2018-01-12T08:25:32.000Z</pubTime>
         
         <tag>python面向对象</tag>
@@ -65,7 +65,7 @@
     
   <url>
     <loc>http://waisunny.com/2018/01/11/python%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E5%88%9D%E8%AF%86-%E6%96%B0%E5%BC%8F%E7%B1%BBVS%E7%BB%8F%E5%85%B8%E7%B1%BB/</loc>
-    <lastmod>2018-01-26T01:16:31.350Z</lastmod>
+    <lastmod>2018-01-26T01:22:24.151Z</lastmod>
     <data>
         <display>
         <title>python面向对象初识-新式类VS经典类</title>
