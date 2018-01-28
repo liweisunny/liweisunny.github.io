@@ -3,7 +3,7 @@ title: Python 开发者都会遇到的错误：UnboundLocalError
 date: 2017-12-17 11:03:42
 tags: python基础
 toc: true
-categories: python
+categories: Python
 ---
 每个 Python 开发者都至少会经历一次 UnboundLocalError 的错误，初次遇到这种错误会觉得莫名其妙，用这张图来描述当时的心情最为贴切：
 ![](https://i.imgur.com/nJmYi4j.jpg)

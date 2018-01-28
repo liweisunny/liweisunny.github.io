@@ -3,7 +3,7 @@ title: python—包剖析
 date: 2017-12-29 17:11:03
 tags: python基础
 toc: true
-categories: python
+categories: Python
 ---
 包是一个有层次的文件目录结构, 它定义了一个由模块和子包组成的 Python 应用程序执行
 环境。Python 1.5 加入了包, 用来帮助解决如下问题:

@@ -3,7 +3,7 @@ title: python 闭包
 date: 2017-12-18 11:03:42
 tags: python基础
 toc: true
-categories: python
+categories: Python
 ---
 
 首先，什么是闭包？，它的定义如下：

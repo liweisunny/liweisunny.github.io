@@ -3,7 +3,7 @@ title: python中的作用域
 date: 2017-12-16 11:03:42
 tags: python基础
 toc: true
-categories: python
+categories: Python
 ---
 1、‘块级作用域’
 

@@ -1,5 +1,5 @@
 ---
-title: python中\_\_get\_\_、\_\_getattr\_\_、\_\_getattribute\_\_详解
+title: python中__get__、__getattr__、__getattribute__详解
 date: 2018-01-12 08:25:32
 tags: python面向对象
 toc: true
@@ -72,7 +72,7 @@ if里面前两行是获取类实例，不会有任何输出；
 
 大多时候我们并不太需要关注\_\_getattribute\_\_ 和\_\_getattr\_\_的一些细节，一般情况下使用我们自定义的类的时候，我们对类的结构都了解，不会刻意偏离，造成一些属性访问的错误等。
 
-值得一提的是适当的重写会使我们的程序变的优雅，但也有一些需要注意的地方，看下面的例子：
+值得一提的是，适当的重写会使我们的程序变的优雅，但也有一些需要注意的地方，看下面的例子：
 
 链式生成url:
 
@@ -90,8 +90,10 @@ if里面前两行是获取类实例，不会有任何输出；
 
 结果：
 
-	http://www.aa.com/users/show                                             
-
+	http://www.aa.com/users/show     
+                                        
+充分利用getattr会在没有查找到相应实例属性时被调用的特点，方便的通过链式调用生成对应的url，源代码中在碰到http method的时候返回一个
+可调用的对象更加的优雅，链式的操作不仅优雅而且还能很好的说明调用的接口的意义（restful的接口啦）。
 
 <font size=4>**注意点：**</font>
 
@@ -118,10 +120,10 @@ if里面前两行是获取类实例，不会有任何输出；
 	a=A()                                                                                                                
 	a.aaa                                                                                                                
 
-上面的代码运行也会输出 aaa ,然后 aaa这个属性找不到，然后抛出AttributeError，调用 \_\_getattr\_\_方法。这也是我们想要的结果。
+上面的代码运行也会输出 aaa ,aaa这个属性找不到，然后抛出AttributeError，调用 \_\_getattr\_\_方法。这也是我们想要的结果。
 
 
-**2.同时覆盖掉getattribute和getattr的时候，在getattribute中需要模仿原本的行为抛出AttributeError或者手动调用getattr**
+**2.同时覆盖掉\_\_getattribute\_\_和\_\_getattr\_\_的时候，在\_\_getattribute\_\_中需要模仿原本的行为抛出AttributeError或者手动调用\_\_getattr\_\_**
 
 
 	class A(object):                                           

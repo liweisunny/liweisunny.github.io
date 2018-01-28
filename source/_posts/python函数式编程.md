@@ -3,7 +3,7 @@ title: python—函数式编程(匿名函数、高阶函数、偏函数)
 date: 2017-12-15 11:03:42
 tags: python基础
 toc: true
-categories: python
+categories: Python
 ---
 函数式编程是使用一系列函数去解决问题，按照一般编程思维，面对问题时我们的思考方式是“怎么干”，而函数函数式编程的思考方式是我要“干什么”。 
 

@@ -3,7 +3,7 @@ title: python—递归函数
 date: 2017-12-14 11:03:42
 tags: python基础
 toc: true
-categories: python
+categories: Python
 ---
 
 在函数内部，可以调用其他函数。如果一个函数在内部调用自身本身，这个函数就是递归函数。
