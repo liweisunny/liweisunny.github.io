@@ -97,7 +97,7 @@
 <meta property="og:site_name" content="WaiBlog|码农的技术小窝">
 <meta property="og:description" content="引言新式类增加了__slots__内置属性, 它的作用是把实例属性锁定到__slots__规定的范围内。 __slots__是一个元组，包括了当前能访问到的属性。当定义了slots后，slots中定义的变量变成了类的描述符，相当于java，c++中的成员变量声明，类的实例只能拥有slots中定义的变量。 看下面的例子：">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-28T02:51:41.946Z">
+<meta property="og:updated_time" content="2018-01-28T02:57:01.266Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python中 __slots__属性详解">
 <meta name="twitter:description" content="引言新式类增加了__slots__内置属性, 它的作用是把实例属性锁定到__slots__规定的范围内。 __slots__是一个元组，包括了当前能访问到的属性。当定义了slots后，slots中定义的变量变成了类的描述符，相当于java，c++中的成员变量声明，类的实例只能拥有slots中定义的变量。 看下面的例子：">
@@ -354,7 +354,7 @@
               
                 <span class="post-meta-item-text">更新于</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-01-28T10:51:41+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2018-01-28T10:57:01+08:00">
                 2018-01-28
               </time>
             
@@ -638,7 +638,7 @@ multiple bases have instance lay-out conflict
 <p>这是关于__slots__使用多继承唯一办法。</p>
 <p>⑥ 某些父类有，某些父类没有：</p>
 <p>跟第一种情况类似。</p>
-<p>为了正确使用__slots__，最好直接继承object。如有需要用到其他父类，则父类和子类都要定义slots，还要记得子类的slots会覆盖父类的slots;除非所有父类的slots都为空，否则不要使用多继承。</p>
+<p>为了正确使用__slots__，最好直接继承object。如有需要用到其他父类，则父类和子类都要定义__slots__，还要记得子类的__slots__会覆盖父类的__slots__;除非所有父类的__slots__都为空，否则不要使用多继承。</p>
 <p>3.添加__dict__获取动态特性</p>
 <p>在特殊情况下，可以在__slots__里添加__dict__来获取与普通实例同样的动态特性。</p>
 <pre><code>&gt;&gt;&gt; class A(object): __slots__ = ()
@@ -658,14 +658,14 @@ multiple bases have instance lay-out conflict
         pass  
 
 b=base()  
-print b.y  
-print base.y  
+print (b.y)  
+print (base.y)  
 #b.y=66 #AttributeError: &apos;base&apos; object attribute &apos;y&apos; is read-only  
 </code></pre><p>运行结果：</p>
 <pre><code>22
 22
 </code></pre><p>6.namedtuple</p>
-<p>利用内置的namedtuple不可变的特性，结合slots，能创建出一个轻量不可变的实例。(约等于一个元组的大小)</p>
+<p>利用内置的namedtuple不可变的特性，结合__slots__，能创建出一个轻量不可变的实例。(约等于一个元组的大小)</p>
 <pre><code>&gt;&gt;&gt; from collections import namedtuple
 &gt;&gt;&gt; class MyNt(namedtupele(&apos;MyNt&apos;, &apos;bar baz&apos;)): __slots__ = ()
 &gt;&gt;&gt; nt = MyNt(&apos;r&apos;, &apos;z&apos;)
