@@ -97,7 +97,7 @@
 <meta property="og:site_name" content="WaiBlog|码农的技术小窝">
 <meta property="og:description" content="__get__,__getattr__和__getattribute__（只存在于新式类）都是访问属性的方法，但有一定的区别。  object.__getattr__(self, name)  通过实例访问属性时，若属性不存在则会调用__getattr__方法，默认触发AttributeError异常；若属性存在，但手动引发AttributeError异常，也会调用__getattr__方法，好比">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-26T01:23:18.027Z">
+<meta property="og:updated_time" content="2018-01-26T01:38:40.136Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python中__get__、__getattr__、__getattribute__详解">
 <meta name="twitter:description" content="__get__,__getattr__和__getattribute__（只存在于新式类）都是访问属性的方法，但有一定的区别。  object.__getattr__(self, name)  通过实例访问属性时，若属性不存在则会调用__getattr__方法，默认触发AttributeError异常；若属性存在，但手动引发AttributeError异常，也会调用__getattr__方法，好比">
@@ -354,7 +354,7 @@
               
                 <span class="post-meta-item-text">更新于</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-01-26T09:23:18+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2018-01-26T09:38:40+08:00">
                 2018-01-26
               </time>
             
@@ -410,7 +410,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  1,215字
+                  1,311字
                 </span>
               
 
@@ -494,7 +494,7 @@ abc
 <font size="5"><strong>补充</strong></font>
 
 <p>大多时候我们并不太需要关注__getattribute__ 和__getattr__的一些细节，一般情况下使用我们自定义的类的时候，我们对类的结构都了解，不会刻意偏离，造成一些属性访问的错误等。</p>
-<p>值得一提的是适当的重写会使我们的程序变的优雅，但也有一些需要注意的地方，看下面的例子：</p>
+<p>值得一提的是，适当的重写会使我们的程序变的优雅，但也有一些需要注意的地方，看下面的例子：</p>
 <p>链式生成url:</p>
 <pre><code>class UrlGenerator(object):                                        
     def __init__(self, root_url):                                  
@@ -508,8 +508,9 @@ abc
 url_gen = UrlGenerator(&apos;http://www.aa.com&apos;)                        
 url_gen.users.show.get
 </code></pre><p>结果：</p>
-<pre><code>http://www.aa.com/users/show                                             
-</code></pre><font size="4"><strong>注意点：</strong></font>
+<pre><code>http://www.aa.com/users/show     
+</code></pre><p>充分利用getattr会在没有查找到相应实例属性时被调用的特点，方便的通过链式调用生成对应的url，源代码中在碰到http method的时候返回一个<br>可调用的对象更加的优雅，链式的操作不仅优雅而且还能很好的说明调用的接口的意义（restful的接口啦）。</p>
+<font size="4"><strong>注意点：</strong></font>
 
 <p><strong>1.自定义getattribute的时候防止无限递归</strong></p>
 <p>因为getattribute在访问属性的时候一直会被调用，自定义的getattribute方法里面同时需要返回相应的属性，通过self.<strong>dict</strong>取值会继续向下调用getattribute，造成循环调用：</p>
@@ -529,8 +530,8 @@ a.aaa
             return &apos;default&apos;                                                                                         
 a=A()                                                                                                                
 a.aaa                                                                                                                
-</code></pre><p>上面的代码运行也会输出 aaa ,然后 aaa这个属性找不到，然后抛出AttributeError，调用 __getattr__方法。这也是我们想要的结果。</p>
-<p><strong>2.同时覆盖掉getattribute和getattr的时候，在getattribute中需要模仿原本的行为抛出AttributeError或者手动调用getattr</strong></p>
+</code></pre><p>上面的代码运行也会输出 aaa ,aaa这个属性找不到，然后抛出AttributeError，调用 __getattr__方法。这也是我们想要的结果。</p>
+<p><strong>2.同时覆盖掉__getattribute__和__getattr__的时候，在__getattribute__中需要模仿原本的行为抛出AttributeError或者手动调用__getattr__</strong></p>
 <pre><code>class A(object):                                           
     def  __init__(self,name):                              
         self.name=name                                     

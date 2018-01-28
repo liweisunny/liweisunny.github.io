@@ -302,7 +302,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://waisunny.com/2018/01/18/python中-new-VS-init/">
+    <link itemprop="mainEntityOfPage" href="http://waisunny.com/2018/01/18/python中 __new__和__init__的区别/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="_learner">
@@ -324,7 +324,7 @@
             
               
                 
-                <a class="post-title-link" href="/2018/01/18/python中-new-VS-init/" itemprop="url">
+                <a class="post-title-link" href="/2018/01/18/python中 __new__和__init__的区别/" itemprop="url">
                   python中 __new__和__init__的区别
                 </a>
               
@@ -357,7 +357,7 @@
               
                 <span class="post-meta-item-text">更新于</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-01-26T01:23:46Z">
+              <time title="更新于" itemprop="dateModified" datetime="2018-01-26T01:59:06Z">
                 2018-01-26
               </time>
             
@@ -408,7 +408,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  568字
+                  569字
                 </span>
               
 
@@ -448,7 +448,7 @@
 <p>在python中创建类的一个实例时，如果该类具有__new__方法，会先调用__new__方法，__new__方法接受当前正在实例化的类作为第一个参数（这个参数的类型是type，这个类型在c和python的交互编程中具有重要的角色，感兴趣的可以搜下相关的资料），其返回值是本次创建产生的实例，也就是我们熟知的__init__方法中的第一个参数self。那么就会有一个问题，这个实例怎么得到？<br>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/01/18/python中-new-VS-init/#more" rel="contents">
+            <a class="btn" href="/2018/01/18/python中 __new__和__init__的区别/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -549,8 +549,8 @@
               
                 <span class="post-meta-item-text">更新于</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-01-26T01:23:33Z">
-                2018-01-26
+              <time title="更新于" itemprop="dateModified" datetime="2018-01-28T02:51:41Z">
+                2018-01-28
               </time>
             
 			
@@ -600,7 +600,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  357字
+                  2,514字
                 </span>
               
 
@@ -616,7 +616,7 @@
                   <span class="post-meta-item-text">阅读时长</span>
                 
                 <span title="阅读时长">
-                  2分钟
+                  11分钟
                 </span>
               
             </div>
@@ -636,21 +636,9 @@
 
       
         
-          <p>新式类增加了__slots__内置属性, 它的作用是阻止在实例化类时为实例分配dict，可以把实例属性的种类锁定到__slots__规定的范围之中。</p>
-<p>举个例子：</p>
-<pre><code>class A(object):
-    attr=1
-    def print_info(self):
-        print(&apos;A&apos;)
-
-a=A()
-print(a.__dict__)#{}
-a.num=1
-print(a.__dict__)#{&apos;num&apos;: 1}
-</code></pre><p>结果：</p>
-<pre><code>{}
-{&apos;num&apos;:1}
-</code></pre>
+          <h1 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h1><p>新式类增加了__slots__内置属性, 它的作用是把实例属性锁定到__slots__规定的范围内。</p>
+<p>__slots__是一个元组，包括了当前能访问到的属性。当定义了slots后，slots中定义的变量变成了类的描述符，相当于java，c++中的成员变量声明，类的实例只能拥有slots中定义的变量。</p>
+<p>看下面的例子：<br>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/01/15/python中-slots-详解/#more" rel="contents">
@@ -754,7 +742,7 @@ print(a.__dict__)#{&apos;num&apos;: 1}
               
                 <span class="post-meta-item-text">更新于</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-01-26T01:23:18Z">
+              <time title="更新于" itemprop="dateModified" datetime="2018-01-26T01:38:40Z">
                 2018-01-26
               </time>
             
@@ -805,7 +793,7 @@ print(a.__dict__)#{&apos;num&apos;: 1}
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  1,215字
+                  1,311字
                 </span>
               
 

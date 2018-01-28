@@ -93,11 +93,11 @@
 <meta name="keywords" content="python面向对象">
 <meta property="og:type" content="article">
 <meta property="og:title" content="python中 __new__和__init__的区别">
-<meta property="og:url" content="http://waisunny.com/2018/01/18/python中-new-VS-init/index.html">
+<meta property="og:url" content="http://waisunny.com/2018/01/18/python中 __new__和__init__的区别/index.html">
 <meta property="og:site_name" content="WaiBlog|码农的技术小窝">
 <meta property="og:description" content="新式类内置有__new__方法而经典类没有__new__方法，只有__init__方法。 在python中创建类的一个实例时，如果该类具有__new__方法，会先调用__new__方法，__new__方法接受当前正在实例化的类作为第一个参数（这个参数的类型是type，这个类型在c和python的交互编程中具有重要的角色，感兴趣的可以搜下相关的资料），其返回值是本次创建产生的实例，也就是我们熟知的_">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-26T01:23:46.840Z">
+<meta property="og:updated_time" content="2018-01-26T01:59:06.579Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python中 __new__和__init__的区别">
 <meta name="twitter:description" content="新式类内置有__new__方法而经典类没有__new__方法，只有__init__方法。 在python中创建类的一个实例时，如果该类具有__new__方法，会先调用__new__方法，__new__方法接受当前正在实例化的类作为第一个参数（这个参数的类型是type，这个类型在c和python的交互编程中具有重要的角色，感兴趣的可以搜下相关的资料），其返回值是本次创建产生的实例，也就是我们熟知的_">
@@ -128,7 +128,7 @@
 
 
 
-  <link rel="canonical" href="http://waisunny.com/2018/01/18/python中-new-VS-init/"/>
+  <link rel="canonical" href="http://waisunny.com/2018/01/18/python中 __new__和__init__的区别/"/>
 
 
 
@@ -302,7 +302,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://waisunny.com/2018/01/18/python中-new-VS-init/">
+    <link itemprop="mainEntityOfPage" href="http://waisunny.com/2018/01/18/python中 __new__和__init__的区别/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="_learner">
@@ -354,7 +354,7 @@
               
                 <span class="post-meta-item-text">更新于</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-01-26T09:23:46+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2018-01-26T09:59:06+08:00">
                 2018-01-26
               </time>
             
@@ -410,7 +410,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  568字
+                  569字
                 </span>
               
 
@@ -447,7 +447,7 @@
       
         <p>新式类内置有__new__方法而经典类没有__new__方法，只有__init__方法。</p>
 <p>在python中创建类的一个实例时，如果该类具有__new__方法，会先调用__new__方法，__new__方法接受当前正在实例化的类作为第一个参数（这个参数的类型是type，这个类型在c和python的交互编程中具有重要的角色，感兴趣的可以搜下相关的资料），其返回值是本次创建产生的实例，也就是我们熟知的__init__方法中的第一个参数self。那么就会有一个问题，这个实例怎么得到？<br><a id="more"></a></p>
-<p>注意到有__new__方法的都是object类的后代，因此如果我们自己想要改写__new__方法（注意不改写时在创建实例的时候使用的是父类的__new__方法，如果父类没有则继续上溯）可以通过调用object的__new__方法类得到这个实例（这实际上也和python中的默认机制基本一致），如：</p>
+<p>有__new__方法的都是object类(新式类)的后代，因此如果我们自己想要改写__new__方法（注意不改写时在创建实例的时候使用的是父类的__new__方法，如果父类没有则继续上溯）可以通过调用object的__new__方法类得到这个实例（这实际上也和python中的默认机制基本一致），如：</p>
 <pre><code>class display(object):
     def __init__(self, *args, **kwargs):
         print(&quot;init&quot;)
@@ -461,7 +461,7 @@ a=display()
 &lt;class &apos;type&apos;&gt;
 init
 </code></pre><p>因此我们可以得到如下结论：</p>
-<p><strong>在实例创建过程中__new__方法先于__init__方法被调用，它的第一个参数类型为type,f返回值是当前实例对象。</strong></p>
+<p><strong>在实例创建过程中__new__方法先于__init__方法被调用，它的第一个参数类型为type,返回值是当前实例对象。</strong></p>
 <p><strong>如果不需要其它特殊的处理，可以使用object的__new__方法来得到创建的实例（也即self)。</strong></p>
 <p><strong>于是我们可以发现，实际上可以使用其它类的__new__方法类得到这个实例，只要那个类或其父类或祖先有__new__方法。</strong></p>
 <pre><code>class another(object):
@@ -481,7 +481,9 @@ a=display()
 &lt;class &apos;type&apos;&gt;
 newano
 init
-</code></pre><p>我们发现__new__和__init__就像这么一个关系，__new__提供生产的原料self(但并不保证这个原料来源正宗，像上面那样它用的是另一个不相关的类的<strong>new</strong>方法类得到这个实例)，而__init__就用__new__给的原料来完善这个对象（尽管它不知道这些原料是不是正宗的）。</p>
+</code></pre><font size="4"><strong>总结</strong></font>
+
+<p>我们发现__new__和__init__就像这么一个关系，__new__提供生产的原料self(但并不保证这个原料来源正宗，像上面那样它用的是另一个不相关的类的<strong>new</strong>方法类得到这个实例)，而__init__就用__new__给的原料来完善这个对象（尽管它不知道这些原料是不是正宗的）。</p>
 
       
     </div>
@@ -510,7 +512,7 @@ init
     </li>
     <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="http://waisunny.com/2018/01/18/python中-new-VS-init/" title="python中 __new__和__init__的区别">http://waisunny.com/2018/01/18/python中-new-VS-init/</a>
+      <a href="http://waisunny.com/2018/01/18/python中 __new__和__init__的区别/" title="python中 __new__和__init__的区别">http://waisunny.com/2018/01/18/python中 __new__和__init__的区别/</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明： </strong>
