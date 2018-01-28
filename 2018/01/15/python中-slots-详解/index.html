@@ -97,7 +97,7 @@
 <meta property="og:site_name" content="WaiBlog|码农的技术小窝">
 <meta property="og:description" content="引言新式类增加了__slots__内置属性, 它的作用是把实例属性锁定到__slots__规定的范围内。 __slots__是一个元组，包括了当前能访问到的属性。当定义了slots后，slots中定义的变量变成了类的描述符，相当于java，c++中的成员变量声明，类的实例只能拥有slots中定义的变量。 看下面的例子：">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-28T02:57:01.266Z">
+<meta property="og:updated_time" content="2018-01-28T02:59:14.200Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python中 __slots__属性详解">
 <meta name="twitter:description" content="引言新式类增加了__slots__内置属性, 它的作用是把实例属性锁定到__slots__规定的范围内。 __slots__是一个元组，包括了当前能访问到的属性。当定义了slots后，slots中定义的变量变成了类的描述符，相当于java，c++中的成员变量声明，类的实例只能拥有slots中定义的变量。 看下面的例子：">
@@ -354,7 +354,7 @@
               
                 <span class="post-meta-item-text">更新于</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-01-28T10:57:01+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2018-01-28T10:59:14+08:00">
                 2018-01-28
               </time>
             
@@ -410,7 +410,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  2,514字
+                  2,506字
                 </span>
               
 
@@ -426,7 +426,7 @@
                   <span class="post-meta-item-text">阅读时长</span>
                 
                 <span title="阅读时长">
-                  11分钟
+                  10分钟
                 </span>
               
             </div>
@@ -460,8 +460,13 @@ print(a.__dict__)
 <pre><code>{}
 10
 {&apos;x&apos;: 10}
-</code></pre><p>例二：<br>    class A(object):<br>        attr=1<br>        <strong>slots</strong>=(‘x’,’y’)<br>    print(a.x)  # AttributeError: x<br>    a=A()</p>
-<pre><code>#a.__dict__ # AttributeError: &apos;A&apos; object has no attribute &apos;__dict__&apos;
+</code></pre><p>例二：</p>
+<pre><code>class A(object):
+    attr=1
+    __slots__=(&apos;x&apos;,&apos;y&apos;)
+print(a.x)  # AttributeError: x
+a=A()
+#a.__dict__ # AttributeError: &apos;A&apos; object has no attribute &apos;__dict__&apos;
 a.x=10
 #a.z=20     # AttributeError: &apos;A&apos; object has no attribute &apos;z&apos;
 print(a.x)
@@ -566,7 +571,7 @@ if __name__ == &apos;__main__&apos;:
 ================================================
  7        17.2 MiB     17.2 MiB    @profile
  8                                 def main():
- 9        35.3 MiB     &lt;font color=red&gt;17.0 MiB &lt;/font&gt;      f = [A(523825) for i in range(100000)]
+ 9        35.3 MiB     17.0 MiB       f = [A(523825) for i in range(100000)]
 </code></pre><p>第2列表示该行执行后Python解释器的内存使用情况，第3列表示该行代码执行前后的内存变化。</p>
 <p>在没有定义__slots__属性的情况下，该代码共使用了(17.2+17.0)MiB内存。</p>
 <p>从结果可以看出，内存使用是以MiB为单位衡量的,表示的mebibyte(1MiB = 1.05MB)。</p>
@@ -588,7 +593,7 @@ if __name__ == &apos;__main__&apos;:
 ================================================
    7      16.9 MiB     16.9 MiB   @profile
    8                              def main():
-   9      22.9 MiB      &lt;font color=red&gt;6.0 MiB&lt;/font&gt;       f = [A(523825) for i in range(100000)]
+   9      22.9 MiB     6.0 MiB       f = [A(523825) for i in range(100000)]
 </code></pre><p>定义__slots__属性的情况下，该代码共使用了(16.9+6.0)MiB内存。</p>
 <p>从上述结果可看到使用__slots__能极大地减少内存空间的消耗，这也是最常见到的用法。</p>
 <h1 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h1><p>1.只有非字符串的迭代器可以赋值给__slots__</p>
