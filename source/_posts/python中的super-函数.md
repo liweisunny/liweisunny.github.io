@@ -5,7 +5,6 @@ tags: python面向对象
 toc: true
 categories: Python
 ---
-
 super() 函数用于调用下一个父类(超类)并返回该父类的实例，主要用途是来查找父类的属性，比如 ，
 super(MyClass,self).\_\_init\_\_()。它只能用在新式类中。
 
