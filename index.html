@@ -357,8 +357,8 @@
               
                 <span class="post-meta-item-text">更新于</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-01-28T08:00:48Z">
-                2018-01-28
+              <time title="更新于" itemprop="dateModified" datetime="2018-01-29T00:48:49Z">
+                2018-01-29
               </time>
             
 			
@@ -408,7 +408,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  1,335字
+                  1,552字
                 </span>
               
 
@@ -424,7 +424,7 @@
                   <span class="post-meta-item-text">阅读时长</span>
                 
                 <span title="阅读时长">
-                  6分钟
+                  7分钟
                 </span>
               
             </div>
@@ -444,10 +444,13 @@
 
       
         
-          <p>super() 函数用于调用下一个父类(超类)并返回该父类实例的方法。它只能用在新式类中。</p>
-<p>super 是用来解决多重继承问题的，直接用类名调用父类方法在使用单继承的时候没问题，但是如果使用多继承，会涉及到查找顺序（MRO）、重复调用等种种问题。</p>
-<p>MRO 就是类的方法解析顺序表, 其实也就是继承父类方法时的顺序表,下面会介绍到。</p>
-<p>下面我们通过对比使用 super函数和基类类名调用父类方法来介绍super函数的作用：</p>
+          <p>super() 函数用于调用下一个父类(超类)并返回该父类的实例，主要用途是来查找父类的属性，比如 ，<br>super(MyClass,self).__init__()。它只能用在新式类中。</p>
+<p>语法如下：</p>
+<pre><code>super(type[, obj])
+</code></pre><p>super()“返回此 type 的父类”。如果你希望父类被绑定,你可以传入 obj 参数(obj必须是 type 类型的)。否则父类不会被绑定。obj 参数也可以是一个类型，但它应当是 type 的一个子类。通常，当给出 obj 时：</p>
+<ol>
+<li>如果 obj 是一个实例，<strong>isinstance(obj,type)</strong>就必须返回 True</li>
+<li>如果 obj 是一个类或类型，<strong>issubclass(obj,type)</strong>就必须返回 True
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/01/23/python中的super-函数/#more" rel="contents">
@@ -1326,8 +1329,8 @@
               
                 <span class="post-meta-item-text">更新于</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-01-26T01:27:52Z">
-                2018-01-26
+              <time title="更新于" itemprop="dateModified" datetime="2018-01-29T00:15:54Z">
+                2018-01-29
               </time>
             
 			
@@ -1377,7 +1380,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  546字
+                  634字
                 </span>
               
 
@@ -1393,7 +1396,7 @@
                   <span class="post-meta-item-text">阅读时长</span>
                 
                 <span title="阅读时长">
-                  2分钟
+                  3分钟
                 </span>
               
             </div>
