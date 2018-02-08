@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://waisunny.com/"/>
-  <updated>2018-01-29T09:09:03.667Z</updated>
+  <updated>2018-02-08T10:26:01.313Z</updated>
   <id>http://waisunny.com/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Django安装及基本操作指南</title>
+    <link href="http://waisunny.com/2018/02/09/Django%E5%AE%89%E8%A3%85%E5%8F%8A%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C%E6%8C%87%E5%8D%97/"/>
+    <id>http://waisunny.com/2018/02/09/Django安装及基本操作指南/</id>
+    <published>2018-02-08T18:01:33.000Z</published>
+    <updated>2018-02-08T10:26:01.313Z</updated>
+    
+    <content type="html"><![CDATA[<p><strong>以下操作均在Windows下操作</strong></p><h1 id="配置python环境"><a href="#配置python环境" class="headerlink" title="配置python环境"></a>配置python环境</h1><p>参考：<a href="http://waisunny.com/2017/11/16/python-%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2-Windows/">python 环境部署-Windows</a></p><h1 id="安装PiP"><a href="#安装PiP" class="headerlink" title="安装PiP"></a>安装PiP</h1><p>参考：<a href="http://waisunny.com/2017/11/17/setuptools%E5%92%8Cpip%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/">setuptools和pip安装教程</a></p><a id="more"></a><h1 id="安装Django"><a href="#安装Django" class="headerlink" title="安装Django"></a>安装Django</h1><p>使用PiP安装django：</p><p>安装最新的版本的 Django 命令如下：  </p><pre><code>pip install django  </code></pre><p>安装指定版本的 Django 命令如下：</p><pre><code>pip install django==1.10.3  </code></pre><p>在这里推荐使用指定版本的django来安装</p><p>安装成功以后的截图：</p><p><img src="https://i.imgur.com/wZFz8AH.png" alt=""></p><p>使用 <strong>pip show</strong> 命令来查看当前安装的Django版本：</p><pre><code>pip show django</code></pre><p>使用 <strong>pip uninstall</strong> 命令来 卸载 Django：</p><pre><code>pip uninstall django </code></pre><h1 id="使用Django"><a href="#使用Django" class="headerlink" title="使用Django"></a>使用Django</h1><h2 id="创建项目"><a href="#创建项目" class="headerlink" title="创建项目:"></a>创建项目:</h2><p>使用管理工具 django-admin.py创建项目，命令：</p><pre><code>django-admin.py startproject HelloWorld  </code></pre><p>说明：”HelloWord”为项目名称，项目路径为当前dos窗口打开的路径</p><p>创建完成后我们可以查看下项目的目录结构：</p><pre><code>|-- HelloWorld  |   |-- __init__.py  |   |-- settings.py  |   |-- urls.py  |   `-- wsgi.py  `-- manage.py </code></pre><p>目录说明：</p><ol><li>HelloWorld: 项目的容器。</li><li>manage.py: 一个实用的命令行工具，可让你以各种方式与该 Django 项目进行交互。</li><li>HelloWorld/<strong>init</strong>.py: 一个空文件，告诉 Python 该目录是一个 Python 包。</li><li>HelloWorld/settings.py: 该 Django 项目的设置/配置。</li><li>HelloWorld/urls.py: 该 Django 项目的 URL 声明; 一份由 Django 驱动的网站”目录”。</li><li>HelloWorld/wsgi.py: 一个 WSGI 兼容的 Web 服务器的入口，以便运行你的项目。<h2 id="启动服务器"><a href="#启动服务器" class="headerlink" title="启动服务器"></a>启动服务器</h2></li></ol><p>接下来我们进入 HelloWorld 项目目录输入以下命令：</p><pre><code>python manage.py runserver  </code></pre><p>说明：以上命令执行后会在你本地启动服务，默认端口8000，浏览器输入127.0.0.1:8000或者你的ip+8000就可以看到如下界面：<br><img src="https://i.imgur.com/aVIilKb.jpg" alt=""></p><h2 id="视图和Url配置"><a href="#视图和Url配置" class="headerlink" title="视图和Url配置"></a>视图和Url配置</h2><p>参考：<a href="http://www.runoob.com/django/django-first-app.html" target="_blank" rel="external">视图和URL配置</a> </p><h2 id="模型"><a href="#模型" class="headerlink" title="模型"></a>模型</h2><p>Django规定，如果要使用模型，必须要创建一个app。我们使用以下命令创建一个名为 myapp的 app:</p><pre><code>django-admin.py startapp myapp  </code></pre><p>目录结构：</p><pre><code>HelloWorld  |-- myapp  |   |-- __init__.py  |   |-- admin.py  |   |-- models.py  |   |-- tests.py  |   `-- views.py  </code></pre><p>我们修改myapp/models.py文件代码：</p><pre><code>HelloWorld/TestModel/models.py: 文件代码：  from django.db import models  class Test(models.Model):      name = models.CharField(max_length=20)  </code></pre><p>以上的类名代表了数据库表名，且继承了models.Model，类里面的字段代表数据表中的字段(name)，数据类型则由CharField（相当于varchar）、DateField（相当于datetime）， max_length 参数限定长度。</p><h3 id="激活模型"><a href="#激活模型" class="headerlink" title="激活模型"></a>激活模型</h3><p>接下来在settings.py中找到INSTALLED_APPS这一项，如下：</p><pre><code>INSTALLED_APPS = (      &apos;django.contrib.admin&apos;,      &apos;django.contrib.auth&apos;,      &apos;django.contrib.contenttypes&apos;,      &apos;django.contrib.sessions&apos;,      &apos;django.contrib.messages&apos;,      &apos;django.contrib.staticfiles&apos;,      &apos;myapp&apos;,               # 注册app  ) </code></pre><p> 然后，执行一下命令：</p><pre><code>$ python manage.py makemigrations myapp #让 Django 知道我们在我们的模型有一些变更  $ python manage.py migrate myapp #创建表结构 </code></pre><h3 id="模型变更步骤"><a href="#模型变更步骤" class="headerlink" title="模型变更步骤"></a>模型变更步骤</h3><p>记住实现模型变更的三个步骤（每一步都是必须的）：</p><ol><li>修改你的模型（在models.py文件中）。</li><li>运行python manage.py makemigrations ，为这些修改创建迁移文件,如图所示就是生成的迁移文件</li><li>运行python manage.py migrate ，将这些改变更新到数据库中。</li></ol><p>说明：可以在执行：</p><pre><code>python manage.py migrate</code></pre><p>之前执行：</p><pre><code>python manage.py sqlmigrate myapp1 000 #这个会输出给我们迁移行为将会执行哪些SQL语句；</code></pre><p>执行：</p><pre><code>python manage.py check #会检查项目中模型是否存在问题。</code></pre><font color="red"><strong>执行命令时可以指定app名称，这样就是作用于某一个 app,推荐这样做。</strong></font><h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>这些都是最基本的操作，入门必备 ，希望对向我一样的初学者有帮助！！！</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;strong&gt;以下操作均在Windows下操作&lt;/strong&gt;&lt;/p&gt;
+&lt;h1 id=&quot;配置python环境&quot;&gt;&lt;a href=&quot;#配置python环境&quot; class=&quot;headerlink&quot; title=&quot;配置python环境&quot;&gt;&lt;/a&gt;配置python环境&lt;/h1&gt;&lt;p&gt;参考：&lt;a href=&quot;http://waisunny.com/2017/11/16/python-%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2-Windows/&quot;&gt;python 环境部署-Windows&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&quot;安装PiP&quot;&gt;&lt;a href=&quot;#安装PiP&quot; class=&quot;headerlink&quot; title=&quot;安装PiP&quot;&gt;&lt;/a&gt;安装PiP&lt;/h1&gt;&lt;p&gt;参考：&lt;a href=&quot;http://waisunny.com/2017/11/17/setuptools%E5%92%8Cpip%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/&quot;&gt;setuptools和pip安装教程&lt;/a&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Django" scheme="http://waisunny.com/categories/Django/"/>
+    
+    
+      <category term="Django环境部署" scheme="http://waisunny.com/tags/Django%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/"/>
+    
+  </entry>
   
   <entry>
     <title>python序列化模块json和pickle</title>
@@ -481,37 +505,6 @@ print(age)
     
       &lt;p&gt;函数式编程是使用一系列函数去解决问题，按照一般编程思维，面对问题时我们的思考方式是“怎么干”，而函数函数式编程的思考方式是我要“干什么”。 &lt;/p&gt;
 &lt;p&gt;Python 不是也不大可能会成为一种函数式编程语言，但是它支持许多有价值的函数式编程语言构建。&lt;br&gt;
-    
-    </summary>
-    
-      <category term="Python" scheme="http://waisunny.com/categories/Python/"/>
-    
-    
-      <category term="python基础" scheme="http://waisunny.com/tags/python%E5%9F%BA%E7%A1%80/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>python—递归函数</title>
-    <link href="http://waisunny.com/2017/12/14/python%E2%80%94%E9%80%92%E5%BD%92%E5%87%BD%E6%95%B0/"/>
-    <id>http://waisunny.com/2017/12/14/python—递归函数/</id>
-    <published>2017-12-14T11:03:42.000Z</published>
-    <updated>2018-01-28T06:05:58.919Z</updated>
-    
-    <content type="html"><![CDATA[<p>在函数内部，可以调用其他函数。如果一个函数在内部调用自身本身，这个函数就是递归函数。</p><p>举个例子，我们来计算阶乘n! = 1 x 2 x 3 x … x n，用函数fact(n)表示，可以看出：</p><pre><code>fact(n) = n! = 1 x 2 x 3 x ... x (n-1) x n = (n-1)! x n = fact(n-1) x n</code></pre><p>所以，fact(n)可以表示为n x fact(n-1)，只有n=1时需要特殊处理。</p><p>于是，fact(n)用递归的方式写出来就是：</p><pre><code>def fact(n):    if n==1:        return 1    return n * fact(n - 1)</code></pre><a id="more"></a><p>上面就是一个递归函数。可以试试：</p><pre><code>&gt;&gt;&gt; fact(1)1&gt;&gt;&gt; fact(5)120&gt;&gt;&gt; fact(100)93326215443944152681699238856266700490715968264381621468592963895217599993229915608941463976156518286253697920827223758251185210916864000000000000000000000000</code></pre><p>如果我们计算fact(5)，可以根据函数定义看到计算过程如下：</p><pre><code>===&gt; fact(5)===&gt; 5 * fact(4)===&gt; 5 * (4 * fact(3))===&gt; 5 * (4 * (3 * fact(2)))===&gt; 5 * (4 * (3 * (2 * fact(1))))===&gt; 5 * (4 * (3 * (2 * 1)))===&gt; 5 * (4 * (3 * 2))===&gt; 5 * (4 * 6)===&gt; 5 * 24===&gt; 120</code></pre><font color="red">递归函数的优点是定义简单，逻辑清晰，但其效率低。理论上，所有的递归函数都可以用循环代替，循环的逻辑不如递归清晰但比递归高效。</font><font color="red">使用递归函数需要注意防止栈溢出。在计算机中，函数调用是通过栈（stack）这种数据结构实现的，每当进入一个函数调用，栈就会加一层栈帧，每当函数返回，栈就会减一层栈帧。由于栈的大小不是无限的，所以，递归调用的次数过多，会导致栈溢出。</font><p>可以试试fact(1000)：</p><pre><code>&gt;&gt;&gt; fact(1000)Traceback (most recent call last):File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;File &quot;&lt;stdin&gt;&quot;, line 4, in fact...File &quot;&lt;stdin&gt;&quot;, line 4, in factRuntimeError: maximum recursion depth exceeded in comparison</code></pre><p>解决递归调用栈溢出的方法是通过尾递归优化，事实上尾递归和循环的效果是一样的，所以，把循环看成是一种特殊的尾递归函数也是可以的。</p><p>尾递归是指，在函数返回的时候，调用自身本身，并且，return语句不能包含表达式。这样，编译器或者解释器就可以把尾递归做优化，使递归本身无论调用多少次，都只占用一个栈帧，不会出现栈溢出的情况。</p><p>上面的fact(n)函数由于return n * fact(n - 1)引入了乘法表达式，所以就不是尾递归了。要改成尾递归方式，需要多一点代码，主要是要把每一步的乘积传入到递归函数中：</p><pre><code>def fact(n):    return fact_iter(n, 1)def fact_iter(num, product):    if num == 1:        return product    return fact_iter(num - 1, num * product)</code></pre><p>可以看到，return fact_iter(num - 1, num <em> product)仅返回递归函数本身，num - 1和num </em> product在函数调用前就会被计算，不影响函数调用。</p><p>fact(5)对应的fact_iter(5, 1)的调用如下：</p><pre><code>===&gt; fact_iter(5, 1)===&gt; fact_iter(4, 5)===&gt; fact_iter(3, 20)===&gt; fact_iter(2, 60)===&gt; fact_iter(1, 120)===&gt; 120</code></pre><p>尾递归调用时，如果做了优化，栈不会增长，因此，无论多少次调用也不会导致栈溢出。</p><p>遗憾的是，大多数编程语言没有针对尾递归做优化，Python解释器也没有做优化，所以，即使把上面的fact(n)函数改成尾递归方式，也会导致栈溢出。</p><p>使用递归和循环实现斐波那契数列：</p><pre><code>#Action1--递归---这种方式效率太低，当num值比较大是执行会很耗时间并且会抛出RecursionError: 超过了最大递归深度def fibonacci1(num):    num = int(num)    if num==0:        res =0    elif num==1:        res =1    else:        res= fibonacci1(num-1)+fibonacci1(num-2)    return res# Action2--迭代，这种方式相比之前效率高很多，是和返回一个计算列表，返回单个值时推荐Action3def fibonacci2(num):    numList = [1, 1]    num = int(num)    for i in range(num - 2):        numList.append(numList[-2] + numList[-1])    return numList#Action3--循环,计算单个值得时候，这种方式最高效def fibonacci3(n):    n=int(n)    x, y = 0, 1    while(n):        x,y,n = y, x+y, n - 1    return x</code></pre><p>运行结果：</p><pre><code>fibonacci1函数运行结果---&gt;832040   运行时间----&gt;0:00:00.923646fibonacci2函数运行结果---&gt;[1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 1597, 2584, 4181, 6765, 10946, 17711, 28657, 46368, 75025, 121393, 196418, 317811, 514229, 832040]   运行时间----&gt;0:00:00fibonacci3函数运行结果---&gt;832040   运行时间----&gt;0:00:00</code></pre><p>小结</p><p>使用递归函数的优点是逻辑简单清晰，缺点是过深的调用会导致栈溢出，另外递归效率比较低。</p><p>针对尾递归优化的语言可以通过尾递归防止栈溢出。尾递归事实上和循环是等价的，没有循环语句的编程语言只能通过尾递归实现循环。</p><p>Python标准的解释器没有针对尾递归做优化，任何递归函数都存在栈溢出的问题。</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;在函数内部，可以调用其他函数。如果一个函数在内部调用自身本身，这个函数就是递归函数。&lt;/p&gt;
-&lt;p&gt;举个例子，我们来计算阶乘n! = 1 x 2 x 3 x … x n，用函数fact(n)表示，可以看出：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;fact(n) = n! = 1 x 2 x 3 x ... x (n-1) x n = (n-1)! x n = fact(n-1) x n
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;所以，fact(n)可以表示为n x fact(n-1)，只有n=1时需要特殊处理。&lt;/p&gt;
-&lt;p&gt;于是，fact(n)用递归的方式写出来就是：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;def fact(n):
-    if n==1:
-        return 1
-    return n * fact(n - 1)
-&lt;/code&gt;&lt;/pre&gt;
     
     </summary>
     
