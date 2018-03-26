@@ -90,6 +90,34 @@
   </entry>
   
   <entry>
+    <title>Django url参数详解</title>
+    <link href="http://waisunny.com/2018/02/11/Django-url%E5%8F%82%E6%95%B0%E8%AF%A6%E8%A7%A3/"/>
+    <id>http://waisunny.com/2018/02/11/Django-url参数详解/</id>
+    <published>2018-02-10T18:01:33.000Z</published>
+    <updated>2018-03-26T01:14:44.620Z</updated>
+    
+    <content type="html"><![CDATA[<p>Django项目中的url.py文件中用于配置请求路由的url()函数可以接受4个参数：</p><pre><code>urlpatterns = [    url(regex, view, kwargs=None, name=None),]</code></pre><p>两个是必须的：regex和view参数；</p><p>两个是可选的：kwargs和name参数；</p><p>下面来看一下这些参数是干啥的。</p><a id="more"></a><h1 id="regex参数"><a href="#regex参数" class="headerlink" title="regex参数"></a>regex参数</h1><p>“regex”参数url模式的匹配。</p><p>Django会把请求的url从第一条正则表达式开始匹配，直到找到一个可以匹配上的正则表达式为止。</p><p>需要注意的是，正则表达式并不查询get参数、post参数、域名，例如，当请求指向<a href="https://www.example.com/myapp/?page=3，" target="_blank" rel="external">https://www.example.com/myapp/?page=3，</a> URLconf还是会查找<strong>myapp/</strong>。</p><p>另外，如果您需要正则表达式的帮助，请参阅re模块的文档，然而，实际上，您不需要是正则表达式的专家，因为您只需要知道如何捕获简单的模式。</p><p>实际上，复杂的正则表达式的查找性能会很差，所以你可能不应该依靠正则表达式的全部功能。</p><p>最后，一个性能说明：这些正则表达式是第一次加载URLconf模块时被编译。它们超级快（只要查找不是太复杂，如上所述）。</p><h1 id="view参数"><a href="#view参数" class="headerlink" title="view参数"></a>view参数</h1><p>当正则表达式被匹配，view函数就会被调用。而且HttpRequest对象会作为第一个参数，其它被正则表达式捕获的值会作为其它参数传入到函数中。</p><h1 id="kwargs参数"><a href="#kwargs参数" class="headerlink" title="kwargs参数"></a>kwargs参数</h1><p>其它的参数(即要传入到view函数中的参数)以字典的形式传入。</p><h1 id="name参数"><a href="#name参数" class="headerlink" title="name参数"></a>name参数</h1><p>给你的url起个别名能让你在其它地方明确引用它。这个强大的功能可以让你在修改URL模式的时候只需修改单个文件。</p><p>创建一个django项目后，添加一个模板页：</p><p><img src="https://i.imgur.com/iq5xDcA.png" alt=""></p><p>url配置如下：</p><p><img src="https://i.imgur.com/SCmF2Cw.png" alt=""></p><p>我们计算加法的时候用的是 <strong>‘add/4/5/‘</strong>这个url ，后来需求发生变化，url改成 <strong>‘/4_add_5/‘</strong>，但在html页中，视图函数代码中有很多地方都写死了<strong>‘add/4/5/‘</strong>。如果这样写死url，会使得在改了url（正则）后，模板（template)，视图(views.py，用于跳转)，模型(models.py，可以用用于获取对象对应的地址）用了此url的，都得进行相应的更改，修改的代价很大，一不小心，有的地方没改过来，就不能用了。那么有没有更优雅的方式来解决这个问题呢？当然答案是肯定的:</p><pre><code>&lt;a href=&quot;{% url 'add2' 4 5 %}&quot;&gt;link&lt;/a&gt;</code></pre><p>上面的代码渲染成最终的url是：</p><pre><code>&lt;a href=&quot;/add/4/5/&quot;&gt;link&lt;/a&gt;</code></pre><p>使用 <strong>{\% url ‘add2’ 4 5 \%}</strong> 替换写死的url。 其中 ‘add2’ 就是url配置中name参数的值，后面 跟的两个参数是固定死的参数值。</p><p>当 urls.py 进行更改，前提是不改 name（这个参数设定好后不要轻易改），获取的url也会动态地跟着变，比如改成：</p><pre><code>url(r&apos;^new_add/(\d+)/(\d+)/$&apos;, calc_views.add2, name=&apos;add2&apos;)</code></pre><p>注意看重点add变成了new_add，但是后面的name=’add2’没改，这时 <strong>{\% url ‘add2’ 4 5 \%}</strong> 就会渲染对应的网址成 <strong>‘/new_add/4/5/‘</strong>用在 views.py 或 models.py 等地方的 <strong>reverse</strong>函数，同样会根据 name 对应的url获取到新的网址。</p><h1 id="生成url的函数reverse"><a href="#生成url的函数reverse" class="headerlink" title="生成url的函数reverse"></a>生成url的函数reverse</h1><pre><code>from django.core.urlresolvers import reverse  # django 1.4.x - django 1.10.x  from django.urls import reverse  # django 1.10.x 新的，更加规范了  reverse(&apos;add2&apos;, args=(4,5))  # u&apos;/add/4/5/&apos;  reverse(&apos;add2&apos;, args=(444,555))  # u&apos;/add/444/555/&apos;</code></pre><p>reverse 接收 url函数中的 name参数的值作为第一个参数，我们在代码中就可以通过 reverse() 来获取对应的网址（这个网址可以用来跳转，也可以用来计算相关页面的地址），只要对应的url的name不改，就不用改代码中的网址。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Django项目中的url.py文件中用于配置请求路由的url()函数可以接受4个参数：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;urlpatterns = [
+    url(regex, view, kwargs=None, name=None),
+]
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;两个是必须的：regex和view参数；&lt;/p&gt;
+&lt;p&gt;两个是可选的：kwargs和name参数；&lt;/p&gt;
+&lt;p&gt;下面来看一下这些参数是干啥的。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Django" scheme="http://waisunny.com/categories/Django/"/>
+    
+    
+      <category term="Django基础" scheme="http://waisunny.com/tags/Django%E5%9F%BA%E7%A1%80/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Django安装及基本操作指南</title>
     <link href="http://waisunny.com/2018/02/09/Django%E5%AE%89%E8%A3%85%E5%8F%8A%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C%E6%8C%87%E5%8D%97/"/>
     <id>http://waisunny.com/2018/02/09/Django安装及基本操作指南/</id>
@@ -471,35 +499,6 @@
       &lt;h1 id=&quot;什么是上下文管理器&quot;&gt;&lt;a href=&quot;#什么是上下文管理器&quot; class=&quot;headerlink&quot; title=&quot;什么是上下文管理器&quot;&gt;&lt;/a&gt;什么是上下文管理器&lt;/h1&gt;&lt;p&gt;上下文管理器顾名思义是管理上下文的,也就是负责冲锋和垫后,而让主人专心完成自己的事情。我们在编写程序的时候，通常会将一系列操作放到一个语句块中，当某一条件为真时执行该语句快。有时候，我们需要再执行一个语句块时保持某种状态，并且在离开语句块后结束这种状态。例如对文件的操作，我们在打开一个文件进行读写操作时需要保持文件处于打开状态，而等操作完成之后要将文件关闭。所以，上下文管理器的任务是：代码块执行前准备，代码块执行后收拾。上下文管理器是在Python2.5加入的功能，它能够让你的代码可读性更强并且错误更少。&lt;/p&gt;
 &lt;p&gt;需求的产生&lt;br&gt;在正常的管理各种系统资源(文件、锁定和连接)，在涉及到异常时通常是个棘手的问题。异常很可能导致控制流跳过负责释放关键资源的语句。例如打开一个文件进行操作时，如果意外情况发生（磁盘已满、特殊的终端信号让其终止等），就会抛出异常，这样可能最后的文件关闭操作就不会执行。如果这样的问题频繁出现，则可能耗尽系统资源。&lt;/p&gt;
 &lt;p&gt;是的，这样的问题并不是不可避免。在没有接触到上下文管理器之前，我们可以用“try/finally”语句来解决这样的问题。或许在有些人看来，“try/finally”语句显得有些繁琐。上下文管理器就是被设计用来简化“try/finally”语句的，这样可以让程序更加简洁。&lt;br&gt;
-    
-    </summary>
-    
-      <category term="Python" scheme="http://waisunny.com/categories/Python/"/>
-    
-    
-      <category term="python基础" scheme="http://waisunny.com/tags/python%E5%9F%BA%E7%A1%80/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>python 闭包</title>
-    <link href="http://waisunny.com/2017/12/18/python-%E9%97%AD%E5%8C%85/"/>
-    <id>http://waisunny.com/2017/12/18/python-闭包/</id>
-    <published>2017-12-18T11:03:42.000Z</published>
-    <updated>2018-01-28T06:05:52.668Z</updated>
-    
-    <content type="html"><![CDATA[<p>首先，什么是闭包？，它的定义如下：</p><p>如果在一个内部函数里，对在外部作用域 (但不是全局作用域)的变量进行引用，那么内部函数就被认为是闭包。</p><p>定义在外部函数内的但由内部函数引用或者使用的变量被称为自由变量。</p><p>分析一下满足闭包的必备条件：</p><ol><li>需要函数嵌套, 就是一个函数里面再写一个函数.</li><li>外部函数中有一些局部变量, 并且, 这些局部变量在内部函数中有使用。</li><li>外部函数必须返回内嵌函数<a id="more"></a></li></ol><p>看一个简单的例子：</p><pre><code>def counter(start_at=0):     count = [start_at]     def incr():        count[0] += 1        return count[0]    return incr</code></pre><p>上面的例子使用闭包实现了一个计数器，调用结果如下：</p><pre><code>&gt;&gt;&gt; cou=counter(5)&gt;&gt;&gt; cou()6&gt;&gt;&gt; cou()7</code></pre><h1 id="closure-属性"><a href="#closure-属性" class="headerlink" title="__closure__属性"></a>__closure__属性</h1><p>在Python中，函数对象有一个<strong>closure</strong>属性，我们可以通过这个属性看看闭包的一些细节。</p><pre><code>def counter(start_at=0):    count = [start_at]    def incr():        count[0]+=1        return count    return incrfunc=counter(5)print(dir(func))print(func.__closure__)print(type(func.__closure__))print(type(func.__closure__[0]))print(func.__closure__[0].cell_contents)</code></pre><p>执行结果：</p><pre><code>[&apos;__call__&apos;, &apos;__class__&apos;, &apos;__closure__&apos;, &apos;__code__&apos;, &apos;__defaults__&apos;, &apos;__delattr__&apos;, &apos;__dict__&apos;, &apos;__doc__&apos;, &apos;__format__&apos;, &apos;__get__&apos;, &apos;__getattribute__&apos;, &apos;__globals__&apos;, &apos;__hash__&apos;, &apos;__init__&apos;, &apos;__module__&apos;, &apos;__name__&apos;, &apos;__new__&apos;, &apos;__reduce__&apos;, &apos;__reduce_ex__&apos;, &apos;__repr__&apos;, &apos;__setattr__&apos;, &apos;__sizeof__&apos;, &apos;__str__&apos;, &apos;__subclasshook__&apos;, &apos;func_closure&apos;, &apos;func_code&apos;, &apos;func_defaults&apos;, &apos;func_dict&apos;, &apos;func_doc&apos;, &apos;func_globals&apos;, &apos;func_name&apos;](&lt;cell at 0x00000000029C85E8: list object at 0x000000000291CE88&gt;,)&lt;type &apos;tuple&apos;&gt;&lt;type &apos;cell&apos;&gt;[5]</code></pre><p>通过<strong>closure</strong>属性看到，它对应了一个tuple，tuple的内部包含了cell类型的对象。</p><p>对于这个例子，可以得到cell的值（内容）为”[5]”，也就是变量”count”的值。</p><p>从这里可以看到闭包的原理，当内嵌函数引用了包含它的函数（enclosing function）中的变量后，这些变量会被保存在enclosing function的<strong>closure</strong>属性中，成为enclosing function本身的一部分；也就是说，这些变量的生命周期会和enclosing function一样。</p><h1 id="闭包和函数"><a href="#闭包和函数" class="headerlink" title="闭包和函数"></a>闭包和函数</h1><p>闭包只是在表现形式上跟函数类似，但实际上不是函数。</p><pre><code>def counter(start_at=0):    count = [start_at]    def incr():        count[0]+=1        return count    return incrfunc1=counter(5)print (&quot;function name is:&quot;, func1.__name__)print (&quot;id of mGreeting is:&quot;, id(func1))func2=counter(5)print (&quot;function name is:&quot;, func2.__name__)print (&quot;id of mGreeting is:&quot;, id(func2))</code></pre><p>执行结果：</p><pre><code>(&apos;function name is:&apos;, &apos;incr&apos;)(&apos;id of mGreeting is:&apos;, 44399080L)(&apos;function name is:&apos;, &apos;incr&apos;)(&apos;id of mGreeting is:&apos;, 44399192L)</code></pre><p>从代码的结果中可以看到，闭包在运行时可以有多个实例。</p><h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>本文介绍了如何通过Python创建一个闭包，以及Python创建的闭包是如何工作的。</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;首先，什么是闭包？，它的定义如下：&lt;/p&gt;
-&lt;p&gt;如果在一个内部函数里，对在外部作用域 (但不是全局作用域)的变量进行引用，那么内部函数就被认为是闭包。&lt;/p&gt;
-&lt;p&gt;定义在外部函数内的但由内部函数引用或者使用的变量被称为自由变量。&lt;/p&gt;
-&lt;p&gt;分析一下满足闭包的必备条件：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;需要函数嵌套, 就是一个函数里面再写一个函数.&lt;/li&gt;
-&lt;li&gt;外部函数中有一些局部变量, 并且, 这些局部变量在内部函数中有使用。&lt;/li&gt;
-&lt;li&gt;外部函数必须返回内嵌函数
     
     </summary>
     
