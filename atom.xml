@@ -67,6 +67,29 @@
   </entry>
   
   <entry>
+    <title>Django url管理之include</title>
+    <link href="http://waisunny.com/2018/02/12/Django-url%E7%AE%A1%E7%90%86%E4%B9%8Binclude/"/>
+    <id>http://waisunny.com/2018/02/12/Django-url管理之include/</id>
+    <published>2018-02-12T09:57:11.000Z</published>
+    <updated>2018-02-23T02:36:28.790Z</updated>
+    
+    <content type="html"><![CDATA[<p>在Django框架中，提供了非常清晰简洁的url管理方法，在新建一个project之后(此处为myproject),然后在项目中建立一个app(此处为myapp)，会生成如下目录结构：</p><p><img src="https://i.imgur.com/dafhrXJ.png" alt=""><br><a id="more"></a></p><p>一般所熟知的就是在myproject/myproject/urls.py中的urlpatterns列表中来配置 url，每一个列表项就是一个由url函数的调用。例如假定我们想在myapp中定义一个主页，然后通过”<a href="http://localhost:8000/myapp/homepage&quot;来访问，首先我们在myproject/myapp/view.py中定义一个叫homePage的函数（名字随意，不一定叫这名字）：" target="_blank" rel="external">http://localhost:8000/myapp/homepage&quot;来访问，首先我们在myproject/myapp/view.py中定义一个叫homePage的函数（名字随意，不一定叫这名字）：</a></p><pre><code>from django.shortcuts import render  from django.http.response import HttpResponse  # Create your views here.  def homePage(request):      return HttpResponse(&quot;&lt;h1&gt;This is home page&lt;/h1&gt;&quot;)  </code></pre><p>然后在myproject/myproject/urls.py的urlpatterns列表中添加一个url配置:</p><pre><code>from django.conf.urls import url  from django.contrib import admin  from myapp.views import homePage#记得导入  urlpatterns = [      url(r&apos;^admin/&apos;, admin.site.urls),      url(r&apos;^myapp/homepage&apos;, homePage)  ]  </code></pre><p>然后运行项目，就可以用浏览器通过<a href="http://localhost:8000/myapp/homepage来访问。" target="_blank" rel="external">http://localhost:8000/myapp/homepage来访问。</a></p><p>但是假如一个project中有<strong>多个app</strong>，用以上的方式来管理url可能会造成比较混乱的局面，为了解决这个问题，我们可以用include的方法来配置url，<strong>首先我们在自己的app中建立一个urls.py，即myproject/myapp/目录下建立urls.py</strong>，然后在其中输入如下内容:</p><pre><code>from django.conf.urls import url  from myapp.views import homePage  urlpatterns = [      url(r&apos;homepage&apos;, homePage),  ]  </code></pre><p>然后在项目的urls中包含刚刚app中添加的url配置，我们要做的是在myproject/myproject/urls.py输入如下内容:</p><pre><code>from django.conf.urls import url, include#导入了include函数  from django.contrib import admin  urlpatterns = [      url(r&apos;^admin/&apos;, admin.site.urls),      url(r&apos;^myapp/&apos;, include(&quot;myapp.urls&quot;))#包含myapp中的urls  ]  </code></pre><p>然后通过刚刚相同的url(<a href="http://localhost:8000/myapp/homepage)访问发现也可以访问了。" target="_blank" rel="external">http://localhost:8000/myapp/homepage)访问发现也可以访问了。</a></p><p><strong>综上所述：include函数工作原理是：在接收http请求时，请求的url首先与项目本身的urls.py中配置的字段进行匹配，匹配到合适的在从当前条目中的include的url进行深度匹配，通过这样的url管理会更加整洁，可扩展性更强。</strong></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在Django框架中，提供了非常清晰简洁的url管理方法，在新建一个project之后(此处为myproject),然后在项目中建立一个app(此处为myapp)，会生成如下目录结构：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/dafhrXJ.png&quot; alt=&quot;&quot;&gt;&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Django" scheme="http://waisunny.com/categories/Django/"/>
+    
+    
+      <category term="Django基础" scheme="http://waisunny.com/tags/Django%E5%9F%BA%E7%A1%80/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Django安装及基本操作指南</title>
     <link href="http://waisunny.com/2018/02/09/Django%E5%AE%89%E8%A3%85%E5%8F%8A%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C%E6%8C%87%E5%8D%97/"/>
     <id>http://waisunny.com/2018/02/09/Django安装及基本操作指南/</id>
@@ -477,28 +500,6 @@
 &lt;li&gt;需要函数嵌套, 就是一个函数里面再写一个函数.&lt;/li&gt;
 &lt;li&gt;外部函数中有一些局部变量, 并且, 这些局部变量在内部函数中有使用。&lt;/li&gt;
 &lt;li&gt;外部函数必须返回内嵌函数
-    
-    </summary>
-    
-      <category term="Python" scheme="http://waisunny.com/categories/Python/"/>
-    
-    
-      <category term="python基础" scheme="http://waisunny.com/tags/python%E5%9F%BA%E7%A1%80/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Python 开发者都会遇到的错误：UnboundLocalError</title>
-    <link href="http://waisunny.com/2017/12/17/Python-%E5%BC%80%E5%8F%91%E8%80%85%E9%83%BD%E4%BC%9A%E9%81%87%E5%88%B0%E7%9A%84%E9%94%99%E8%AF%AF%EF%BC%9AUnboundLocalError/"/>
-    <id>http://waisunny.com/2017/12/17/Python-开发者都会遇到的错误：UnboundLocalError/</id>
-    <published>2017-12-17T11:03:42.000Z</published>
-    <updated>2018-01-28T06:05:35.151Z</updated>
-    
-    <content type="html"><![CDATA[<p>每个 Python 开发者都至少会经历一次 UnboundLocalError 的错误，初次遇到这种错误会觉得莫名其妙，用这张图来描述当时的心情最为贴切：<br><img src="https://i.imgur.com/nJmYi4j.jpg" alt=""><br><a id="more"></a><br>比如下面的代码在 foo 函数中给 x 自增 1：</p><pre><code>x = 10def foo():    x += 1    print(x)foo()</code></pre><p>调用 foo() 的时候，就会看到这个错误：</p><pre><code>UnboundLocalError: local variable &apos;x&apos; referenced before assignment</code></pre><p>堆栈日志告诉我们：局部变量 x 赋值前在其它地方被引用了，换句话说就是 x 在当前作用域内还没有定义就拿来使用了。</p><p>明明 x 在函数 foo 的外面定义了，为什么却告知我们说 x 没赋值就被引用了呢？</p><p>因为这是几乎每个人都会遇到的错误，所以 Python 官方把这个问题收入到了它的 FAQ 中，它是这样说的：</p><p>This is because when you make an assignment to a variable in a scope, that variable becomes local to that scope and shadows any similarly named variable in the outer scope.</p><font color="red"><strong>翻译过来就是，当你在局部作用域中给变量赋值时，那么这个变量就会变成一个局部变量，不管它在外部有没有初始化。如果外部作用域有相同名字的变量，那么对局部空间来说这些相同名字的全局变量都将被隐藏为不可见的。</strong></font><p><strong>如果在局部作用域中没有给变量 x 重新赋值，而是直接引用它，那么 Python 会沿着 LEGB（local-&gt;-enclosing-&gt;global-&gt;built-in） 的规则顺序查找变量。</strong></p><p>在这里，x += 1 等价于 x = x + 1，首先会执行 x + 1 操作，然后再赋值给 x。而执行加法操作之前它会先查找变量 x，根据官方的这个解释所述， Python 认为 x 对函数 foo 来说一个局部变量，因为它有赋值操作，既然 x 是局部变量，在执行加法操作时，又引用了 x，所以抛出了 <strong>UnboundLocalError</strong> 异常。</p><p>那么，该异常如何解决？办法非常简单，Python 提供了一个关键字 globlal，用来显示地标识 x 为全局变量，x 设置为全局变量后，执行加操作的时候就会去全局命名空间查找 x 。</p><pre><code>x = 10def foo():    global x    x += 1    print(x)foo()</code></pre><p>执行结果：</p><pre><code>11</code></pre><p>容易混淆的可变类型的例子：</p><pre><code>lst = [1, 2, 3]def foo():    lst.append(5)   # 正常执行，lst 没有重新赋值，首先在局部作用域查找，没找到再往全局作用域查找 lst    #lst += [5]     # UnboundLocalError 错误，因为重新赋值了，而在局部作用域没定义就引用了foo()print(lst)</code></pre><p>这个问题解决之后，再来看另外一个类似的问题：</p><pre><code>def external():    x = 10    def internal():        x += 1        print(x)    internal()external()</code></pre><p>这是一个 Python 闭包，执行 external 函数的时候，看代码你也知道会报同样的 UnboundLocalError 错误，那么用 global 来 修复可行吗？试试：</p><pre><code>def external():    x = 10    def internal():        global x        x += 1        print(x)    internal()external()</code></pre><p>新的错误出现了:</p><pre><code>NameError: name &apos;x&apos; is not defined</code></pre><p>全部变量 x 没有定义，仔细想想也是啊，你看 x 是定义在 external 函数中的一个局部变量，现在你要把 internal 函数中的 x 声明为全局变量，Python 在全局作用域空间 找不到 x ，所以出现了 NameError，那么这个问题又该如何解决呢？如果你是使用 Python3，恭喜你，Python3 中新增了一个关键字 nonlocal，用于表示非局部变量。</p><pre><code>def external():    x = 10    def internal():        nonlocal x        x += 1        print(x)    internal()external()</code></pre><p>执行结果：</p><pre><code>11</code></pre><p>补充：</p><pre><code>import disx = 10def foo():    x += 1    print(x)dis.dis(foo)</code></pre><p>用 dis.dis(foo) 可以看到 Python 内部字节码指令的执行过程，从字节码中可以知道，第三行代码 x= x+1 操作的指令是 LOAD_FAST ，LOAD_FAST  0 (x) 表示 Python 解释器 从局部作用域加载 x，而 x 由找不到，因此出现了UnboundLocalError。</p><pre><code>4         0 LOAD_FAST                0 (x)          2 LOAD_CONST               1 (1)          4 INPLACE_ADD          6 STORE_FAST               0 (x)5         8 LOAD_GLOBAL              0 (print)         10 LOAD_FAST                0 (x)         12 CALL_FUNCTION            1         14 POP_TOP         16 LOAD_CONST               0 (None)         18 RETURN_VALUE</code></pre>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;每个 Python 开发者都至少会经历一次 UnboundLocalError 的错误，初次遇到这种错误会觉得莫名其妙，用这张图来描述当时的心情最为贴切：&lt;br&gt;&lt;img src=&quot;https://i.imgur.com/nJmYi4j.jpg&quot; alt=&quot;&quot;&gt;&lt;br&gt;
     
     </summary>
     
