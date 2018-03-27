@@ -4,12 +4,12 @@
 
     
   <url>
-    <loc>http://waisunny.com/2018/02/11/Django-url%E5%8F%82%E6%95%B0%E8%AF%A6%E8%A7%A3/</loc>
-    <lastmod>2018-03-26T01:14:44.620Z</lastmod>
+    <loc>http://waisunny.com/2018/02/23/Django%E4%B9%8Bcookie%E5%92%8Csession/</loc>
+    <lastmod>2018-03-27T00:41:31.145Z</lastmod>
     <data>
         <display>
-        <title>Django url参数详解</title>
-        <pubTime>2018-02-10T18:01:33.000Z</pubTime>
+        <title>Django之cookie和session</title>
+        <pubTime>2018-02-22T18:01:33.000Z</pubTime>
         
         <tag>Django基础</tag>
          
@@ -24,12 +24,12 @@
 
     
   <url>
-    <loc>http://waisunny.com/2018/02/23/Django%E4%B9%8Bcookie%E5%92%8Csession/</loc>
-    <lastmod>2018-03-26T01:02:09.801Z</lastmod>
+    <loc>http://waisunny.com/2018/02/11/Django-url%E5%8F%82%E6%95%B0%E8%AF%A6%E8%A7%A3/</loc>
+    <lastmod>2018-03-26T01:14:44.620Z</lastmod>
     <data>
         <display>
-        <title>Django之cookie和session</title>
-        <pubTime>2018-02-22T18:01:33.000Z</pubTime>
+        <title>Django url参数详解</title>
+        <pubTime>2018-02-10T18:01:33.000Z</pubTime>
         
         <tag>Django基础</tag>
          
