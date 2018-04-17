@@ -102,7 +102,7 @@
 <meta property="og:image" content="https://i.imgur.com/I0axT0o.png">
 <meta property="og:image" content="https://i.imgur.com/gGKpfRK.png">
 <meta property="og:image" content="https://i.imgur.com/vZev7uY.png">
-<meta property="og:updated_time" content="2017-12-23T14:59:30.771Z">
+<meta property="og:updated_time" content="2018-04-17T08:17:26.872Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="setuptools和pip安装教程">
 <meta name="twitter:description" content="setuptools 是 python 的基础包工具，可以帮助我们轻松的下载，构建，安装，升级，卸载 python的软件包。 pip 是python软件包的安装和管理工具， 有了这个工具， 我们只需要一个命令就可以轻松的安装python 的任意类库。">
@@ -360,8 +360,8 @@
               
                 <span class="post-meta-item-text">更新于</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2017-12-23T22:59:30+08:00">
-                2017-12-23
+              <time title="更新于" itemprop="dateModified" datetime="2018-04-17T16:17:26+08:00">
+                2018-04-17
               </time>
             
 			
@@ -416,7 +416,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  521字
+                  530字
                 </span>
               
 
@@ -461,10 +461,10 @@
 <h1 id="安装pip"><a href="#安装pip" class="headerlink" title="安装pip"></a>安装pip</h1><h2 id="使用easy-install安装pip"><a href="#使用easy-install安装pip" class="headerlink" title="使用easy_install安装pip"></a>使用easy_install安装pip</h2><p>如果setuptools安装好后，可以直接用easy_install来安装pip，如下图：<br><img src="https://i.imgur.com/I0axT0o.png" alt=""></p>
 <h2 id="手动安装pip"><a href="#手动安装pip" class="headerlink" title="手动安装pip"></a>手动安装pip</h2><p>如果还想手动安装的话，和安装setuptools步骤完全一样</p>
 <p>①下载pip压缩包<strong>pip-9.0.1.tar.gz</strong>，地址：<a href="https://pypi.python.org/pypi/pip" title="pip下载" target="_blank" rel="external">https://pypi.python.org/pypi/pip</a>，如下图：<img src="https://i.imgur.com/gGKpfRK.png" alt=""></p>
-<p>②这是一个压缩文件，将其解压到桌面，并进入该文件夹，按住shift键后，在文件夹空白处点击鼠标右键，选择：在此处打开命令窗口，输入：</p>
+<p>②这是一个压缩文件，解压后进入该文件夹，按住shift键后，在文件夹空白处点击鼠标右键，选择：在此处打开命令窗口，输入：</p>
 <pre><code>python setup.py install 
 </code></pre><p>回车，看到如下图内容即表示安装成功：<br><img src="https://i.imgur.com/vZev7uY.png" alt=""></p>
-<p>③安装成功后输入 <strong>pip</strong> 回车，进行检测如果提示： <strong>Did not provide a command</strong> 说明安装成功，因为pip后面也需要跟参数；如果提示： <strong>‘pip’ </strong>不是内部或外部命令，也不是可运行的程序或批处理文件，请检查环境变量path是否配置了<strong>‘C:\Python27\Scripts’</strong></p>
+<p>③安装成功后输入 <strong>pip</strong> 回车，进行检测如果提示： <strong>Did not provide a command</strong> 说明安装成功，因为pip后面也需要跟参数；如果提示： <strong>‘pip’ </strong>不是内部或外部命令，也不是可运行的程序或批处理文件，请检查环境变量path是否配置了<strong>‘..\Python27\Scripts’</strong>,具体路径根据你的python安装路径决定。</p>
 <h1 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h1><p>卸载pip:</p>
 <pre><code>python -m pip uninstall pip setuptools
 </code></pre><p>升级pip:</p>

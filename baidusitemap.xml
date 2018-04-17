@@ -4,6 +4,26 @@
 
     
   <url>
+    <loc>http://waisunny.com/2017/11/17/setuptools%E5%92%8Cpip%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/</loc>
+    <lastmod>2018-04-17T08:17:26.872Z</lastmod>
+    <data>
+        <display>
+        <title>setuptools和pip安装教程</title>
+        <pubTime>2017-11-16T16:03:08.000Z</pubTime>
+        
+        <tag>python环境部署</tag>
+         
+         
+           
+             
+              <breadCrumb title="软件安装" url="http://waisunny.com/categories/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://waisunny.com/2018/02/11/Django-url%E5%8F%82%E6%95%B0%E8%AF%A6%E8%A7%A3/</loc>
     <lastmod>2018-03-27T00:50:28.689Z</lastmod>
     <data>
@@ -690,26 +710,6 @@
         <display>
         <title>python 环境部署-Windows</title>
         <pubTime>2017-11-15T16:53:48.000Z</pubTime>
-        
-        <tag>python环境部署</tag>
-         
-         
-           
-             
-              <breadCrumb title="软件安装" url="http://waisunny.com/categories/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://waisunny.com/2017/11/17/setuptools%E5%92%8Cpip%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/</loc>
-    <lastmod>2017-12-23T14:59:30.771Z</lastmod>
-    <data>
-        <display>
-        <title>setuptools和pip安装教程</title>
-        <pubTime>2017-11-16T16:03:08.000Z</pubTime>
         
         <tag>python环境部署</tag>
          

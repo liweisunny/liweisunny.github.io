@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://waisunny.com/2017/11/17/setuptools%E5%92%8Cpip%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/</loc>
+    
+    <lastmod>2018-04-17T08:17:26.872Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://waisunny.com/2018/02/11/Django-url%E5%8F%82%E6%95%B0%E8%AF%A6%E8%A7%A3/</loc>
     
     <lastmod>2018-03-27T00:50:28.689Z</lastmod>
@@ -243,13 +250,6 @@
     <loc>http://waisunny.com/2017/11/16/python-%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2-Windows/</loc>
     
     <lastmod>2017-12-23T15:08:52.471Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://waisunny.com/2017/11/17/setuptools%E5%92%8Cpip%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/</loc>
-    
-    <lastmod>2017-12-23T14:59:30.771Z</lastmod>
     
   </url>
   
