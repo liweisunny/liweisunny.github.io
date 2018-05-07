@@ -33,14 +33,14 @@ pip 是python软件包的安装和管理工具， 有了这个工具， 我们�
 
 ①下载pip压缩包**pip-9.0.1.tar.gz**，地址：[https://pypi.python.org/pypi/pip](https://pypi.python.org/pypi/pip "pip下载")，如下图：![](https://i.imgur.com/gGKpfRK.png)
 
-②这是一个压缩文件，将其解压到桌面，并进入该文件夹，按住shift键后，在文件夹空白处点击鼠标右键，选择：在此处打开命令窗口，输入：
+②这是一个压缩文件，解压后进入该文件夹，按住shift键后，在文件夹空白处点击鼠标右键，选择：在此处打开命令窗口，输入：
 	
 	python setup.py install 
 
 回车，看到如下图内容即表示安装成功：
 ![](https://i.imgur.com/vZev7uY.png)
 
-③安装成功后输入 **pip** 回车，进行检测如果提示： **Did not provide a command** 说明安装成功，因为pip后面也需要跟参数；如果提示： **‘pip’ **不是内部或外部命令，也不是可运行的程序或批处理文件，请检查环境变量path是否配置了**‘C:\Python27\Scripts’**
+③安装成功后输入 **pip** 回车，进行检测如果提示： **Did not provide a command** 说明安装成功，因为pip后面也需要跟参数；如果提示： **‘pip’ **不是内部或外部命令，也不是可运行的程序或批处理文件，请检查环境变量path是否配置了**‘..\Python27\Scripts’**,具体路径根据你的python安装路径决定。
 
 # 补充
 卸载pip:

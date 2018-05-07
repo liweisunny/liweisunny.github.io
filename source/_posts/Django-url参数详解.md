@@ -58,13 +58,19 @@ url配置如下：
 
 	<a href="/add/4/5/">link</a>
 
-使用 **{% url 'add2' 4 5 %}** 替换写死的url。 其中 'add2' 就是url配置中name参数的值，后面 跟的两个参数是固定死的参数值。
+使用：
+
+	{% url 'add2' 4 5 `%}
+替换写死的url。 其中 'add2' 就是url配置中name参数的值，后面 跟的两个参数是固定死的参数值。
 
 当 urls.py 进行更改，前提是不改 name（这个参数设定好后不要轻易改），获取的url也会动态地跟着变，比如改成：
 
 	url(r'^new_add/(\d+)/(\d+)/$', calc_views.add2, name='add2')
 
-注意看重点add变成了new_add，但是后面的name='add2'没改，这时 **{% url 'add2' 4 5 %}** 就会渲染对应的网址成 **'/new_add/4/5/'**用在 views.py 或 models.py 等地方的 **reverse**函数，同样会根据 name 对应的url获取到新的网址。
+注意看重点add变成了new_add，但是后面的name='add2'没改，这时 
+
+	{% url 'add2' 4 5 %}
+就会渲染对应的网址成 **'/new_add/4/5/'**用在 views.py 或 models.py 等地方的 **reverse**函数，同样会根据 name 对应的url获取到新的网址。
 
 # 生成url的函数reverse
 
