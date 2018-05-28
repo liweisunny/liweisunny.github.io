@@ -1,6 +1,6 @@
 ---
 title: Django url参数详解
-date: 2018-02-10 18:01:33
+date: 2018-02-17 18:01:33
 tags: Django基础
 toc: true
 categories: Django

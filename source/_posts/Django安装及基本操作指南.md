@@ -1,6 +1,6 @@
 ---
 title: Django安装及基本操作指南
-date: 2018-02-08 18:01:33
+date: 2018-02-15 18:01:33
 tags: Django环境部署
 toc: true
 categories: Django

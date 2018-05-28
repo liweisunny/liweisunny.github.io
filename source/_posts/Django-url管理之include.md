@@ -1,6 +1,6 @@
 ---
 title: Django url管理之include
-date: 2018-02-12 09:57:11
+date: 2018-02-19 09:57:11
 tags: Django基础
 toc: true
 categories: Django
