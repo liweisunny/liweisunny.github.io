@@ -5,21 +5,45 @@ tags: python基础
 toc: true
 categories: Python
 ---
-# 什么是上下文管理器
-上下文管理器顾名思义是管理上下文的,也就是负责冲锋和垫后,而让主人专心完成自己的事情。我们在编写程序的时候，通常会将一系列操作放到一个语句块中，当某一条件为真时执行该语句快。有时候，我们需要再执行一个语句块时保持某种状态，并且在离开语句块后结束这种状态。例如对文件的操作，我们在打开一个文件进行读写操作时需要保持文件处于打开状态，而等操作完成之后要将文件关闭。所以，上下文管理器的任务是：代码块执行前准备，代码块执行后收拾。上下文管理器是在Python2.5加入的功能，它能够让你的代码可读性更强并且错误更少。
 
-需求的产生
 在正常的管理各种系统资源(文件、锁定和连接)，在涉及到异常时通常是个棘手的问题。异常很可能导致控制流跳过负责释放关键资源的语句。例如打开一个文件进行操作时，如果意外情况发生（磁盘已满、特殊的终端信号让其终止等），就会抛出异常，这样可能最后的文件关闭操作就不会执行。如果这样的问题频繁出现，则可能耗尽系统资源。
 
-是的，这样的问题并不是不可避免。在没有接触到上下文管理器之前，我们可以用“try/finally”语句来解决这样的问题。或许在有些人看来，“try/finally”语句显得有些繁琐。上下文管理器就是被设计用来简化“try/finally”语句的，这样可以让程序更加简洁。
+是的，这样的问题并不是不可避免。在没有接触到上下文管理器之前，我们可以用“try/finally”语句来解决这样的问题。或许在有些人看来，“try / finally”语句显得有些繁琐。上下文管理器就是被设计用来简化“try / finally”语句的，这样可以让程序的代码可读性更强并且错误更少。
+
 <!--more-->
 
-# With语句
-With语句用于执行上下文操作，它也是复合语句的一种，其基本语法如下所示：
-	
-	with context_expr [as var]:
-    	with_suite
-With 语句仅能工作于支持上下文管理协议(context management protocol)的对象。也就是说只有内建了”上下文管理”的对象才能和 with 一起工作。Python内置了一些支持该协议的对象，如下所列是一个简短列表：
+# With基本语法
+
+	with open('output', 'w') as f:
+    	f.write('Hello world')
+
+上面的代码往output文件写入了Hello world字符串，with语句会在执行完代码块后自动关闭文件。这里无论写文件的操作成功与否，是否有异常抛出，with语句都会保证文件被关闭。
+
+如果不用with，我们可能要用下面的代码实现类似的功能
+
+	try:
+	    f = open("output", "w")
+	    f.write("Hello world")
+	finally:
+	    f.close()
+
+可以看到使用了with的代码比上面的代码简洁许多。
+
+那么问题来了，上面的with代码背后发生了些什么？
+
+我们来看下它的执行流程:
+<font color=red size=3>
+
+1. 首先执行open('output', 'w')，返回一个文件对象；
+2. 调用这个文件对象的\_\_enter\_\_方法，并将\_\_enter\_\_方法的返回值赋值给变量f；
+3. 执行with语句体，即with语句包裹起来的代码块；
+4. 不管执行过程中是否发生了异常，执行文件对象的\_\_exit\_\_方法，在\_\_exit\_\_方法中关闭文件。
+
+这里的关键在于open返回的文件对象实现了\_\_enter\_\_和\_\_exit\_\_方法。一个实现了\_\_enter\_\_和\_\_exit\_\_方法的对象就称之为上下文管理器。
+
+需要说明的是：With 语句仅能工作于支持上下文管理协议(context management protocol)的对象。也就是说上述两个方法的对象才能和 with 一起工作。</font>
+
+Python内置了一些支持该协议的对象，如下所列是一个简短列表：
 
 1. file
 2. decimal.Context
@@ -30,61 +54,77 @@ With 语句仅能工作于支持上下文管理协议(context management protoco
 7. threading.Semaphore
 8. threading.BoundedSemaphore
 
-由以上列表可以看出，file 是已经内置了对上下文管理协议的支持。所以我们可以用下边的方法来操作文件：
+# 上下文管理器
 
-	with open('/etc/passwd', 'r') as f:
-    	for eachLine in f:
-        	# ...do stuff with eachLine or f...
+上下文管理器定义执行 with 语句时要建立的运行时上下文，负责执行 with 语句块上下文中的进入与退出操作。\_\_enter\_\_方法在语句体执行之前进入运行时上下文，\_\_exit\_\_在语句体执行完后从运行时上下文退出。
 
-上边的代码试图打开一个文件,如果一切正常,把文件对象赋值给 f。然后用迭代器遍历文件中的每一行,当完成时,关闭文件。无论是在这一段代码的开始,中间,还是结束时发生异常,会执行清理的代码,此外文件仍会被自动的关闭。
+在实际应用中，\_\_enter\_\_一般用于资源分配，如打开文件、连接数据库、获取线程锁；\_\_exit\_\_一般用于资源释放，如关闭文件、关闭数据库连接、释放线程锁。
 
 # 自定义上下文管理器
-要实现上下文管理器，必须实现两个方法：一个负责进入语句块的准备操作，另一个负责离开语句块的善后操作。Python类包含两个特殊的方法，分别名为：**\_\_enter\_\_ 和 \_\_exit\_\_**。
+既然上下文管理器就是实现了\_\_enter\_\_和\_\_exit\_\_方法的对象，我们能不能定义自己的上下文管理器呢？答案是肯定的。
 
-\_\_enter\_\_: 该方法进入运行时上下文环境，并返回自身或另一个与运行时上下文相关的对象。返回值会赋给 as 从句后面的变量，as 从句是可选的。
+我们先来看下\_\_enter__和\_\_exit\_\_方法的定义：
 
-\_\_exit\_\_: 该方法退出当前运行时上下文并返回一个布尔值，该布尔值标明了“如果 with_suit 的退出是由异常引发的，该异常是否须要被忽略”。如果 \_\_exit\_\_() 的返回值等于 False，那么这个异常将被重新引发一次；如果 \_\_exit\_\_() 的返回值等于 True，那么这个异常就被无视掉，继续执行后面的代码。
+\_\_enter\_\_: 进入上下文管理器的运行时上下文，在语句体执行前调用。如果有as子句，with语句将该方法的返回值赋值给 as 子句中的 target。
 
-With 语句的实际执行流程是这样的：
+\_\_exit\_\_(exc_type, exc_val, exc_tb)：退出与上下文管理器相关的运行时上下文，返回一个布尔值表示是否对发生的异常进行处理。如果with语句体中没有异常发生，则\_\_exit\_\_的3个参数都为None，即调用\_\_exit\_\_(None, None, None)，并且\_\_exit\_\_的返回值直接被忽略。如果有发生异常，则使用 sys.exc_info 得到的异常信息为参数调用\_\_exit\_\_方法。出现异常时，如果\_\_exit\_\_方法返回 False，则会重新抛出异常，让with之外的语句逻辑来处理异常；如果返回 True，则忽略异常，不再对异常进行处理。
 
-1. 执行 context_exp 以获取上下文管理器
-2. 加载上下文管理器的 \_\_exit\_\_() 方法以备稍后调用
-3. 调用上下文管理器的 \_\_enter\_\_() 方法
-4. 如果有 as var 从句，则将 \_\_enter\_\_() 方法的返回值赋给 var
-5. 执行子代码块 with_suit
-6. 调用上下文管理器的 \_\_exit\_\_() 方法，如果 with_suit 的退出是由异常引发的，那么该异常的 type、value 和 traceback 会作为参数传给 \_\_exit\_\_()，否则传三个 None。
-7. 如果 with_suit 的退出由异常引发，并且 \_\_exit\_\_() 的返回值等于 False，那么这个异常将被重新引发一次；如果 \_\_exit\_\_() 的返回值等于 True，那么这个异常就被无视掉，继续执行后面的代码
+理解了\_\_enter\_\_和\_\_exit\_\_方法后，我们来自己定义一个简单的用于文件操作的上下文管理器：
 
-下面我们自己来实现一个支持上下文管理协议的类：
 
-	class Query(object):
+	class OpenFile:
+	    def __init__(self, path, mark):
+	        self.path = path
+	        self.mark = mark
+	
+	    def __enter__(self):
+	        print('__enter__ action starting')
+	        self.f = open(self.path, self.mark)
+	        return self.f
+	
+	    def __exit__(self, exc_type, exc_val, exc_tb):
+	        print('__exit__ action starting')
+	        self.f.close()
+	        if exc_type is None:
+	            print("[in __exit__] Exited without exception")
+	        else:
+	            print("[in __exit__] Exited with exception: %s" % exc_val)
+	            return False
 
-    	def __init__(self, name):
-        	self.name = name
+	if __name__ == "__main__":
+		with OpenFile('test.txt', 'w') as f:
+		    print('starting write.....')
+		    f.write('123456')
 
-    	def __enter__(self):
-        	print('Begin')
-        	return self
+运行上面的代码，会得到如下的输出:
 
-    	def __exit__(self, exc_type, exc_value, traceback):
-        	if exc_type:
-            	print('Error')
-        	else:
-            	print('End')
+	__enter__ action starting
+	starting write.....
+	__exit__ action starting
+	[in __exit__] Exited without exception
 
-    	def query(self):
-        	print('Query info about %s...' % self.name)
+我们修改with语句体人为的抛出一个异常：
 
-这样我们就可以把自己写的资源对象用于with语句：
+	with OpenFile('test.txt', 'w') as f:
+	    print('starting write.....')
+	    f.write('Testing context managers')
+	    raise(Exception("something wrong"))
 
-	with Query('_learner') as q:
-    	q.query()
+会得到如下输出：
 
-执行结果：
+	__enter__ action starting
+	starting write.....
+	__exit__ action starting
+	Traceback (most recent call last):
+	  File "D:/Python/Project/InterviewQuestions/8.上下文管理器.py", line 63, in <module>
+	    raise(Exception("something wrong"))
+	Exception: something wrong
+	[in __exit__] Exited with exception: something wrong
 
-	Begin
-	Query info about _learner...
-	End
+
+如我们所期待，with语句体中抛出异常，\_\_exit\_\_方法中exc_type不为None，\_\_exit\_\_方法返回False，异常被重新抛出。
+
+以上，我们通过实现\_\_enter\_\_和\_\_exit\_\_方法来实现了一个自定义的上下文管理器。
 
 # 上下文管理工具（contextlib模块）
 
@@ -92,60 +132,48 @@ With 语句的实际执行流程是这样的：
 
 ## @contextmanager
 
-编写__enter__和__exit__仍然很繁琐，因此Python的标准库contextlib提供了更简单的写法，上面的代码可以改写如下：
-
+使用contextlib的contextmanager函数作为装饰器，来创建一个上下文管理器。让我们将上面的代码修改成使用contextmanager的:
+	
 	from contextlib import contextmanager
-
-	class Query(object):
-
-    	def __init__(self, name):
-        	self.name = name
-
-    	def query(self):
-        	print('Query info about %s...' % self.name)
-
+	
 	@contextmanager
-	def create_query(name):
-    	print('Begin')
-    	q = Query(name)
-    	yield q
-    	print('End')
+	def file_open(path, mark):
+	    try:
+	        f_obj = open(path, mark)
+	        yield f_obj
+	    except :
+	        print("We had an error!")
+	    finally:
+	        print("Closing file.....")
+	        f_obj.close()
+	
+	if __name__ == "__main__":
+	    with file_open("test.txt", 'w') as f:
+	        f.write("Testing context managers")
+在这里，我们从contextlib模块中引入contextmanager，然后装饰我们所定义的file_open函数。这就允许我们使用Python的with语句来调用file_open函数。在函数中，我们打开文件，然后通过yield，将其传递出去，最终主调函数可以使用它。
 
-**@contextmanager**这个decorator接受一个generator，用yield语句把with ... as var把变量输出出去，然后，with语句就可以正常地工作了：
 
-	with create_query('_learner') as q:
-    	q.query()
+运行结果：
 
-执行结果：
+	starting write.....
+	Closing file.....
 
-	Begin
-	Query info about _learner...
-	End
+修改代码：
 
-很多时候，我们希望在某段代码执行前后自动执行特定代码，也可以用@contextmanager实现。例如：
+	if __name__ == "__main__":
+	    with file_open("test.txt", 'w') as f:
+	        print('starting write.....')
+	        f.write("Testing context managers")
+	        raise(Exception("something wrong"))
+运行结果：
 
-	@contextmanager
-	def tag(name):
-    	print("<%s>" % name)
-    	yield
-    	print("</%s>" % name)
+	starting write.....
+	We had an error!
+	Closing file.....
 
-	with tag("h1"):
-    	print("hello")
-    	print("world")
-上述代码执行结果为：
+一旦with语句结束，控制就会返回给file_open函数，它继续执行yield语句后面的代码。这个最终会执行finally语句--关闭文件。如果我们在打开文件时或者写入数据时遇到了错误，它就会被捕获，最终finally语句依然会关闭文件句柄。
 
-	<h1>
-	hello
-	world
-	</h1>
-代码的执行顺序是：
-
-1. with语句首先执行yield之前的语句，因此打印出<h1\>；
-2. yield调用会执行with语句内部的所有语句，因此打印出hello和world；
-3. 最后执行yield之后的语句，打印出</h1\>。
-
-因此，@contextmanager让我们通过编写generator来简化上下文管理。
+同时能看出，使用@contextmanager让我们通过编写generator可以简化上下文管理的构造。
 
 ## @closing
 
@@ -181,3 +209,7 @@ With 语句的实际执行流程是这样的：
         	print(line)
 
 它的作用就是把任意对象变为上下文对象，并支持with语句。
+
+# 总结
+
+上下文管理协议就介绍这么多，知其原理，才能将其合理的应用到程序中。
